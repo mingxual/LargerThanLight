@@ -14,8 +14,13 @@ public class Wall3D : MonoBehaviour
             y = _y;
         }
     }*/
+
+    // The corresponding 2D wall in the scene
     public GameObject wall2D;
+
     //public Coordinate2D coordinate2D;
+
+    // The offset to the origin of 2D walls in the scene
     public Vector2 coordinate2D;
 
     // Start is called before the first frame update
@@ -38,8 +43,10 @@ public class Wall3D : MonoBehaviour
 
     public GameObject GetWall2D()
     {
-        if(wall2D)
+        if (wall2D)
+        {
             return wall2D;
+        }
 
         return null;
     }

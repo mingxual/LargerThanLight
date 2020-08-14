@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// The script is attached to the lighting source
 public class Hit : MonoBehaviour
 {
     public LayerMask wallLayerMask;
@@ -24,13 +25,13 @@ public class Hit : MonoBehaviour
 
         ResetGameObjectPool();
 
-        for(int i = 0; i < GameManager.allObstacles.Length; i++)
+        for(int i = 0; i < GameManager.allObstacles.Length; ++i)
         {
             //Mesh mesh = allMeshes[i];
             int numVertices = GameManager.meshVertices[i].Count;
             Vector3 currObstaclePos = GameManager.allObstacles[i].transform.position;
             currProjectedPoints2D.Clear();
-            for(int j = 0; j < numVertices; j++)
+            for(int j = 0; j < numVertices; ++j)
             {
                 Vector3 p = GameManager.meshVertices[i][j];
                 RaycastHit hitInfo;
@@ -44,30 +45,35 @@ public class Hit : MonoBehaviour
                     Vector2 point2D = Vector2.right * point.x + Vector2.up * point.z;
                     currProjectedPoints2D.Add(point2D + wall3D.coordinate2D);
                     if (showRaycasts)
+                    {
                         Debug.DrawRay(transform.position, dir * hitInfo.distance, Color.blue);
+                    }
                 }
             }
 
             if (currProjectedPoints2D.Count == 0)
+            {
                 continue;
+            }
 
             List<Vector2> convexedPoints = ConvexHull(currProjectedPoints2D);
-            if(convexedPoints == null)
-                     continue;
-
-            else if (convexedPoints.Count == 0) //Just a safety thing
-                     continue;
+            // Just for the safety thing
+            if (convexedPoints == null || convexedPoints.Count == 0)
+            {
+                continue;
+            }
 
             currConvexedPoints2D.Clear();
             int index;
             GameObject go = GetPooledGameObject(out index);
-            for (int j = 0; j < convexedPoints.Count; j++)
+            // If valid, then implement the following
+            if (go != null)
             {
-                /*convexedPoints2D.Clear();
-                int index;
-                GameObject go = GetPooledGameObject(out index);*/
-                if (go != null)
+                for (int j = 0; j < convexedPoints.Count; ++j)
                 {
+                    /*convexedPoints2D.Clear();
+                    int index;
+                    GameObject go = GetPooledGameObject(out index);*/
                     if (j == convexedPoints.Count - 1)
                     {
                         currConvexedPoints2D.Add(convexedPoints[j]);
@@ -80,16 +86,16 @@ public class Hit : MonoBehaviour
                     }
                     //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                 }
+                go.SetActive(true);
+                GameManager.edgeCollider2DPool[index].points = currConvexedPoints2D.ToArray();
             }
-            go.SetActive(true);
-            GameManager.edgeCollider2DPool[index].points = currConvexedPoints2D.ToArray();
         }
     }
 
     GameObject GetPooledGameObject(out int index)
     {
 
-        for (int i = 0; i < GameManager.gameObjectPool.Count; i++)
+        for (int i = 0; i < GameManager.gameObjectPool.Count; ++i)
         {
             if (!GameManager.gameObjectPool[i].activeInHierarchy)
             {
@@ -103,7 +109,7 @@ public class Hit : MonoBehaviour
 
     void ResetGameObjectPool()
     {
-        for(int i = 0; i < GameManager.gameObjectPool.Count; i++)
+        for(int i = 0; i < GameManager.gameObjectPool.Count; ++i)
         {
             GameManager.gameObjectPool[i].SetActive(false);
         }
@@ -119,7 +125,7 @@ public class Hit : MonoBehaviour
 
         //Find leftmost point
         int l = 0;
-        for (int i = 1; i < points.Count; i++)
+        for (int i = 1; i < points.Count; ++i)
         {
             if (points[i].x < points[l].x)
             {
@@ -147,7 +153,7 @@ public class Hit : MonoBehaviour
 
             // If i is more counterclockwise than  
             // current q, then update q 
-            for (int i = 0; i < points.Count; i++)
+            for (int i = 0; i < points.Count; ++i)
             {
                 if (Orientation(points[p], points[i], points[q]) == 2)
                 {

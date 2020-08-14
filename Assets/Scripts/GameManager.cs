@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         //Store mesh vertices
         meshVertices = new List<List<Vector3>>();
-        for (int i = 0; i < allMeshes.Length; i++)
+        for (int i = 0; i < allMeshes.Length; ++i)
         {
             allMeshes[i] = allObstacles[i].GetComponent<MeshFilter>().mesh;
             int numVertices = allMeshes[i].vertexCount;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         physicsMaterial.bounciness = 0.0f;
 
         //Create pool of gameobjects and store edge colliders
-        for (int i = 0; i < poolCount; i++)
+        for (int i = 0; i < poolCount; ++i)
         {
             GameObject gameObject = new GameObject();
             gameObject.transform.SetParent(gameObjectParent.transform);
