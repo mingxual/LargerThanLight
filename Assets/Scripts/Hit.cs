@@ -22,16 +22,18 @@ public class Hit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         ResetGameObjectPool();
+    }
 
-        for(int i = 0; i < GameManager.allObstacles.Length; ++i)
+    private void FixedUpdate()
+    {
+        for (int i = 0; i < GameManager.allObstacles.Length; ++i)
         {
             //Mesh mesh = allMeshes[i];
             int numVertices = GameManager.meshVertices[i].Count;
             Vector3 currObstaclePos = GameManager.allObstacles[i].transform.position;
             currProjectedPoints2D.Clear();
-            for(int j = 0; j < numVertices; ++j)
+            for (int j = 0; j < numVertices; ++j)
             {
                 Vector3 p = GameManager.meshVertices[i][j];
                 RaycastHit hitInfo;
