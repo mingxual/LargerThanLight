@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int poolCount = 10;
     public static List<GameObject> gameObjectPool;
     public static List<EdgeCollider2D> edgeCollider2DPool; //Keep a reference to pooled game object's edge collider
+    public static bool hasResettedColliderPool = false;
 
     GameObject gameObjectParent;
     public GameObject originWall;
@@ -69,8 +70,8 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        hasResettedColliderPool = false;
     }
 }

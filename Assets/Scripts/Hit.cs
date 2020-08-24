@@ -22,11 +22,12 @@ public class Hit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ResetGameObjectPool();
-    }
+        if(!GameManager.hasResettedColliderPool)
+        {
+            ResetGameObjectPool();
+            GameManager.hasResettedColliderPool = true;
+        }
 
-    private void FixedUpdate()
-    {
         for (int i = 0; i < GameManager.allObstacles.Length; ++i)
         {
             //Mesh mesh = allMeshes[i];
