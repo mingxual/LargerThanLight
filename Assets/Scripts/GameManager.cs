@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             List<Vector3> vertexPositions = new List<Vector3>();
             for (int j = 0; j < numVertices; j++)
             {
-                Vector3 pos = allMeshes[i].vertices[j];
+                Vector3 pos = allObstacles[i].transform.localToWorldMatrix * allMeshes[i].vertices[j];
                 if (!vertexPositions.Contains(pos))
                     vertexPositions.Add(pos);
             }
