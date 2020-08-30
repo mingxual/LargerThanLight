@@ -43,9 +43,11 @@ public class Hit : MonoBehaviour
                 if (Physics.Raycast(transform.position, dir, out hitInfo, 1000.0f, wallLayerMask, QueryTriggerInteraction.Collide))
                 {
                     Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
-                    wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
-                    Vector3 point = hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point);
-                    Vector2 point2D = Vector2.right * point.x + Vector2.up * point.z;
+                    //wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
+                    //Vector3 point = hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point);
+                    Vector3 point = wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
+                    Vector2 point2D = Vector2.right * point.x + Vector2.up * point.y;
+                    //Debug.Log("point2D: " + point2D);
                     currProjectedPoints2D.Add(point2D + wall3D.coordinate2D);
                     if (showRaycasts)
                     {

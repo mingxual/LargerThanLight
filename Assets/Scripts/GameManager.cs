@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         meshVertices = new List<List<Vector3>>();
         for (int i = 0; i < allMeshes.Length; ++i)
         {
-            allMeshes[i] = allObstacles[i].GetComponent<MeshFilter>().mesh;
+            allMeshes[i] = allObstacles[i].GetComponent<MeshFilter>().sharedMesh;
             int numVertices = allMeshes[i].vertexCount;
             List<Vector3> vertexPositions = new List<Vector3>();
             for (int j = 0; j < numVertices; j++)
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject gameObject = new GameObject();
             gameObject.transform.SetParent(gameObjectParent.transform);
-            gameObject.transform.position = originWall.transform.position;
+            gameObject.transform.position = gameObjectParent.transform.position;
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
             edgeCollider2D.sharedMaterial = physicsMaterial;
             edgeCollider2DPool.Add(edgeCollider2D);

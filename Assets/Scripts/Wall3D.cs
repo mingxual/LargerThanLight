@@ -37,7 +37,7 @@ public class Wall3D : MonoBehaviour
 
     public Vector3 RaycastToWall2D(Vector3 point, Vector3 originPos)
     {
-        //Debug.DrawRay(originPos, wall2D.transform.TransformPoint(point) - originPos, Color.red);
+        Debug.DrawRay(originPos, wall2D.transform.TransformPoint(point) - originPos, Color.red);
         return wall2D.transform.TransformPoint(point);
     }
 
