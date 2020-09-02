@@ -8,7 +8,7 @@ public class SimpleController : MonoBehaviour
     public float acceleration;
     public float jumpForce;
     Rigidbody2D rb;
-    bool canJump;
+    bool isGrounded;
 
     float speed;
     bool isMoving;
@@ -65,10 +65,10 @@ public class SimpleController : MonoBehaviour
             isMoving = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && canJump)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce);
-            canJump = false;
+            isGrounded = false;
         }
 
         transform.position += direction * speed * Time.deltaTime;
@@ -77,8 +77,10 @@ public class SimpleController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ContactPoint2D contactPoint = collision.GetContact(0);
-        if (contactPoint.normal.y >= 0.0f)
-            canJump = true;
+        if (contactPoint.normal.y >= 0.5f)
+        {
+            isGrounded = true;
+        }
         //rb.velocity = Vector2.right * 0.0f + Vector2.up;
     }
 
@@ -93,6 +95,7 @@ public class SimpleController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+        isGrounded = false;
     }
 
     
