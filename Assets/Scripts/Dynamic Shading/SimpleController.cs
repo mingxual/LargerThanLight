@@ -7,7 +7,9 @@ public class SimpleController : MonoBehaviour
     public float moveSpeed;
     public float acceleration;
     public float jumpForce;
-    Rigidbody2D rb;
+    Rigidbody2D rb2D;
+    Collider2D collider2D;
+    MeshRenderer meshRenderer;
     bool isGrounded;
 
     //int frameCount;
@@ -15,21 +17,31 @@ public class SimpleController : MonoBehaviour
     float speed;
     bool isMoving;
     Vector3 direction;
+
+    //3D/2D state
+    bool isIn2D = false;
+    public LayerMask wall2D;
+    public LayerMask wall3D;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
+        collider2D = GetComponent<Collider2D>();
+        meshRenderer = GetComponent<MeshRenderer>();
         isMoving = false;
         direction = Vector3.zero;
 
         //frameCount = 0;
+
+        isIn2D = true; // For sake of Theatre_v2 demo
     }
 
     private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce);
+            rb2D.AddForce(Vector3.up * jumpForce);
             isGrounded = false;
             //frameCount = 2;
         }
@@ -70,7 +82,7 @@ public class SimpleController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+            rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
 
             if (direction == Vector3.right)
             {
@@ -81,7 +93,7 @@ public class SimpleController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+            rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
             //transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             if (direction == Vector3.left)
             {
@@ -93,6 +105,13 @@ public class SimpleController : MonoBehaviour
         else
         {
             isMoving = false;
+        }
+
+        //Inputs for switching inbetween 2D and 3D
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Left click pressed");
+            SwitchRealm();
         }
     }
 
@@ -118,9 +137,71 @@ public class SimpleController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+        rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
         //isGrounded = false;
     }
 
+    void SwitchRealm()
+    {
+        // Check if in 2D space
+        if(isIn2D)
+        {
+            // Shoot raycast to player's left and right to determine which side the wall is
+            RaycastHit hitInfo;
+            if(Physics.Raycast(transform.position, transform.forward, out hitInfo, Mathf.Infinity, wall2D, QueryTriggerInteraction.Ignore))
+            {
+                // Get the Wall2D component of collided object
+                Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
+                if(wall2D)
+                {
+                    // Move player to the corresponding 3D wall
+                    transform.position = wall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+
+                    //collider2D.enabled = false;
+                    //rb2D.gravityScale = 0;
+                    rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+                    //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+                }
+            }
+            else if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, Mathf.Infinity, wall2D, QueryTriggerInteraction.Ignore))
+            {
+                // Get the Wall2D component of collided object
+                Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
+                if (wall2D)
+                {
+                    // Move player to the corresponding 3D wall
+                    transform.position = wall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+
+                    //collider2D.enabled = false;
+                    //rb2D.gravityScale = 0;
+                    rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+                    //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+                }
+            }
+
+            isIn2D = false; // State has now changed to 3D
+        }
+        else //TODO: third person controls to determine the correct orientation for going back to 2D
+        {
+            RaycastHit hitInfo;
+            if(Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 5.0f, wall3D, QueryTriggerInteraction.Collide))
+            {
+                // Get the Wall3D component of collided object
+                Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
+                if(wall3D)
+                {
+                    // Move player to the corresponding 2D wall
+                    transform.position = wall3D.SwitchTo2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+
+                    //collider2D.enabled = true;
+                    //rb2D.gravityScale = 1;
+                    rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                }
+            }
+
+            isIn2D = true; // State has now changed to 2D
+        }
+    }
     
 }
