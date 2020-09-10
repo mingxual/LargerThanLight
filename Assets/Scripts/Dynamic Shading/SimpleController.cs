@@ -25,23 +25,40 @@ public class SimpleController : MonoBehaviour
         //frameCount = 0;
     }
 
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+            isGrounded = false;
+            //frameCount = 2;
+        }
+
+        transform.position += direction * speed * Time.deltaTime;
+    }
     // Update is called once per frame
     void Update()
     {
-        if(isMoving)
+        UpdateSpeed();
+
+    }
+
+    void UpdateSpeed()
+    {
+        if (isMoving)
         {
-            if(speed < 10)
+            if (speed < moveSpeed)
             {
                 speed += acceleration * Time.deltaTime;
             }
             else
             {
-                speed = 10;
+                speed = moveSpeed;
             }
         }
         else
         {
-            if(speed > 0)
+            if (speed > 0)
             {
                 speed -= acceleration * Time.deltaTime;
             }
@@ -53,14 +70,23 @@ public class SimpleController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            //rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+            rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+
+            if (direction == Vector3.right)
+            {
+                speed = 0;
+            }
             direction = Vector3.left;
             isMoving = true;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            //rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
+            rb.velocity = Vector2.right * 0.0f + Vector2.up * rb.velocity.y;
             //transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            if (direction == Vector3.left)
+            {
+                speed = 0;
+            }
             direction = Vector3.right;
             isMoving = true;
         }
@@ -68,15 +94,6 @@ public class SimpleController : MonoBehaviour
         {
             isMoving = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce);
-            isGrounded = false;
-            //frameCount = 2;
-        }
-
-        transform.position += direction * speed * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
