@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -66,6 +67,20 @@ public class GameManager : MonoBehaviour
             edgeCollider2DPool.Add(edgeCollider2D);
             gameObject.SetActive(false);
             gameObjectPool.Add(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        // For testing
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
