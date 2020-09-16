@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < poolCount; ++i)
         {
             GameObject gameObject = new GameObject();
+            gameObject.layer = 10;
             gameObject.transform.SetParent(gameObjectParent.transform);
             gameObject.transform.position = gameObjectParent.transform.position;
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();

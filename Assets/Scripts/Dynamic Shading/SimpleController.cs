@@ -7,6 +7,7 @@ public class SimpleController : MonoBehaviour
     public float moveSpeed;
     public float acceleration;
     public float jumpForce;
+    public float raycastLength = 3f;
     public Rigidbody2D rb2D;
     Collider2D collider2D;
     MeshRenderer meshRenderer;
@@ -19,9 +20,14 @@ public class SimpleController : MonoBehaviour
     Vector3 direction;
 
     //3D/2D state
-    bool isIn2D = false;
-    public LayerMask wall2D;
-    public LayerMask wall3D;
+    bool isIn2D = true;
+    public LayerMask wall2DLayermask;
+    public LayerMask wall3DLayerMask;
+    public LayerMask obstacleLayerMask;
+
+    //Original position/rotation
+    Vector3 originalPosition;
+    Quaternion originalRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +41,10 @@ public class SimpleController : MonoBehaviour
         //frameCount = 0;
 
         isIn2D = true; // For sake of Theatre_v2 demo
+
+        //Save original position/rotation
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     private void FixedUpdate()
@@ -52,6 +62,16 @@ public class SimpleController : MonoBehaviour
     void Update()
     {
         UpdateSpeed();
+
+        if(isIn2D)
+        {
+            //Check if player is squished
+            bool isSquished = CheckIfSquished();
+            if(isSquished)
+            {
+                ResetPlayer();
+            }
+        }
 
     }
 
@@ -110,7 +130,7 @@ public class SimpleController : MonoBehaviour
         //Inputs for switching inbetween 2D and 3D
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Left click pressed");
+            //Debug.Log("Left click pressed");
             SwitchRealm();
         }
     }
@@ -148,7 +168,7 @@ public class SimpleController : MonoBehaviour
         {
             // Shoot raycast to player's left and right to determine which side the wall is
             RaycastHit hitInfo;
-            if(Physics.Raycast(transform.position, transform.forward, out hitInfo, Mathf.Infinity, wall2D, QueryTriggerInteraction.Ignore))
+            if(Physics.Raycast(transform.position, transform.forward, out hitInfo, Mathf.Infinity, wall2DLayermask, QueryTriggerInteraction.Ignore))
             {
                 // Get the Wall2D component of collided object
                 Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
@@ -163,7 +183,7 @@ public class SimpleController : MonoBehaviour
                     //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
                 }
             }
-            else if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, Mathf.Infinity, wall2D, QueryTriggerInteraction.Ignore))
+            else if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, Mathf.Infinity, wall2DLayermask, QueryTriggerInteraction.Ignore))
             {
                 // Get the Wall2D component of collided object
                 Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
@@ -184,7 +204,7 @@ public class SimpleController : MonoBehaviour
         else //TODO: third person controls to determine the correct orientation for going back to 2D
         {
             RaycastHit hitInfo;
-            if(Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 5.0f, wall3D, QueryTriggerInteraction.Collide))
+            if(Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 5.0f, wall3DLayerMask, QueryTriggerInteraction.Collide))
             {
                 // Get the Wall3D component of collided object
                 Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
@@ -202,6 +222,28 @@ public class SimpleController : MonoBehaviour
 
             isIn2D = true; // State has now changed to 2D
         }
+    }
+
+    bool CheckIfSquished()
+    {
+        Debug.DrawRay(transform.position, Vector2.right * raycastLength, Color.green);
+        Debug.DrawRay(transform.position, Vector2.left * raycastLength, Color.green);
+        bool ret = false;
+        Debug.Log("checking if squished");
+        if(Physics2D.Raycast(transform.position, Vector2.right, raycastLength, obstacleLayerMask)
+            && Physics2D.Raycast(transform.position, Vector2.left, raycastLength, obstacleLayerMask))
+        {
+            Debug.Log("squished");
+            ret = true;
+        }
+        return ret;
+    }
+
+    void ResetPlayer()
+    {
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        rb2D.velocity = Vector2.zero;
     }
     
 }
