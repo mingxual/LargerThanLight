@@ -7,7 +7,7 @@ public class SimpleController : MonoBehaviour
     public float moveSpeed;
     public float acceleration;
     public float jumpForce;
-    Rigidbody2D rb2D;
+    public Rigidbody2D rb2D;
     Collider2D collider2D;
     MeshRenderer meshRenderer;
     bool isGrounded;
@@ -141,7 +141,7 @@ public class SimpleController : MonoBehaviour
         //isGrounded = false;
     }
 
-    void SwitchRealm()
+    public void SwitchRealm()
     {
         // Check if in 2D space
         if(isIn2D)
