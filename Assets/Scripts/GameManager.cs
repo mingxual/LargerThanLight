@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     GameObject gameObjectParent;
     public GameObject originWall;
 
+    public LightController luxControl;
+    public SimpleController skiaControl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < poolCount; ++i)
         {
             GameObject gameObject = new GameObject();
+            gameObject.layer = 10;
             gameObject.transform.SetParent(gameObjectParent.transform);
             gameObject.transform.position = gameObjectParent.transform.position;
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
@@ -88,5 +92,20 @@ public class GameManager : MonoBehaviour
     void LateUpdate()
     {
         hasResettedColliderPool = false;
+    }
+
+    public void DisableCharacterControl()
+    {
+        luxControl.enabled = false;
+        skiaControl.rb2D.velocity = Vector2.zero;
+        skiaControl.enabled = false;
+        Debug.Log("control disabled");
+    }
+
+    public void EnableCharacterControl()
+    {
+        luxControl.enabled = true;
+        skiaControl.enabled = true;
+        Debug.Log("control enabled");
     }
 }

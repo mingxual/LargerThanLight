@@ -27,7 +27,11 @@ public class EventTrigger3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(m_TriggerObject.transform.position.y >= transform.position.y && !m_HasTriggered)
+        {
+            EventsManager.instance.InvokeEvent(m_EventKey);
+            m_HasTriggered = true;
+        }
     }
 
     public void OnTriggerEnter(Collider collision)
@@ -60,6 +64,46 @@ public class EventTrigger3D : MonoBehaviour
         if (m_TriggerObject != null)
         {
             if(m_TriggerObject == collision.gameObject)
+            {
+                m_IsTriggering = false;
+            }
+        }
+        else
+        {
+            m_IsTriggering = false;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (m_TriggerObject != null)
+        {
+            if (m_TriggerObject == collision.gameObject && !m_IsTriggering)
+            {
+                if (m_TriggerOnlyOnce && !m_HasTriggered)
+                {
+                    EventsManager.instance.InvokeEvent(m_EventKey);
+                    m_HasTriggered = true;
+                }
+                else if (!m_TriggerOnlyOnce)
+                {
+                    EventsManager.instance.InvokeEvent(m_EventKey);
+                }
+                m_IsTriggering = true;
+            }
+        }
+        else
+        {
+            EventsManager.instance.InvokeEvent(m_EventKey);
+            m_IsTriggering = true;
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (m_TriggerObject != null)
+        {
+            if (m_TriggerObject == collision.gameObject)
             {
                 m_IsTriggering = false;
             }

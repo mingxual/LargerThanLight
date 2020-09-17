@@ -74,6 +74,7 @@ public class Hit : MonoBehaviour
             // If valid, then implement the following
             if (go != null)
             {
+                //go.layer = GameManager.gameObjectPool[i].layer;
                 for (int j = 0; j < convexedPoints.Count; ++j)
                 {
                     /*convexedPoints2D.Clear();

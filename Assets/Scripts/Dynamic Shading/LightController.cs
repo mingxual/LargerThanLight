@@ -26,7 +26,7 @@ public class LightController : MonoBehaviour
         {
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.L))
+        /*if (Input.GetKey(KeyCode.L))
         {
             transform.Rotate(0.0f, rotateSpeed * Time.deltaTime, 0.0f);
         }
@@ -41,6 +41,6 @@ public class LightController : MonoBehaviour
         if (Input.GetKey(KeyCode.K))
         {
             transform.Rotate(rotateSpeed * Time.deltaTime, 0.0f, 0.0f);
-        }
+        }*/
     }
 }
