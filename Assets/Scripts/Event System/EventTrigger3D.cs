@@ -27,11 +27,13 @@ public class EventTrigger3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(m_TriggerObject.transform.position.y >= transform.position.y && !m_HasTriggered)
         {
             EventsManager.instance.InvokeEvent(m_EventKey);
             m_HasTriggered = true;
         }
+        */
     }
 
     public void OnTriggerEnter(Collider collision)
