@@ -48,7 +48,13 @@ public class SimpleController : MonoBehaviour
     }
 
     private void FixedUpdate()
+    {     
+        transform.position += direction * speed * Time.deltaTime;
+    }
+    // Update is called once per frame
+    void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb2D.AddForce(Vector3.up * jumpForce);
@@ -56,11 +62,6 @@ public class SimpleController : MonoBehaviour
             //frameCount = 2;
         }
 
-        transform.position += direction * speed * Time.deltaTime;
-    }
-    // Update is called once per frame
-    void Update()
-    {
         UpdateSpeed();
 
         if(isIn2D)
