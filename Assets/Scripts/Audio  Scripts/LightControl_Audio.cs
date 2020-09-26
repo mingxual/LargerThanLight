@@ -10,7 +10,8 @@ public class LightControl_Audio : MonoBehaviour
 
     private void Start()
     {
-        footstep=gameObject.GetComponent<AudioSource>();
+        Music temp= AudioManager.instance.GetMusic("FootstepsLoop");
+        footstep = temp.source;
         footstep.loop = true;
         footstep.Play();
         footstep.Pause();
