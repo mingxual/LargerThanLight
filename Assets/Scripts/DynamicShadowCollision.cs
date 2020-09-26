@@ -2,7 +2,7 @@
 using UnityEngine;
 
 // The script is attached to the lighting source
-public class Hit : MonoBehaviour
+public class DynamicShadowCollision : MonoBehaviour
 {
     public LayerMask wallLayerMask;
 
