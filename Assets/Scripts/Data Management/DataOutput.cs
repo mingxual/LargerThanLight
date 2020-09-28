@@ -21,7 +21,8 @@ public class DataOutput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string address = Application.dataPath + "/Scripts/Data Management/matrices.csv";
+        //string address = Application.dataPath + "/Scripts/Data Management/matrices.csv";
+        string address = Application.dataPath + "matrices.csv";
         myFile = new FileInfo(address);
         if (myFile.Exists)
         {
@@ -30,7 +31,7 @@ public class DataOutput : MonoBehaviour
         }
 
         //writer = myFile.CreateText();
-        string message = "time, skia position, lux position";
+        string message = "time, skia position, , lux position";
         myText.Add(message);
         WriteIntoTxt(message);
         //writer = myFile.AppendText();

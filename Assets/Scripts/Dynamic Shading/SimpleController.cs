@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class SimpleController : MonoBehaviour
 {
-    public float moveSpeed;
-    public float acceleration;
+    public float moveSpeed = 10;
+    public float acceleration = 20;
     public float jumpForce;
     public float raycastLength = 3f;
     public Rigidbody2D rb2D;
     Collider2D collider2D;
     MeshRenderer meshRenderer;
+
     bool isGrounded;
+    bool canJump;
+    float lastFrameYPos;
 
     //int frameCount;
 
@@ -45,23 +48,34 @@ public class SimpleController : MonoBehaviour
         //Save original position/rotation
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+
+        isGrounded = true;
+        canJump = true;
     }
 
     private void FixedUpdate()
     {     
         transform.position += direction * speed * Time.deltaTime;
-    }
-    // Update is called once per frame
-    void Update()
-    {
+
+        //jump
+        if(lastFrameYPos == transform.position.y)
+        {
+            canJump = true;
+        }
+        lastFrameYPos = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb2D.AddForce(Vector3.up * jumpForce);
+            transform.position += new Vector3(0, 0.1f, 0);
             isGrounded = false;
+            canJump = false;
             //frameCount = 2;
         }
-
+    }
+    // Update is called once per frame
+    void Update()
+    {
         UpdateSpeed();
 
         if(isIn2D)
@@ -140,26 +154,31 @@ public class SimpleController : MonoBehaviour
     {
         ContactPoint2D contactPoint = collision.GetContact(0);
         //frameCount -= 1;
-        //if (contactPoint.normal.y >= 0.5f && frameCount <= 0)
-        //{
+        if (contactPoint.normal.y >= 0.5f)// && frameCount <= 0
+        {
             isGrounded = true;
             //frameCount = 0;
-        //}
+        }
         //rb.velocity = Vector2.right * 0.0f + Vector2.up;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        /*ContactPoint2D contactPoint = collision.GetContact(0);
-        if (contactPoint.normal.y >= 0.0f)
-            canJump = true;*/
+        ContactPoint2D contactPoint = collision.GetContact(0);
+        if (contactPoint.normal.y >= 0.5f)
+            canJump = true;
         //rb.velocity = Vector2.right * 0.0f + Vector2.up;
+        //canJump = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
-        //isGrounded = false;
+        ContactPoint2D contactPoint = collision.GetContact(0);
+        if (contactPoint.normal.y >= 0.5f)
+        {
+            //isGrounded = false;
+        }
     }
 
     public void SwitchRealm()
