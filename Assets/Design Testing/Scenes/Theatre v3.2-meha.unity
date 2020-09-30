@@ -5966,7 +5966,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d1d7f76d37a7d8946863432a517395e2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.216
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13075,6 +13075,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595073900}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1618001755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618001757}
+  - component: {fileID: 1618001756}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1618001756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618001755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d25f4a508c743f8accb088bbe065ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Lux_Footstep
+    clips:
+    - {fileID: 8300000, guid: 3222427e595684f40ac9bfbdaf9d22f3, type: 3}
+    - {fileID: 8300000, guid: af7b4340b82eb5546b5c87207a9785af, type: 3}
+    - {fileID: 8300000, guid: 9898d9b7feadf314c8b1dde5ecb02e6f, type: 3}
+    - {fileID: 8300000, guid: 6513270a7e4f4eb4bba6173c4a2023da, type: 3}
+    volume: 0.79
+    pitch: 0.93
+    loop: 0
+    source: {fileID: 0}
+  - name: Lux_Flicker
+    clips:
+    - {fileID: 8300000, guid: 17f6216f0fd904fc9985f856c870efd4, type: 3}
+    - {fileID: 8300000, guid: da323185f4cbc46d2b594fa7eef8609c, type: 3}
+    - {fileID: 8300000, guid: ef55f5c1ba7d244c38195c2f02780066, type: 3}
+    - {fileID: 8300000, guid: 2ec7594c9038a4212b2d949a607facbe, type: 3}
+    - {fileID: 8300000, guid: 49b76097ecff44c36a5a812facff1382, type: 3}
+    - {fileID: 8300000, guid: 0d138a437478e4704bc1c48e72c86bdf, type: 3}
+    volume: 0.61
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  musics: []
+--- !u!4 &1618001757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618001755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.6989975, z: -14.532997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1621723963
 PrefabInstance:
   m_ObjectHideFlags: 0

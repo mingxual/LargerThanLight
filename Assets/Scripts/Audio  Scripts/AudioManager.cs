@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+            s.source.clip = s.clips[0];//just for name 
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
@@ -44,15 +44,31 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayOnce(string name)
+    public void PlayOnce(string name, Vector3 place)
     {
+        /*
+        if (name == "Lux_Footstep")
+        {
+            int index = UnityEngine.Random.Range(0, 4);
+            string realName = name + "_" + index;
+            s = Array.Find(sounds, sound => sound.name == realName);
+            s.source.PlayOneShot(s.source.clip);
+        }
+        else if (name == "Lux_Flicker")
+        {
+            int index = UnityEngine.Random.Range(0, 6);
+            string realName = name + "_" + index;
+            s = Array.Find(sounds, sound => sound.name == realName);
+            s.source.PlayOneShot(s.source.clip);
+        }*/
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
             Debug.LogWarning("Sound " + name + " not found");
             return;
         }
-        s.source.PlayOneShot(s.source.clip);
+        s.PlayOnce(0,place);
+        
     }
 
     public void PlayMusic(string name)
