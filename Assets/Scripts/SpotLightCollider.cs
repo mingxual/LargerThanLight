@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightCollider : MonoBehaviour
+public class SpotLightCollider : MonoBehaviour
 {
     public LayerMask wallLayerMask;
     public int m_RaycastCount;
@@ -15,15 +15,15 @@ public class LightCollider : MonoBehaviour
     void Start()
     {
         m_Light = GetComponent<Light>();
-        m_LightOuterAngle = m_Light.spotAngle;
+        m_LightOuterAngle = m_Light.spotAngle / 2.0f; 
         m_LightRange = m_Light.range;
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_LightOuterAngle = m_Light.spotAngle;
-        float radius = m_LightRange * Mathf.Tan(m_LightOuterAngle);
+        m_LightOuterAngle = m_Light.spotAngle / 2.0f;
+        float radius = m_LightRange * Mathf.Tan(m_LightOuterAngle * Mathf.Deg2Rad);
         Vector3 worldForward = transform.forward * m_LightRange;
         float anglePerRay = 360.0f / m_RaycastCount;
         for(int i = 0; i < m_RaycastCount; i++)

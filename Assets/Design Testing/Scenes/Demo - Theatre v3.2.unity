@@ -3238,6 +3238,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 20
+  anim: {fileID: 0}
+  luxModel: {fileID: 0}
+  EmptyGO: {fileID: 0}
 --- !u!114 &327552571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3853,7 +3856,8 @@ GameObject:
   - component: {fileID: 421378864}
   - component: {fileID: 421378863}
   - component: {fileID: 421378862}
-  m_Layer: 0
+  - component: {fileID: 421378865}
+  m_Layer: 8
   m_Name: main curtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3934,6 +3938,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421378860}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &421378865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421378860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c980f2609b81ad340848692b19490d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall2D: {fileID: 0}
+  coordinate2D: {x: 0, y: 0}
 --- !u!1 &433331970
 GameObject:
   m_ObjectHideFlags: 0
