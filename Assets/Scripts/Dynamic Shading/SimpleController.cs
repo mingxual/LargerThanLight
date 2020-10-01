@@ -146,7 +146,7 @@ public class SimpleController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //Debug.Log("Left click pressed");
-            SwitchRealm();
+            //SwitchRealm();
         }
     }
 
