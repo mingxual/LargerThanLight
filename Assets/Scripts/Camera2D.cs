@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class Camera2D : MonoBehaviour
 {
     public float m_Width;

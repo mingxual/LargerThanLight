@@ -134,9 +134,14 @@ MonoBehaviour:
   moveSpeed: 7
   acceleration: 5
   jumpForce: 500
-  wall2D:
+  raycastLength: 3
+  rb2D: {fileID: 0}
+  wall2DLayermask:
     serializedVersion: 2
-    m_Bits: 0
-  wall3D:
+    m_Bits: 512
+  wall3DLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024

@@ -7,6 +7,7 @@ public class SimpleController : MonoBehaviour
     public float moveSpeed = 10;
     public float acceleration = 20;
     public float jumpForce;
+    public float jumpFallMultiplier = 3.5f;
     public float raycastLength = 3f;
     public Rigidbody2D rb2D;
     Collider2D collider2D;
@@ -72,6 +73,11 @@ public class SimpleController : MonoBehaviour
             canJump = false;
             //frameCount = 2;
         }
+
+        if(rb2D.velocity.y < 0)
+            rb2D.gravityScale = jumpFallMultiplier;
+        else
+            rb2D.gravityScale = 1;
     }
     // Update is called once per frame
     void Update()
@@ -146,7 +152,7 @@ public class SimpleController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //Debug.Log("Left click pressed");
-            SwitchRealm();
+            //SwitchRealm();
         }
     }
 
@@ -174,11 +180,11 @@ public class SimpleController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
-        ContactPoint2D contactPoint = collision.GetContact(0);
+        /*ContactPoint2D contactPoint = collision.GetContact(0);
         if (contactPoint.normal.y >= 0.5f)
         {
             //isGrounded = false;
-        }
+        }*/
     }
 
     public void SwitchRealm()
