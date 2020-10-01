@@ -174,11 +174,11 @@ public class SimpleController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
-        ContactPoint2D contactPoint = collision.GetContact(0);
+        /*ContactPoint2D contactPoint = collision.GetContact(0);
         if (contactPoint.normal.y >= 0.5f)
         {
             //isGrounded = false;
-        }
+        }*/
     }
 
     public void SwitchRealm()
