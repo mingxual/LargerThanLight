@@ -3681,8 +3681,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 100
   m_Range: 150
-  m_SpotAngle: 150
-  m_InnerSpotAngle: 150
+  m_SpotAngle: 80
+  m_InnerSpotAngle: 70
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3754,10 +3754,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c749692fa447fa44a1a0a3ccc8b98ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLayerMask:
+  m_WallLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  showRaycasts: 0
+  m_SpotlightRaycastCount: 20
+  m_ShowSpotlightRaycasts: 1
+  m_ShowObjectRaycasts: 1
 --- !u!114 &327552571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14854,10 +14856,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c749692fa447fa44a1a0a3ccc8b98ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLayerMask:
+  m_WallLayerMask:
     serializedVersion: 2
-    m_Bits: 256
-  showRaycasts: 0
+    m_Bits: 0
+  m_SpotlightRaycastCount: 0
+  m_ShowSpotlightRaycasts: 0
+  m_ShowObjectRaycasts: 0
 --- !u!108 &1447841325
 Light:
   m_ObjectHideFlags: 0
@@ -19487,10 +19491,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c749692fa447fa44a1a0a3ccc8b98ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLayerMask:
+  m_WallLayerMask:
     serializedVersion: 2
-    m_Bits: 256
-  showRaycasts: 0
+    m_Bits: 0
+  m_SpotlightRaycastCount: 0
+  m_ShowSpotlightRaycasts: 0
+  m_ShowObjectRaycasts: 0
 --- !u!108 &1956804686
 Light:
   m_ObjectHideFlags: 0
