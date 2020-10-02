@@ -7,6 +7,8 @@ public class SimpleController : MonoBehaviour
     public float moveSpeed = 10;
     public float acceleration = 20;
     public float jumpForce;
+    public float jumpFalloff = 0f;
+    public float jumpFalloffMultiplier = 2.5f;
     public float jumpFallMultiplier = 3.5f;
     public float raycastLength = 3f;
     public Rigidbody2D rb2D;
@@ -74,7 +76,9 @@ public class SimpleController : MonoBehaviour
             //frameCount = 2;
         }
 
-        if(rb2D.velocity.y < 0)
+        if (rb2D.velocity.y < jumpFalloff)
+            rb2D.gravityScale = jumpFalloffMultiplier;
+        else if (rb2D.velocity.y < 0)
             rb2D.gravityScale = jumpFallMultiplier;
         else
             rb2D.gravityScale = 1;
