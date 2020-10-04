@@ -63,5 +63,7 @@ public class Wall3D : MonoBehaviour
     {
         if(m_OriginalMaterial)
             m_MeshRenderer.material = m_OriginalMaterial;
+
+        transform.gameObject.layer = 0;
     }
 }

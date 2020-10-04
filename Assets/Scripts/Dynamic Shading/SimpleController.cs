@@ -105,6 +105,13 @@ public class SimpleController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    public void SetNewCheckpoint()
+    {
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
+        rb.velocity = Vector2.zero;
+    }
+
     public void SwitchRealm()
     {
         // Check if in 2D space

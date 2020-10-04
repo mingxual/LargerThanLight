@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
         m_SubLevel1Object.SetActive(false);
         m_SubLevel2Object.SetActive(true);
         skiaControl.gameObject.transform.position = SkiaSpawnSubLevel2.position;
+        skiaControl.SetNewCheckpoint();
         AddNewObstacles(m_SubLevel2Obstacles);
         Debug.Log("moving Skia");
     }
