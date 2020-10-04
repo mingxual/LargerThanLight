@@ -35,7 +35,7 @@ public class DynamicShadowCollision : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!GameManager.hasResettedColliderPool)
         {
