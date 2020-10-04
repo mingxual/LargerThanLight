@@ -4146,10 +4146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotateSpeed: 20
   anim: {fileID: 0}
   luxModel: {fileID: 0}
-  EmptyGO: {fileID: 0}
 --- !u!114 &327552571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5143,7 +5141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &421378861
 Transform:
   m_ObjectHideFlags: 0
@@ -6038,8 +6036,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e0a82f75cbf5e4f8499d324fcebc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolCount: 10
-  originWall: {fileID: 0}
+  m_SubLevel1Obstacles: []
+  m_SubLevel2Obstacles: []
+  originWallSubLevel1: {fileID: 0}
+  m_SubLevel1Object: {fileID: 0}
+  m_SubLevel1Wall3D: {fileID: 0}
+  m_SubLevel2Object: {fileID: 0}
+  SkiaSpawnSubLevel2: {fileID: 0}
   luxControl: {fileID: 0}
   skiaControl: {fileID: 0}
 --- !u!4 &512948505
@@ -6116,10 +6119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotateSpeed: 20
   anim: {fileID: 0}
   luxModel: {fileID: 0}
-  EmptyGO: {fileID: 0}
 --- !u!114 &531349237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6623,7 +6624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &567896089
 Transform:
   m_ObjectHideFlags: 0
@@ -13048,7 +13049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1359792201
 Transform:
   m_ObjectHideFlags: 0
