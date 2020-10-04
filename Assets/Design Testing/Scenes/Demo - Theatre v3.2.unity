@@ -12545,12 +12545,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1199821604}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1199821606 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3606043918534637613, guid: 453e078d361f4374088a9d7c80fa35ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 1199821604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1199821607 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4695795086921588864, guid: 453e078d361f4374088a9d7c80fa35ff,
@@ -13791,6 +13785,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963865, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: raycastLength
@@ -13809,7 +13808,7 @@ PrefabInstance:
     - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
@@ -13820,6 +13819,26 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpFalloff
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: defaultMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: fallMultiplier
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: mask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
@@ -13891,7 +13910,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4062911558463963864, guid: 712724ce06f19ae49b391b6752450f16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 712724ce06f19ae49b391b6752450f16, type: 3}
 --- !u!1 &1327307194 stripped
 GameObject:
@@ -14384,11 +14404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4336f4f5e23814c9cad62515a5ceb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  rotateSpeed: 20
+  moveSpeed: 5
   anim: {fileID: 1199821607}
-  luxModel: {fileID: 1199821606}
-  EmptyGO: {fileID: 0}
+  luxModel: {fileID: 1199821605}
 --- !u!54 &1359792203
 Rigidbody:
   m_ObjectHideFlags: 0

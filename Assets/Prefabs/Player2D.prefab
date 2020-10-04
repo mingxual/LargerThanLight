@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4062911558463963869}
   - component: {fileID: 4062911558463963866}
   - component: {fileID: 4062911558463963867}
-  - component: {fileID: 4062911558463963864}
+  - component: {fileID: 5214448054206022407}
   - component: {fileID: 4062911558463963865}
   - component: {fileID: 4062911558463963868}
   m_Layer: 0
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!58 &4062911558463963864
-CircleCollider2D:
+--- !u!61 &5214448054206022407
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,8 +96,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!50 &4062911558463963865
 Rigidbody2D:
   serializedVersion: 4
@@ -131,9 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b333d93facffe584aa306e700e6c4cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
   acceleration: 5
   jumpForce: 500
+  jumpFalloff: 0
+  jumpFalloffMultiplier: 2.5
+  jumpFallMultiplier: 3.5
   raycastLength: 3
   rb2D: {fileID: 0}
   wall2DLayermask:
@@ -145,3 +157,5 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  moveSpeed: 7
+  jumpSpeed: 10

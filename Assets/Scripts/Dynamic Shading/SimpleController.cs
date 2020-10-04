@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class SimpleController : MonoBehaviour
 {
-    public float moveSpeed = 10;
-    public float acceleration = 20;
-    public float jumpForce;
-    public float jumpFalloff = 0f;
-    public float jumpFalloffMultiplier = 2.5f;
-    public float jumpFallMultiplier = 3.5f;
-    public float raycastLength = 3f;
-    public Rigidbody2D rb2D;
-    Collider2D collider2D;
-    MeshRenderer meshRenderer;
+    [SerializeField] private float moveSpeed = 10;
+    [SerializeField] private float jumpSpeed = 10;
+    [SerializeField] private float fallMultiplier = 3.5f;
+    [SerializeField] private float defaultMultiplier = 2f;
+    [SerializeField] private float rayboxDistance = 0.05f;
+    [SerializeField] private LayerMask mask;
 
-    bool isGrounded;
-    bool canJump;
-    float lastFrameYPos;
+    private Rigidbody2D rb;
+    private float movementDirection;
+    private bool jumpAction;
+    private bool grounded;
+    private Vector2 playerSize;
+    private Vector2 rayboxSize;
+    private float squishDistance;
 
-    //int frameCount;
-
-    float speed;
-    bool isMoving;
-    Vector3 direction;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
 
     //3D/2D state
     bool isIn2D = true;
@@ -31,185 +28,104 @@ public class SimpleController : MonoBehaviour
     public LayerMask wall3DLayerMask;
     public LayerMask obstacleLayerMask;
 
-    //Original position/rotation
-    Vector3 originalPosition;
-    Quaternion originalRotation;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        defaultMultiplier = rb.gravityScale;
 
-    // Start is called before the first frame update
+        playerSize = GetComponent<BoxCollider2D>().size;
+        rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
+        squishDistance = playerSize.x * 0.5f;
+    }
+
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-        collider2D = GetComponent<Collider2D>();
-        meshRenderer = GetComponent<MeshRenderer>();
-        isMoving = false;
-        direction = Vector3.zero;
-
-        //frameCount = 0;
-
-        isIn2D = true; // For sake of Theatre_v2 demo
-
-        //Save original position/rotation
         originalPosition = transform.position;
         originalRotation = transform.rotation;
-
-        isGrounded = true;
-        canJump = true;
     }
 
-    private void FixedUpdate()
-    {     
-        transform.position += direction * speed * Time.deltaTime;
-
-        //jump
-        if(lastFrameYPos == transform.position.y)
-        {
-            canJump = true;
-        }
-        lastFrameYPos = transform.position.y;
-
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-        {
-            rb2D.AddForce(Vector3.up * jumpForce);
-            transform.position += new Vector3(0, 0.1f, 0);
-            isGrounded = false;
-            canJump = false;
-            //frameCount = 2;
-        }
-
-        if (rb2D.velocity.y < jumpFalloff)
-            rb2D.gravityScale = jumpFalloffMultiplier;
-        else if (rb2D.velocity.y < 0)
-            rb2D.gravityScale = jumpFallMultiplier;
-        else
-            rb2D.gravityScale = 1;
-    }
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        UpdateSpeed();
-
-        if(isIn2D)
-        {
-            //Check if player is squished
-            bool isSquished = CheckIfSquished();
-            if(isSquished)
-            {
-                ResetPlayer();
-            }
-        }
-
-    }
-
-    void UpdateSpeed()
-    {
-        if (isMoving)
-        {
-            if (speed < moveSpeed)
-            {
-                speed += acceleration * Time.deltaTime;
-            }
-            else
-            {
-                speed = moveSpeed;
-            }
-        }
-        else
-        {
-            if (speed > 0)
-            {
-                speed -= acceleration * Time.deltaTime;
-            }
-            else
-            {
-                speed = 0;
-            }
-        }
-
+        movementDirection = 0;
         if (Input.GetKey(KeyCode.A))
         {
-            rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
-
-            if (direction == Vector3.right)
-            {
-                speed = 0;
-            }
-            direction = Vector3.left;
-            isMoving = true;
+            movementDirection -= 1;
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
-            //transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            if (direction == Vector3.left)
-            {
-                speed = 0;
-            }
-            direction = Vector3.right;
-            isMoving = true;
+            movementDirection += 1;
         }
-        else
+        if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
-            isMoving = false;
+            jumpAction = true;
         }
 
         //Inputs for switching inbetween 2D and 3D
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             //Debug.Log("Left click pressed");
             //SwitchRealm();
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        ContactPoint2D contactPoint = collision.GetContact(0);
-        //frameCount -= 1;
-        if (contactPoint.normal.y >= 0.5f)// && frameCount <= 0
+        if (isIn2D)
         {
-            isGrounded = true;
-            //frameCount = 0;
+            //Check if player is squished
+            bool isSquished = CheckIfSquished();
+            if (isSquished)
+            {
+                ResetPlayer();
+            }
         }
-        //rb.velocity = Vector2.right * 0.0f + Vector2.up;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void FixedUpdate()
     {
-        ContactPoint2D contactPoint = collision.GetContact(0);
-        if (contactPoint.normal.y >= 0.5f)
-            canJump = true;
-        //rb.velocity = Vector2.right * 0.0f + Vector2.up;
-        //canJump = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        rb2D.velocity = Vector2.right * 0.0f + Vector2.up * rb2D.velocity.y;
-        /*ContactPoint2D contactPoint = collision.GetContact(0);
-        if (contactPoint.normal.y >= 0.5f)
+        if (jumpAction)
         {
-            //isGrounded = false;
-        }*/
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            jumpAction = false;
+            grounded = false;
+        }
+        else
+        {
+            Vector2 rayboxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
+            grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
+        }
+
+        rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
+
+        if (rb.velocity.y < 0)
+            rb.gravityScale = fallMultiplier;
+        else
+            rb.gravityScale = defaultMultiplier;
+    }
+
+    void ResetPlayer()
+    {
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        rb.velocity = Vector2.zero;
     }
 
     public void SwitchRealm()
     {
         // Check if in 2D space
-        if(isIn2D)
+        if (isIn2D)
         {
             // Shoot raycast to player's left and right to determine which side the wall is
             RaycastHit hitInfo;
-            if(Physics.Raycast(transform.position, transform.forward, out hitInfo, Mathf.Infinity, wall2DLayermask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(transform.position, transform.forward, out hitInfo, Mathf.Infinity, wall2DLayermask, QueryTriggerInteraction.Ignore))
             {
                 // Get the Wall2D component of collided object
                 Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
-                if(wall2D)
+                if (wall2D)
                 {
                     // Move player to the corresponding 3D wall
                     transform.position = wall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
 
                     //collider2D.enabled = false;
                     //rb2D.gravityScale = 0;
-                    rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+                    rb.constraints = RigidbodyConstraints2D.FreezePosition;
                     //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
                 }
             }
@@ -224,7 +140,7 @@ public class SimpleController : MonoBehaviour
 
                     //collider2D.enabled = false;
                     //rb2D.gravityScale = 0;
-                    rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+                    rb.constraints = RigidbodyConstraints2D.FreezePosition;
                     //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
                 }
             }
@@ -234,18 +150,18 @@ public class SimpleController : MonoBehaviour
         else //TODO: third person controls to determine the correct orientation for going back to 2D
         {
             RaycastHit hitInfo;
-            if(Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 5.0f, wall3DLayerMask, QueryTriggerInteraction.Collide))
+            if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 5.0f, wall3DLayerMask, QueryTriggerInteraction.Collide))
             {
                 // Get the Wall3D component of collided object
                 Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
-                if(wall3D)
+                if (wall3D)
                 {
                     // Move player to the corresponding 2D wall
                     transform.position = wall3D.SwitchTo2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
 
                     //collider2D.enabled = true;
                     //rb2D.gravityScale = 1;
-                    rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                     //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                 }
             }
@@ -256,24 +172,16 @@ public class SimpleController : MonoBehaviour
 
     bool CheckIfSquished()
     {
-        Debug.DrawRay(transform.position, Vector2.right * raycastLength, Color.green);
-        Debug.DrawRay(transform.position, Vector2.left * raycastLength, Color.green);
+        //Debug.DrawRay(transform.position, Vector2.right * raycastLength, Color.green);
+        //Debug.DrawRay(transform.position, Vector2.left * raycastLength, Color.green);
         bool ret = false;
-        Debug.Log("checking if squished");
-        if(Physics2D.Raycast(transform.position, Vector2.right, raycastLength, obstacleLayerMask)
-            && Physics2D.Raycast(transform.position, Vector2.left, raycastLength, obstacleLayerMask))
+        //Debug.Log("checking if squished");
+        if (Physics2D.Raycast(transform.position, Vector2.right, squishDistance, mask)
+            && Physics2D.Raycast(transform.position, Vector2.left, squishDistance, mask))
         {
-            Debug.Log("squished");
+            //Debug.Log("squished");
             ret = true;
         }
         return ret;
     }
-
-    void ResetPlayer()
-    {
-        transform.position = originalPosition;
-        transform.rotation = originalRotation;
-        rb2D.velocity = Vector2.zero;
-    }
-    
 }
