@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SimpleController : MonoBehaviour
 {
+    [SerializeField] private Transform skiaModel;
+    [SerializeField] private Animator anim;
+
     [SerializeField] private float moveSpeed = 10;
     [SerializeField] private float jumpSpeed = 10;
     [SerializeField] private float fallMultiplier = 3.5f;
@@ -13,14 +16,19 @@ public class SimpleController : MonoBehaviour
 
     private Rigidbody2D rb;
     private float movementDirection;
+    private bool skiaControlsActivated;
     private bool jumpAction;
     private bool grounded;
+    private Vector2 playerCenter;
     private Vector2 playerSize;
     private Vector2 rayboxSize;
     private float squishDistance;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
+
+    private Vector3 leftFacingDirection;
+    private Vector3 rightFacingDirection;
 
     //3D/2D state
     bool isIn2D = true;
@@ -31,9 +39,13 @@ public class SimpleController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        playerCenter = GetComponent<BoxCollider2D>().offset;
         playerSize = GetComponent<BoxCollider2D>().size;
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
         squishDistance = playerSize.x * 0.5f;
+
+        leftFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, -skiaModel.localScale.z);
+        rightFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, skiaModel.localScale.z);
     }
 
     void Start()
@@ -45,13 +57,16 @@ public class SimpleController : MonoBehaviour
     private void Update()
     {
         movementDirection = 0;
+        skiaControlsActivated = false;
         if (Input.GetKey(KeyCode.A))
         {
             movementDirection -= 1;
+            skiaControlsActivated = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             movementDirection += 1;
+            skiaControlsActivated = true;
         }
         if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
@@ -86,11 +101,21 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
-            Vector2 rayboxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
+            Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
             grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
         }
 
         rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
+        if(movementDirection == 0)
+        {
+            if (!skiaControlsActivated)
+                anim.SetBool("IsRunning", false);
+        }
+        else
+        {
+            skiaModel.localScale = movementDirection > 0 ? rightFacingDirection : leftFacingDirection;
+            anim.SetBool("IsRunning", true);
+        }
 
         if (rb.velocity.y < 0)
             rb.gravityScale = fallMultiplier;
