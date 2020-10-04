@@ -44,7 +44,7 @@ public class DynamicShadowCollision : MonoBehaviour
         }
 
         //Create colliders for obstacles
-        for (int i = 0; i < GameManager.allObstacles.Length; ++i)
+        for (int i = 0; i < GameManager.allObstacles.Count; ++i)
         {
             //Mesh mesh = allMeshes[i];
             int numVertices = GameManager.meshVertices[i].Count;
@@ -56,7 +56,7 @@ public class DynamicShadowCollision : MonoBehaviour
                 RaycastHit hitInfo;
                 Vector3 dir = currObstaclePos + p - transform.position;
                 dir = dir.normalized;
-                if (Physics.Raycast(transform.position, dir, out hitInfo, 1000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
+                if (Physics.Raycast(transform.position, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
                 {
                     Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
                     //wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
@@ -129,7 +129,7 @@ public class DynamicShadowCollision : MonoBehaviour
 
                 dir = dir.normalized;
                 RaycastHit hitInfo;
-                if (Physics.Raycast(transform.position, dir, out hitInfo, 1000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
+                if (Physics.Raycast(transform.position, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
                 {
                     Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
                     //wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
