@@ -259,11 +259,11 @@ public class SimpleController : MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.right * raycastLength, Color.green);
         Debug.DrawRay(transform.position, Vector2.left * raycastLength, Color.green);
         bool ret = false;
-        //Debug.Log("checking if squished");
+        Debug.Log("checking if squished");
         if(Physics2D.Raycast(transform.position, Vector2.right, raycastLength, obstacleLayerMask)
             && Physics2D.Raycast(transform.position, Vector2.left, raycastLength, obstacleLayerMask))
         {
-            //Debug.Log("squished");
+            Debug.Log("squished");
             ret = true;
         }
         return ret;
