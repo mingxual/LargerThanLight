@@ -80,6 +80,20 @@ public class GameManager : MonoBehaviour
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
             edgeCollider2D.sharedMaterial = physicsMaterial;
             edgeCollider2DPool.Add(edgeCollider2D);
+
+            if(m_SubLevel1Obstacles[i].GetComponent<EventCollision2D>() != null)
+            {
+                gameObject.AddComponent<EventCollision2D>();
+
+                EventCollision2D originEventCollision2D = m_SubLevel1Obstacles[i].GetComponent<EventCollision2D>();
+                EventCollision2D copiedEventCollision2D = gameObject.GetComponent<EventCollision2D>();
+
+                copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
+                copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
+                copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
+                copiedEventCollision2D.m_PressButton = originEventCollision2D.m_PressButton;
+            }
+
             gameObject.SetActive(false);
             gameObjectPool.Add(gameObject);
         }
