@@ -26,12 +26,10 @@ public class SimpleController : MonoBehaviour
     bool isIn2D = true;
     public LayerMask wall2DLayermask;
     public LayerMask wall3DLayerMask;
-    public LayerMask obstacleLayerMask;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        defaultMultiplier = rb.gravityScale;
 
         playerSize = GetComponent<BoxCollider2D>().size;
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);

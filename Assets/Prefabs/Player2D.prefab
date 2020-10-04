@@ -127,7 +127,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4062911558463963868
 MonoBehaviour:
@@ -141,21 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b333d93facffe584aa306e700e6c4cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 5
-  jumpForce: 500
-  jumpFalloff: 0
-  jumpFalloffMultiplier: 2.5
-  jumpFallMultiplier: 3.5
-  raycastLength: 3
-  rb2D: {fileID: 0}
+  moveSpeed: 5
+  jumpSpeed: 10
+  fallMultiplier: 4.5
+  defaultMultiplier: 3
+  rayboxDistance: 0.05
+  mask:
+    serializedVersion: 2
+    m_Bits: 1024
   wall2DLayermask:
     serializedVersion: 2
     m_Bits: 512
   wall3DLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  obstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  moveSpeed: 7
-  jumpSpeed: 10

@@ -4798,7 +4798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421378860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.14}
+  m_LocalPosition: {x: 0, y: -0.2880001, z: 3.14}
   m_LocalScale: {x: 33.070255, y: 10.762753, z: 0.013958263}
   m_Children: []
   m_Father: {fileID: 1316117079}
@@ -14288,16 +14288,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2D
       objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963865, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963865, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: raycastLength
@@ -14315,11 +14305,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
       propertyPath: acceleration
       value: 10
       objectReference: {fileID: 0}
@@ -14327,26 +14312,6 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpFalloff
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
-      propertyPath: defaultMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
-      propertyPath: fallMultiplier
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
-        type: 3}
-      propertyPath: mask.m_Bits
-      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
@@ -14912,7 +14877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4336f4f5e23814c9cad62515a5ceb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   anim: {fileID: 1199821607}
   luxModel: {fileID: 1199821605}
 --- !u!54 &1359792203
