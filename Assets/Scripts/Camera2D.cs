@@ -23,7 +23,7 @@ public class Camera2D : MonoBehaviour
     {
         m_Ratio = m_Width / m_Height;
         m_Camera.aspect = m_Ratio;
-        //Debug.Log("camera aspect: " + m_Camera.aspect);
+        Debug.Log("camera aspect: " + m_Camera.aspect);
         /*Rect rect = m_Camera.rect;
         rect.width = m_Width;
         rect.height = m_Height;

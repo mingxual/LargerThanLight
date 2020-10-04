@@ -22,14 +22,11 @@ public class Wall3D : MonoBehaviour
 
     // The offset to the origin of 2D walls in the scene
     public Vector2 coordinate2D;
-    public Material m_OriginalMaterial;
-    MeshRenderer m_MeshRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         //Create gameobjects for wall2D
-        m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -57,11 +54,5 @@ public class Wall3D : MonoBehaviour
         }
 
         return null;
-    }
-
-    public void OriginalMaterial()
-    {
-        if(m_OriginalMaterial)
-            m_MeshRenderer.material = m_OriginalMaterial;
     }
 }
