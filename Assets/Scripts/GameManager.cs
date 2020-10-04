@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
 
     GameObject gameObjectParent;
     public GameObject originWall;
+    public GameObject m_SubLevel1Object;
+    public Wall3D m_SubLevel1Wall3D;
+    public GameObject m_SubLevel2Object;
+    public Transform SkiaSpawnSubLevel2;
 
     public LightController luxControl;
     public SimpleController skiaControl;
@@ -107,5 +111,14 @@ public class GameManager : MonoBehaviour
         luxControl.enabled = true;
         skiaControl.enabled = true;
         Debug.Log("control enabled");
+    }
+
+    public void SpawnSkiaSubLevel2()
+    {
+        m_SubLevel1Wall3D.OriginalMaterial();
+        m_SubLevel1Object.SetActive(false);
+        m_SubLevel2Object.SetActive(true);
+        skiaControl.gameObject.transform.position = SkiaSpawnSubLevel2.position;
+        Debug.Log("moving Skia");
     }
 }
