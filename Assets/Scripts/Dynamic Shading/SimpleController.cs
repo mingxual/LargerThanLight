@@ -34,6 +34,7 @@ public class SimpleController : MonoBehaviour
     bool isIn2D = true;
     public LayerMask wall2DLayermask;
     public LayerMask wall3DLayerMask;
+    [SerializeField] Camera m_CurrCamera;
     [SerializeField] float m_OcclusionAngle;
     Vector3 m_WorldPosition3D;
     Wall2D m_CurrWall2D;
@@ -174,10 +175,10 @@ public class SimpleController : MonoBehaviour
     {
         for(int i = 0; i < GameManager.m_Obstacles.Count; i++)
         {
-            Vector3 camToPlayer = Camera.main.transform.position - m_WorldPosition3D;
+            Vector3 camToPlayer = m_CurrCamera.transform.position - m_WorldPosition3D;
             camToPlayer = camToPlayer.normalized;
 
-            Vector3 camToObstacle = Camera.main.transform.position - GameManager.m_Obstacles[i].transform.position;
+            Vector3 camToObstacle = m_CurrCamera.transform.position - GameManager.m_Obstacles[i].transform.position;
             camToObstacle = camToObstacle.normalized;
 
             float anglePlayerToObstacle = Mathf.Acos(Vector3.Dot(camToPlayer, camToObstacle)) * Mathf.Rad2Deg;
