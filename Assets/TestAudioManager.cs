@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class TestAudioManager : MonoBehaviour
 {
-    public AudioSource randomSound;
-
-    public AudioClip[] audioSources;
 
     private float flicker_timer = 3f;
+
+    private AudioSource Hum;
 
     // Start is called before the first frame update
     void Start()
     {
+        //special case for hum
+        Hum = gameObject.AddComponent<AudioSource>();
+        Music temp = AudioManager.instance.GetMusic("Lux_Hum");
+        Hum.clip = temp.clip;
+        Hum.volume = temp.volume;
+        Hum.pitch = temp.pitch;
+        Hum.loop = temp.loop;
+        Hum.spatialBlend = 0.7f;
+        Hum.Play();
     }
 
     // Update is called once per frame
@@ -27,11 +35,6 @@ public class TestAudioManager : MonoBehaviour
     }
     public void PlayLuxFootstep()
     {
-        /*
-        Debug.Log("PrintEvent: " + " called at: " + Time.time);
-        randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
-        randomSound.Play();
-        */
         AudioManager.instance.PlayOnce("Lux_Footstep", gameObject.transform.position);
     }
 

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3087,10 +3087,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c749692fa447fa44a1a0a3ccc8b98ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLayerMask:
+  m_WallLayerMask:
     serializedVersion: 2
-    m_Bits: 256
-  showRaycasts: 0
+    m_Bits: 0
+  m_SpotlightRaycastCount: 0
+  m_ShowSpotlightRaycasts: 0
+  m_CreateSpotlight: 0
+  m_ShowObjectRaycasts: 0
 --- !u!114 &327552570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3104,10 +3107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  rotateSpeed: 20
   anim: {fileID: 468470431}
   luxModel: {fileID: 468470429}
-  EmptyGO: {fileID: 0}
 --- !u!114 &327552571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4586,8 +4587,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e0a82f75cbf5e4f8499d324fcebc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolCount: 10
-  originWall: {fileID: 0}
+  m_SubLevel1Obstacles: []
+  m_SubLevel2Obstacles: []
+  originWallSubLevel1: {fileID: 0}
+  m_SubLevel1Object: {fileID: 0}
+  m_SubLevel1Wall3D: {fileID: 0}
+  m_SubLevel2Object: {fileID: 0}
+  SkiaSpawnSubLevel2: {fileID: 0}
   luxControl: {fileID: 0}
   skiaControl: {fileID: 0}
 --- !u!4 &512948505
@@ -10897,10 +10903,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c749692fa447fa44a1a0a3ccc8b98ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLayerMask:
+  m_WallLayerMask:
     serializedVersion: 2
-    m_Bits: 256
-  showRaycasts: 0
+    m_Bits: 0
+  m_SpotlightRaycastCount: 0
+  m_ShowSpotlightRaycasts: 0
+  m_CreateSpotlight: 0
+  m_ShowObjectRaycasts: 0
 --- !u!108 &1447841325
 Light:
   m_ObjectHideFlags: 0
@@ -15094,10 +15103,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c749692fa447fa44a1a0a3ccc8b98ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLayerMask:
+  m_WallLayerMask:
     serializedVersion: 2
-    m_Bits: 256
-  showRaycasts: 0
+    m_Bits: 0
+  m_SpotlightRaycastCount: 0
+  m_ShowSpotlightRaycasts: 0
+  m_CreateSpotlight: 0
+  m_ShowObjectRaycasts: 0
 --- !u!108 &1956804686
 Light:
   m_ObjectHideFlags: 0
@@ -17172,6 +17184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}

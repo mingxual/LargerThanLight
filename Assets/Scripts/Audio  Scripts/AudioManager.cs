@@ -10,6 +10,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    private const float BGTime = 89f;
+
+    private float BGTimer = BGTime;
+
     private void Awake()
     {
         if(instance==null)
@@ -41,6 +45,22 @@ public class AudioManager : MonoBehaviour
             m.source.volume = m.volume;
             m.source.pitch = m.pitch;
             m.source.loop = m.loop;
+        }
+    }
+
+    public void Start()
+    {
+        PlayMusic("Theater_Music_Loop");
+    }
+
+    public void Update()
+    {
+        BGTimer -= Time.deltaTime;
+        if(BGTimer<=0f)
+        {
+            StopMusic("Theater_Music_Loop");
+            PlayMusic("Theater_Music_Loop");
+            BGTimer = BGTime;
         }
     }
 
@@ -81,6 +101,8 @@ public class AudioManager : MonoBehaviour
         }
         m.source.Play();
     }
+
+    
 
     public void StopMusic(string name)
     {
