@@ -52,6 +52,8 @@ public class SimpleController : MonoBehaviour
     {
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+
+        //mainCamera = Camera.main;
     }
 
     private void Update()
@@ -89,6 +91,8 @@ public class SimpleController : MonoBehaviour
                 ResetPlayer();
             }
         }
+
+        //CheckObjectBlocking();
     }
 
     private void FixedUpdate()
@@ -136,6 +140,41 @@ public class SimpleController : MonoBehaviour
         originalRotation = transform.rotation;
         rb.velocity = Vector2.zero;
     }
+
+    //private Camera mainCamera;
+    //private List<Renderer> obstacleRendererCache = new List<Renderer>();
+
+    //private void CheckObjectBlocking()
+    //{
+    //    RaycastHit wall2dhit;
+    //    if(Physics.Raycast(transform.position, transform.forward, out wall2dhit, 5, wall2DLayermask))
+    //    {
+    //        Wall2D wall2d = wall2dhit.collider.GetComponent<Wall2D>();
+    //        print(wall2d);
+    //        if(wall2d != null)
+    //        {
+    //            print("yeey");
+    //            Vector3 wall3dpos = wall2d.SwitchTo3D(wall2dhit.transform.InverseTransformPoint(wall2dhit.point));
+    //            RaycastHit[] hits = Physics.SphereCastAll(wall3dpos, 4, mainCamera.transform.position - wall3dpos, 20);
+    //            foreach(RaycastHit hit in hits)
+    //            {
+    //                print("boom");
+    //                if (hit.transform.tag == "Obstacle")
+    //                {
+    //                    Renderer obsRenderer = hit.transform.GetComponent<Renderer>();
+    //                    if(!obstacleRendererCache.Contains(obsRenderer))
+    //                    {
+    //                        Color c = obsRenderer.material.color;
+    //                        c.a = 0.5f;
+    //                        obsRenderer.material.color = c;
+
+    //                        obstacleRendererCache.Add(obsRenderer);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
     public void SwitchRealm()
     {
