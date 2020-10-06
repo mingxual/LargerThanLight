@@ -45,7 +45,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
+      hasAdditiveReferencePose: 1
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -58,7 +58,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.356383
+        functionName: PlaySkiaFootstep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8590425
+        functionName: PlaySkiaFootstep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

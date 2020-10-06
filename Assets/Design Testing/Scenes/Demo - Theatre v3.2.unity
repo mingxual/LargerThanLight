@@ -10448,6 +10448,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1284836423}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1028523984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028523982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27835d4cb9fe94508916569841e90026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1028523985
 Animator:
   serializedVersion: 3
@@ -20774,71 +20786,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[1].volume
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].name
-      value: Theater_Music_Loop
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 40c83ddfb880d4c2dbb72036d43274d0, type: 3}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[1].name
-      value: Lux_Hum
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7b92a10481ec34921b212e798885f1a9, type: 3}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[1].volume
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[1].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[1].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].loop
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}

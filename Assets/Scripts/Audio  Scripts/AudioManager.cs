@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
 
     private float BGTimer = BGTime;
 
+    private bool isBG=true;
+
     private void Awake()
     {
         if(instance==null)
@@ -61,6 +63,22 @@ public class AudioManager : MonoBehaviour
             StopMusic("Theater_Music_Loop");
             PlayMusic("Theater_Music_Loop");
             BGTimer = BGTime;
+        }
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            Music temp=GetMusic("Theater_Music_Loop");
+            if(isBG)
+            {
+                isBG = false;
+                temp.source.volume = 0f;
+            }
+            else
+            {
+                isBG = true;
+                temp.source.volume = 0.1f;
+            }
+
         }
     }
 
