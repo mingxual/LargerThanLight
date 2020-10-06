@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: StageBase
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
-  m_ShaderKeywords: _CELPRIMARYMODE_GRADIENT _CELPRIMARYMODE_SINGLE _FLAT_SHADOWS_ENABLED
-    _FLAT_SPECULAR_ENABLED _UNITYSHADOWMODE_NONE
+  m_ShaderKeywords: DR_SPECULAR_ON _CELPRIMARYMODE_GRADIENT _CELPRIMARYMODE_SINGLE
+    _FLAT_SHADOWS_ENABLED _FLAT_SPECULAR_ENABLED _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -84,9 +84,9 @@ Material:
     - _FlatRimSize: 0.1
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362
-    - _FlatSpecularEdgeSmoothness: 0
+    - _FlatSpecularEdgeSmoothness: 0.704
     - _FlatSpecularEnabled: 1
-    - _FlatSpecularSize: 0
+    - _FlatSpecularSize: 0.72
     - _FlatSpecularSmoothness: 0.5
     - _Flatness: 1
     - _FlatnessExtra: 1
@@ -122,7 +122,7 @@ Material:
     - _ShadowEdgeSmoothness: 0.071
     - _ShadowFalloff: 0.01
     - _SmoothnessTextureChannel: 0
-    - _SpecularEnabled: 0
+    - _SpecularEnabled: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
@@ -147,6 +147,6 @@ Material:
     - _ColorShadows: {r: 0.5471698, g: 0.37346402, b: 0.26584196, a: 1}
     - _EmissionColor: {r: 4.9245777, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
-    - _FlatSpecularColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+    - _FlatSpecularColor: {r: 0.9728137, g: 0.9262429, b: 1.319508, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _UnityShadowColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
