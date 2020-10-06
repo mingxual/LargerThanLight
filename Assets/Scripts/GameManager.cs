@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public static bool hasResettedColliderPool = false;
 
     GameObject gameObjectParent;
+
+    //temp stuff for playable
+    //TODO: clean this up; add proper organization
     public GameObject[] m_SubLevel1Obstacles;
     public GameObject[] m_SubLevel2Obstacles;
     public GameObject originWallSubLevel1;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
     public Wall3D m_SubLevel1Wall3D;
     public GameObject m_SubLevel2Object;
     public Transform SkiaSpawnSubLevel2;
+    public static List<Obstacle> m_Obstacles;
 
     public LightController luxControl;
     public SimpleController skiaControl;
@@ -35,10 +39,14 @@ public class GameManager : MonoBehaviour
         //Get all shadow-casting obstacles in scene by their tag "Obstacle" as well their mesh
         allObstacles = new List<GameObject>();
         allMeshes = new List<Mesh>();
+        m_Obstacles = new List<Obstacle>();
 
         for(int i = 0; i < m_SubLevel1Obstacles.Length; i++)
         {
             allObstacles.Add(m_SubLevel1Obstacles[i]);
+            Obstacle obstacle = m_SubLevel1Obstacles[i].GetComponent<Obstacle>();
+            if(obstacle)
+                m_Obstacles.Add(obstacle);
         }
 
         //Store mesh vertices
@@ -150,6 +158,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < gameobjectsToAdd.Length; i++)
         {
             allObstacles.Add(gameobjectsToAdd[i]);
+            Obstacle obstacle = gameobjectsToAdd[i].GetComponent<Obstacle>();
+            if (obstacle)
+                m_Obstacles.Add(obstacle);
         }
 
         for (int i = 0; i < gameobjectsToAdd.Length; ++i)

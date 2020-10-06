@@ -34,6 +34,10 @@ public class SimpleController : MonoBehaviour
     bool isIn2D = true;
     public LayerMask wall2DLayermask;
     public LayerMask wall3DLayerMask;
+    [SerializeField] float m_OcclusionAngle;
+    Vector3 m_WorldPosition3D;
+    Wall2D m_CurrWall2D;
+    Wall3D m_CurrWall3D;
 
     private void Awake()
     {
@@ -58,6 +62,10 @@ public class SimpleController : MonoBehaviour
 
     private void Update()
     {
+        // Find and set its position in 3d space (aka game view)
+        SetWorldPosition3D();
+        OccludeObjects();
+
         movementDirection = 0;
         skiaControlsActivated = false;
         if (Input.GetKey(KeyCode.A))
@@ -140,6 +148,49 @@ public class SimpleController : MonoBehaviour
         originalPosition = transform.position;
         originalRotation = transform.rotation;
         rb.velocity = Vector2.zero;
+    }
+
+    void SetWorldPosition3D()
+    {
+        Vector3 worldPosition = Vector3.zero; // change this(?)
+        RaycastHit hitInfo;
+        bool hitWall2D = Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 100f, wall2DLayermask, QueryTriggerInteraction.Collide);
+        if(hitWall2D)
+        {
+            Wall2D newWall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
+            if (!m_CurrWall2D || (m_CurrWall2D != newWall2D))
+            {
+                m_CurrWall2D = newWall2D;
+                m_CurrWall3D = m_CurrWall2D.wall3D.GetComponent<Wall3D>();
+            }
+
+            worldPosition = m_CurrWall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+        }
+        m_WorldPosition3D = worldPosition;
+        return;
+    }
+
+    void OccludeObjects()
+    {
+        for(int i = 0; i < GameManager.m_Obstacles.Count; i++)
+        {
+            Vector3 camToPlayer = Camera.main.transform.position - m_WorldPosition3D;
+            camToPlayer = camToPlayer.normalized;
+
+            Vector3 camToObstacle = Camera.main.transform.position - GameManager.m_Obstacles[i].transform.position;
+            camToObstacle = camToObstacle.normalized;
+
+            float anglePlayerToObstacle = Mathf.Acos(Vector3.Dot(camToPlayer, camToObstacle)) * Mathf.Rad2Deg;
+            if(!(anglePlayerToObstacle < m_OcclusionAngle))
+            {
+                GameManager.m_Obstacles[i].Occlude();
+            }
+            else
+            {
+                GameManager.m_Obstacles[i].NonOcclude();
+            }
+            
+        }
     }
 
     //private Camera mainCamera;
