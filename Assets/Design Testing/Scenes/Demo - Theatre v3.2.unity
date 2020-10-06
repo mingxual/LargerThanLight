@@ -5777,6 +5777,7 @@ MonoBehaviour:
   - {fileID: 1041847297}
   - {fileID: 1191963318}
   - {fileID: 1350604133}
+  - {fileID: 2080006926}
   m_SubLevel2Obstacles:
   - {fileID: 476972584}
   - {fileID: 583338561}
@@ -23048,9 +23049,10 @@ GameObject:
   - component: {fileID: 2080006930}
   - component: {fileID: 2080006929}
   - component: {fileID: 2080006928}
+  - component: {fileID: 2080006931}
   m_Layer: 0
   m_Name: curtain rope
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23129,6 +23131,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080006926}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2080006931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080006926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30757eb1ec0ca8c488fc15169693b54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventKey: PullCurtain
+  m_TriggerObject: {fileID: 1327307194}
+  m_TriggerOnlyOnce: 1
+  m_PressButton: 112
 --- !u!1 &2080457957
 GameObject:
   m_ObjectHideFlags: 0
