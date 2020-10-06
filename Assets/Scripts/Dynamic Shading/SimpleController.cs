@@ -102,6 +102,7 @@ public class SimpleController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpAction = false;
             grounded = false;
+            anim.Play("Jump");
         }
         else
         {
