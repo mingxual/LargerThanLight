@@ -10,9 +10,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    private const float BGTime = 89f;
-
-    private float BGTimer = BGTime;
+    private float BGTimer = 89f;
 
     private bool isBG=true;
 
@@ -52,7 +50,9 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        PlayMusic("Theater_Music_Loop");
+        Music temp = GetMusic("Theater_Music_Loop");
+        temp.source.PlayOneShot(temp.clip, temp.volume);
+        BGTimer = temp.source.clip.length - 6.52f;
     }
 
     public void Update()
@@ -60,9 +60,9 @@ public class AudioManager : MonoBehaviour
         BGTimer -= Time.deltaTime;
         if(BGTimer<=0f)
         {
-            StopMusic("Theater_Music_Loop");
-            PlayMusic("Theater_Music_Loop");
-            BGTimer = BGTime;
+            Music temp = GetMusic("Theater_Music_Loop");
+            temp.source.PlayOneShot(temp.clip, temp.volume);
+            BGTimer = temp.source.clip.length - 6.52f;
         }
 
         if(Input.GetKeyDown(KeyCode.B))
