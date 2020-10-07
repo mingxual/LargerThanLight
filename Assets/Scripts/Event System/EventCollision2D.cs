@@ -37,6 +37,8 @@ public class EventCollision2D : MonoBehaviour
         {
             if(m_TriggerObject == collision.gameObject && !m_IsTriggering && Input.GetKeyDown(m_PressButton))
             {
+                //audio added
+                AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
                 if(m_TriggerOnlyOnce && !m_HasTriggered)
                 {
                     EventsManager.instance.InvokeEvent(m_EventKey);
