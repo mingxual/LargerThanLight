@@ -17,21 +17,52 @@ public class EventCollision2D : MonoBehaviour
     private bool m_HasTriggered;
     private bool m_IsTriggering;
 
+    private float m_Timer;
+    private bool isCollided;
+
     // Start is called before the first frame update
     void Start()
     {
         m_HasTriggered = false;
         m_IsTriggering = false;
+        isCollided = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(isCollided && !m_IsTriggering && Input.GetKeyDown(KeyCode.P))
+        {
+            m_IsTriggering = true;
+            Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
+            EventsManager.instance.InvokeEvent(m_EventKey);
+
+            //audio added
+            AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
+        }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(m_TriggerObject == collision.gameObject & !m_IsTriggering)
+        {
+            m_Timer = Time.time;
+            isCollided = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (m_TriggerObject == collision.gameObject && Time.time - m_Timer > 0.5f)
+        {
+            isCollided = false;
+        }
+    }
+
+    /*
     public void OnCollisionStay2D(Collision2D collision)
     {
+        Debug.Log("On Stay");
         if(m_TriggerObject != null)
         {
             if(m_TriggerObject == collision.gameObject && !m_IsTriggering && Input.GetKeyDown(KeyCode.P))
@@ -58,4 +89,5 @@ public class EventCollision2D : MonoBehaviour
             m_IsTriggering = true;
         }
     }
+    */
 }
