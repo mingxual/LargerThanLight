@@ -339,12 +339,12 @@ public class SimpleController : MonoBehaviour
 
     bool CheckIfSquished()
     {
-        //Debug.DrawRay(transform.position, Vector2.right * raycastLength, Color.green);
-        //Debug.DrawRay(transform.position, Vector2.left * raycastLength, Color.green);
+        //Debug.DrawRay(transform.position, Vector2.right * squishDistance, Color.green);
+        //Debug.DrawRay(transform.position, Vector2.left * squishDistance, Color.green);
         bool ret = false;
         //Debug.Log("checking if squished");
-        if (Physics2D.Raycast(transform.position, Vector2.right, squishDistance, mask)
-            && Physics2D.Raycast(transform.position, Vector2.left, squishDistance, mask))
+        if (Physics2D.Raycast(transform.position + Vector3.up, Vector2.right, squishDistance, mask)
+            && Physics2D.Raycast(transform.position + Vector3.up, Vector2.left, squishDistance, mask))
         {
             //Debug.Log("squished");
             ret = true;
