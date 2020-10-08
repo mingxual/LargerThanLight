@@ -136,19 +136,28 @@ public class SimpleController : MonoBehaviour
             if(rb.velocity.y > 0)
             {
                 collider.offset += new Vector2(0, 0.05f);
-                collider.size += new Vector2(0.02f, -0.03f);
+                //collider.size += new Vector2(0.02f, -0.03f);
+                collider.size += new Vector2(0.00f, -0.03f);
             }
             else if(rb.velocity.y < 0 && jumping)
             {
                 collider.offset -= new Vector2(0, 0.05f);
-                collider.size -= new Vector2(0.02f, -0.03f);
+                collider.size -= new Vector2(0, -0.03f);
             }
         }
         else
         {
+            if (jumping)
+            {
+                float difference = collider.offset.y - colliderCenter.y;
+                if (difference > 0)
+                {
+                    transform.position += new Vector3(0, difference, 0);
+                }              
+                jumping = false;
+            }
             collider.offset = colliderCenter;
             collider.size = colliderSize;
-            jumping = false;
         }
         playerCenter = collider.offset;
         playerSize = collider.size;
@@ -330,12 +339,12 @@ public class SimpleController : MonoBehaviour
 
     bool CheckIfSquished()
     {
-        //Debug.DrawRay(transform.position, Vector2.right * raycastLength, Color.green);
-        //Debug.DrawRay(transform.position, Vector2.left * raycastLength, Color.green);
+        //Debug.DrawRay(transform.position, Vector2.right * squishDistance, Color.green);
+        //Debug.DrawRay(transform.position, Vector2.left * squishDistance, Color.green);
         bool ret = false;
         //Debug.Log("checking if squished");
-        if (Physics2D.Raycast(transform.position, Vector2.right, squishDistance, mask)
-            && Physics2D.Raycast(transform.position, Vector2.left, squishDistance, mask))
+        if (Physics2D.Raycast(transform.position + Vector3.up, Vector2.right, squishDistance, mask)
+            && Physics2D.Raycast(transform.position + Vector3.up, Vector2.left, squishDistance, mask))
         {
             //Debug.Log("squished");
             ret = true;
