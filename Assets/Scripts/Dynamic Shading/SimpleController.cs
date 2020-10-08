@@ -136,12 +136,13 @@ public class SimpleController : MonoBehaviour
             if(rb.velocity.y > 0)
             {
                 collider.offset += new Vector2(0, 0.05f);
-                collider.size += new Vector2(0.02f, -0.03f);
+                //collider.size += new Vector2(0.02f, -0.03f);
+                collider.size += new Vector2(0.00f, -0.03f);
             }
             else if(rb.velocity.y < 0 && jumping)
             {
                 collider.offset -= new Vector2(0, 0.05f);
-                collider.size -= new Vector2(0.02f, -0.03f);
+                collider.size -= new Vector2(0, -0.03f);
             }
         }
         else
