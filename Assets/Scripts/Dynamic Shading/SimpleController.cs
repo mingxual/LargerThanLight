@@ -129,7 +129,7 @@ public class SimpleController : MonoBehaviour
             Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
             grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
         }
-
+        
         if (!grounded)
         {
             
@@ -150,6 +150,10 @@ public class SimpleController : MonoBehaviour
             collider.size = colliderSize;
             jumping = false;
         }
+        playerCenter = collider.offset;
+        playerSize = collider.size;
+        rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
+        squishDistance = playerSize.x * 0.5f;
 
         rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
         if(movementDirection == 0)
