@@ -141,8 +141,7 @@ public class GameManager : MonoBehaviour
     public void DisableCharacterControl()
     {
         luxControl.enabled = false;
-        skiaControl.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        skiaControl.enabled = false;
+        skiaControl.Disable();
         Debug.Log("control disabled");
     }
 

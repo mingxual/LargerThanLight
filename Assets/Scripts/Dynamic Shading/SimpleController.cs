@@ -357,4 +357,11 @@ public class SimpleController : MonoBehaviour
         collider.offset = center;
         collider.size = new Vector2(width, height);
     }
+
+    public void Disable()
+    {
+        rb.velocity = Vector2.zero;
+        anim.SetBool("IsRunning", false);
+        enabled = false;
+    }
 }
