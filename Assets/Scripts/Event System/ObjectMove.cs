@@ -10,6 +10,7 @@ public class ObjectMove : MonoBehaviour
     public float m_TimeDuration;
     public GameManager m_GameManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +43,21 @@ public class ObjectMove : MonoBehaviour
     {
         m_GameManager.EnableCharacterControl();
         Debug.Log("enable character control");
+    }
+
+    public void RotateToTargetPos()
+    {
+        if (m_direction == Axis.X)
+        {
+            LeanTween.rotateX(gameObject, m_MoveTargetPos, m_TimeDuration);
+        }
+        else if (m_direction == Axis.Y)
+        {
+            LeanTween.rotateY(gameObject, m_MoveTargetPos, m_TimeDuration);
+        }
+        else if (m_direction == Axis.Z)
+        {
+            LeanTween.rotateZ(gameObject, m_MoveTargetPos, m_TimeDuration);
+        }
     }
 }
