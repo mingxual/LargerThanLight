@@ -14,7 +14,7 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private float rayboxDistance = 0.05f;
     [SerializeField] private LayerMask mask;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D rb;    
     private float movementDirection;
     private bool skiaControlsActivated;
     private bool jumpAction;
@@ -23,6 +23,11 @@ public class SimpleController : MonoBehaviour
     private Vector2 playerSize;
     private Vector2 rayboxSize;
     private float squishDistance;
+
+    private BoxCollider2D collider;
+    private Vector2 colliderCenter;
+    private Vector2 colliderSize;
+    bool jumping;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -51,6 +56,11 @@ public class SimpleController : MonoBehaviour
 
         leftFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, -skiaModel.localScale.z);
         rightFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, skiaModel.localScale.z);
+
+        collider = GetComponent<BoxCollider2D>();
+        colliderCenter = collider.offset;
+        colliderSize = collider.size;
+        jumping = false;
     }
 
     void Start()
@@ -111,12 +121,34 @@ public class SimpleController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpAction = false;
             grounded = false;
-            anim.Play("Jump");
+            jumping = true;
+            anim.Play("Jump");           
         }
         else
         {
             Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
             grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
+        }
+
+        if (!grounded)
+        {
+            
+            if(rb.velocity.y > 0)
+            {
+                collider.offset += new Vector2(0, 0.05f);
+                collider.size += new Vector2(0.02f, -0.03f);
+            }
+            else if(rb.velocity.y < 0 && jumping)
+            {
+                collider.offset -= new Vector2(0, 0.05f);
+                collider.size -= new Vector2(0.02f, -0.03f);
+            }
+        }
+        else
+        {
+            collider.offset = colliderCenter;
+            collider.size = colliderSize;
+            jumping = false;
         }
 
         rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
@@ -305,5 +337,11 @@ public class SimpleController : MonoBehaviour
             ret = true;
         }
         return ret;
+    }
+
+    private void ChangeCollider(Vector2 center, float width, float height)
+    {
+        collider.offset = center;
+        collider.size = new Vector2(width, height);
     }
 }
