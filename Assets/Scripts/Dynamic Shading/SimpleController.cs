@@ -216,9 +216,28 @@ public class SimpleController : MonoBehaviour
         return;
     }
 
+    private List<Obstacle> obstacleCache = new List<Obstacle>();
+
     void OccludeObjects()
     {
-        for(int i = 0; i < GameManager.m_Obstacles.Count; i++)
+        foreach(Obstacle obs in obstacleCache)
+        {
+            obs.Occlude();
+        }
+        obstacleCache.Clear();
+
+        RaycastHit[] hits = Physics.SphereCastAll(m_WorldPosition3D, m_OcclusionAngle, m_CurrCamera.transform.position - m_WorldPosition3D, 100);
+        foreach (RaycastHit hit in hits)
+        {
+            Obstacle obs = hit.transform.GetComponent<Obstacle>();
+            if(obs != null)
+            {
+                obs.NonOcclude();
+                obstacleCache.Add(obs);
+            }
+        }
+        /*
+        for (int i = 0; i < GameManager.m_Obstacles.Count; i++)
         {
             Vector3 camToPlayer = m_CurrCamera.transform.position - m_WorldPosition3D;
             camToPlayer = camToPlayer.normalized;
@@ -227,7 +246,7 @@ public class SimpleController : MonoBehaviour
             camToObstacle = camToObstacle.normalized;
 
             float anglePlayerToObstacle = Mathf.Acos(Vector3.Dot(camToPlayer, camToObstacle)) * Mathf.Rad2Deg;
-            if(!(anglePlayerToObstacle < m_OcclusionAngle))
+            if (!(anglePlayerToObstacle < m_OcclusionAngle))
             {
                 GameManager.m_Obstacles[i].Occlude();
             }
@@ -235,8 +254,9 @@ public class SimpleController : MonoBehaviour
             {
                 GameManager.m_Obstacles[i].NonOcclude();
             }
-            
+
         }
+        */
     }
 
     //private Camera mainCamera;

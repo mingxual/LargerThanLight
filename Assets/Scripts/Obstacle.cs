@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
     {
         m_Material = m_CopyObstacle.GetComponent<MeshRenderer>().material;
         m_CurrFadeTime = 0f;
+        m_IsOccluded = true;
     }
 
     // Update is called once per frame
