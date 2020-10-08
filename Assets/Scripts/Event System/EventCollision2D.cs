@@ -13,7 +13,6 @@ public class EventCollision2D : MonoBehaviour
 
     // The current event can be triggered once or unlimited times
     public bool m_TriggerOnlyOnce;
-    public KeyCode m_PressButton;
 
     private bool m_HasTriggered;
     private bool m_IsTriggering;
@@ -35,7 +34,7 @@ public class EventCollision2D : MonoBehaviour
     {
         if(m_TriggerObject != null)
         {
-            if(m_TriggerObject == collision.gameObject && !m_IsTriggering && Input.GetKeyDown(m_PressButton))
+            if(m_TriggerObject == collision.gameObject && !m_IsTriggering && Input.GetKeyDown(KeyCode.P))
             {
                 Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
 

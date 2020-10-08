@@ -99,7 +99,18 @@ public class GameManager : MonoBehaviour
                 copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
                 copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
                 copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
-                copiedEventCollision2D.m_PressButton = originEventCollision2D.m_PressButton;
+            }
+            else if(m_SubLevel1Obstacles[i].GetComponent<EventTrigger2D>() != null)
+            {
+                gameObject.GetComponent<EdgeCollider2D>().isTrigger = true;
+                gameObject.AddComponent<EventTrigger2D>();
+
+                EventTrigger2D originEventCollision2D = m_SubLevel1Obstacles[i].GetComponent<EventTrigger2D>();
+                EventTrigger2D copiedEventCollision2D = gameObject.GetComponent<EventTrigger2D>();
+
+                copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
+                copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
+                copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
             }
 
             gameObject.SetActive(false);
