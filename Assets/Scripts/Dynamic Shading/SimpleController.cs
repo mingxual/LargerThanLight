@@ -147,9 +147,17 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
+            if (jumping)
+            {
+                float difference = collider.offset.y - colliderCenter.y;
+                if (difference > 0)
+                {
+                    transform.position += new Vector3(0, difference, 0);
+                }              
+                jumping = false;
+            }
             collider.offset = colliderCenter;
             collider.size = colliderSize;
-            jumping = false;
         }
         playerCenter = collider.offset;
         playerSize = collider.size;
