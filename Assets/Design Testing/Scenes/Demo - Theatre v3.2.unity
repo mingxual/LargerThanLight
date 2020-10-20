@@ -6090,6 +6090,7 @@ MonoBehaviour:
   SkiaSpawnSubLevel2: {fileID: 1481594326}
   luxControl: {fileID: 1359792202}
   skiaControl: {fileID: 1983527069}
+  MatricesManager: {fileID: 900638867}
 --- !u!4 &512948505
 Transform:
   m_ObjectHideFlags: 0
@@ -10713,6 +10714,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CopyObstacle: {fileID: 1877355423}
   m_FadeTime: 0.2
+--- !u!114 &900638867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5282030404641859066, guid: 2e1cc17e7eb4eee45931ad8d0853b9e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 145884884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68ebd6fbafb58a44b7eab87fb4da17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &903772520
 GameObject:
   m_ObjectHideFlags: 0

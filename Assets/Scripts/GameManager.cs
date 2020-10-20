@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     public LightController luxControl;
     public SimpleController skiaControl;
 
+    //Matrices Control
+    public DataOutput MatricesManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R))
         {
+            MatricesManager.Restart();           
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
