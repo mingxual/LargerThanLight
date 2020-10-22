@@ -18,6 +18,13 @@ public class DataOutput : MonoBehaviour
     float intervalTimer;
     public float interval = 1;
 
+    bool restart;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +45,22 @@ public class DataOutput : MonoBehaviour
 
         totalTimer = 0;
         intervalTimer = 0;
+
+        restart = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Skia == null)
+        {
+            Skia = FindObjectOfType<SimpleController>();
+        }
+        if (Lux == null)
+        {
+            Lux = FindObjectOfType<LightController>();
+        }
+
         totalTimer += Time.deltaTime;
         intervalTimer += Time.deltaTime;
         if(intervalTimer >= interval)
@@ -53,6 +71,14 @@ public class DataOutput : MonoBehaviour
                 + Lux.transform.position.x + ", " + Lux.transform.position.y + ", " + Lux.transform.position.z + ")";
             myText.Add(message);
             WriteIntoTxt(message);
+        }
+
+        if (restart)
+        {
+            string message = "Restart";
+            myText.Add(message);
+            WriteIntoTxt(message);
+            restart = false;
         }
     }
 
@@ -94,5 +120,10 @@ public class DataOutput : MonoBehaviour
     {
         ReadOutTxt();
         return myText;
+    }
+
+    public void Restart()
+    {
+        restart = true;
     }
 }

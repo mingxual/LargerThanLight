@@ -38,7 +38,7 @@ public class Obstacle : MonoBehaviour
         }
 
         Color materialColor = m_Material.color;
-        materialColor.a = Mathf.Lerp(.5f, 1f, (m_CurrFadeTime / m_FadeTime));
+        materialColor.a = Mathf.Lerp(.1f, 1f, (m_CurrFadeTime / m_FadeTime));
         m_Material.color = materialColor;
     }
 
