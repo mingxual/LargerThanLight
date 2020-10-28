@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LightFlicking : MonoBehaviour
 {
-    [SerializeField] private Light light;
-    // The time length of the subphase of one flicking period
-    [SerializeField] private float subphasePeriod;
-    // The time length of the flicking period
-    [SerializeField] private float flickingPeriod;
-    // The time length between flicking periods
-    [SerializeField] private float parseInterval;
+    [SerializeField] private new Light light;
     [SerializeField] private float minIntensity;
     [SerializeField] private float maxIntensity;
+
+    [Tooltip("How often the light changes its intensity")]
+    public float subphasePeriod;
+    
+    [Tooltip("How long the flicking action plays")]
+    public float flickingPeriod;
+
+    [Tooltip("How long there is a parse before the light starts to flick again")]
+    public float parseInterval;
 
     [Tooltip("How much to smooth out the randomness; lower values = sparks, higher = lantern")]
     public int smoothing = 5;
