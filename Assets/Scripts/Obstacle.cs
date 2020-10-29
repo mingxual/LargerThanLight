@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] GameObject m_CopyObstacle;
     Material m_Material;
     bool m_IsOccluded;
-    [SerializeField] float m_FadeTime;
+    float m_FadeTime = 0.4f;
     float m_CurrFadeTime;
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class Obstacle : MonoBehaviour
         }
 
         Color materialColor = m_Material.color;
-        materialColor.a = Mathf.Lerp(.1f, 1f, (m_CurrFadeTime / m_FadeTime));
+        materialColor.a = Mathf.Lerp(.4f, 1f, (m_CurrFadeTime / m_FadeTime));
         m_Material.color = materialColor;
     }
 
