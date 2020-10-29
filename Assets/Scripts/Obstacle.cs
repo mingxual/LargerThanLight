@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     Material m_Material;
     bool m_IsOccluded;
     float m_FadeTime = 0.4f;
+
     float m_CurrFadeTime;
     // Start is called before the first frame update
     void Start()
@@ -15,12 +16,18 @@ public class Obstacle : MonoBehaviour
         m_Material = m_CopyObstacle.GetComponent<MeshRenderer>().material;
         m_CurrFadeTime = 0f;
         m_IsOccluded = true;
+        m_FadeTime = .4f;
+    }
+
+    private void FixedUpdate()
+    {
+        m_IsOccluded = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if(m_IsOccluded)
+        if(!m_IsOccluded)
         {
             m_CurrFadeTime += Time.deltaTime;
             if (m_CurrFadeTime > m_FadeTime)

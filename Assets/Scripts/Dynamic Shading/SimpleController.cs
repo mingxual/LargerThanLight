@@ -39,11 +39,16 @@ public class SimpleController : MonoBehaviour
     bool isIn2D = true;
     public LayerMask wall2DLayermask;
     public LayerMask wall3DLayerMask;
+    public LayerMask obstacleLayerMask;
     [SerializeField] Camera m_CurrCamera;
     [SerializeField] float m_OcclusionAngle;
     Vector3 m_WorldPosition3D;
     Wall2D m_CurrWall2D;
     Wall3D m_CurrWall3D;
+    Vector3 m_WorldTopRight;
+    Vector3 m_WorldTopLeft;
+    Vector3 m_WorldBottomRight;
+    Vector3 m_WorldBottomLeft;
 
     private void Awake()
     {
@@ -199,9 +204,21 @@ public class SimpleController : MonoBehaviour
     void SetWorldPosition3D()
     {
         Vector3 worldPosition = Vector3.zero; // change this(?)
+        float sizeX = collider.bounds.size.x/2;
+        float sizeY = collider.bounds.size.y/2;
+        m_WorldPosition3D = GetWorldPosition(transform.position);
+        m_WorldTopRight = GetWorldPosition(transform.position + Vector3.right * sizeX + Vector3.up * sizeY);
+        m_WorldTopLeft = GetWorldPosition(transform.position + Vector3.left * sizeX + Vector3.up * sizeY);
+        m_WorldBottomRight = GetWorldPosition(transform.position + Vector3.right * sizeX + Vector3.down * sizeY);
+        m_WorldBottomLeft = GetWorldPosition(transform.position + Vector3.left * sizeX + Vector3.down * sizeY);
+        return;
+    }
+
+    Vector3 GetWorldPosition(Vector3 point)
+    {
         RaycastHit hitInfo;
-        bool hitWall2D = Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 100f, wall2DLayermask, QueryTriggerInteraction.Collide);
-        if(hitWall2D)
+        bool hitWall2D = Physics.Raycast(point, Vector3.forward, out hitInfo, 100f, wall2DLayermask, QueryTriggerInteraction.Collide);
+        if (hitWall2D)
         {
             Wall2D newWall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
             if (!m_CurrWall2D || (m_CurrWall2D != newWall2D))
@@ -210,17 +227,41 @@ public class SimpleController : MonoBehaviour
                 m_CurrWall3D = m_CurrWall2D.wall3D.GetComponent<Wall3D>();
             }
 
-            worldPosition = m_CurrWall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+            point = m_CurrWall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
         }
-        m_WorldPosition3D = worldPosition;
-        return;
+        return point;
     }
 
     private List<Obstacle> obstacleCache = new List<Obstacle>();
 
     void OccludeObjects()
     {
-        foreach(Obstacle obs in obstacleCache)
+        Vector3 topRightToCam = m_CurrCamera.transform.position - m_WorldTopRight;
+        Vector3 topLeftToCam = m_CurrCamera.transform.position - m_WorldTopLeft;
+        Vector3 bottomRightToCam = m_CurrCamera.transform.position - m_WorldBottomRight;
+        Vector3 bottomLeftToCam = m_CurrCamera.transform.position - m_WorldBottomLeft;
+        Debug.DrawLine(m_WorldTopLeft, m_WorldTopLeft + topLeftToCam);
+        Debug.DrawLine(m_WorldTopRight, m_WorldTopRight + topRightToCam);
+        Debug.DrawLine(m_WorldBottomRight, m_WorldBottomRight + bottomRightToCam);
+        Debug.DrawLine(m_WorldBottomLeft, m_WorldBottomLeft + bottomLeftToCam);
+        RaycastHit hitInfo;
+        if(Physics.Raycast(m_WorldTopRight, topRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        {
+            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+        }
+        if (Physics.Raycast(m_WorldTopLeft, topLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        {
+            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+        }
+        if (Physics.Raycast(m_WorldBottomRight, bottomRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        {
+            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+        }
+        if (Physics.Raycast(m_WorldBottomLeft, bottomLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        {
+            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+        }
+        /*foreach (Obstacle obs in obstacleCache)
         {
             obs.Occlude();
         }
@@ -230,12 +271,12 @@ public class SimpleController : MonoBehaviour
         foreach (RaycastHit hit in hits)
         {
             Obstacle obs = hit.transform.GetComponent<Obstacle>();
-            if(obs != null)
+            if (obs != null)
             {
                 obs.NonOcclude();
                 obstacleCache.Add(obs);
             }
-        }
+        }*/
         /*
         for (int i = 0; i < GameManager.m_Obstacles.Count; i++)
         {

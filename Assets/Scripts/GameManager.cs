@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
         PhysicsMaterial2D physicsMaterial = new PhysicsMaterial2D();
         physicsMaterial.name = "Edge collider physics material";
-        physicsMaterial.friction = 0.0f;
+        physicsMaterial.friction = 1.0f;
         physicsMaterial.bounciness = 0.0f;
 
         //Create pool of gameobjects and store edge colliders
