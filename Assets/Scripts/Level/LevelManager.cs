@@ -13,10 +13,12 @@ public class LevelManager : MonoBehaviour
 
     public string m_LevelNamePrefix = "SUBLEVEL";
 
+    [System.Serializable]
     public struct SubLevel
     {
         public GameObject[] m_AllObjects;
         public Wall3D[] m_AllWalls;
+        public WallMerge[] m_AllWallMerges;
         public bool m_IsActivated;
         public int m_ID;
     }
@@ -32,7 +34,8 @@ public class LevelManager : MonoBehaviour
             if(rootObjects[i].name == (m_LevelNamePrefix + " " + sublevelCount.ToString()))
             {
                 SubLevel sublevel = new SubLevel();
-                
+                sublevel.m_AllWalls = rootObjects[i].transform.GetComponentsInChildren<Wall3D>();
+                sublevel.m_AllWallMerges = rootObjects[i].transform.GetComponentsInChildren<WallMerge>();
             }
         }
     }
