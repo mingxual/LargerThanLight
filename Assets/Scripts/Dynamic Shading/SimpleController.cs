@@ -106,15 +106,15 @@ public class SimpleController : MonoBehaviour
             //SwitchRealm();
         }
 
-        if (isIn2D)
-        {
-            //Check if player is squished
-            bool isSquished = CheckIfSquished();
-            if (isSquished)
-            {
-                ResetPlayer();
-            }
-        }
+        //if (isIn2D)
+        //{
+        //    //Check if player is squished
+        //    bool isSquished = CheckIfSquished();
+        //    if (isSquished)
+        //    {
+        //        ResetPlayer();
+        //    }
+        //}
 
         //CheckObjectBlocking();
     }
@@ -169,6 +169,9 @@ public class SimpleController : MonoBehaviour
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
         squishDistance = playerSize.x * 0.5f;
 
+        //SafeColliders();
+        SafeTrackPosition();
+
         rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
         if(movementDirection == 0)
         {
@@ -185,6 +188,8 @@ public class SimpleController : MonoBehaviour
             rb.gravityScale = fallMultiplier;
         else
             rb.gravityScale = defaultMultiplier;
+        if (grounded)
+            rb.gravityScale = 0;
     }
 
     void ResetPlayer()
@@ -203,14 +208,14 @@ public class SimpleController : MonoBehaviour
 
     void SetWorldPosition3D()
     {
-        Vector3 worldPosition = Vector3.zero; // change this(?)
-        float sizeX = collider.bounds.size.x/2;
-        float sizeY = collider.bounds.size.y/2;
-        m_WorldPosition3D = GetWorldPosition(transform.position);
-        m_WorldTopRight = GetWorldPosition(transform.position + Vector3.right * sizeX + Vector3.up * sizeY);
-        m_WorldTopLeft = GetWorldPosition(transform.position + Vector3.left * sizeX + Vector3.up * sizeY);
-        m_WorldBottomRight = GetWorldPosition(transform.position + Vector3.right * sizeX + Vector3.down * sizeY);
-        m_WorldBottomLeft = GetWorldPosition(transform.position + Vector3.left * sizeX + Vector3.down * sizeY);
+        float sizeX = playerSize.x / 2;
+        float sizeY = playerSize.y / 2;
+        Vector3 skiaPosition = transform.position + (Vector3)playerCenter;
+        m_WorldPosition3D = GetWorldPosition(skiaPosition);
+        m_WorldTopRight = GetWorldPosition(skiaPosition + Vector3.right * sizeX + Vector3.up * sizeY);
+        m_WorldTopLeft = GetWorldPosition(skiaPosition + Vector3.left * sizeX + Vector3.up * sizeY);
+        m_WorldBottomRight = GetWorldPosition(skiaPosition + Vector3.right * sizeX + Vector3.down * sizeY);
+        m_WorldBottomLeft = GetWorldPosition(skiaPosition + Vector3.left * sizeX + Vector3.down * sizeY);
         return;
     }
 
@@ -411,6 +416,108 @@ public class SimpleController : MonoBehaviour
             ret = true;
         }
         return ret;
+    }
+
+    bool SafeColliders()
+    {
+        Vector2 center = (Vector2)transform.position + playerCenter;
+        float xDist = playerSize.x * 0.5f;
+        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y - rayboxDistance), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y - rayboxDistance), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
+            return true;
+
+        if (collideLeft)
+        {
+            if (collideLeft.distance < xDist)
+            {
+                transform.Translate(Vector2.right * (xDist - collideLeft.distance));
+            }
+        }
+
+        if (collideRight)
+        {
+            if (collideRight.distance < xDist)
+            {
+                transform.Translate(Vector2.left * (xDist - collideRight.distance));
+            }
+        }
+        return false;
+    }
+
+    Vector2 pastPosition;
+    public float thresholdDistance = 0.1f;
+    bool trackPosition = false;
+    void SafeTrackPosition()
+    {
+        Vector2 currPosition = (Vector2)transform.position + playerCenter;
+        //print(GameManager.edgeCollider2DPool.Count);
+
+        if (ColliderOverlap(currPosition))
+        {
+            print("reset due to overlapping shadows");
+            ResetPlayer();
+        }    
+
+        ////if (trackPosition)
+        ////{
+        ////    if (Vector2.Distance(currPosition, pastPosition) > thresholdDistance)
+        ////    {
+        ////        if (Physics2D.OverlapBox(currPosition, new Vector2(playerSize.x - rayboxDistance, playerSize.y - rayboxDistance), 0, mask))
+        ////        //if (Physics2D.OverlapPoint(currPosition, mask))
+        ////        {
+        ////            transform.Translate((pastPosition - currPosition));
+        ////            print("adjust for overlapping shadow");
+        ////        }
+        ////    }
+        ////}
+        ////else
+        ////{
+        ////    trackPosition = true;
+        ////}
+
+
+        //if (Physics2D.OverlapBox(currPosition, new Vector2(playerSize.x / 3, playerSize.y / 3), 0, mask))
+        //{
+        //    ResetPlayer();
+        //    print("reset due to overlapping shadows");
+        //}
+        ////else if (Physics2D.Raycast(currPosition + playerCenter, Vector2.right, squishDistance, mask)
+        ////    && Physics2D.Raycast(currPosition + playerCenter, Vector2.left, squishDistance, mask))
+        ////{
+        ////    ResetPlayer();
+        ////    print("reset due to raycasting squish");
+        ////}
+
+        //pastPosition = (Vector2)transform.position + playerCenter;
+    }
+
+    bool ColliderOverlap(Vector2 position)
+    {
+        foreach (EdgeCollider2D collider in GameManager.edgeCollider2DPool)
+        {
+            bool success = true;
+            Vector2[] cPoints = collider.points;
+            int k = 0;
+            for (int i = 0; i < cPoints.Length - 1; i++)
+            {
+                float dp = Vector2.Dot(new Vector2(cPoints[i].y - cPoints[i + 1].y, cPoints[i + 1].x - cPoints[i].x), position - cPoints[i]);
+                if (k == 0)
+                    k = dp > 0 ? 1 : -1;
+                else if ((dp > 0 ? 1 : -1) != k)
+                {
+                    success = false;
+                    break;
+                }
+            }
+            if (success)
+            {
+                //print("skia overlapping shadow " + collider);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void ChangeCollider(Vector2 center, float width, float height)
