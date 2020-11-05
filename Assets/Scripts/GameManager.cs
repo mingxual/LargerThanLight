@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     //TODO: clean this up; add proper organization
     public GameObject[] m_SubLevel1Obstacles;
     public GameObject[] m_SubLevel2Obstacles;
+    //public GameObject[] m_SubLevel3Obstacles;
     public GameObject originWallSubLevel1;
     public GameObject m_SubLevel1Object;
     public Wall3D m_SubLevel1Wall3D;
