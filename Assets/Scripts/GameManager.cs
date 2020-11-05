@@ -88,8 +88,10 @@ public class GameManager : MonoBehaviour
             gameObject.layer = 10;
             gameObject.transform.SetParent(gameObjectParent.transform);
             gameObject.transform.position = gameObjectParent.transform.position;
+            //gameObject.AddComponent<ShadowMoveSkia>();
+            gameObject.tag = "Shadow";
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
-            edgeCollider2D.sharedMaterial = physicsMaterial;
+            edgeCollider2D.sharedMaterial = physicsMaterial;            
             edgeCollider2DPool.Add(edgeCollider2D);
 
             if(m_SubLevel1Obstacles[i].GetComponent<EventCollision2D>() != null)
@@ -204,6 +206,8 @@ public class GameManager : MonoBehaviour
             gameObject.layer = 10;
             gameObject.transform.SetParent(gameObjectParent.transform);
             gameObject.transform.position = gameObjectParent.transform.position;
+            //gameObject.AddComponent<ShadowMoveSkia>();
+            gameObject.tag = "Shadow";
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
             edgeCollider2D.sharedMaterial = physicsMaterial;
             edgeCollider2DPool.Add(edgeCollider2D);

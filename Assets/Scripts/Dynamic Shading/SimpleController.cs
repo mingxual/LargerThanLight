@@ -50,6 +50,12 @@ public class SimpleController : MonoBehaviour
     Vector3 m_WorldBottomRight;
     Vector3 m_WorldBottomLeft;
 
+    //Move Skia with shadows
+    Vector2 lastFrameVelocity;
+    public Collider2D testCollider;
+    public float ratio;
+    public Vector3 newPos;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -190,6 +196,28 @@ public class SimpleController : MonoBehaviour
             rb.gravityScale = defaultMultiplier;
         if (grounded)
             rb.gravityScale = 0;
+
+        /*
+        //move Skia with shadow          
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
+        if ((hit.collider != null) && (hit.collider.tag == "Shadow"))//stand on shadow
+        {
+            testCollider = hit.collider;
+            //if (lastFrameVelocity.x != 0)
+            //{
+
+            //}
+            if (grounded && (rb.velocity.x == 0))
+            {
+                newPos = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point, ratio);
+                rb.position = new Vector2(newPos.x, transform.position.y);
+            }
+            else
+            {
+                ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
+            }
+        }*/
+        //lastFrameVelocity = rb.velocity;
     }
 
     void ResetPlayer()
