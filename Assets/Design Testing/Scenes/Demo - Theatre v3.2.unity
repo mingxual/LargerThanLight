@@ -4544,6 +4544,7 @@ GameObject:
   - component: {fileID: 327552567}
   - component: {fileID: 327552569}
   - component: {fileID: 327552571}
+  - component: {fileID: 327552570}
   m_Layer: 0
   m_Name: --- SPOT LIGHT ---
   m_TagString: Untagged
@@ -4645,6 +4646,18 @@ MonoBehaviour:
   m_ShowSpotlightRaycasts: 1
   m_CreateSpotlight: 0
   m_ShowObjectRaycasts: 1
+--- !u!114 &327552570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327552566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d88dcd435ddc8448c182ae01da1a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &327552571
 MonoBehaviour:
   m_ObjectHideFlags: 0
