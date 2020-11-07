@@ -106,7 +106,17 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.PlayOnce(0,place);
-        
+    }
+
+    public void PlayOnceNoPlace(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + " not found");
+            return;
+        }
+        s.source.PlayOneShot(s.source.clip);
     }
 
     public void PlayMusic(string name)
