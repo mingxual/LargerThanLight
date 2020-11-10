@@ -172,11 +172,11 @@ public class LightController : MonoBehaviour
     {
         if(climbDir == 1)
         {
-            //anim.Play("ClimbUp");
+            anim.Play("ClimbUp");
         }
         else
         {
-            //anim.Play("ClimbDown");
+            anim.Play("ClimbDown");
         }
     }
 
