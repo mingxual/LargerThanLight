@@ -864,8 +864,8 @@ GameObject:
   - component: {fileID: 43260210}
   - component: {fileID: 43260209}
   m_Layer: 0
-  m_Name: Cube (10)
-  m_TagString: Untagged
+  m_Name: TouchDown
+  m_TagString: TouchDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -892,11 +892,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43260207}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 5}
+  m_Center: {x: 0, y: -3, z: -0.5}
 --- !u!23 &43260210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5066,8 +5066,8 @@ GameObject:
   - component: {fileID: 360975975}
   - component: {fileID: 360975974}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: TouchUp
+  m_TagString: TouchUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5094,11 +5094,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360975972}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4, z: 8}
+  m_Center: {x: 0, y: 8, z: -0.5}
 --- !u!23 &360975975
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12627,7 +12627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &926734318
 Transform:
   m_ObjectHideFlags: 0
@@ -12752,8 +12752,8 @@ GameObject:
   - component: {fileID: 945425416}
   - component: {fileID: 945425415}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: TouchUp
+  m_TagString: TouchUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12780,11 +12780,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945425413}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4, z: 8}
+  m_Center: {x: 0, y: 8, z: -0.5}
 --- !u!23 &945425416
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16978,6 +16978,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1199821604}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1199821606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3606043918534637613, guid: 453e078d361f4374088a9d7c80fa35ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1199821604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1199821607 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4695795086921588864, guid: 453e078d361f4374088a9d7c80fa35ff,
@@ -19325,6 +19331,9 @@ MonoBehaviour:
   moveSpeed: 4
   anim: {fileID: 1199821607}
   luxModel: {fileID: 1199821605}
+  runningTransform: {fileID: 1199821606}
+  currLadder: {fileID: 0}
+  currLadder_collider_center: {x: 0, y: 0, z: 0}
 --- !u!54 &1359792203
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19339,7 +19348,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!135 &1359792204
 SphereCollider:
@@ -23771,8 +23780,8 @@ GameObject:
   - component: {fileID: 1595073903}
   - component: {fileID: 1595073902}
   m_Layer: 0
-  m_Name: Cube (10)
-  m_TagString: Untagged
+  m_Name: TouchDown
+  m_TagString: TouchDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23799,11 +23808,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595073900}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 5}
+  m_Center: {x: 0, y: -3, z: -0.5}
 --- !u!23 &1595073903
 MeshRenderer:
   m_ObjectHideFlags: 0
