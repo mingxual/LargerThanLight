@@ -51,10 +51,9 @@ public class SimpleController : MonoBehaviour
     Vector3 m_WorldBottomLeft;
 
     //Move Skia with shadows
-    Vector2 lastFrameVelocity;
-    public Collider2D testCollider;
-    public float ratio;
-    public Vector3 newPos;
+    public bool moveWithShadow;
+    Collider2D testCollider;
+    float ratio;
 
     private void Awake()
     {
@@ -197,27 +196,30 @@ public class SimpleController : MonoBehaviour
         if (grounded)
             rb.gravityScale = 0;
 
-        /*
-        //move Skia with shadow          
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-        if ((hit.collider != null) && (hit.collider.tag == "Shadow"))//stand on shadow
-        {
-            testCollider = hit.collider;
-            //if (lastFrameVelocity.x != 0)
-            //{
 
-            //}
-            if (grounded && (rb.velocity.x == 0))
+        //move Skia with shadow
+        if (moveWithShadow)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+            if ((hit.collider != null) && (hit.collider.tag == "Shadow"))//stand on shadow
             {
-                newPos = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point, ratio);
-                rb.position = new Vector2(newPos.x, transform.position.y);
+                testCollider = hit.collider;
+
+                if (grounded)
+                {
+                    if (rb.velocity.x == 0)
+                    {
+                        float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
+                        rb.position += new Vector2(displacement - transform.position.x, 0);
+                    }
+                    else
+                    {
+                        ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
+                    }
+                }
             }
-            else
-            {
-                ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
-            }
-        }*/
-        //lastFrameVelocity = rb.velocity;
+        }
+
     }
 
     void ResetPlayer()
