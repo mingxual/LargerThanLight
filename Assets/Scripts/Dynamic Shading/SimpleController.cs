@@ -52,8 +52,8 @@ public class SimpleController : MonoBehaviour
 
     //Move Skia with shadows
     public bool moveWithShadow;
-    Collider2D testCollider;
-    float ratio;
+    public Collider2D testCollider;
+    public float ratio;
 
     private void Awake()
     {
@@ -205,17 +205,14 @@ public class SimpleController : MonoBehaviour
             {
                 testCollider = hit.collider;
 
-                if (grounded)
+                if (grounded && rb.velocity.x == 0)
                 {
-                    if (rb.velocity.x == 0)
-                    {
-                        float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
-                        rb.position += new Vector2(displacement - transform.position.x, 0);
-                    }
-                    else
-                    {
-                        ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
-                    }
+                    float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
+                    rb.position += new Vector2(displacement - transform.position.x, 0);
+                }
+                else
+                {
+                    ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
                 }
             }
         }

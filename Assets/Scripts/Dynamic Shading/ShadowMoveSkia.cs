@@ -31,6 +31,7 @@ public class ShadowMoveSkia : MonoBehaviour
         GetLines(point);
         //Vector2 position = points[vertexX] + (points[vertexY] - points[vertexX]) * ratio;
         float displacement = left + (right - left) * ratio;
+        Debug.DrawLine(points[vertexX], points[vertexY], Color.white);
         return displacement;
     }
 
@@ -77,11 +78,13 @@ public class ShadowMoveSkia : MonoBehaviour
             if (points[i].x < leftMost.x)
             {
                 leftMost = points[i];
+                vertexX = i;
             }
 
             if(points[i].x > rightMost.x)
             {
                 rightMost = points[i];
+                vertexY = i;
             }
         }
 
