@@ -26,6 +26,8 @@ public class LightController : MonoBehaviour
     public GameObject currLadder;
     public Vector3 currLadder_collider_center;
 
+    public CameraSwitch cameraSwitch;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,7 +38,7 @@ public class LightController : MonoBehaviour
         movementDirection = Vector3.zero;
         luxControlsActivated = false;
 
-        if(isTouch && climbDir != 0 && Input.GetKeyDown(KeyCode.C))
+        if(isTouch && climbDir != 0 && Input.GetAxis("Interaction") > 0.8f)
         {
 
             currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
@@ -49,6 +51,11 @@ public class LightController : MonoBehaviour
 
             isClimb = true;
             StartCoroutine("PlayAnim");
+
+            if (cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
+            {
+                cameraSwitch.ChangeToCamera(0);
+            }
         }
 
         if(isClimb)
@@ -125,6 +132,11 @@ public class LightController : MonoBehaviour
                 anim.SetBool("TouchUp", true);
                 climbDir = 0;
                 isClimb = false;
+
+                if(cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
+                {
+                    cameraSwitch.ChangeToCamera(1);
+                }
             }
             else if(!isClimb)
             {
