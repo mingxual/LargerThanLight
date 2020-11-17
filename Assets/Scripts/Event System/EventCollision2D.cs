@@ -31,14 +31,14 @@ public class EventCollision2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isCollided && !m_IsTriggering && Input.GetKeyDown(KeyCode.P))
+        if(isCollided && !m_IsTriggering && Input.GetAxis("Interaction") > 0.8f)
         {
             m_IsTriggering = true;
-            Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
+            // Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
             EventsManager.instance.InvokeEvent(m_EventKey);
 
             //audio added
-            AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
+            // AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
         }
 
         if(Time.time - m_Timer > 0.5f)
@@ -50,7 +50,6 @@ public class EventCollision2D : MonoBehaviour
     
     public void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("On Stay");
         if(m_TriggerObject != null)
         {
             if(m_TriggerObject == collision.gameObject && !m_IsTriggering)

@@ -212,6 +212,31 @@ public class GameManager : MonoBehaviour
             EdgeCollider2D edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
             edgeCollider2D.sharedMaterial = physicsMaterial;
             edgeCollider2DPool.Add(edgeCollider2D);
+
+            if (gameobjectsToAdd[i].GetComponent<EventCollision2D>() != null)
+            {
+                gameObject.AddComponent<EventCollision2D>();
+
+                EventCollision2D originEventCollision2D = gameobjectsToAdd[i].GetComponent<EventCollision2D>();
+                EventCollision2D copiedEventCollision2D = gameObject.GetComponent<EventCollision2D>();
+
+                copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
+                copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
+                copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
+            }
+            else if (gameobjectsToAdd[i].GetComponent<EventTrigger2D>() != null)
+            {
+                gameObject.GetComponent<EdgeCollider2D>().isTrigger = true;
+                gameObject.AddComponent<EventTrigger2D>();
+
+                EventTrigger2D originEventCollision2D = gameobjectsToAdd[i].GetComponent<EventTrigger2D>();
+                EventTrigger2D copiedEventCollision2D = gameObject.GetComponent<EventTrigger2D>();
+
+                copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
+                copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
+                copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
+            }
+
             gameObject.SetActive(false);
             gameObjectPool.Add(gameObject);
         }
