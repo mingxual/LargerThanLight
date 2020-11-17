@@ -104,7 +104,7 @@ public class DynamicShadowCollision : MonoBehaviour
                     else
                     {
                         m_CurrConvexedPoints2D.Add(convexedPoints[j]);
-                        m_CurrConvexedPoints2D.Add(convexedPoints[j + 1]);
+                        //m_CurrConvexedPoints2D.Add(convexedPoints[j + 1]);
                     }
                     //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                 }
