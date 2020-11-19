@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraSwitch : MonoBehaviour
 {
     public List<GameObject> cameraPoses;
-    private int curIndex = -1;
+    public GameObject originCamera;
+    public float transitionTime;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +20,16 @@ public class CameraSwitch : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        LeanTween.move(originCamera, cameraPoses[0].transform.position, transitionTime);
+    }
+
     public void ChangeToCamera(int index)
     {
-        if(curIndex >= 0)
+        if(index >= 0)
         {
-            cameraPoses[curIndex].SetActive(false);
-        }
-
-        curIndex = index;
-
-        if(curIndex >= 0)
-        {
-            cameraPoses[curIndex].SetActive(true);
+            LeanTween.move(originCamera, cameraPoses[index].transform.position, transitionTime);
         }
     }
 }
