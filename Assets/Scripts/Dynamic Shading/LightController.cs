@@ -54,7 +54,14 @@ public class LightController : MonoBehaviour
 
             if (cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
             {
-                cameraSwitch.ChangeToCamera(0);
+                if (climbDir == 1)
+                {
+                    cameraSwitch.ChangeToCamera(1);
+                }
+                else if (climbDir == 2)
+                {
+                    cameraSwitch.ChangeToCamera(0);
+                }
             }
         }
 
@@ -132,11 +139,6 @@ public class LightController : MonoBehaviour
                 anim.SetBool("TouchUp", true);
                 climbDir = 0;
                 isClimb = false;
-
-                if(cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
-                {
-                    cameraSwitch.ChangeToCamera(1);
-                }
             }
             else if(!isClimb)
             {
