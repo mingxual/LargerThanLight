@@ -14,7 +14,7 @@ public class LightController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 movementDirection;
-    private bool luxControlsActivated;
+    public static bool luxControlsActivated;
 
     private bool isClimb = false;
     private bool isTouch = false;
@@ -76,7 +76,6 @@ public class LightController : MonoBehaviour
                 movementDirection.y = -1;
             }
             luxControlsActivated = true;
-
             return;
         }
 
