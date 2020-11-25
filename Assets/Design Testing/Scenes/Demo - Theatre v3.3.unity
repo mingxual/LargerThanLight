@@ -13697,6 +13697,18 @@ PrefabInstance:
     - {fileID: 0}
     - {fileID: 7989988013143760939, guid: 9974e985b4b36b340a78d835a16a34ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9974e985b4b36b340a78d835a16a34ea, type: 3}
+--- !u!114 &1039880474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7989988013143760940, guid: 9974e985b4b36b340a78d835a16a34ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1039880473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766214073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1044939870
 GameObject:
   m_ObjectHideFlags: 0
@@ -20340,6 +20352,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Curtain_Open
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 698134687}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
@@ -28736,7 +28759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1046351291}
+  selectedFlowchart: {fileID: 1039880474}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
