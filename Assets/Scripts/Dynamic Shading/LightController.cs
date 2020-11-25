@@ -105,18 +105,24 @@ public class LightController : MonoBehaviour
     {
         if(movementDirection == Vector3.zero)
         {
-            rb.velocity = Vector3.zero;
-            if(!luxControlsActivated)
+            rb.velocity = new Vector3(0f, -1f, 0f);
+            if (!luxControlsActivated)
                anim.SetBool("Moving", false);
             return;
         }
 
         rb.velocity = movementDirection.normalized * moveSpeed;
-        // Make sure Lux does not look upward or downward
-        movementDirection.y = 0;
-        if (movementDirection != Vector3.zero)
+        if (movementDirection.y == 0)
         {
-            luxModel.LookAt(luxModel.position + movementDirection);
+            rb.velocity = new Vector3(rb.velocity.x, -1f, rb.velocity.z);
+        }
+
+        // Make sure Lux does not look upward or downward
+        Vector3 sightDirection = movementDirection;
+        sightDirection.y = 0f;
+        if (sightDirection != Vector3.zero)
+        {
+            luxModel.LookAt(luxModel.position + sightDirection);
             anim.SetBool("Moving", true);
         }
     }
@@ -156,7 +162,7 @@ public class LightController : MonoBehaviour
                 Vector3 curr_position = transform.position;
                 curr_position.x = currLadder_collider_center.x;
                 // Move in a little bit to land on the platform
-                curr_position.y -= 1f;
+                // curr_position.y -= 1f;
                 curr_position.z = currLadder_collider_center.z - 0.25f;
                 transform.position = curr_position;
 
