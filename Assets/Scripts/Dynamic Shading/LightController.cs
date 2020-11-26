@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LightController : MonoBehaviour
 {
@@ -13,7 +14,19 @@ public class LightController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 movementDirection;
-    private bool luxControlsActivated;
+    public static bool luxControlsActivated;
+
+    private bool isClimb = false;
+    private bool isTouch = false;
+    // integer to denote the direction
+    // 0 no move, 1 up, 2 down
+    private int climbDir = 0;
+
+    [SerializeField] private GameObject runningTransform;
+    public GameObject currLadder;
+    public Vector3 currLadder_collider_center;
+
+    public CameraSwitch cameraSwitch;
 
     private void Awake()
     {
@@ -24,6 +37,48 @@ public class LightController : MonoBehaviour
     {
         movementDirection = Vector3.zero;
         luxControlsActivated = false;
+
+        if(isTouch && climbDir != 0 && Input.GetAxis("Interaction") > 0.8f)
+        {
+
+            currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
+            Vector3 curr_position = transform.position;
+            curr_position.x = currLadder_collider_center.x;
+            curr_position.z = currLadder_collider_center.z;
+            transform.position = curr_position;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            runningTransform.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            isClimb = true;
+            PlayAnim();
+
+            if (cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
+            {
+                if (climbDir == 1)
+                {
+                    cameraSwitch.ChangeToCamera(1);
+                }
+                else if (climbDir == 2)
+                {
+                    cameraSwitch.ChangeToCamera(0);
+                }
+            }
+        }
+
+        if(isClimb)
+        {
+            if (climbDir == 1)
+            {
+                movementDirection.y = 1;
+            }
+            else
+            {
+                movementDirection.y = -1;
+            }
+            luxControlsActivated = true;
+            return;
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             movementDirection.x -= 1;
@@ -50,15 +105,99 @@ public class LightController : MonoBehaviour
     {
         if(movementDirection == Vector3.zero)
         {
-            rb.velocity = Vector3.zero;
-            if(!luxControlsActivated)
-                anim.SetBool("Moving", false);
+            rb.velocity = new Vector3(0f, -1f, 0f);
+            if (!luxControlsActivated)
+               anim.SetBool("Moving", false);
             return;
         }
 
         rb.velocity = movementDirection.normalized * moveSpeed;
-        luxModel.LookAt(luxModel.position + movementDirection);
-        anim.SetBool("Moving", true);
+        if (movementDirection.y == 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, -1f, rb.velocity.z);
+        }
+
+        // Make sure Lux does not look upward or downward
+        Vector3 sightDirection = movementDirection;
+        sightDirection.y = 0f;
+        if (sightDirection != Vector3.zero)
+        {
+            luxModel.LookAt(luxModel.position + sightDirection);
+            anim.SetBool("Moving", true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "TouchUp")
+        {
+            currLadder = other.gameObject;
+            if (isClimb && climbDir == 1)
+            {
+                // Set the position
+                currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
+                Vector3 curr_position = transform.position;
+                curr_position.x = currLadder_collider_center.x;
+                // Move in a little bit to land on the platform
+                curr_position.z = currLadder_collider_center.z + 1.5f;
+                transform.position = curr_position;
+
+                anim.SetBool("TouchUp", false);
+                climbDir = 0;
+                isClimb = false;
+            }
+            else if(!isClimb)
+            {
+                // anim.SetBool("TouchDown", false);
+                climbDir = 2;
+            }
+        }
+        else if(other.tag == "TouchDown")
+        {
+            currLadder = other.gameObject;
+            if (isClimb && climbDir == 2)
+            {
+                // Set the position
+                currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
+                Vector3 curr_position = transform.position;
+                curr_position.x = currLadder_collider_center.x;
+                // Move in a little bit to land on the platform
+                // curr_position.y -= 1f;
+                curr_position.z = currLadder_collider_center.z - 0.25f;
+                transform.position = curr_position;
+
+                anim.SetBool("TouchDown", false);
+                climbDir = 0;
+                isClimb = false;
+            }
+            else if (!isClimb)
+            {
+                // anim.SetBool("TouchUp", false);
+                climbDir = 1;
+            }
+        }
+
+        isTouch = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "TouchUp" || other.tag == "TouchDown")
+        {
+            isTouch = false;
+        }
+    }
+
+    void PlayAnim()
+    {
+        if(climbDir == 1)
+        {
+            anim.SetBool("TouchUp", true);
+        }
+        else
+        {
+            anim.SetBool("TouchDown", true);
+        }
     }
 
     //void Update()

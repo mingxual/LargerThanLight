@@ -37,7 +37,12 @@ public class DynamicShadowCollision : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(!GameManager.hasResettedColliderPool)
+        if (!LightController.luxControlsActivated)
+        {
+            return;
+        }
+
+        if (!GameManager.hasResettedColliderPool)
         {
             ResetGameObjectPool();
             GameManager.hasResettedColliderPool = true;
@@ -104,7 +109,7 @@ public class DynamicShadowCollision : MonoBehaviour
                     else
                     {
                         m_CurrConvexedPoints2D.Add(convexedPoints[j]);
-                        m_CurrConvexedPoints2D.Add(convexedPoints[j + 1]);
+                        //m_CurrConvexedPoints2D.Add(convexedPoints[j + 1]);
                     }
                     //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                 }
