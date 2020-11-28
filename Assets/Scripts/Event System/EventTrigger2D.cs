@@ -14,6 +14,9 @@ public class EventTrigger2D : MonoBehaviour
     // The current event can be triggered once or unlimited times
     public bool m_TriggerOnlyOnce;
 
+    // If the trigger is a spawnpoint set for Skia
+    public bool m_SpawnpointTrigger;
+
     private bool m_HasTriggered;
     private bool m_IsTriggering;
 
@@ -39,11 +42,15 @@ public class EventTrigger2D : MonoBehaviour
                 if(m_TriggerOnlyOnce && !m_HasTriggered)
                 {
                     EventsManager.instance.InvokeEvent(m_EventKey);
+                    if(m_SpawnpointTrigger)
+                        SetSpawnpoint(collision);
                     m_HasTriggered = true;
                 }
                 else if(!m_TriggerOnlyOnce)
                 {
                     EventsManager.instance.InvokeEvent(m_EventKey);
+                    if (m_SpawnpointTrigger)
+                        SetSpawnpoint(collision);
                 }
                 m_IsTriggering = true;
             }
@@ -67,6 +74,15 @@ public class EventTrigger2D : MonoBehaviour
         else
         {
             m_IsTriggering = false;
+        }
+    }
+
+    private void SetSpawnpoint(Collider2D collision)
+    {
+        if (collision.GetComponent<SimpleController>() && GetComponent<EdgeCollider2D>())
+        {
+            EdgeCollider2D ec = GetComponent<EdgeCollider2D>();
+            collision.GetComponent<SimpleController>().SetNewCheckpoint(ec.points[0]);
         }
     }
 }

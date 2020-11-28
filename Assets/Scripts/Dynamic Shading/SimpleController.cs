@@ -233,10 +233,9 @@ public class SimpleController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    public void SetNewCheckpoint(Transform t)
+    public void SetNewCheckpoint(Vector2 v)
     {
-        originalPosition = t.position;
-        originalRotation = t.rotation;
+        originalPosition = new Vector3(v.x, v.y, transform.position.z);
         rb.velocity = Vector2.zero;
     }
 

@@ -17,7 +17,7 @@ public class SpawnpointTrigger : MonoBehaviour
     {
         if (collision.GetComponent<SimpleController>())
         {
-            collision.GetComponent<SimpleController>().SetNewCheckpoint(transform);
+            collision.GetComponent<SimpleController>().SetNewCheckpoint(transform.position);
         }
     }
 }

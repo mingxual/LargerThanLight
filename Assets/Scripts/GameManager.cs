@@ -235,6 +235,7 @@ public class GameManager : MonoBehaviour
                 copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
                 copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
                 copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
+                copiedEventCollision2D.m_SpawnpointTrigger = originEventCollision2D.m_SpawnpointTrigger;
             }
 
             gameObject.SetActive(false);
