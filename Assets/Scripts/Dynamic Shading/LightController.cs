@@ -14,7 +14,7 @@ public class LightController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 movementDirection;
-    private bool luxControlsActivated;
+    public static bool luxControlsActivated;
 
     private bool isClimb = false;
     private bool isTouch = false;
@@ -50,7 +50,7 @@ public class LightController : MonoBehaviour
             runningTransform.transform.rotation = Quaternion.Euler(0, 0, 0);
 
             isClimb = true;
-            StartCoroutine("PlayAnim");
+            PlayAnim();
 
             if (cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
             {
@@ -105,18 +105,24 @@ public class LightController : MonoBehaviour
     {
         if(movementDirection == Vector3.zero)
         {
-            rb.velocity = Vector3.zero;
-            if(!luxControlsActivated)
+            rb.velocity = new Vector3(0f, -1f, 0f);
+            if (!luxControlsActivated)
                anim.SetBool("Moving", false);
             return;
         }
 
         rb.velocity = movementDirection.normalized * moveSpeed;
-        // Make sure Lux does not look upward or downward
-        movementDirection.y = 0;
-        if (movementDirection != Vector3.zero)
+        if (movementDirection.y == 0)
         {
-            luxModel.LookAt(luxModel.position + movementDirection);
+            rb.velocity = new Vector3(rb.velocity.x, -1f, rb.velocity.z);
+        }
+
+        // Make sure Lux does not look upward or downward
+        Vector3 sightDirection = movementDirection;
+        sightDirection.y = 0f;
+        if (sightDirection != Vector3.zero)
+        {
+            luxModel.LookAt(luxModel.position + sightDirection);
             anim.SetBool("Moving", true);
         }
     }
@@ -136,13 +142,13 @@ public class LightController : MonoBehaviour
                 curr_position.z = currLadder_collider_center.z + 1.5f;
                 transform.position = curr_position;
 
-                anim.SetBool("TouchUp", true);
+                anim.SetBool("TouchUp", false);
                 climbDir = 0;
                 isClimb = false;
             }
             else if(!isClimb)
             {
-                anim.SetBool("TouchDown", false);
+                // anim.SetBool("TouchDown", false);
                 climbDir = 2;
             }
         }
@@ -156,17 +162,17 @@ public class LightController : MonoBehaviour
                 Vector3 curr_position = transform.position;
                 curr_position.x = currLadder_collider_center.x;
                 // Move in a little bit to land on the platform
-                curr_position.y -= 1f;
+                // curr_position.y -= 1f;
                 curr_position.z = currLadder_collider_center.z - 0.25f;
                 transform.position = curr_position;
 
-                anim.SetBool("TouchDown", true);
+                anim.SetBool("TouchDown", false);
                 climbDir = 0;
                 isClimb = false;
             }
             else if (!isClimb)
             {
-                anim.SetBool("TouchUp", false);
+                // anim.SetBool("TouchUp", false);
                 climbDir = 1;
             }
         }
@@ -186,11 +192,11 @@ public class LightController : MonoBehaviour
     {
         if(climbDir == 1)
         {
-            anim.Play("ClimbUp");
+            anim.SetBool("TouchUp", true);
         }
         else
         {
-            anim.Play("ClimbDown");
+            anim.SetBool("TouchDown", true);
         }
     }
 
