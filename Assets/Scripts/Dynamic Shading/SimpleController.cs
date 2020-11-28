@@ -233,6 +233,13 @@ public class SimpleController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    public void SetNewCheckpoint(Transform t)
+    {
+        originalPosition = t.position;
+        originalRotation = t.rotation;
+        rb.velocity = Vector2.zero;
+    }
+
     void SetWorldPosition3D()
     {
         float sizeX = playerSize.x / 2;
