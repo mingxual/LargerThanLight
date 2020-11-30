@@ -41,7 +41,15 @@ public class EventCollision2D : MonoBehaviour
             // AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
         }
 
-        if(Time.time - m_Timer > 0.5f)
+        //dealing with UI hints
+        if (isCollided && !m_IsTriggering && m_EventKey == "CurtainUI" && Time.time - m_Timer > 0.49f)
+        {
+            m_IsTriggering = true;
+          
+            EventsManager.instance.InvokeEvent(m_EventKey);
+        }
+
+        if (Time.time - m_Timer > 0.5f)
         {
             isCollided = false;
         }
