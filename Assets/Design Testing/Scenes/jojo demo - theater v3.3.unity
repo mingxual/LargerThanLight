@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2341,6 +2341,7 @@ MonoBehaviour:
   m_EventKey: OpenDoor
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &137609885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3299,6 +3300,7 @@ MonoBehaviour:
   m_EventKey: GetExit
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &193542006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3423,6 +3425,7 @@ MonoBehaviour:
   m_EventKey: OpenDoor
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &209197776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7206,6 +7209,7 @@ MonoBehaviour:
   m_EventKey: GetExit
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &508126307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10219,6 +10223,7 @@ MonoBehaviour:
   m_EventKey: OpenDoor
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &683668395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17809,6 +17814,7 @@ MonoBehaviour:
   m_EventKey: GetExit
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &1222628478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21489,7 +21495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a013d51a91ba01340ae2efa8cca6261b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleKey: 256
 --- !u!114 &1447841324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24172,6 +24177,7 @@ MonoBehaviour:
   m_EventKey: PullCurtain
   m_TriggerObject: {fileID: 1327307194}
   m_TriggerOnlyOnce: 1
+  m_SpawnpointTrigger: 0
 --- !u!61 &1612947672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28214,7 +28220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a013d51a91ba01340ae2efa8cca6261b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleKey: 257
 --- !u!114 &1956804685
 MonoBehaviour:
   m_ObjectHideFlags: 0
