@@ -138,21 +138,28 @@ public class SimpleController : MonoBehaviour
         {
             Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
             grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
-        }
-        
+        }               
+
+        //SafeColliders();
+        SafeTrackPosition();
+
+        //fit collider with anim
         if (!grounded)
         {
-            
-            if(rb.velocity.y > 0)
+            float displace = 0.035f;
+            float animDisplace = 0.03f;
+            if (rb.velocity.y > 0)
             {
-                collider.offset += new Vector2(0, 0.05f);
+                collider.offset -= new Vector2(0, displace / 2);
+                anim.transform.position -= new Vector3(0, animDisplace, 0);
                 //collider.size += new Vector2(0.02f, -0.03f);
-                collider.size += new Vector2(0.00f, -0.03f);
+                collider.size -= new Vector2(0.00f, displace);
             }
-            else if(rb.velocity.y < 0 && jumping)
+            else if (rb.velocity.y < 0 && jumping)
             {
-                collider.offset -= new Vector2(0, 0.05f);
-                collider.size -= new Vector2(0, -0.03f);
+                collider.offset += new Vector2(0, displace / 2);
+                anim.transform.position += new Vector3(0, animDisplace, 0);
+                collider.size += new Vector2(0, displace);
             }
         }
         else
@@ -163,19 +170,17 @@ public class SimpleController : MonoBehaviour
                 if (difference > 0)
                 {
                     transform.position += new Vector3(0, difference, 0);
-                }              
+                }
                 jumping = false;
             }
             collider.offset = colliderCenter;
             collider.size = colliderSize;
+            anim.transform.position = transform.position;
         }
         playerCenter = collider.offset;
         playerSize = collider.size;
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
         squishDistance = playerSize.x * 0.5f;
-
-        //SafeColliders();
-        SafeTrackPosition();
 
         rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
         if(movementDirection == 0)
@@ -208,7 +213,11 @@ public class SimpleController : MonoBehaviour
                 if (grounded && rb.velocity.x == 0)
                 {
                     float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
-                    rb.position += new Vector2(displacement - transform.position.x, 0);
+                    displacement -= transform.position.x;
+                    //transform.position += new Vector3(displacement, 0);
+                    //rb.AddForce(new Vector2(displacement, 0) * 200f);
+                    displacement /= Time.fixedDeltaTime;
+                    rb.velocity = new Vector2(displacement, rb.velocity.y);
                 }
                 else
                 {
