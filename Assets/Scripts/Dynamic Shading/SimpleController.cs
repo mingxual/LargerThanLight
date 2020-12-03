@@ -538,6 +538,9 @@ public class SimpleController : MonoBehaviour
     {
         foreach (EdgeCollider2D collider in GameManager.edgeCollider2DPool)
         {
+            if (collider.isTrigger)
+                continue;
+
             bool success = true;
             Vector2[] cPoints = collider.points;
             int k = 0;
