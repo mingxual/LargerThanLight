@@ -15,6 +15,7 @@ public class LightController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 movementDirection;
     public static bool luxControlsActivated;
+    public static bool activate = false;
 
     private bool isClimb = false;
     private bool isTouch = false;
@@ -31,6 +32,11 @@ public class LightController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnEnable()
+    {
+        activate = true;
     }
 
     void Update()
