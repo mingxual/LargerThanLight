@@ -31,7 +31,7 @@ public class ShadowMoveSkia : MonoBehaviour
         GetLines(point);
         //Vector2 position = points[vertexX] + (points[vertexY] - points[vertexX]) * ratio;
         float displacement = left + (right - left) * ratio;
-        Debug.DrawLine(points[vertexX], points[vertexY], Color.white);
+        //Debug.DrawLine(points[vertexX], points[vertexY], Color.white);
         return displacement;
     }
 
