@@ -14336,7 +14336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1046351291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15745,7 +15745,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1046351348
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -18857,6 +18857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skia_Tempbase_Run
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f16682f0e536a3c49bc78d904edc1eca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8531598162154339733, guid: f16682f0e536a3c49bc78d904edc1eca,
         type: 3}
       propertyPath: m_Enabled
@@ -19444,6 +19449,12 @@ PrefabInstance:
       propertyPath: moveWithShadow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: particleEffect
+      value: 
+      objectReference: {fileID: 5917851597927996895, guid: ff05ab008d8002a47aebec7984e4c1c0,
+        type: 3}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30609,7 +30620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1046351291}
+  selectedFlowchart: {fileID: 1327307195}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1

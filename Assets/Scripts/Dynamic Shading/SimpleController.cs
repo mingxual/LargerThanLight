@@ -29,7 +29,7 @@ public class SimpleController : MonoBehaviour
     private Vector2 colliderSize;
     bool jumping;
 
-    private Vector3 originalPosition;
+    public Vector3 originalPosition;
     private Quaternion originalRotation;
 
     private Vector3 leftFacingDirection;
@@ -55,6 +55,7 @@ public class SimpleController : MonoBehaviour
     public Collider2D testCollider;
     public float ratio;
 
+    public GameObject particleEffect;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -230,6 +231,10 @@ public class SimpleController : MonoBehaviour
 
     void ResetPlayer()
     {
+        GameObject cH = GameObject.Find("Ch46");
+        SkinnedMeshRenderer cHrenderer = cH.GetComponent<SkinnedMeshRenderer>();
+        cHrenderer.enabled = false;
+        GameObject pE = Instantiate(particleEffect, transform.position, transform.rotation);
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         rb.velocity = Vector2.zero;
