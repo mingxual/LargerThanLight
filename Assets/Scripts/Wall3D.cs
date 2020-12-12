@@ -15,8 +15,16 @@ public class Wall3D : MonoBehaviour
         }
     }*/
 
+    // Set these in the inspector field
+    [Tooltip("Leave any of these blank if there isn't any adjacent wall")]
+    public Wall3D m_LeftWall;
+    public Wall3D m_RightWall;
+    public Wall3D m_TopWall;
+    public Wall3D m_BottomWall;
+    [SerializeField] bool m_IsStartingPoint = false;
+
     // The corresponding 2D wall in the scene
-    public GameObject wall2D;
+    private GameObject wall2D;
 
     //public Coordinate2D coordinate2D;
 
