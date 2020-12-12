@@ -502,8 +502,8 @@ public class SimpleController : MonoBehaviour
 
         if (ColliderOverlap(currPosition))
         {
-            print("reset due to overlapping shadows");
-            ResetPlayer();
+            print("skia overlapping shadows");
+            //ResetPlayer();
         }    
 
         ////if (trackPosition)
