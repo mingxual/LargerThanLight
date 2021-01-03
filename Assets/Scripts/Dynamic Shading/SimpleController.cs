@@ -29,7 +29,7 @@ public class SimpleController : MonoBehaviour
     private Vector2 colliderSize;
     bool jumping;
 
-    private Vector3 originalPosition;
+    public Vector3 originalPosition;
     private Quaternion originalRotation;
 
     private Vector3 leftFacingDirection;
@@ -55,6 +55,7 @@ public class SimpleController : MonoBehaviour
     public Collider2D testCollider;
     public float ratio;
 
+    public GameObject particleEffect;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -138,21 +139,28 @@ public class SimpleController : MonoBehaviour
         {
             Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
             grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
-        }
-        
+        }               
+
+        //SafeColliders();
+        SafeTrackPosition();
+
+        //fit collider with anim
         if (!grounded)
         {
-            
-            if(rb.velocity.y > 0)
+            float displace = 0.035f;
+            float animDisplace = 0.03f;
+            if (rb.velocity.y > 0)
             {
-                collider.offset += new Vector2(0, 0.05f);
+                collider.offset -= new Vector2(0, displace / 2);
+                anim.transform.position -= new Vector3(0, animDisplace, 0);
                 //collider.size += new Vector2(0.02f, -0.03f);
-                collider.size += new Vector2(0.00f, -0.03f);
+                collider.size -= new Vector2(0.00f, displace);
             }
-            else if(rb.velocity.y < 0 && jumping)
+            else if (rb.velocity.y < 0 && jumping)
             {
-                collider.offset -= new Vector2(0, 0.05f);
-                collider.size -= new Vector2(0, -0.03f);
+                collider.offset += new Vector2(0, displace / 2);
+                anim.transform.position += new Vector3(0, animDisplace, 0);
+                collider.size += new Vector2(0, displace);
             }
         }
         else
@@ -163,19 +171,17 @@ public class SimpleController : MonoBehaviour
                 if (difference > 0)
                 {
                     transform.position += new Vector3(0, difference, 0);
-                }              
+                }
                 jumping = false;
             }
             collider.offset = colliderCenter;
             collider.size = colliderSize;
+            anim.transform.position = transform.position;
         }
         playerCenter = collider.offset;
         playerSize = collider.size;
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
         squishDistance = playerSize.x * 0.5f;
-
-        //SafeColliders();
-        SafeTrackPosition();
 
         rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
         if(movementDirection == 0)
@@ -208,7 +214,11 @@ public class SimpleController : MonoBehaviour
                 if (grounded && rb.velocity.x == 0)
                 {
                     float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
-                    rb.position += new Vector2(displacement - transform.position.x, 0);
+                    displacement -= transform.position.x;
+                    //transform.position += new Vector3(displacement, 0);
+                    //rb.AddForce(new Vector2(displacement, 0) * 200f);
+                    displacement /= Time.fixedDeltaTime;
+                    rb.velocity = new Vector2(displacement, rb.velocity.y);
                 }
                 else
                 {
@@ -221,6 +231,10 @@ public class SimpleController : MonoBehaviour
 
     void ResetPlayer()
     {
+        GameObject cH = GameObject.Find("Ch46");
+        SkinnedMeshRenderer cHrenderer = cH.GetComponent<SkinnedMeshRenderer>();
+        cHrenderer.enabled = false;
+        GameObject pE = Instantiate(particleEffect, transform.position, transform.rotation);
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         rb.velocity = Vector2.zero;
@@ -230,6 +244,12 @@ public class SimpleController : MonoBehaviour
     {
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+        rb.velocity = Vector2.zero;
+    }
+
+    public void SetNewCheckpoint(Vector2 v)
+    {
+        originalPosition = new Vector3(v.x, v.y, transform.position.z);
         rb.velocity = Vector2.zero;
     }
 
@@ -482,8 +502,8 @@ public class SimpleController : MonoBehaviour
 
         if (ColliderOverlap(currPosition))
         {
-            print("reset due to overlapping shadows");
-            ResetPlayer();
+            print("skia overlapping shadows");
+            //ResetPlayer();
         }    
 
         ////if (trackPosition)
@@ -523,6 +543,9 @@ public class SimpleController : MonoBehaviour
     {
         foreach (EdgeCollider2D collider in GameManager.edgeCollider2DPool)
         {
+            if (collider.isTrigger)
+                continue;
+
             bool success = true;
             Vector2[] cPoints = collider.points;
             int k = 0;

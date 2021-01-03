@@ -37,8 +37,9 @@ public class DynamicShadowCollision : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!LightController.luxControlsActivated)
+        if (!LightController.luxControlsActivated && LightController.activate)
         {
+            LightController.activate = false;
             return;
         }
 

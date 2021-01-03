@@ -36,19 +36,27 @@ public class EventCollision2D : MonoBehaviour
             m_IsTriggering = true;
             // Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
             EventsManager.instance.InvokeEvent(m_EventKey);
-
+            Debug.Log("Triggered rope successfully");
             //audio added
             // AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
         }
 
-        if(Time.time - m_Timer > 0.5f)
+        //dealing with UI hints
+        /*if (isCollided && !m_IsTriggering && m_EventKey.Contains("UI") && Time.time - m_Timer > 0.49f)
+        {
+            m_IsTriggering = true;
+          
+            EventsManager.instance.InvokeEvent(m_EventKey);
+        }*/
+
+        if (Time.time - m_Timer > 0.5f)
         {
             isCollided = false;
         }
     }
 
     
-    public void OnCollisionStay2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if(m_TriggerObject != null)
         {
@@ -56,6 +64,7 @@ public class EventCollision2D : MonoBehaviour
             {
                 m_Timer = Time.time;
                 isCollided = true;
+                Debug.Log("collide with rope");
                 /*
                 Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
 
@@ -74,10 +83,6 @@ public class EventCollision2D : MonoBehaviour
                 */
             }
         }
-        else
-        {
-            EventsManager.instance.InvokeEvent(m_EventKey);
-            m_IsTriggering = true;
-        }
+        Debug.Log("trigger object id " + m_TriggerObject.GetInstanceID());
     }
 }
