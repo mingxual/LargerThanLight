@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public LightController luxControl;
     public SimpleController skiaControl;
 
+    public GameObject lux;
+    public GameObject skia;
+
     //Matrices Control
     public DataOutput MatricesManager;
 
@@ -241,5 +244,24 @@ public class GameManager : MonoBehaviour
             gameObject.SetActive(false);
             gameObjectPool.Add(gameObject);
         }
+    }
+
+    public void DeleteOldObstacles()
+    {
+        allObstacles.Clear();
+        m_Obstacles.Clear();
+        allMeshes.Clear();
+        edgeCollider2DPool.Clear();
+        gameObjectPool.Clear();
+    }
+
+    public void MoveLuxToPos(Transform pos)
+    {
+        lux.transform.position = pos.position;
+    }
+
+    public void MoveSkiaToPos(Transform pos)
+    {
+        skia.transform.position = pos.position;
     }
 }

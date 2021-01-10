@@ -36,7 +36,7 @@ public class EventCollision2D : MonoBehaviour
             m_IsTriggering = true;
             // Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
             EventsManager.instance.InvokeEvent(m_EventKey);
-            Debug.Log("Triggered rope successfully");
+            // Debug.Log("Triggered rope successfully");
             //audio added
             // AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
         }
