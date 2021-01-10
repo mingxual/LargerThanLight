@@ -264,4 +264,9 @@ public class GameManager : MonoBehaviour
     {
         skia.transform.position = pos.position;
     }
+
+    public void SwitchToLevel(int i)
+    {
+        SceneManager.LoadScene(i);
+    }
 }

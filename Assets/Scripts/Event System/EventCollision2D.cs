@@ -64,7 +64,7 @@ public class EventCollision2D : MonoBehaviour
             {
                 m_Timer = Time.time;
                 isCollided = true;
-                Debug.Log("collide with rope");
+                Debug.Log(gameObject.name);
                 /*
                 Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
 
@@ -83,6 +83,6 @@ public class EventCollision2D : MonoBehaviour
                 */
             }
         }
-        Debug.Log("trigger object id " + m_TriggerObject.GetInstanceID());
+        // Debug.Log("trigger object id " + m_TriggerObject.GetInstanceID());
     }
 }
