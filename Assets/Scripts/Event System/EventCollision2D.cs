@@ -42,12 +42,12 @@ public class EventCollision2D : MonoBehaviour
         }
 
         //dealing with UI hints
-        /*if (isCollided && !m_IsTriggering && m_EventKey.Contains("UI") && Time.time - m_Timer > 0.49f)
+        if (isCollided && !m_IsTriggering && m_EventKey.Contains("UI"))
         {
             m_IsTriggering = true;
           
             EventsManager.instance.InvokeEvent(m_EventKey);
-        }*/
+        }
 
         if (Time.time - m_Timer > 0.5f)
         {
