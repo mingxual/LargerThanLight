@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform skiaTransform;
+    public Transform objTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,13 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         Vector3 currPos = transform.position;
-        Vector3 skiaPos = skiaTransform.position;
-        currPos.x = skiaPos.x;
+        Vector3 objPos = objTransform.position;
+        currPos.x = objPos.x;
         transform.position = currPos;
+    }
+
+    public void ChangeObjTransform(Transform item)
+    {
+        objTransform = item;
     }
 }

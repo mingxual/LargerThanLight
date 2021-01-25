@@ -66,6 +66,7 @@ public class MenuManager : MonoBehaviour
     public void OnClickBackBtn()
     {
         optionPage.SetActive(false);
+        creditPage.SetActive(false);
     }
 
     #endregion
