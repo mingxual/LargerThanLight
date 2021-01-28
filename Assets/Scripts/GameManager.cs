@@ -269,4 +269,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(i);
     }
+
+    public void DisableGameObjectPool()
+    {
+        gameObjectParent.SetActive(false);
+    }
 }
