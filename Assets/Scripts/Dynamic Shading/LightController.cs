@@ -23,6 +23,9 @@ public class LightController : MonoBehaviour
     // 0 no move, 1 up, 2 down
     private int climbDir = 0;
 
+    // bool to control whether Lux can move in z direction
+    private bool enableForwardBack;
+
     [SerializeField] private GameObject runningTransform;
     public GameObject currLadder;
     public Vector3 currLadder_collider_center;
@@ -37,6 +40,7 @@ public class LightController : MonoBehaviour
     private void OnEnable()
     {
         activate = true;
+        enableForwardBack = true;
     }
 
     void Update()
@@ -95,15 +99,19 @@ public class LightController : MonoBehaviour
             movementDirection.x += 1;
             luxControlsActivated = true;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+
+        if (enableForwardBack)
         {
-            movementDirection.z += 1;
-            luxControlsActivated = true;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            movementDirection.z -= 1;
-            luxControlsActivated = true;
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                movementDirection.z += 1;
+                luxControlsActivated = true;
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                movementDirection.z -= 1;
+                luxControlsActivated = true;
+            }
         }
     }
 
@@ -204,6 +212,11 @@ public class LightController : MonoBehaviour
         {
             anim.SetBool("TouchDown", true);
         }
+    }
+
+    public void SetEnableForwardBack(bool val)
+    {
+        enableForwardBack = val;
     }
 
     //void Update()
