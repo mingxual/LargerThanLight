@@ -14,6 +14,8 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private float rayboxDistance = 0.05f;
     [SerializeField] private LayerMask mask;
 
+    LevelManager m_LevelManager;
+
     private Rigidbody2D rb;    
     private float movementDirection;
     private bool skiaControlsActivated;
@@ -72,6 +74,8 @@ public class SimpleController : MonoBehaviour
         colliderCenter = collider.offset;
         colliderSize = collider.size;
         jumping = false;
+
+        m_LevelManager = FindObjectOfType<LevelManager>();
     }
 
     void Start()
@@ -541,7 +545,7 @@ public class SimpleController : MonoBehaviour
 
     bool ColliderOverlap(Vector2 position)
     {
-        foreach (EdgeCollider2D collider in GameManager.edgeCollider2DPool)
+        foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetCurrentEdgeColliderPool())
         {
             if (collider.isTrigger)
                 continue;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField] GameObject m_CopyObstacle;
-    Material m_Material;
+    /*[SerializeField] GameObject m_CopyObstacle;
+    Material m_Material;*/
     bool m_IsOccluded;
     float m_FadeTime = 0.4f;
 
@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Material = m_CopyObstacle.GetComponent<MeshRenderer>().material;
+        //m_Material = m_CopyObstacle.GetComponent<MeshRenderer>().material;
         m_CurrFadeTime = 0f;
         m_IsOccluded = true;
         m_FadeTime = .4f;
@@ -44,9 +44,9 @@ public class Obstacle : MonoBehaviour
             }
         }
 
-        Color materialColor = m_Material.color;
-        materialColor.a = Mathf.Lerp(.4f, 1f, (m_CurrFadeTime / m_FadeTime));
-        m_Material.color = materialColor;
+        //Color materialColor = m_Material.color;
+        //materialColor.a = Mathf.Lerp(.4f, 1f, (m_CurrFadeTime / m_FadeTime));
+        //m_Material.color = materialColor;
     }
 
     public void Occlude()
