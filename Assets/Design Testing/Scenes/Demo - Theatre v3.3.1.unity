@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7312,6 +7312,8 @@ MonoBehaviour:
   SkiaSpawnSubLevel2: {fileID: 1481594326}
   luxControl: {fileID: 1359792202}
   skiaControl: {fileID: 1983527069}
+  lux: {fileID: 0}
+  skia: {fileID: 0}
   MatricesManager: {fileID: 900638867}
 --- !u!4 &512948505
 Transform:
@@ -14373,18 +14375,6 @@ PrefabInstance:
     - {fileID: 0}
     - {fileID: 7989988013143760939, guid: 9974e985b4b36b340a78d835a16a34ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9974e985b4b36b340a78d835a16a34ea, type: 3}
---- !u!114 &1039880474 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7989988013143760940, guid: 9974e985b4b36b340a78d835a16a34ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 1039880473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766214073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1044939870
 GameObject:
   m_ObjectHideFlags: 0
@@ -14559,8 +14549,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351310}
-  selectedCommands: []
+  - {fileID: 1046351293}
+  selectedCommands:
+  - {fileID: 1046351306}
   variables: []
   description: 
   stepPause: 0
@@ -14616,7 +14607,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -135.15384
     y: -53.571426
-    width: 75.205475
+    width: 74.65753
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15019,7 +15010,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 31.202374
     y: 4.6348343
-    width: 111.36986
+    width: 110.95889
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15366,7 +15357,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -97.98971
     y: 73.457016
-    width: 104.79451
+    width: 106.16438
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15464,7 +15455,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 100.32268
-    width: 89.45206
+    width: 89.72603
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19300,7 +19291,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1327307196}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1327307199}
   variables: []
   description: 
   stepPause: 0
@@ -19326,9 +19318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 118
+    x: 116.68421
     y: 72
-    width: 112.10525
+    width: 113.81578
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -30043,7 +30035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1039880474}
+  selectedFlowchart: {fileID: 1046351291}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
