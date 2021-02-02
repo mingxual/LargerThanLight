@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
-    public List<GameObject> m_AllObjects;
-    [SerializeField] List<Wall3D> m_AllWalls;
     [SerializeField] List<Obstacle> m_AllObstacles;
-    [SerializeField] List<Mesh> m_AllMeshes;
-    [SerializeField] List<List<Vector3>> m_AllMeshVertices;
-    [SerializeField] GameObject m_RootObject;
-    [SerializeField] List<GameObject> m_GameObjectPool;
-    [SerializeField] List<EdgeCollider2D> m_EdgeCollider2DPool;
+    [SerializeField] List<DynamicShadowCollision> m_AllDynamicShadowCollisionObjects;
+    [SerializeField] Camera m_RenderCam;
+    //[SerializeField] List<Wall3D> m_AllWalls;
+    //[SerializeField] List<Obstacle> m_AllObstacles;
+    private List<Mesh> m_AllMeshes;
+    private List<List<Vector3>> m_AllMeshVertices;
+    private GameObject m_RootObject;
+    private List<GameObject> m_GameObjectPool;
+    private List<EdgeCollider2D> m_EdgeCollider2DPool;
     [SerializeField] Transform m_SkiaSpawnTransform;
 
     // Start is called before the first frame update
@@ -28,33 +30,33 @@ public class Segment : MonoBehaviour
 
     public void Initialize()
     {
-        m_AllWalls = new List<Wall3D>();
-        m_AllObstacles = new List<Obstacle>();
+        //m_AllWalls = new List<Wall3D>();
+        //m_AllObstacles = new List<Obstacle>();
         m_AllMeshes = new List<Mesh>();
         m_AllMeshVertices = new List<List<Vector3>>();
 
-        for(int i = 0; i < m_AllObjects.Count; i++)
+        /*for(int i = 0; i < m_AllObstacles.Count; i++)
         {
-            Wall3D wall3D = m_AllObjects[i].GetComponent<Wall3D>();
+            *//*Wall3D wall3D = m_AllObstacles[i].GetComponent<Wall3D>();
             if(wall3D)
             {
                 m_AllWalls.Add(wall3D);
-            }
-            Obstacle obstacle = m_AllObjects[i].GetComponent<Obstacle>();
+            }*//*
+            Obstacle obstacle = m_AllObstacles[i].GetComponent<Obstacle>();
             if(obstacle)
             {
                 m_AllObstacles.Add(obstacle);
             }
-        }
+        }*/
 
         for(int i = 0; i < m_AllObstacles.Count; i++)
         {
-            m_AllMeshes.Add(m_AllObstacles[i].GetComponent<MeshFilter>().mesh);
+            m_AllMeshes.Add(m_AllObstacles[i].gameObject.GetComponent<MeshFilter>().mesh);
             int numVertices = m_AllMeshes[i].vertexCount;
             List<Vector3> vertexPositions = new List<Vector3>();
             for (int j = 0; j < numVertices; j++)
             {
-                Vector3 pos = m_AllObstacles[i].transform.localToWorldMatrix * m_AllMeshes[i].vertices[j];
+                Vector3 pos = m_AllObstacles[i].gameObject.transform.localToWorldMatrix * m_AllMeshes[i].vertices[j];
                 if (!vertexPositions.Contains(pos))
                     vertexPositions.Add(pos);
             }
@@ -88,23 +90,23 @@ public class Segment : MonoBehaviour
             edgeCollider2D.sharedMaterial = physicsMaterial;
             m_EdgeCollider2DPool.Add(edgeCollider2D);
 
-            if (m_AllObjects[i].GetComponent<EventCollision2D>() != null)
+            if (m_AllObstacles[i].gameObject.GetComponent<EventCollision2D>() != null)
             {
                 gameObject.AddComponent<EventCollision2D>();
 
-                EventCollision2D originEventCollision2D = m_AllObjects[i].GetComponent<EventCollision2D>();
+                EventCollision2D originEventCollision2D = m_AllObstacles[i].gameObject.GetComponent<EventCollision2D>();
                 EventCollision2D copiedEventCollision2D = gameObject.GetComponent<EventCollision2D>();
 
                 copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
                 copiedEventCollision2D.m_TriggerObject = originEventCollision2D.m_TriggerObject;
                 copiedEventCollision2D.m_TriggerOnlyOnce = originEventCollision2D.m_TriggerOnlyOnce;
             }
-            else if (m_AllObjects[i].GetComponent<EventTrigger2D>() != null)
+            else if (m_AllObstacles[i].gameObject.GetComponent<EventTrigger2D>() != null)
             {
                 gameObject.GetComponent<EdgeCollider2D>().isTrigger = true;
                 gameObject.AddComponent<EventTrigger2D>();
 
-                EventTrigger2D originEventCollision2D = m_AllObjects[i].GetComponent<EventTrigger2D>();
+                EventTrigger2D originEventCollision2D = m_AllObstacles[i].gameObject.GetComponent<EventTrigger2D>();
                 EventTrigger2D copiedEventCollision2D = gameObject.GetComponent<EventTrigger2D>();
 
                 copiedEventCollision2D.m_EventKey = originEventCollision2D.m_EventKey;
@@ -117,27 +119,49 @@ public class Segment : MonoBehaviour
         }
     }
 
-    public List<Obstacle> GetCurrentObstacles()
+    public void Activate()
+    {
+        for(int i = 0; i < m_AllDynamicShadowCollisionObjects.Count; i++)
+        {
+            m_AllDynamicShadowCollisionObjects[i].enabled = true;
+        }
+
+        if(m_RenderCam)
+            m_RenderCam.gameObject.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        for (int i = 0; i < m_AllDynamicShadowCollisionObjects.Count; i++)
+        {
+            m_AllDynamicShadowCollisionObjects[i].enabled = false;
+        }
+
+        if(m_RenderCam)
+            m_RenderCam.gameObject.SetActive(false);
+    }
+
+    public List<Obstacle> GetObstacles()
     {
         return m_AllObstacles;
     }
 
-    public List<Mesh> GetCurrentMeshes()
+    public List<Mesh> GetMeshes()
     {
         return m_AllMeshes;
     }
 
-    public List<List<Vector3>> GetCurrentMeshVertices()
+    public List<List<Vector3>> GetMeshVertices()
     {
         return m_AllMeshVertices;
     }
 
-    public List<EdgeCollider2D> GetCurrentEdgeColliderPool()
+    public List<EdgeCollider2D> GetEdgeColliderPool()
     {
         return m_EdgeCollider2DPool;
     }
 
-    public List<GameObject> GetCurrentGameObjectPool()
+    public List<GameObject> GetGameObjectPool()
     {
         return m_GameObjectPool;
     }

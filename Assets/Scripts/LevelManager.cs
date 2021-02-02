@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         if(_instance != null && _instance != this)
         {
@@ -56,14 +56,14 @@ public class LevelManager : MonoBehaviour
 
     private void SetActiveSegment(int index)
     {
-        m_AllSegments[index].gameObject.SetActive(true); // Turn on sublevel
+        m_AllSegments[index].Activate(); // Turn on sublevel
 
         // Turn off the rest
         for(int i = 0; i < m_AllSegments.Length; i++)
         {
             if(i != index)
             {
-                m_AllSegments[i].gameObject.SetActive(false);
+                m_AllSegments[i].Deactivate();
             }
         }
     }

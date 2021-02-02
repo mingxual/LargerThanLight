@@ -58,15 +58,15 @@ public class DynamicShadowCollision : MonoBehaviour
         }
 
         //Create colliders for obstacles
-        for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetCurrentObstacles().Count; ++i)
+        for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetObstacles().Count; ++i)
         {
             //Mesh mesh = allMeshes[i];
-            int numVertices = m_LevelManager.GetCurrentSegment().GetCurrentMeshVertices()[i].Count;
-            Vector3 currObstaclePos = m_LevelManager.GetCurrentSegment().GetCurrentObstacles()[i].transform.position;
+            int numVertices = m_LevelManager.GetCurrentSegment().GetMeshVertices()[i].Count;
+            Vector3 currObstaclePos = m_LevelManager.GetCurrentSegment().GetObstacles()[i].transform.position;
             m_CurrProjectedPoints2D.Clear();
             for (int j = 0; j < numVertices; ++j)
             {
-                Vector3 p = m_LevelManager.GetCurrentSegment().GetCurrentMeshVertices()[i][j];
+                Vector3 p = m_LevelManager.GetCurrentSegment().GetMeshVertices()[i][j];
                 RaycastHit hitInfo;
                 Vector3 dir = currObstaclePos + p - transform.position;
                 dir = dir.normalized;
@@ -120,7 +120,7 @@ public class DynamicShadowCollision : MonoBehaviour
                     //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                 }
                 go.SetActive(true);
-                m_LevelManager.GetCurrentSegment().GetCurrentEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
+                m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
             }
         }
 
@@ -166,9 +166,6 @@ public class DynamicShadowCollision : MonoBehaviour
                         //go.layer = GameManager.gameObjectPool[i].layer;
                         for (int j = 0; j < convexedPoints.Count; ++j)
                         {
-                            /*convexedPoints2D.Clear();
-                            int index;
-                            GameObject go = GetPooledGameObject(out index);*/
                             if (j == convexedPoints.Count - 1)
                             {
                                 m_CurrConvexedPoints2D.Add(convexedPoints[j]);
@@ -182,7 +179,7 @@ public class DynamicShadowCollision : MonoBehaviour
                             //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                         }
                         go.SetActive(true);
-                        m_LevelManager.GetCurrentSegment().GetCurrentEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
+                        m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
                     }
                 }
             }
@@ -192,12 +189,12 @@ public class DynamicShadowCollision : MonoBehaviour
     GameObject GetPooledGameObject(out int index)
     {
 
-        for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetCurrentGameObjectPool().Count; ++i)
+        for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetGameObjectPool().Count; ++i)
         {
-            if (!m_LevelManager.GetCurrentSegment().GetCurrentGameObjectPool()[i].activeInHierarchy)
+            if (!m_LevelManager.GetCurrentSegment().GetGameObjectPool()[i].activeInHierarchy)
             {
                 index = i;
-                return m_LevelManager.GetCurrentSegment().GetCurrentGameObjectPool()[i];
+                return m_LevelManager.GetCurrentSegment().GetGameObjectPool()[i];
             }
         }
         index = -1;

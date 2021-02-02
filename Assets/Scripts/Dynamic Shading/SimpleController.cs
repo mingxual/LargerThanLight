@@ -545,7 +545,7 @@ public class SimpleController : MonoBehaviour
 
     bool ColliderOverlap(Vector2 position)
     {
-        foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetCurrentEdgeColliderPool())
+        foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetEdgeColliderPool())
         {
             if (collider.isTrigger)
                 continue;
