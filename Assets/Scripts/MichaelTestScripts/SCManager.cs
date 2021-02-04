@@ -57,13 +57,30 @@ public class SCManager : MonoBehaviour
         for (i = 0; i < obstacles.Length; i++)
         {
             RaycastHit obstacle = obstacles[i];
-            MeshCollider obstacleC = (MeshCollider)obstacle.collider;
-            int numVertices = obstacleC.sharedMesh.vertexCount;
-            Vector3 currObstaclePos = obstacleC.transform.position;
+            int numVertices = 0;
+            Vector3[] vertices = new Vector3[0];
+            if (obstacle.collider is MeshCollider)
+            {
+                MeshCollider obstacleM = (MeshCollider)obstacle.collider;
+                numVertices = obstacleM.sharedMesh.vertexCount;
+                vertices = obstacleM.sharedMesh.vertices;
+            }
+            else if(obstacle.collider is BoxCollider)
+            {
+                BoxCollider obstacleB = (BoxCollider)obstacle.collider;
+                numVertices = 8;
+                vertices = GetVerticesFromBox(obstacleB);
+            }
+            else
+            {
+                continue;
+            }
+
+            Vector3 currObstaclePos = obstacle.transform.position;
             m_CurrProjectedPoints2D.Clear();
             for (int j = 0; j < numVertices; ++j)
             {
-                Vector3 p = obstacleC.transform.localToWorldMatrix * obstacleC.sharedMesh.vertices[j];
+                Vector3 p = obstacle.collider.transform.localToWorldMatrix * vertices[j];
                 RaycastHit hitInfo;
                 Vector3 dir = currObstaclePos + p - lightPos;
                 dir = dir.normalized;
@@ -114,6 +131,21 @@ public class SCManager : MonoBehaviour
             m_ObstaclePool[i].SetActive(false);
             i++;
         }
+    }
+
+    Vector3[] GetVerticesFromBox(BoxCollider box)
+    {
+        Vector3[] vertices = new Vector3[8];
+        Vector3 center = box.center, size = box.size;
+        vertices[0] = new Vector3(center.x + size.x / 2, center.y + size.y / 2, center.z + size.z / 2);
+        vertices[1] = new Vector3(center.x + size.x / 2, center.y + size.y / 2, center.z - size.z / 2);
+        vertices[2] = new Vector3(center.x + size.x / 2, center.y - size.y / 2, center.z + size.z / 2);
+        vertices[3] = new Vector3(center.x + size.x / 2, center.y - size.y / 2, center.z - size.z / 2);
+        vertices[4] = new Vector3(center.x - size.x / 2, center.y + size.y / 2, center.z + size.z / 2);
+        vertices[5] = new Vector3(center.x - size.x / 2, center.y + size.y / 2, center.z - size.z / 2);
+        vertices[6] = new Vector3(center.x - size.x / 2, center.y - size.y / 2, center.z + size.z / 2);
+        vertices[7] = new Vector3(center.x - size.x / 2, center.y - size.y / 2, center.z - size.z / 2);
+        return vertices;
     }
 
     List<Vector2> ConvexHull(List<Vector2> points)
@@ -198,10 +230,6 @@ public class SCManager : MonoBehaviour
             }
         }
 
-        if(wallsTransformParent)
-        {
-            DestroyImmediate(wallsTransformParent.gameObject);
-        }
         wallsTransformParent = new GameObject();
         wallsTransformParent.name = "Walls";
         wallsTransformParent.transform.position = new Vector3(0, 300, 0);
