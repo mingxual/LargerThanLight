@@ -17,6 +17,7 @@ public class SCManager : MonoBehaviour
     [Tooltip("Order of walls to be projected on from left to right. Note: walls must all be the same height.")]
     [SerializeField] List<Wall3D> wallOrdering;
     [SerializeField] GameObject wallPrefab;
+    [SerializeField] float m_CoordX = 0.0f, m_CoordY = -500.0f;
     GameObject wallsTransformParent;
 
     [SerializeField] SimpleController skia;
@@ -117,6 +118,7 @@ public class SCManager : MonoBehaviour
                 poolGO = new GameObject();
                 poolGO.transform.SetParent(transform);
                 poolGO.transform.position = transform.position;
+                poolGO.layer = 10;
                 //poolGO.AddComponent<ShadowMoveSkia>();
                 poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
 
@@ -232,7 +234,7 @@ public class SCManager : MonoBehaviour
 
         wallsTransformParent = new GameObject();
         wallsTransformParent.name = "Walls";
-        wallsTransformParent.transform.position = new Vector3(0, 300, 0);
+        wallsTransformParent.transform.position = new Vector3(m_CoordX, m_CoordY, 0);
         wallsTransformParent.AddComponent<EdgeCollider2D>();
 
         float wallXPos = 0;
@@ -342,5 +344,10 @@ public class SCManager : MonoBehaviour
 
         pad2DGO.AddComponent<Wall2D>().wall3D = pad3DGO;
         pad3DGO.AddComponent<Wall3D>().wall2D = pad2DGO;
+    }
+
+    public List<GameObject> GetObstaclePool()
+    {
+        return m_ObstaclePool;
     }
 }

@@ -552,7 +552,7 @@ public class SimpleController : MonoBehaviour
     {
         if(m_LevelManager)
         {
-            foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetEdgeColliderPool())
+            /*foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetEdgeColliderPool())
             {
                 if (collider.isTrigger)
                     continue;
@@ -576,7 +576,7 @@ public class SimpleController : MonoBehaviour
                     //print("skia overlapping shadow " + collider);
                     return true;
                 }
-            }
+            }*/
         }
 
         return false;

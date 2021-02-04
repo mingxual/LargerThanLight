@@ -45,7 +45,7 @@ public class DynamicShadowCollision : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!LightController.luxControlsActivated && LightController.activate)
+        /*if (!LightController.luxControlsActivated && LightController.activate)
         {
             LightController.activate = false;
             return;
@@ -104,9 +104,9 @@ public class DynamicShadowCollision : MonoBehaviour
                 //go.layer = GameManager.gameObjectPool[i].layer;
                 for (int j = 0; j < convexedPoints.Count; ++j)
                 {
-                    /*convexedPoints2D.Clear();
+                    *//*convexedPoints2D.Clear();
                     int index;
-                    GameObject go = GetPooledGameObject(out index);*/
+                    GameObject go = GetPooledGameObject(out index);*//*
                     if (j == convexedPoints.Count - 1)
                     {
                         m_CurrConvexedPoints2D.Add(convexedPoints[j]);
@@ -120,9 +120,9 @@ public class DynamicShadowCollision : MonoBehaviour
                     //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                 }
                 go.SetActive(true);
-                m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
+                //m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
             }
-        }
+        }*/
 
         if (m_CreateSpotlight)
         {
@@ -152,7 +152,7 @@ public class DynamicShadowCollision : MonoBehaviour
                 }
             }
 
-            if (m_CurrProjectedPoints2D.Count > 0)
+            /*if (m_CurrProjectedPoints2D.Count > 0)
             {
                 List<Vector2> convexedPoints = ConvexHull(m_CurrProjectedPoints2D);
                 if (convexedPoints != null)
@@ -182,21 +182,21 @@ public class DynamicShadowCollision : MonoBehaviour
                         m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
                     }
                 }
-            }
+            }*/
         }
     }
 
     GameObject GetPooledGameObject(out int index)
     {
 
-        for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetGameObjectPool().Count; ++i)
+        /*for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetGameObjectPool().Count; ++i)
         {
             if (!m_LevelManager.GetCurrentSegment().GetGameObjectPool()[i].activeInHierarchy)
             {
                 index = i;
                 return m_LevelManager.GetCurrentSegment().GetGameObjectPool()[i];
             }
-        }
+        }*/
         index = -1;
         return null;
     }

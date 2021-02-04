@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
-    [SerializeField] List<Obstacle> m_AllObstacles;
-    [SerializeField] List<DynamicShadowCollision> m_AllDynamicShadowCollisionObjects;
+    //[SerializeField] List<Obstacle> m_AllObstacles;
+    [SerializeField] List<SCLight> m_AllLights;
+    //[SerializeField] List<DynamicShadowCollision> m_AllDynamicShadowCollisionObjects;
     [SerializeField] Camera m_RenderCam;
     //[SerializeField] List<Wall3D> m_AllWalls;
     //[SerializeField] List<Obstacle> m_AllObstacles;
-    private List<Mesh> m_AllMeshes;
+    /*private List<Mesh> m_AllMeshes;
     private List<List<Vector3>> m_AllMeshVertices;
     private GameObject m_RootObject;
     private List<GameObject> m_GameObjectPool;
-    private List<EdgeCollider2D> m_EdgeCollider2DPool;
+    private List<EdgeCollider2D> m_EdgeCollider2DPool;*/
     [SerializeField] Transform m_SkiaSpawnTransform;
 
     // Start is called before the first frame update
@@ -32,8 +33,8 @@ public class Segment : MonoBehaviour
     {
         //m_AllWalls = new List<Wall3D>();
         //m_AllObstacles = new List<Obstacle>();
-        m_AllMeshes = new List<Mesh>();
-        m_AllMeshVertices = new List<List<Vector3>>();
+        //m_AllMeshes = new List<Mesh>();
+        //m_AllMeshVertices = new List<List<Vector3>>();
 
         /*for(int i = 0; i < m_AllObstacles.Count; i++)
         {
@@ -49,7 +50,7 @@ public class Segment : MonoBehaviour
             }
         }*/
 
-        for(int i = 0; i < m_AllObstacles.Count; i++)
+        /*for(int i = 0; i < m_AllObstacles.Count; i++)
         {
             m_AllMeshes.Add(m_AllObstacles[i].gameObject.GetComponent<MeshFilter>().mesh);
             int numVertices = m_AllMeshes[i].vertexCount;
@@ -116,14 +117,14 @@ public class Segment : MonoBehaviour
 
             gameObject.SetActive(false);
             m_GameObjectPool.Add(gameObject);
-        }
+        }*/
     }
 
     public void Activate()
     {
-        for(int i = 0; i < m_AllDynamicShadowCollisionObjects.Count; i++)
+        for(int i = 0; i < m_AllLights.Count; i++)
         {
-            m_AllDynamicShadowCollisionObjects[i].enabled = true;
+            m_AllLights[i].active = true;
         }
 
         if(m_RenderCam)
@@ -132,40 +133,40 @@ public class Segment : MonoBehaviour
 
     public void Deactivate()
     {
-        for (int i = 0; i < m_AllDynamicShadowCollisionObjects.Count; i++)
+        for (int i = 0; i < m_AllLights.Count; i++)
         {
-            m_AllDynamicShadowCollisionObjects[i].enabled = false;
+            m_AllLights[i].active = false;
         }
 
-        if(m_RenderCam)
+        if (m_RenderCam)
             m_RenderCam.gameObject.SetActive(false);
     }
 
-    public List<Obstacle> GetObstacles()
+    /*public List<Obstacle> GetObstacles()
     {
         return m_AllObstacles;
-    }
+    }*/
 
-    public List<Mesh> GetMeshes()
+    /*public List<Mesh> GetMeshes()
     {
         return m_AllMeshes;
-    }
+    }*/
 
-    public List<List<Vector3>> GetMeshVertices()
+    /*public List<List<Vector3>> GetMeshVertices()
     {
         return m_AllMeshVertices;
-    }
+    }*/
 
-    public List<EdgeCollider2D> GetEdgeColliderPool()
+    /*public List<EdgeCollider2D> GetEdgeColliderPool()
     {
         return m_EdgeCollider2DPool;
-    }
+    }*/
 
-    public List<GameObject> GetGameObjectPool()
+    /*public List<GameObject> GetGameObjectPool()
     {
         return m_GameObjectPool;
     }
-
+*/
     public Transform GetSkiaSpawnTransform()
     {
         return m_SkiaSpawnTransform;
