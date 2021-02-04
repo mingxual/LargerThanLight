@@ -51,7 +51,9 @@ public class SCManager : MonoBehaviour
     public void RaycastLight(Light light)
     {
         Vector3 lightPos = light.transform.position;
-        Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
+        //Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
+        if (Vector3.Angle(skia.GetWorldPosition() - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(skia.GetWorldPosition() - light.transform.position) > light.range)
+            return;
         RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, 10000.0f, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
         print(obstacles.Length);
         int i;
