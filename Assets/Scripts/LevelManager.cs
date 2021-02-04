@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
     public void SetNextSegment()
     {
-        if(m_CurrentSegmentIndex < m_AllSegments.Length - 1)
+        if(m_CurrentSegmentIndex < m_AllSegments.Length)
         {
             m_CurrentSegmentIndex++;
             SetActiveSegment(m_CurrentSegmentIndex);
