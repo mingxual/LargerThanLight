@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnSkiaNextSegment()
     {
-        Debug.Break();
+        //Debug.Break();
         m_LevelManager.SetNextSegment();
         Transform skiaSpawnTransform = m_LevelManager.GetCurrentSegment().GetSkiaSpawnTransform();
         if(skiaSpawnTransform)
