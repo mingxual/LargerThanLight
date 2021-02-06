@@ -68,7 +68,7 @@ public class SCManager : MonoBehaviour
                 numVertices = obstacleM.sharedMesh.vertexCount;
                 vertices = obstacleM.sharedMesh.vertices;
             }
-            else if(obstacle.collider is BoxCollider)
+            else if (obstacle.collider is BoxCollider)
             {
                 BoxCollider obstacleB = (BoxCollider)obstacle.collider;
                 numVertices = 8;
@@ -121,7 +121,6 @@ public class SCManager : MonoBehaviour
                 poolGO.transform.SetParent(transform);
                 poolGO.transform.position = transform.position;
                 poolGO.layer = 10;
-                //poolGO.AddComponent<ShadowMoveSkia>();
                 poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
 
                 m_ObstaclePool.Add(poolGO);
@@ -130,7 +129,7 @@ public class SCManager : MonoBehaviour
             poolGO.SetActive(true);
             poolGO.GetComponent<PolygonCollider2D>().points = convexedPoints.ToArray();
         }
-        while(i < m_ObstaclePool.Count)
+        while (i < m_ObstaclePool.Count)
         {
             m_ObstaclePool[i].SetActive(false);
             i++;
@@ -236,7 +235,7 @@ public class SCManager : MonoBehaviour
 
         wallsTransformParent = new GameObject();
         wallsTransformParent.name = "Walls";
-        wallsTransformParent.transform.position = new Vector3(m_CoordX, m_CoordY, 0);
+        wallsTransformParent.transform.position = new Vector3(m_CoordX, m_CoordY, 0.0f);
         wallsTransformParent.AddComponent<EdgeCollider2D>();
 
         float wallXPos = 0;
@@ -244,12 +243,8 @@ public class SCManager : MonoBehaviour
         {
             GameObject wallGO = Instantiate(wallPrefab, wallsTransformParent.transform);
             wallGO.SetActive(true);
-
-            // Calculate the x scale of wall2d by multiplying the x scale of 3d by mesh bound size x
-            float xScale = wall.transform.localScale.x * wall.GetComponent<MeshFilter>().mesh.bounds.size.x;
-            wallGO.transform.localScale = new Vector3(xScale, wallHeight, 0.01f);
-            wallGO.transform.localPosition = new Vector2(wallXPos + xScale / 2, wallHeight / 2);
-
+            wallGO.transform.localScale = new Vector3(wall.transform.localScale.x, wallHeight, 0.01f);
+            wallGO.transform.localPosition = new Vector2(wallXPos + wall.transform.localScale.x / 2, wallHeight / 2);
             wallGO.GetComponentInChildren<Camera>().targetTexture = (RenderTexture)wall.GetComponent<Renderer>().sharedMaterial.mainTexture;
             Wall2D wall2D = wallGO.GetComponent<Wall2D>();
             wall2D.wall3D = wall.gameObject;
@@ -258,7 +253,7 @@ public class SCManager : MonoBehaviour
 
             BuildPadding(wall2D, wall);
 
-            wallXPos += xScale;
+            wallXPos += wall.transform.localScale.x;
         }
 
         BuildOuterPadding();
@@ -270,12 +265,6 @@ public class SCManager : MonoBehaviour
 
     private void BuildPadding(Wall2D wall2D, Wall3D wall3D)
     {
-        // Calculate the x scale of wall2d by multiplying the x scale of 3d by mesh bound size x
-        Vector3 wall3DBoundSize = wall3D.GetComponent<MeshFilter>().mesh.bounds.size;
-        float xScale = wall3D.transform.localScale.x * wall3DBoundSize.x;
-        float yScale = wall3D.transform.localScale.y * wall3DBoundSize.y;
-        float zScale = wall3D.transform.localScale.z * wall3DBoundSize.z;
-
         GameObject upperPad2DGO = new GameObject();
         upperPad2DGO.transform.position = wall2D.transform.position + wall2D.transform.localScale.y * Vector3.up;
         upperPad2DGO.transform.rotation = wall2D.transform.rotation;
@@ -284,9 +273,9 @@ public class SCManager : MonoBehaviour
         upperPad2DGO.transform.SetParent(wall2D.transform);
 
         GameObject upperPad3DGO = new GameObject();
-        upperPad3DGO.transform.position = wall3D.transform.position + yScale * Vector3.up;
+        upperPad3DGO.transform.position = wall3D.transform.position + wall3D.transform.localScale.y * Vector3.up;
         upperPad3DGO.transform.rotation = wall3D.transform.rotation;
-        upperPad3DGO.transform.localScale = new Vector3(xScale, yScale, zScale);
+        upperPad3DGO.transform.localScale = wall3D.transform.localScale;
         upperPad3DGO.AddComponent<BoxCollider>();
         upperPad3DGO.layer = LayerMask.NameToLayer("Wall");
         upperPad3DGO.transform.SetParent(wall2D.transform);
@@ -302,9 +291,9 @@ public class SCManager : MonoBehaviour
         lowerPad2DGO.transform.SetParent(wall2D.transform);
 
         GameObject lowerPad3DGO = new GameObject();
-        lowerPad3DGO.transform.position = wall3D.transform.position - yScale * Vector3.up;
+        lowerPad3DGO.transform.position = wall3D.transform.position - wall3D.transform.localScale.y * Vector3.up;
         lowerPad3DGO.transform.rotation = wall3D.transform.rotation;
-        lowerPad3DGO.transform.localScale = new Vector3(xScale, yScale, zScale);
+        lowerPad3DGO.transform.localScale = wall3D.transform.localScale;
         lowerPad3DGO.AddComponent<BoxCollider>();
         lowerPad3DGO.layer = LayerMask.NameToLayer("Wall");
         lowerPad3DGO.transform.SetParent(wall2D.transform);
@@ -318,12 +307,6 @@ public class SCManager : MonoBehaviour
         Wall3D wall3D = wallOrdering[0];
         Wall2D wall2D = wall3D.wall2D.GetComponent<Wall2D>();
 
-        // Calculate the x scale of wall2d by multiplying the x scale of 3d by mesh bound size x
-        Vector3 wall3DBoundSize = wall3D.GetComponent<MeshFilter>().mesh.bounds.size;
-        float xScale = wall3D.transform.localScale.x * wall3DBoundSize.x;
-        float yScale = wall3D.transform.localScale.y * wall3DBoundSize.y;
-        float zScale = wall3D.transform.localScale.z * wall3DBoundSize.z;
-
         GameObject pad2DGO = new GameObject();
         pad2DGO.transform.position = wall2D.transform.position - wall2D.transform.localScale.x * wall2D.transform.right;
         pad2DGO.transform.rotation = wall2D.transform.rotation;
@@ -332,9 +315,9 @@ public class SCManager : MonoBehaviour
         pad2DGO.transform.SetParent(wall2D.transform);
 
         GameObject pad3DGO = new GameObject();
-        pad3DGO.transform.position = wall3D.transform.position - xScale * wall3D.transform.right;
+        pad3DGO.transform.position = wall3D.transform.position - wall3D.transform.localScale.x * wall3D.transform.right;
         pad3DGO.transform.rotation = wall3D.transform.rotation;
-        pad3DGO.transform.localScale = new Vector3(xScale, yScale * 3, zScale);
+        pad3DGO.transform.localScale = new Vector3(wall3D.transform.localScale.x, wall3D.transform.localScale.y * 3, wall3D.transform.localScale.z);
         pad3DGO.AddComponent<BoxCollider>();
         pad3DGO.layer = LayerMask.NameToLayer("Wall");
         pad3DGO.transform.SetParent(wall2D.transform);
@@ -353,19 +336,14 @@ public class SCManager : MonoBehaviour
         pad2DGO.transform.SetParent(wall2D.transform);
 
         pad3DGO = new GameObject();
-        pad3DGO.transform.position = wall3D.transform.position + xScale * wall3D.transform.right;
+        pad3DGO.transform.position = wall3D.transform.position + wall3D.transform.localScale.x * wall3D.transform.right;
         pad3DGO.transform.rotation = wall3D.transform.rotation;
-        pad3DGO.transform.localScale = new Vector3(xScale, yScale * 3, zScale);
+        pad3DGO.transform.localScale = new Vector3(wall3D.transform.localScale.x, wall3D.transform.localScale.y * 3, wall3D.transform.localScale.z);
         pad3DGO.AddComponent<BoxCollider>();
         pad3DGO.layer = LayerMask.NameToLayer("Wall");
         pad3DGO.transform.SetParent(wall2D.transform);
 
         pad2DGO.AddComponent<Wall2D>().wall3D = pad3DGO;
         pad3DGO.AddComponent<Wall3D>().wall2D = pad2DGO;
-    }
-
-    public List<GameObject> GetObstaclePool()
-    {
-        return m_ObstaclePool;
     }
 }
