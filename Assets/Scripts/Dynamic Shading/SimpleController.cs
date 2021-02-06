@@ -14,6 +14,8 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private float rayboxDistance = 0.05f;
     [SerializeField] private LayerMask mask;
 
+    LevelManager m_LevelManager;
+
     private Rigidbody2D rb;    
     private float movementDirection;
     private bool skiaControlsActivated;
@@ -72,6 +74,8 @@ public class SimpleController : MonoBehaviour
         colliderCenter = collider.offset;
         colliderSize = collider.size;
         jumping = false;
+
+        m_LevelManager = FindObjectOfType<LevelManager>();
     }
 
     void Start()
@@ -86,7 +90,7 @@ public class SimpleController : MonoBehaviour
     {
         // Find and set its position in 3d space (aka game view)
         SetWorldPosition3D();
-        OccludeObjects();
+        //OccludeObjects();
 
         movementDirection = 0;
         skiaControlsActivated = false;
@@ -227,6 +231,11 @@ public class SimpleController : MonoBehaviour
             }
         }
 
+    }
+
+    public Vector3 GetWorldPosition()
+    {
+        return m_WorldPosition3D;
     }
 
     void ResetPlayer()
@@ -541,30 +550,33 @@ public class SimpleController : MonoBehaviour
 
     bool ColliderOverlap(Vector2 position)
     {
-        foreach (EdgeCollider2D collider in GameManager.edgeCollider2DPool)
+        if(m_LevelManager)
         {
-            if (collider.isTrigger)
-                continue;
+            /*foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetEdgeColliderPool())
+            {
+                if (collider.isTrigger)
+                    continue;
 
-            bool success = true;
-            Vector2[] cPoints = collider.points;
-            int k = 0;
-            for (int i = 0; i < cPoints.Length - 1; i++)
-            {
-                float dp = Vector2.Dot(new Vector2(cPoints[i].y - cPoints[i + 1].y, cPoints[i + 1].x - cPoints[i].x), position - cPoints[i]);
-                if (k == 0)
-                    k = dp > 0 ? 1 : -1;
-                else if ((dp > 0 ? 1 : -1) != k)
+                bool success = true;
+                Vector2[] cPoints = collider.points;
+                int k = 0;
+                for (int i = 0; i < cPoints.Length - 1; i++)
                 {
-                    success = false;
-                    break;
+                    float dp = Vector2.Dot(new Vector2(cPoints[i].y - cPoints[i + 1].y, cPoints[i + 1].x - cPoints[i].x), position - cPoints[i]);
+                    if (k == 0)
+                        k = dp > 0 ? 1 : -1;
+                    else if ((dp > 0 ? 1 : -1) != k)
+                    {
+                        success = false;
+                        break;
+                    }
                 }
-            }
-            if (success)
-            {
-                //print("skia overlapping shadow " + collider);
-                return true;
-            }
+                if (success)
+                {
+                    //print("skia overlapping shadow " + collider);
+                    return true;
+                }
+            }*/
         }
 
         return false;

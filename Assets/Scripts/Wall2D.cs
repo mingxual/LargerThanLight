@@ -8,6 +8,6 @@ public class Wall2D : MonoBehaviour
 
     public Vector3 SwitchTo3D(Vector3 point)
     {
-        return wall3D.transform.TransformPoint(point - wall3D.transform.forward * 1.0f);
+        return wall3D.transform.TransformPoint(point);
     }
 }

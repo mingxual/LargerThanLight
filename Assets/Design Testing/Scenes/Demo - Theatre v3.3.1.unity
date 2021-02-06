@@ -692,7 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 749658362}
 --- !u!1 &27532281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5315,7 +5314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1739657569}
 --- !u!1 &349057389
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,58 +7258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e0a82f75cbf5e4f8499d324fcebc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SubLevel1Obstacles:
-  - {fileID: 1188014897}
-  - {fileID: 526480525}
-  - {fileID: 1114237878}
-  - {fileID: 1122344247}
-  - {fileID: 1890892314}
-  - {fileID: 620503087}
-  - {fileID: 594150017}
-  - {fileID: 1365306155}
-  - {fileID: 340947960}
-  - {fileID: 2089260012}
-  - {fileID: 1319335505}
-  - {fileID: 587443798}
-  - {fileID: 1382675286}
-  - {fileID: 1199197559}
-  - {fileID: 1503077574}
-  - {fileID: 606586391}
-  - {fileID: 1499087967}
-  - {fileID: 1618862613}
-  - {fileID: 2080006926}
-  - {fileID: 1963860125}
-  m_SubLevel2Obstacles:
-  - {fileID: 1675847523}
-  - {fileID: 21829598}
-  - {fileID: 895490256}
-  - {fileID: 2066838343}
-  - {fileID: 1050958079}
-  - {fileID: 2125734109}
-  - {fileID: 726054475}
-  - {fileID: 827650367}
-  - {fileID: 68459729}
-  - {fileID: 1928905200}
-  - {fileID: 430608434}
-  - {fileID: 1497277491}
-  - {fileID: 3445071}
-  - {fileID: 300174747}
-  - {fileID: 789211188}
-  - {fileID: 564052449}
-  - {fileID: 1376134624}
-  - {fileID: 267050138}
-  - {fileID: 1294640395}
-  - {fileID: 1312023769}
-  - {fileID: 1646853776}
-  - {fileID: 745474999}
-  - {fileID: 847429058}
-  originWallSubLevel1: {fileID: 0}
-  m_SubLevel1Object: {fileID: 217373113}
-  m_SubLevel1Wall3D: {fileID: 421378865}
-  m_SubLevel2Object: {fileID: 271592561}
-  SkiaSpawnSubLevel2: {fileID: 1481594326}
   luxControl: {fileID: 1359792202}
   skiaControl: {fileID: 1983527069}
+  lux: {fileID: 0}
+  skia: {fileID: 0}
   MatricesManager: {fileID: 900638867}
 --- !u!4 &512948505
 Transform:
@@ -7433,7 +7383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1441020097}
 --- !u!1 &528802549
 GameObject:
   m_ObjectHideFlags: 0
@@ -8327,7 +8276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1809126155}
 --- !u!1 &592763032
 GameObject:
   m_ObjectHideFlags: 0
@@ -8527,7 +8475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1172773149}
 --- !u!1 &605947703
 GameObject:
   m_ObjectHideFlags: 0
@@ -8703,7 +8650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1208004891}
 --- !u!1 &608911402
 GameObject:
   m_ObjectHideFlags: 0
@@ -9526,7 +9472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 836076216}
 --- !u!1 &632135420
 GameObject:
   m_ObjectHideFlags: 0
@@ -10848,7 +10793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 116813270}
 --- !u!1 &728515762
 GameObject:
   m_ObjectHideFlags: 0
@@ -11067,7 +11011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 912477427}
 --- !u!65 &745475001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12871,7 +12814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1877355423}
 --- !u!114 &900638867 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5282030404641859066, guid: 2e1cc17e7eb4eee45931ad8d0853b9e2,
@@ -14373,18 +14315,6 @@ PrefabInstance:
     - {fileID: 0}
     - {fileID: 7989988013143760939, guid: 9974e985b4b36b340a78d835a16a34ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9974e985b4b36b340a78d835a16a34ea, type: 3}
---- !u!114 &1039880474 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7989988013143760940, guid: 9974e985b4b36b340a78d835a16a34ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 1039880473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766214073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1044939870
 GameObject:
   m_ObjectHideFlags: 0
@@ -14559,7 +14489,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351310}
+  - {fileID: 1046351325}
   selectedCommands: []
   variables: []
   description: 
@@ -14616,7 +14546,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -135.15384
     y: -53.571426
-    width: 75.205475
+    width: 74.65753
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15019,7 +14949,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 31.202374
     y: 4.6348343
-    width: 111.36986
+    width: 110.95889
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15366,7 +15296,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -97.98971
     y: 73.457016
-    width: 104.79451
+    width: 106.16438
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15464,7 +15394,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 100.32268
-    width: 89.45206
+    width: 89.72603
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15613,7 +15543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1956666815}
 --- !u!1 &1058356700
 GameObject:
   m_ObjectHideFlags: 0
@@ -16107,7 +16036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 535126037}
 --- !u!1 &1115617004
 GameObject:
   m_ObjectHideFlags: 0
@@ -16283,7 +16211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1850124152}
 --- !u!1 &1122799943
 GameObject:
   m_ObjectHideFlags: 0
@@ -17044,7 +16971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 27532281}
 --- !u!1 &1190745166
 GameObject:
   m_ObjectHideFlags: 0
@@ -17186,7 +17112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1765891246}
 --- !u!1 &1199573939
 GameObject:
   m_ObjectHideFlags: 0
@@ -19087,7 +19012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 361078077}
 --- !u!1001 &1327307193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19300,7 +19224,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1327307196}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1327307199}
   variables: []
   description: 
   stepPause: 0
@@ -19326,9 +19251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 118
+    x: 116.68421
     y: 72
-    width: 112.10525
+    width: 113.81578
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19913,7 +19838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1412949499}
 --- !u!1 &1376134624
 GameObject:
   m_ObjectHideFlags: 0
@@ -20216,7 +20140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 157093045}
 --- !u!1 &1385448305
 GameObject:
   m_ObjectHideFlags: 0
@@ -21009,6 +20932,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 454321956}
+        m_MethodName: UpdateLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1072051574}
@@ -21073,6 +21007,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 454321956}
+        m_MethodName: UpdateLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -22630,7 +22575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 863329406}
 --- !u!1 &1503077574
 GameObject:
   m_ObjectHideFlags: 0
@@ -22737,7 +22681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1008294866}
 --- !u!1 &1509389073
 GameObject:
   m_ObjectHideFlags: 0
@@ -23244,7 +23187,7 @@ PrefabInstance:
     - target: {fileID: 8391262409015720300, guid: a98fa604763182141971ef23232e794c,
         type: 3}
       propertyPath: volume
-      value: 0.084
+      value: 0.276
       objectReference: {fileID: 0}
     - target: {fileID: 8391262409015720300, guid: a98fa604763182141971ef23232e794c,
         type: 3}
@@ -24576,7 +24519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1221959408}
 --- !u!1 &1621457704
 GameObject:
   m_ObjectHideFlags: 0
@@ -25522,7 +25464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 98959181}
 --- !u!1 &1687642338
 GameObject:
   m_ObjectHideFlags: 0
@@ -27977,6 +27918,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[2].name
+      value: Theater_Layer_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 47f3a920e284345e48a753cefd0a7f3f, type: 3}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[2].volume
+      value: 0.163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[3].name
+      value: Theater_Layer_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9dc8218d18cf04c64a52305dcd7b85d8, type: 3}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[3].volume
+      value: 0.163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[4].name
+      value: Theater_Layer_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 27281d61df2824cbe974baf76ffc660d, type: 3}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[4].volume
+      value: 0.163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}
 --- !u!1 &1858555795
@@ -28433,7 +28454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 2004330430}
 --- !u!1 &1897169044
 GameObject:
   m_ObjectHideFlags: 0
@@ -29160,7 +29180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1093447262}
 --- !u!1 &1981859691
 GameObject:
   m_ObjectHideFlags: 0
@@ -30043,7 +30062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1039880474}
+  selectedFlowchart: {fileID: 1046351291}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
@@ -30273,7 +30292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 813561628}
 --- !u!1 &2073336883
 GameObject:
   m_ObjectHideFlags: 0
@@ -30787,7 +30805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 1246858303}
 --- !u!114 &2089260018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30910,7 +30927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac581dff3f1924a4bbd06fcee11f905b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CopyObstacle: {fileID: 999899054}
 --- !u!1 &2128745492
 GameObject:
   m_ObjectHideFlags: 0

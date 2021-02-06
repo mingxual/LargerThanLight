@@ -4,6 +4,7 @@ using UnityEngine;
 // The script is attached to the lighting source
 public class DynamicShadowCollision : MonoBehaviour
 {
+    LevelManager m_LevelManager;
     public LayerMask m_WallLayerMask;
 
     //Computing points at runtime
@@ -22,6 +23,11 @@ public class DynamicShadowCollision : MonoBehaviour
     //Debug
     public bool m_ShowObjectRaycasts = false;
 
+    private void Awake()
+    {
+        m_LevelManager = FindObjectOfType<LevelManager>();
+    }
+
     void Start()
     {
         m_CurrProjectedPoints2D = new List<Vector2>();
@@ -32,12 +38,14 @@ public class DynamicShadowCollision : MonoBehaviour
         m_Light = GetComponent<Light>();
         m_LightOuterAngle = m_Light.spotAngle / 2.0f;
         m_LightRange = m_Light.range;
+
+        m_LevelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!LightController.luxControlsActivated && LightController.activate)
+        /*if (!LightController.luxControlsActivated && LightController.activate)
         {
             LightController.activate = false;
             return;
@@ -50,26 +58,23 @@ public class DynamicShadowCollision : MonoBehaviour
         }
 
         //Create colliders for obstacles
-        for (int i = 0; i < GameManager.allObstacles.Count; ++i)
+        for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetObstacles().Count; ++i)
         {
             //Mesh mesh = allMeshes[i];
-            int numVertices = GameManager.meshVertices[i].Count;
-            Vector3 currObstaclePos = GameManager.allObstacles[i].transform.position;
+            int numVertices = m_LevelManager.GetCurrentSegment().GetMeshVertices()[i].Count;
+            Vector3 currObstaclePos = m_LevelManager.GetCurrentSegment().GetObstacles()[i].transform.position;
             m_CurrProjectedPoints2D.Clear();
             for (int j = 0; j < numVertices; ++j)
             {
-                Vector3 p = GameManager.meshVertices[i][j];
+                Vector3 p = m_LevelManager.GetCurrentSegment().GetMeshVertices()[i][j];
                 RaycastHit hitInfo;
                 Vector3 dir = currObstaclePos + p - transform.position;
                 dir = dir.normalized;
                 if (Physics.Raycast(transform.position, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
                 {
                     Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
-                    //wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
-                    //Vector3 point = hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point);
                     Vector3 point = wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
                     Vector2 point2D = Vector2.right * point.x + Vector2.up * point.y;
-                    //Debug.Log("point2D: " + point2D);
                     m_CurrProjectedPoints2D.Add(point2D + wall3D.coordinate2D);
                     if (m_ShowObjectRaycasts)
                     {
@@ -99,9 +104,9 @@ public class DynamicShadowCollision : MonoBehaviour
                 //go.layer = GameManager.gameObjectPool[i].layer;
                 for (int j = 0; j < convexedPoints.Count; ++j)
                 {
-                    /*convexedPoints2D.Clear();
+                    *//*convexedPoints2D.Clear();
                     int index;
-                    GameObject go = GetPooledGameObject(out index);*/
+                    GameObject go = GetPooledGameObject(out index);*//*
                     if (j == convexedPoints.Count - 1)
                     {
                         m_CurrConvexedPoints2D.Add(convexedPoints[j]);
@@ -115,11 +120,11 @@ public class DynamicShadowCollision : MonoBehaviour
                     //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                 }
                 go.SetActive(true);
-                GameManager.edgeCollider2DPool[index].points = m_CurrConvexedPoints2D.ToArray();
+                //m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
             }
-        }
+        }*/
 
-        if(m_CreateSpotlight)
+        if (m_CreateSpotlight)
         {
             //Create colliders for spotlight
             m_CurrProjectedPoints2D.Clear();
@@ -138,8 +143,6 @@ public class DynamicShadowCollision : MonoBehaviour
                 if (Physics.Raycast(transform.position, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
                 {
                     Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
-                    //wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
-                    //Vector3 point = hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point);
                     Vector3 point = wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
                     Vector2 point2D = Vector2.right * point.x + Vector2.up * point.y;
                     //Debug.Log("point2D: " + point2D);
@@ -149,7 +152,7 @@ public class DynamicShadowCollision : MonoBehaviour
                 }
             }
 
-            if (m_CurrProjectedPoints2D.Count > 0)
+            /*if (m_CurrProjectedPoints2D.Count > 0)
             {
                 List<Vector2> convexedPoints = ConvexHull(m_CurrProjectedPoints2D);
                 if (convexedPoints != null)
@@ -163,9 +166,6 @@ public class DynamicShadowCollision : MonoBehaviour
                         //go.layer = GameManager.gameObjectPool[i].layer;
                         for (int j = 0; j < convexedPoints.Count; ++j)
                         {
-                            /*convexedPoints2D.Clear();
-                            int index;
-                            GameObject go = GetPooledGameObject(out index);*/
                             if (j == convexedPoints.Count - 1)
                             {
                                 m_CurrConvexedPoints2D.Add(convexedPoints[j]);
@@ -179,34 +179,34 @@ public class DynamicShadowCollision : MonoBehaviour
                             //go.transform.rotation = wall2D.transform.rotation; //Probably not necessary
                         }
                         go.SetActive(true);
-                        GameManager.edgeCollider2DPool[index].points = m_CurrConvexedPoints2D.ToArray();
+                        m_LevelManager.GetCurrentSegment().GetEdgeColliderPool()[index].points = m_CurrConvexedPoints2D.ToArray();
                     }
                 }
-            }
+            }*/
         }
     }
 
     GameObject GetPooledGameObject(out int index)
     {
 
-        for (int i = 0; i < GameManager.gameObjectPool.Count; ++i)
+        /*for (int i = 0; i < m_LevelManager.GetCurrentSegment().GetGameObjectPool().Count; ++i)
         {
-            if (!GameManager.gameObjectPool[i].activeInHierarchy)
+            if (!m_LevelManager.GetCurrentSegment().GetGameObjectPool()[i].activeInHierarchy)
             {
                 index = i;
-                return GameManager.gameObjectPool[i];
+                return m_LevelManager.GetCurrentSegment().GetGameObjectPool()[i];
             }
-        }
+        }*/
         index = -1;
         return null;
     }
 
     void ResetGameObjectPool()
     {
-        for(int i = 0; i < GameManager.gameObjectPool.Count; ++i)
+        /*for(int i = 0; i < LevelManager.GetCurrentSegment().GetCurrentGameObjectPool().Count; ++i)
         {
-            GameManager.gameObjectPool[i].SetActive(false);
-        }
+            LevelManager.GetCurrentSegment().GetCurrentGameObjectPool()[i].SetActive(false);
+        }*/
     }
 
     List<Vector2> ConvexHull(List<Vector2> points)

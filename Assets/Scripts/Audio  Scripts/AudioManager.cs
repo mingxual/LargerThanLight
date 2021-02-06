@@ -14,6 +14,12 @@ public class AudioManager : MonoBehaviour
 
     private bool isBG=true;
 
+    private int layerNumber = 1;
+
+    public Music layer1;
+    public Music layer2;
+    public Music layer3;
+
     private void Awake()
     {
         if(instance==null)
@@ -50,9 +56,15 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        Music temp = GetMusic("Theater_Music_Loop");
-        temp.source.PlayOneShot(temp.clip, temp.volume);
-        BGTimer = temp.source.clip.length - 6.52f;
+        /*layer1 = GetMusic("Theater_Layer_1");
+        layer2 = GetMusic("Theater_Layer_2");
+        layer3 = GetMusic("Theater_Layer_3");
+        layer2.source.volume = 0;
+        layer3.source.volume = 0;
+        layer1.source.Play();
+        layer2.source.Play();
+        layer3.source.Play();
+        BGTimer = layer1.source.clip.length - 7.06f;*/
     }
 
     public void Update()
@@ -60,23 +72,45 @@ public class AudioManager : MonoBehaviour
         BGTimer -= Time.deltaTime;
         if(BGTimer<=0f)
         {
-            Music temp = GetMusic("Theater_Music_Loop");
-            temp.source.PlayOneShot(temp.clip, temp.volume);
-            BGTimer = temp.source.clip.length - 6.52f;
+            layer1.source.Play();
+            layer2.source.Play();
+            layer3.source.Play();
+            BGTimer = layer1.source.clip.length - 7.06f;
         }
 
         if(Input.GetKeyDown(KeyCode.B))
         {
-            Music temp=GetMusic("Theater_Music_Loop");
             if(isBG)
             {
                 isBG = false;
-                temp.source.volume = 0f;
+                if(layerNumber==1)
+                {
+                    layer1.source.volume = 0f;
+                }
+                else if (layerNumber == 2)
+                {
+                    layer2.source.volume = 0f;
+                }
+                else if (layerNumber == 3)
+                {
+                    layer3.source.volume = 0f;
+                }
             }
             else
             {
                 isBG = true;
-                temp.source.volume = 0.1f;
+                if (layerNumber == 1)
+                {
+                    layer1.source.volume = layer1.volume;
+                }
+                else if (layerNumber == 2)
+                {
+                    layer2.source.volume = layer2.volume;
+                }
+                else if (layerNumber == 3)
+                {
+                    layer3.source.volume = layer3.volume;
+                }
             }
 
         }
@@ -163,5 +197,28 @@ public class AudioManager : MonoBehaviour
             return null;
         }
         return m;
+    }
+
+    public void UpdateLayer(int inLayer)
+    {
+        layerNumber = inLayer;
+        if(layerNumber == 1)
+        {
+            layer1.source.volume = layer1.volume;
+            layer2.source.volume = 0f;
+            layer3.source.volume = 0f;
+        }
+        else if (layerNumber == 2)
+        {
+            layer2.source.volume = layer2.volume;
+            layer1.source.volume = 0f;
+            layer3.source.volume = 0f;
+        }
+        else if (layerNumber == 3)
+        {
+            layer3.source.volume = layer3.volume;
+            layer1.source.volume = 0f;
+            layer2.source.volume = 0f;
+        }
     }
 }
