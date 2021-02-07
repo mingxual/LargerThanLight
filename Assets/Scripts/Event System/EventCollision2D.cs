@@ -6,19 +6,19 @@ using UnityEngine.Events;
 public class EventCollision2D : MonoBehaviour
 {
     // The string of the key (match to the one declared in EventsManager)
-    public string m_EventKey;
+    [SerializeField] string m_EventKey;
 
-    // The gameobject that would trigger the event
-    public GameObject m_TriggerObject;
+    // The gameobject that would trigger the event (would use the collider of the gameobject to trigger)
+    [SerializeField] GameObject m_ContactObject;
 
-    // The current event can be triggered once or unlimited times
-    public bool m_TriggerOnlyOnce;
-
+    // Variables to track the invoke status (such as whether it is invoked)
     private bool m_HasTriggered;
     private bool m_IsTriggering;
-
     private float m_Timer;
     public bool isCollided;
+
+    // This is the variable to track whether the current script is on or off
+    private bool onEnable = true;
 
     // Start is called before the first frame update
     void Start()
@@ -34,18 +34,6 @@ public class EventCollision2D : MonoBehaviour
         if(isCollided && !m_IsTriggering && Input.GetAxis("Interaction") > 0.8f)
         {
             m_IsTriggering = true;
-            // Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
-            EventsManager.instance.InvokeEvent(m_EventKey);
-            // Debug.Log("Triggered rope successfully");
-            //audio added
-            // AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
-        }
-
-        //dealing with UI hints
-        if (isCollided && !m_IsTriggering && m_EventKey.Contains("UI"))
-        {
-            m_IsTriggering = true;
-          
             EventsManager.instance.InvokeEvent(m_EventKey);
         }
 
@@ -53,11 +41,21 @@ public class EventCollision2D : MonoBehaviour
         {
             isCollided = false;
         }
+
+        // currently disable this ui stuff, will pick up later to come up with a better solution
+        // dealing with UI hints
+        /*
+        if (isCollided && !m_IsTriggering && m_EventKey.Contains("UI"))
+        {
+            m_IsTriggering = true;
+            EventsManager.instance.InvokeEvent(m_EventKey);
+        }
+        */
     }
 
-    
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
         if(m_TriggerObject != null)
         {
             if(m_TriggerObject == collision.gameObject && !m_IsTriggering)
@@ -65,24 +63,18 @@ public class EventCollision2D : MonoBehaviour
                 m_Timer = Time.time;
                 isCollided = true;
                 Debug.Log(gameObject.name);
-                /*
-                Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
-
-                //audio added
-                AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
-                if(m_TriggerOnlyOnce && !m_HasTriggered)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                    m_HasTriggered = true;
-                }
-                else if(!m_TriggerOnlyOnce)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                }
-                m_IsTriggering = true;
-                */
             }
         }
-        // Debug.Log("trigger object id " + m_TriggerObject.GetInstanceID());
+        */
+    }
+
+    public void SetEnableStatus(bool val)
+    {
+        onEnable = val;
+    }
+
+    public bool GetEnableStatus()
+    {
+        return onEnable;
     }
 }

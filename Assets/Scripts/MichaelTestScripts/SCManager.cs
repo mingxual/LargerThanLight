@@ -55,7 +55,7 @@ public class SCManager : MonoBehaviour
         if (Vector3.Angle(skia.GetWorldPosition() - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(skia.GetWorldPosition() - light.transform.position) > light.range)
             return;
         RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, 10000.0f, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
-        print(obstacles.Length);
+        // print(obstacles.Length);
         int i;
         for (i = 0; i < obstacles.Length; i++)
         {
@@ -122,12 +122,33 @@ public class SCManager : MonoBehaviour
                 poolGO.transform.position = transform.position;
                 poolGO.layer = 10;
                 poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
-
+                
                 m_ObstaclePool.Add(poolGO);
             }
 
             poolGO.SetActive(true);
             poolGO.GetComponent<PolygonCollider2D>().points = convexedPoints.ToArray();
+
+            // Check if there is any script attached
+            EventTrigger2D originEventTrigger2D = obstacle.transform.GetComponent<EventTrigger2D>();
+            if (originEventTrigger2D != null)
+            {
+                poolGO.GetComponent<PolygonCollider2D>().isTrigger = true;
+
+                if (originEventTrigger2D.GetEnableStatus())
+                {
+                    // I am not sure why here there are multiple script duplicates
+                    if (poolGO.GetComponent<EventTrigger2D>() == null)
+                    {
+                        poolGO.AddComponent<EventTrigger2D>();
+
+                        EventTrigger2D copiedEventTrigger2D = poolGO.GetComponent<EventTrigger2D>();
+
+                        copiedEventTrigger2D.SetEventKey(originEventTrigger2D.GetEventKey());
+                        copiedEventTrigger2D.SetContactObject(originEventTrigger2D.GetContactObject());
+                    }
+                }
+            }
         }
         while (i < m_ObstaclePool.Count)
         {
