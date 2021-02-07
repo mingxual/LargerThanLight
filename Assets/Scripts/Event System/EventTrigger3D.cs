@@ -76,6 +76,7 @@ public class EventTrigger3D : MonoBehaviour
         }
     }
 
+    /*
     public void OnCollisionEnter(Collision collision)
     {
         if (m_TriggerObject != null)
@@ -115,4 +116,5 @@ public class EventTrigger3D : MonoBehaviour
             m_IsTriggering = false;
         }
     }
+    */
 }

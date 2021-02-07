@@ -5,84 +5,59 @@ using UnityEngine;
 public class EventCollision3D : MonoBehaviour
 {
     // The string of the key (match to the one declared in EventsManager)
-    public string m_EventKey;
+    [SerializeField] string m_EventKey;
 
-    // The gameobject that would trigger the event
-    public GameObject m_TriggerObject;
+    // The gameobject that would trigger the event (would use the collider of the gameobject to trigger)
+    [SerializeField] GameObject m_ContactObject;
 
-    // The current event can be triggered once or unlimited times
-    public bool m_TriggerOnlyOnce;
+    // Variables to track whether the script is invoked or not
+    private bool m_Triggered;
+    private bool m_Collided;
 
-    // private bool m_HasTriggered;
-    private bool m_IsTriggering;
-
-    private float m_Timer;
-    public bool isCollided;
+    // This is the variable to track whether the current script is on or off
+    private bool m_OnEnable;
 
     // Start is called before the first frame update
     void Start()
     {
-        // m_HasTriggered = false;
-        m_IsTriggering = false;
-        isCollided = false;
+        m_Triggered = false;
+        m_Collided = false;
+        m_OnEnable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isCollided && !m_IsTriggering && Input.GetAxis("Interaction") > 0.8f)
+        if (m_Collided && !m_Triggered && Input.GetAxis("Interaction") > 0.8f)
         {
-            m_IsTriggering = true;
-            // Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
             EventsManager.instance.InvokeEvent(m_EventKey);
-            // Debug.Log("Triggered rope successfully");
-            // audio added
-            // AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
+            m_Triggered = true;
         }
-
-        //dealing with UI hints
-        /*if (isCollided && !m_IsTriggering && m_EventKey.Contains("UI") && Time.time - m_Timer > 0.49f)
-        {
-            m_IsTriggering = true;
-          
-            EventsManager.instance.InvokeEvent(m_EventKey);
-        }*/
-
-        /*
-        if (Time.time - m_Timer > 0.5f)
-        {
-            isCollided = false;
-        }
-        */
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (m_TriggerObject != null)
+        if (collision.gameObject == m_Triggered)
         {
-            if (m_TriggerObject == collision.gameObject && !m_IsTriggering)
-            {
-                // m_Timer = Time.time;
-                isCollided = true;
-                Debug.Log("collide with rope");
-                /*
-                Fungus.Flowchart.BroadcastFungusMessage("Curtain Pulled");
-
-                //audio added
-                AudioManager.instance.PlayOnce("Curtain_Open", new Vector3(0, 0, 0));
-                if(m_TriggerOnlyOnce && !m_HasTriggered)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                    m_HasTriggered = true;
-                }
-                else if(!m_TriggerOnlyOnce)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                }
-                m_IsTriggering = true;
-                */
-            }
+            m_Collided = true;
         }
-        // Debug.Log("trigger object id " + m_TriggerObject.GetInstanceID());
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == m_Triggered)
+        {
+            m_Collided = false;
+        }
+    }
+
+    public void SetEnableStatus(bool val)
+    {
+        m_OnEnable = val;
+    }
+
+    public bool GetEnableStatus()
+    {
+        return m_OnEnable;
     }
 }

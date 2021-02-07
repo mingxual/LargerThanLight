@@ -78,14 +78,12 @@ public class GameManager : MonoBehaviour
     {
         luxControl.enabled = false;
         skiaControl.Disable();
-        Debug.Log("control disabled");
     }
 
     public void EnableCharacterControl()
     {
         luxControl.enabled = true;
         skiaControl.enabled = true;
-        Debug.Log("control enabled");
     }
 
     public void SpawnSkiaNextSegment()
