@@ -37,7 +37,8 @@ public class EventCollision3D : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == m_Triggered)
+        // Debug.Log(collision.gameObject.name);
+        if (collision.gameObject == m_ContactObject)
         {
             m_Collided = true;
         }
@@ -45,7 +46,7 @@ public class EventCollision3D : MonoBehaviour
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == m_Triggered)
+        if (collision.gameObject == m_ContactObject)
         {
             m_Collided = false;
         }

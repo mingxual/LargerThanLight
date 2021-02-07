@@ -50,10 +50,11 @@ public class EventsManager : MonoBehaviour
         if(m_EventsMap.ContainsKey(key))
         {
             m_EventsMap[key].Invoke();
+            m_EventsMap.Remove(key);
         }
         else
         {
-            Debug.LogError(key + "is not set in EventsManager");
+            Debug.Log(key + "is not set in EventsManager");
         }
     }
 }
