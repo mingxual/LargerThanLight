@@ -5,4 +5,9 @@ using UnityEngine;
 public class SCLight : MonoBehaviour
 {
     public bool active;
+
+    public void SetActive(bool val)
+    {
+        active = val;
+    }
 }
