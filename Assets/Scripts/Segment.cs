@@ -58,4 +58,9 @@ public class Segment : MonoBehaviour
     {
         return m_SkiaSpawnTransform;
     }
+
+    public List<SCLight> GetLights()
+    {
+        return m_AllLights;
+    }
 }
