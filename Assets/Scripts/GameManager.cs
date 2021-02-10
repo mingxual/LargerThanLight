@@ -95,6 +95,13 @@ public class GameManager : MonoBehaviour
         {
             MoveSkiaToPos(m_LevelManager.GetCurrentSegment().GetSkiaSpawnTransform());
         }
+
+        Transform luxSpawnTransform = m_LevelManager.GetCurrentSegment().GetLuxSpawnTransform();
+        if(luxSpawnTransform)
+        {
+            MoveLuxToPos(luxSpawnTransform);
+            lux.GetComponentInChildren<SCLight>().active = true;
+        }
     }
 
     public void MoveLuxToPos(Transform pos)
