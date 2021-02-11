@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour
     float m_FadeTime = 0.4f;
 
     float m_CurrFadeTime;
+
     // Start is called before the first frame update
     void Start()
     {
