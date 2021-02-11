@@ -11,35 +11,28 @@ public class EventCollision2D : MonoBehaviour
     // The gameobject that would trigger the event (would use the collider of the gameobject to trigger)
     [SerializeField] GameObject m_ContactObject;
 
-    // Variables to track the invoke status (such as whether it is invoked)
-    private bool m_HasTriggered;
-    private bool m_IsTriggering;
-    private float m_Timer;
-    public bool isCollided;
+    // Variables to track whether the script is invoked or not
+    private bool m_Triggered;
+    private bool m_Collided;
 
     // This is the variable to track whether the current script is on or off
-    private bool onEnable = true;
+    private bool m_OnEnable;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_HasTriggered = false;
-        m_IsTriggering = false;
-        isCollided = false;
+        m_Triggered = false;
+        m_Collided = false;
+        m_OnEnable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isCollided && !m_IsTriggering && Input.GetAxis("Interaction") > 0.8f)
+        if (m_Collided && !m_Triggered && Input.GetAxis("Interaction") > 0.8f)
         {
-            m_IsTriggering = true;
             EventsManager.instance.InvokeEvent(m_EventKey);
-        }
-
-        if (Time.time - m_Timer > 0.5f)
-        {
-            isCollided = false;
+            m_Triggered = true;
         }
 
         // currently disable this ui stuff, will pick up later to come up with a better solution
@@ -55,26 +48,47 @@ public class EventCollision2D : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        if(m_TriggerObject != null)
+        if (collision.gameObject == m_ContactObject)
         {
-            if(m_TriggerObject == collision.gameObject && !m_IsTriggering)
-            {
-                m_Timer = Time.time;
-                isCollided = true;
-                Debug.Log(gameObject.name);
-            }
+            m_Collided = true;
         }
-        */
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject == m_ContactObject)
+        {
+            m_Collided = false;
+        }
     }
 
     public void SetEnableStatus(bool val)
     {
-        onEnable = val;
+        m_OnEnable = val;
     }
 
     public bool GetEnableStatus()
     {
-        return onEnable;
+        return m_OnEnable;
+    }
+
+    public void SetEventKey(string eventKey)
+    {
+        m_EventKey = eventKey;
+    }
+
+    public string GetEventKey()
+    {
+        return m_EventKey;
+    }
+
+    public void SetContactObject(GameObject contactObject)
+    {
+        m_ContactObject = contactObject;
+    }
+
+    public GameObject GetContactObject()
+    {
+        return m_ContactObject;
     }
 }
