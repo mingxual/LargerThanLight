@@ -22,6 +22,7 @@ public class HallwayLights : MonoBehaviour
     {
         for(int i = 0; i < spotLights.Count; ++i)
         {
+            spotLights[i].GetComponent<SCLight>().active = false;
             spotLights[i].SetActive(false);
         }
     }
@@ -30,6 +31,7 @@ public class HallwayLights : MonoBehaviour
     {
         for (int i = 0; i < spotLights.Count; ++i)
         {
+            spotLights[i].GetComponent<SCLight>().active = true;
             spotLights[i].SetActive(true);
         }
     }

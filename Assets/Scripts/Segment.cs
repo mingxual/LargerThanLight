@@ -8,6 +8,7 @@ public class Segment : MonoBehaviour
     [SerializeField] GameObject m_WallParent;
     [SerializeField] Camera m_RenderCam;
     [SerializeField] Transform m_SkiaSpawnTransform;
+    [SerializeField] Transform m_LuxSpawnTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,11 @@ public class Segment : MonoBehaviour
     public Transform GetSkiaSpawnTransform()
     {
         return m_SkiaSpawnTransform;
+    }
+
+    public Transform GetLuxSpawnTransform()
+    {
+        return m_LuxSpawnTransform;
     }
 
     public List<SCLight> GetLights()
