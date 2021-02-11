@@ -56,6 +56,10 @@ public class SCManager : MonoBehaviour
 
     public void RaycastLights()
     {
+        int lightCasts = 0;
+        print("light count: " + LevelManager.Instance.GetCurrentSegment().GetLights().Count);
+
+
         int poolI = 0;
         foreach (SCLight sclight in LevelManager.Instance.GetCurrentSegment().GetLights())
         {
@@ -65,8 +69,8 @@ public class SCManager : MonoBehaviour
             //Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
             if (Vector3.Angle(skia.GetWorldPosition() - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(skia.GetWorldPosition() - light.transform.position) > light.range)
                 continue;
-            RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, 10000.0f, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
-            // print(obstacles.Length);
+            RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, Vector3.Magnitude(skia.GetWorldPosition() - lightPos) + 1, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
+            print("obs count: " + obstacles.Length);
             for (int i = 0; i < obstacles.Length; i++)
             {
                 RaycastHit obstacle = obstacles[i];
@@ -89,6 +93,8 @@ public class SCManager : MonoBehaviour
                     continue;
                 }
 
+                print("num vertices: " + numVertices);
+
                 Vector3 currObstaclePos = obstacle.transform.position;
                 m_CurrProjectedPoints2D.Clear();
                 for (int j = 0; j < numVertices; ++j)
@@ -106,6 +112,7 @@ public class SCManager : MonoBehaviour
                         if (m_ShowObjectRaycasts)
                         {
                             Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
+                            lightCasts++;
                         }
                     }
                 }
@@ -218,6 +225,7 @@ public class SCManager : MonoBehaviour
                         if (m_ShowObjectRaycasts)
                         {
                             Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
+                            lightCasts++;
                         }
                     }
                 }
@@ -284,6 +292,8 @@ public class SCManager : MonoBehaviour
             m_ObstaclePool[poolI].SetActive(false);
             poolI++;
         }
+
+        print(lightCasts);
     }
 
     Vector3[] GetVerticesFromBox(BoxCollider box)
