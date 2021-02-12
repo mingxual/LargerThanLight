@@ -64,6 +64,22 @@ public class SCEventHandle : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(isEventCollider)
+        {
+            if (collision.gameObject == m_ContactObject && !m_HasTriggered)
+            {
+                /*
+                m_IsCollided = true;
+                m_Timer = Time.time;
+                */
+                EventsManager.instance.InvokeEvent(m_EventKey);
+                m_HasTriggered = true;
+            }
+        }
+    }
+
     public void SetEnableStatus(bool val)
     {
         m_OnEnable = val;

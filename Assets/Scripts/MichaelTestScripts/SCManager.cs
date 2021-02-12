@@ -157,12 +157,13 @@ public class SCManager : MonoBehaviour
 
                 // Check if there is any script attached
                 EventTrigger2D originEventTrigger2D = obstacle.transform.GetComponent<EventTrigger2D>();
-                if (originEventTrigger2D == null)
+                EventCollision2D originEventCollision2D = obstacle.transform.GetComponent<EventCollision2D>();
+                if (originEventTrigger2D == null && originEventCollision2D == null)
                 {
                     handle.isEventTrigger = false;
                     handle.isEventCollider = false;
                 }
-                else
+                else if(originEventTrigger2D)
                 {
                     poolGO.GetComponent<PolygonCollider2D>().isTrigger = true;
 
@@ -172,6 +173,16 @@ public class SCManager : MonoBehaviour
                         handle.SetContactObject(originEventTrigger2D.GetContactObject());
                         handle.isEventTrigger = true;
                         handle.isEventCollider = false;
+                    }
+                }
+                else
+                {
+                    if (originEventCollision2D.GetEnableStatus())
+                    {
+                        handle.SetEventKey(originEventCollision2D.GetEventKey());
+                        handle.SetContactObject(originEventCollision2D.GetContactObject());
+                        handle.isEventTrigger = false;
+                        handle.isEventCollider = true;
                     }
                 }
             }
