@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void InitializeSubLevels()
@@ -59,8 +59,6 @@ public class LevelManager : MonoBehaviour
 
     private void SetActiveSegment(int index)
     {
-        m_AllSegments[index].Activate(); // Turn on sublevel
-
         // Turn off the rest
         for(int i = 0; i < m_AllSegments.Length; i++)
         {
@@ -69,6 +67,8 @@ public class LevelManager : MonoBehaviour
                 m_AllSegments[i].Deactivate();
             }
         }
+
+        m_AllSegments[index].Activate(); // Turn on sublevel
     }
 
     public Segment GetCurrentSegment()

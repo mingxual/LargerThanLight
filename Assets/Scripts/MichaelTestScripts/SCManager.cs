@@ -143,6 +143,7 @@ public class SCManager : MonoBehaviour
                     poolGO.layer = 10;
                     poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
                     poolGO.AddComponent<SCEventHandle>();
+                    poolGO.AddComponent<ShadowMoveSkia>();
 
                     m_ObstaclePool.Add(poolGO);
                 }
@@ -175,118 +176,6 @@ public class SCManager : MonoBehaviour
             }
         }
 
-        SCLight luxLight = LevelManager.Instance.GetCurrentSegment().GetLuxLight();
-        if (luxLight)
-        {
-            //if (!luxLight.active) continue;
-            Light light = luxLight.GetComponent<Light>();
-            Vector3 lightPos = light.transform.position;
-            //Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
-            /*if (Vector3.Angle(skia.GetWorldPosition() - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(skia.GetWorldPosition() - light.transform.position) > light.range)
-                continue;*/
-            RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, 10000.0f, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
-            // print(obstacles.Length);
-            for (int i = 0; i < obstacles.Length; i++)
-            {
-                RaycastHit obstacle = obstacles[i];
-                int numVertices = 0;
-                Vector3[] vertices = new Vector3[0];
-                if (obstacle.collider is MeshCollider)
-                {
-                    MeshCollider obstacleM = (MeshCollider)obstacle.collider;
-                    numVertices = obstacleM.sharedMesh.vertexCount;
-                    vertices = obstacleM.sharedMesh.vertices;
-                }
-                else if (obstacle.collider is BoxCollider)
-                {
-                    BoxCollider obstacleB = (BoxCollider)obstacle.collider;
-                    numVertices = 8;
-                    vertices = GetVerticesFromBox(obstacleB);
-                }
-                else
-                {
-                    continue;
-                }
-
-                Vector3 currObstaclePos = obstacle.transform.position;
-                m_CurrProjectedPoints2D.Clear();
-                for (int j = 0; j < numVertices; ++j)
-                {
-                    Vector3 p = obstacle.collider.transform.localToWorldMatrix * vertices[j];
-                    RaycastHit hitInfo;
-                    Vector3 dir = currObstaclePos + p - lightPos;
-                    dir = dir.normalized;
-                    if (Physics.Raycast(lightPos, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
-                    {
-                        Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
-                        Vector3 point = wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position);
-                        Vector2 point2D = Vector2.right * point.x + Vector2.up * point.y;
-                        m_CurrProjectedPoints2D.Add(point2D + wall3D.coordinate2D);
-                        if (m_ShowObjectRaycasts)
-                        {
-                            Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
-                            lightCasts++;
-                        }
-                    }
-                }
-
-                if (m_CurrProjectedPoints2D.Count == 0)
-                {
-                    continue;
-                }
-
-                List<Vector2> convexedPoints = ConvexHull(m_CurrProjectedPoints2D);
-                // Just for the safety thing
-                if (convexedPoints == null || convexedPoints.Count == 0)
-                {
-                    continue;
-                }
-
-                GameObject poolGO;
-                if (poolI < m_ObstaclePool.Count)
-                {
-                    poolGO = m_ObstaclePool[poolI];
-                    poolI++;
-                }
-                else
-                {
-                    poolGO = new GameObject();
-                    poolGO.transform.SetParent(transform);
-                    poolGO.transform.position = transform.position;
-                    poolGO.layer = 10;
-                    poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
-                    poolGO.AddComponent<SCEventHandle>();
-
-                    m_ObstaclePool.Add(poolGO);
-                }
-
-                poolGO.SetActive(true);
-                poolGO.GetComponent<PolygonCollider2D>().points = convexedPoints.ToArray();
-                SCEventHandle handle = poolGO.GetComponent<SCEventHandle>();
-                handle.corrObject = obstacle.transform.gameObject;
-
-
-                // Check if there is any script attached
-                EventTrigger2D originEventTrigger2D = obstacle.transform.GetComponent<EventTrigger2D>();
-                if (originEventTrigger2D == null)
-                {
-                    handle.isEventTrigger = false;
-                    handle.isEventCollider = false;
-                }
-                else
-                {
-                    poolGO.GetComponent<PolygonCollider2D>().isTrigger = true;
-
-                    if (originEventTrigger2D.GetEnableStatus())
-                    {
-                        handle.SetEventKey(originEventTrigger2D.GetEventKey());
-                        handle.SetContactObject(originEventTrigger2D.GetContactObject());
-                        handle.isEventTrigger = true;
-                        handle.isEventCollider = false;
-                    }
-                }
-            }
-        }
         while (poolI < m_ObstaclePool.Count)
         {
             m_ObstaclePool[poolI].SetActive(false);

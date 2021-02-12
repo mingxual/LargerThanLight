@@ -8,9 +8,17 @@ public class SCObstacle : MonoBehaviour
     public Vector3 rotationAxis;
     public float rotationSpeed;
 
+    // Occlusion variables
+    bool m_IsOccluded;
+    float m_FadeTime = 0.4f;
+    float m_CurrFadeTime;
+
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Obstacle");
+        m_CurrFadeTime = 0f;
+        m_IsOccluded = true;
+        m_FadeTime = .4f;
     }
 
     private void Update()

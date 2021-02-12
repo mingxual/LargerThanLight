@@ -9,13 +9,13 @@ public class ShadowMoveSkia : MonoBehaviour
     int vertexY;
     float left;
     float right;
-    EdgeCollider2D edgeCollider;
+    PolygonCollider2D edgeCollider;
     Vector2[] points;
 
     // Start is called before the first frame update
     void Start()
     {
-        edgeCollider = GetComponent<EdgeCollider2D>();
+        edgeCollider = GetComponent<PolygonCollider2D>();
         points = edgeCollider.points;
         //ratio = -1;
     }

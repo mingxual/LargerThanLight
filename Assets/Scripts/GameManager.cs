@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
             MatricesManager.Restart();           
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SpawnSkiaNextSegment();
+        }
     }
 
     // Update is called once per frame
