@@ -82,7 +82,7 @@ public class SimpleController : MonoBehaviour
     {
         originalPosition = transform.position;
         originalRotation = transform.rotation;
-
+        moveWithShadow = true;
         //mainCamera = Camera.main;
     }
 
