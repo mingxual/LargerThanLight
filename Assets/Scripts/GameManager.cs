@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        //Debug
         if (Input.GetKeyDown(KeyCode.N))
         {
             SpawnSkiaNextSegment();

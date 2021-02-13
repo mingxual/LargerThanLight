@@ -112,6 +112,7 @@ public class SCManager : MonoBehaviour
                         if (m_ShowObjectRaycasts)
                         {
                             Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
+                            Debug.DrawRay(hitInfo.point, point - hitInfo.point, Color.green);
                             lightCasts++;
                         }
                     }
