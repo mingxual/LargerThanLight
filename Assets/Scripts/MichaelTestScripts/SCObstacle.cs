@@ -8,6 +8,8 @@ public class SCObstacle : MonoBehaviour
     public Vector3 rotationAxis;
     public float rotationSpeed;
 
+    public bool debugLines;
+
     // Occlusion variables
     Material m_TransparentMaterial;
     bool m_IsOccluded;
@@ -17,7 +19,8 @@ public class SCObstacle : MonoBehaviour
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Obstacle");
-        m_TransparentMaterial = GetComponent<MeshRenderer>().materials[0];
+        if(GetComponent<MeshRenderer>())
+            m_TransparentMaterial = GetComponent<MeshRenderer>().materials[0];
         m_CurrFadeTime = 0f;
         m_IsOccluded = true;
         m_FadeTime = .4f;
@@ -38,7 +41,7 @@ public class SCObstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void LateUpdates()
     {
         if (!m_IsOccluded)
         {

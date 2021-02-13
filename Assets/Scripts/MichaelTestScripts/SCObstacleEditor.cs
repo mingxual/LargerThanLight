@@ -18,6 +18,8 @@ public class SCObstacleEditor : Editor
             script.rotationAxis = EditorGUILayout.Vector3Field("Axis", script.rotationAxis);
             script.rotationSpeed = EditorGUILayout.FloatField("Speed", script.rotationSpeed);
         }
+
+        script.debugLines = GUILayout.Toggle(script.debugLines, "Show Debug Lines");
     }
 }
 #endif
