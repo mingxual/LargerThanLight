@@ -9,7 +9,7 @@ public class SCObstacle : MonoBehaviour
     public float rotationSpeed;
 
     // Occlusion variables
-    Material m_TransparentMaterial;
+    Material[] m_TransparentMaterials;
     bool m_IsOccluded;
     float m_FadeTime = 0.4f;
     float m_CurrFadeTime;
@@ -17,7 +17,17 @@ public class SCObstacle : MonoBehaviour
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Obstacle");
-        m_TransparentMaterial = GetComponent<MeshRenderer>().materials[0];
+        MeshRenderer[] meshRenderers = GetComponents<MeshRenderer>();
+        if(meshRenderers.Length == 0)
+        {
+            meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        }
+        m_TransparentMaterials = new Material[meshRenderers.Length];
+        for(int i = 0; i < meshRenderers.Length; i++)
+        {
+            m_TransparentMaterials[i] = meshRenderers[i].materials[0];
+        }
+            //= GetComponent<MeshRenderer>().materials[0];
         m_CurrFadeTime = 0f;
         m_IsOccluded = true;
         m_FadeTime = .4f;
@@ -57,9 +67,12 @@ public class SCObstacle : MonoBehaviour
             }
         }
 
-        Color materialColor = m_TransparentMaterial.color;
-        materialColor.a = Mathf.Lerp(.4f, 1f, (m_CurrFadeTime / m_FadeTime));
-        m_TransparentMaterial.color = materialColor;
+        for(int i = 0; i < m_TransparentMaterials.Length; i++)
+        {
+            Color materialColor = m_TransparentMaterials[i].color;
+            materialColor.a = Mathf.Lerp(.4f, 1f, (m_CurrFadeTime / m_FadeTime));
+            m_TransparentMaterials[i].color = materialColor;
+        }
     }
 
     public void Occlude()
