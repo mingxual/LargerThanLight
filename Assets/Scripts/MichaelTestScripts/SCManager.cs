@@ -61,8 +61,8 @@ public class SCManager : MonoBehaviour
 
 
         int poolI = 0;
-        //foreach (SCLight sclight in LevelManager.Instance.GetCurrentSegment().GetLights())
-        foreach (SCLight sclight in FindObjectsOfType<SCLight>())
+        foreach (SCLight sclight in LevelManager.Instance.GetCurrentSegment().GetLights())
+        //foreach (SCLight sclight in FindObjectsOfType<SCLight>())
         {
             if (!sclight.active) continue;
             Light light = sclight.GetComponent<Light>();
@@ -70,7 +70,7 @@ public class SCManager : MonoBehaviour
             //Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
             if (Vector3.Angle(skia.GetWorldPosition() - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(skia.GetWorldPosition() - light.transform.position) > light.range)
                 continue;
-            RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, Vector3.Magnitude(skia.GetWorldPosition() - lightPos) + 1, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
+            RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, Vector3.Magnitude(skia.GetWorldPosition() - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
             print("obs count: " + obstacles.Length);
             for (int i = 0; i < obstacles.Length; i++)
             {
@@ -110,14 +110,12 @@ public class SCManager : MonoBehaviour
                         Vector3 point = wall3D.RaycastToWall2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point), transform.position, obstacle.collider.GetComponent<SCObstacle>().debugLines);
                         Vector2 point2D = Vector2.right * point.x + Vector2.up * point.y;
                         m_CurrProjectedPoints2D.Add(point2D + wall3D.coordinate2D);
-                        if (m_ShowObjectRaycasts)
+
+                        if (m_ShowObjectRaycasts || obstacle.collider.GetComponent<SCObstacle>().debugLines)
                         {
-                            if(obstacle.collider.GetComponent<SCObstacle>().debugLines)
-                            {
-                                Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
-                                Debug.DrawRay(hitInfo.point, point - hitInfo.point, Color.green);
-                                print("Casted vertex " + p + " to point " + hitInfo.point + " transformed to " + point2D);
-                            }
+                            Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
+                            Debug.DrawRay(hitInfo.point, point - hitInfo.point, Color.green);
+                            print("Casted vertex " + p + " to point " + hitInfo.point + " transformed to " + point2D);
                         }
                         lightCasts++;
                     }
@@ -149,7 +147,7 @@ public class SCManager : MonoBehaviour
                     poolGO.layer = 10;
                     poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
                     poolGO.AddComponent<SCEventHandle>();
-                    poolGO.AddComponent<ShadowMoveSkia>();
+                    //poolGO.AddComponent<ShadowMoveSkia>();
                     poolGO.tag = "Shadow";
 
                     m_ObstaclePool.Add(poolGO);

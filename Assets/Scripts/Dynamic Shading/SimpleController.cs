@@ -91,7 +91,7 @@ public class SimpleController : MonoBehaviour
         // Find and set its position in 3d space (aka game view)
         SetWorldPosition3D();
         OccludeObjects();
-        Debug.DrawRay(m_WorldPosition3D, Camera.main.transform.position - m_WorldPosition3D);
+        //Debug.DrawRay(m_WorldPosition3D, Camera.main.transform.position - m_WorldPosition3D);
 
         movementDirection = 0;
         skiaControlsActivated = false;

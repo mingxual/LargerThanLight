@@ -49,7 +49,7 @@ public class SCObstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdates()
+    void LateUpdate()
     {
         if (!m_IsOccluded)
         {
