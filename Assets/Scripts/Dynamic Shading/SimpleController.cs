@@ -90,7 +90,7 @@ public class SimpleController : MonoBehaviour
     {
         // Find and set its position in 3d space (aka game view)
         SetWorldPosition3D();
-        //OccludeObjects();
+        OccludeObjects();
         Debug.DrawRay(m_WorldPosition3D, Camera.main.transform.position - m_WorldPosition3D);
 
         movementDirection = 0;
@@ -309,19 +309,35 @@ public class SimpleController : MonoBehaviour
         RaycastHit hitInfo;
         if(Physics.Raycast(m_WorldTopRight, topRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
         {
-            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+            if(scObstacle)
+            {
+                scObstacle.Occlude();
+            }
         }
         if (Physics.Raycast(m_WorldTopLeft, topLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
         {
-            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+            if (scObstacle)
+            {
+                scObstacle.Occlude();
+            }
         }
         if (Physics.Raycast(m_WorldBottomRight, bottomRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
         {
-            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+            if (scObstacle)
+            {
+                scObstacle.Occlude();
+            }
         }
         if (Physics.Raycast(m_WorldBottomLeft, bottomLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
         {
-            hitInfo.collider.gameObject.GetComponent<Obstacle>().Occlude();
+            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+            if (scObstacle)
+            {
+                scObstacle.Occlude();
+            }
         }
         /*foreach (Obstacle obs in obstacleCache)
         {
