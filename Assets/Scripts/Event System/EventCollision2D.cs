@@ -16,14 +16,14 @@ public class EventCollision2D : MonoBehaviour
     private bool m_Collided;
 
     // This is the variable to track whether the current script is on or off
-    private bool m_OnEnable;
+    public bool m_OnEnable = true;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Triggered = false;
         m_Collided = false;
-        m_OnEnable = true;
+        // m_OnEnable = true;
     }
 
     // Update is called once per frame
@@ -50,6 +50,7 @@ public class EventCollision2D : MonoBehaviour
     {
         if (collision.gameObject == m_ContactObject)
         {
+            EventsManager.instance.InvokeEvent(m_EventKey);
             m_Collided = true;
         }
     }
