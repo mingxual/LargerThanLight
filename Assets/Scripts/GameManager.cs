@@ -68,10 +68,10 @@ public class GameManager : MonoBehaviour
         }
 
         //Debug
-        if (Input.GetKeyDown(KeyCode.N))
+        /*if (Input.GetKeyDown(KeyCode.N))
         {
             SpawnSkiaNextSegment();
-        }
+        }*/
     }
 
     // Update is called once per frame
