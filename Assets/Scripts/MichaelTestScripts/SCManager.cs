@@ -71,7 +71,7 @@ public class SCManager : MonoBehaviour
             if (Vector3.Angle(skia.GetWorldPosition() - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(skia.GetWorldPosition() - light.transform.position) > light.range)
                 continue;
             RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, skia.GetWorldPosition() - lightPos), lightcast_radius, Vector3.Magnitude(skia.GetWorldPosition() - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
-            print("obs count: " + obstacles.Length);
+            //print("obs count: " + obstacles.Length);
             for (int i = 0; i < obstacles.Length; i++)
             {
                 RaycastHit obstacle = obstacles[i];
@@ -94,7 +94,7 @@ public class SCManager : MonoBehaviour
                     continue;
                 }
 
-                print("num vertices: " + numVertices);
+                //print("num vertices: " + numVertices);
 
                 Vector3 currObstaclePos = obstacle.transform.position;
                 m_CurrProjectedPoints2D.Clear();
@@ -199,7 +199,7 @@ public class SCManager : MonoBehaviour
             poolI++;
         }
 
-        print(lightCasts);
+        //print(lightCasts);
     }
 
     Vector3[] GetVerticesFromBox(BoxCollider box)

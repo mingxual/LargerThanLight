@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
     }
 
     [SerializeField] Segment[] m_AllSegments;
-    private static int m_CurrentSegmentIndex = 0;
+    private int m_CurrentSegmentIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
     public void SetNextSegment()
     {
-        if(m_CurrentSegmentIndex < m_AllSegments.Length)
+        if(m_CurrentSegmentIndex < m_AllSegments.Length - 1)
         {
             m_CurrentSegmentIndex++;
             SetActiveSegment(m_CurrentSegmentIndex);
@@ -73,6 +73,7 @@ public class LevelManager : MonoBehaviour
 
     public Segment GetCurrentSegment()
     {
+        //Debug.Log("current segment index number: " + m_CurrentSegmentIndex);
         return m_AllSegments[m_CurrentSegmentIndex];
     }
 }

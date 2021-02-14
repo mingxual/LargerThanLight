@@ -16,7 +16,7 @@ public class GymManager : MonoBehaviour
     public void TowerActivate(int index)
     {
         if (!active) return;
-
+        Debug.Log("activating tower: " + index);
         switch (index)
         {
             case 1: towerflag |= 1; break;
