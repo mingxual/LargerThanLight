@@ -8,113 +8,66 @@ public class EventTrigger3D : MonoBehaviour
     // The string of the key (match to the one declared in EventsManager)
     public string m_EventKey;
 
-    // The gameobject that would trigger the event
-    public GameObject m_TriggerObject;
+    // The gameobject that would trigger the event (would use the collider of the gameobject to trigger)
+    [SerializeField] GameObject m_ContactObject;
 
-    // The current event can be triggered once or unlimited times
-    public bool m_TriggerOnlyOnce;
+    // Variables to track the invoke status (such as whether it is invoked)
+    private bool m_Triggered;
 
-    private bool m_HasTriggered;
-    private bool m_IsTriggering;
+    // This is the variable to track whether the current script is on or off
+    // For copying from 3D space to 2D space purpose
+    private bool m_OnEnable;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_HasTriggered = false;
-        m_IsTriggering = false;
+        // Set the default value
+        m_Triggered = false;
+        m_OnEnable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(m_TriggerObject.transform.position.y >= transform.position.y && !m_HasTriggered)
-        {
-            EventsManager.instance.InvokeEvent(m_EventKey);
-            m_HasTriggered = true;
-        }
-        */
+
     }
 
     public void OnTriggerEnter(Collider collision)
     {
-        if(m_TriggerObject != null)
-        {
-            if(m_TriggerObject == collision.gameObject && !m_IsTriggering)
-            {
-                if(m_TriggerOnlyOnce && !m_HasTriggered)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                    m_HasTriggered = true;
-                }
-                else if(!m_TriggerOnlyOnce)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                }
-                m_IsTriggering = true;
-            }
-        }
-        else
+        if(collision.gameObject == m_ContactObject && !m_Triggered)
         {
             EventsManager.instance.InvokeEvent(m_EventKey);
-            m_IsTriggering = true;
+            m_Triggered = true;
         }
     }
 
-    public void OnTriggerExit(Collider collision)
+    public void SetEnableStatus(bool val)
     {
-        if (m_TriggerObject != null)
-        {
-            if(m_TriggerObject == collision.gameObject)
-            {
-                m_IsTriggering = false;
-            }
-        }
-        else
-        {
-            m_IsTriggering = false;
-        }
+        m_OnEnable = val;
     }
 
-    /*
-    public void OnCollisionEnter(Collision collision)
+    public bool GetEnableStatus()
     {
-        if (m_TriggerObject != null)
-        {
-            if (m_TriggerObject == collision.gameObject && !m_IsTriggering)
-            {
-                if (m_TriggerOnlyOnce && !m_HasTriggered)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                    m_HasTriggered = true;
-                }
-                else if (!m_TriggerOnlyOnce)
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                }
-                m_IsTriggering = true;
-            }
-        }
-        else
-        {
-            EventsManager.instance.InvokeEvent(m_EventKey);
-            m_IsTriggering = true;
-        }
+        return m_OnEnable;
     }
 
-    public void OnCollisionExit(Collision collision)
+    public void SetEventKey(string eventKey)
     {
-        if (m_TriggerObject != null)
-        {
-            if (m_TriggerObject == collision.gameObject)
-            {
-                m_IsTriggering = false;
-            }
-        }
-        else
-        {
-            m_IsTriggering = false;
-        }
+        m_EventKey = eventKey;
     }
-    */
+
+    public string GetEventKey()
+    {
+        return m_EventKey;
+    }
+
+    public void SetContactObject(GameObject contactObject)
+    {
+        m_ContactObject = contactObject;
+    }
+
+    public GameObject GetContactObject()
+    {
+        return m_ContactObject;
+    }
 }

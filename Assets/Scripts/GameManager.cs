@@ -66,6 +66,12 @@ public class GameManager : MonoBehaviour
             MatricesManager.Restart();           
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        //Debug
+        /*if (Input.GetKeyDown(KeyCode.N))
+        {
+            SpawnSkiaNextSegment();
+        }*/
     }
 
     // Update is called once per frame
@@ -94,6 +100,13 @@ public class GameManager : MonoBehaviour
         if(skiaSpawnTransform)
         {
             MoveSkiaToPos(m_LevelManager.GetCurrentSegment().GetSkiaSpawnTransform());
+        }
+
+        Transform luxSpawnTransform = m_LevelManager.GetCurrentSegment().GetLuxSpawnTransform();
+        if(luxSpawnTransform)
+        {
+            MoveLuxToPos(luxSpawnTransform);
+            lux.GetComponentInChildren<SCLight>().active = true;
         }
     }
 

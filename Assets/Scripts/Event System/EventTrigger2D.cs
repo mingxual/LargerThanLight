@@ -74,16 +74,4 @@ public class EventTrigger2D : MonoBehaviour
     {
         return m_ContactObject;
     }
-
-    // Since currently use PolygonCollider2D, this may not in use
-    /*
-    private void SetSpawnpoint(Collider2D collision)
-    {
-        if (collision.GetComponent<SimpleController>() && GetComponent<EdgeCollider2D>())
-        {
-            EdgeCollider2D ec = GetComponent<EdgeCollider2D>();
-            collision.GetComponent<SimpleController>().SetNewCheckpoint(ec.points[0]);
-        }
-    }
-    */
 }
