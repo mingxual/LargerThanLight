@@ -8,6 +8,8 @@ public class SCObstacle : MonoBehaviour
     public Vector3 rotationAxis;
     public float rotationSpeed;
 
+    public bool debugLines;
+
     // Occlusion variables
     Material[] m_TransparentMaterials;
     bool m_IsOccluded;
@@ -27,7 +29,6 @@ public class SCObstacle : MonoBehaviour
         {
             m_TransparentMaterials[i] = meshRenderers[i].materials[0];
         }
-            //= GetComponent<MeshRenderer>().materials[0];
         m_CurrFadeTime = 0f;
         m_IsOccluded = true;
         m_FadeTime = .4f;
