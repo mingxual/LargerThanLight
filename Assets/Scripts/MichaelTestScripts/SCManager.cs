@@ -147,7 +147,8 @@ public class SCManager : MonoBehaviour
                     poolGO.layer = 10;
                     poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
                     poolGO.AddComponent<SCEventHandle>();
-                    //poolGO.AddComponent<ShadowMoveSkia>();
+                    ShadowMoveSkia shadowMoveSkia = poolGO.AddComponent<ShadowMoveSkia>();
+                    shadowMoveSkia.Initialize();
                     poolGO.tag = "Shadow";
 
                     m_ObstaclePool.Add(poolGO);

@@ -15,9 +15,15 @@ public class ShadowMoveSkia : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*edgeCollider = GetComponent<PolygonCollider2D>();
+        points = edgeCollider.points;*/
+        //ratio = -1;
+    }
+
+    public void Initialize()
+    {
         edgeCollider = GetComponent<PolygonCollider2D>();
         points = edgeCollider.points;
-        //ratio = -1;
     }
 
     // Update is called once per frame
