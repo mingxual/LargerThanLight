@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        /*layer1 = GetMusic("Theater_Layer_1");
+        layer1 = GetMusic("Theater_Layer_1");
         layer2 = GetMusic("Theater_Layer_2");
         layer3 = GetMusic("Theater_Layer_3");
         layer2.source.volume = 0;
@@ -64,7 +64,7 @@ public class AudioManager : MonoBehaviour
         layer1.source.Play();
         layer2.source.Play();
         layer3.source.Play();
-        BGTimer = layer1.source.clip.length - 7.06f;*/
+        BGTimer = layer1.source.clip.length - 7.06f;
     }
 
     public void Update()
