@@ -16,9 +16,9 @@ public class AudioManager : MonoBehaviour
 
     private int layerNumber = 1;
 
-    public Music layer1;
-    public Music layer2;
-    public Music layer3;
+    private Music layer1;
+    private Music layer2;
+    private Music layer3;
 
     private void Awake()
     {
