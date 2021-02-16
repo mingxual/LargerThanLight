@@ -20,6 +20,12 @@ public class SCObstacleEditor : Editor
         }
 
         script.debugLines = GUILayout.Toggle(script.debugLines, "Show Debug Lines");
+
+        script.shadowprojaffect = GUILayout.Toggle(script.shadowprojaffect, "Affected by Shadow Projectiles");
+        if(script.shadowprojaffect)
+        {
+            script.shadowprojtime = EditorGUILayout.FloatField("Time affected by Shadow Projectiles", script.shadowprojtime);
+        }
     }
 }
 #endif

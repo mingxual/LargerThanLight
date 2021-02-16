@@ -16,6 +16,14 @@ public class SCObstacle : MonoBehaviour
     float m_FadeTime = 0.4f;
     float m_CurrFadeTime;
 
+    // If the obstacle can be affected by shadow projectiles;
+    public bool shadowprojaffect;
+    // How long the obstacle is affected by shadow projectiles;
+    public float shadowprojtime;
+
+    // Whether the obstacle is currently affected by shadow projectiles;
+    public bool shadowprojaffected;
+
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Obstacle");
@@ -84,5 +92,33 @@ public class SCObstacle : MonoBehaviour
     public void NonOcclude()
     {
         m_IsOccluded = false;
+    }
+
+    public void HitByShadowProj()
+    {
+        if (!shadowprojaffect) return;
+        shadowprojaffected = true;
+        ToggleRenderersForShadowProj(false);
+        Invoke("RecoverFromShadowProj", shadowprojtime);
+    }
+
+    private void RecoverFromShadowProj()
+    {
+        ToggleRenderersForShadowProj(true);
+        shadowprojaffected = false;
+    }
+
+    private void ToggleRenderersForShadowProj(bool flag)
+    {
+        MeshRenderer[] meshRenderers = GetComponents<MeshRenderer>();
+        if (meshRenderers.Length == 0)
+        {
+            meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        }
+
+        foreach(MeshRenderer mr in meshRenderers)
+        {
+            mr.shadowCastingMode = (UnityEngine.Rendering.ShadowCastingMode)(flag ? 1 : 0);
+        }
     }
 }
