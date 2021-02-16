@@ -58,6 +58,8 @@ public class SimpleController : MonoBehaviour
     public float ratio;
 
     public GameObject particleEffect;
+
+    public bool michaelsdebuggingflag;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -117,6 +119,14 @@ public class SimpleController : MonoBehaviour
             //SwitchRealm();
         }
 
+        if (michaelsdebuggingflag)
+        {
+            if(Input.GetKeyDown(KeyCode.Z))
+            {
+                ResetSkia();
+            }
+        }
+
         //if (isIn2D)
         //{
         //    //Check if player is squished
@@ -129,6 +139,8 @@ public class SimpleController : MonoBehaviour
 
         //CheckObjectBlocking();
     }
+
+    Collider2D[] cols = new Collider2D[10];
 
     private void FixedUpdate()
     {
@@ -143,7 +155,16 @@ public class SimpleController : MonoBehaviour
         else
         {
             Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
-            grounded = (Physics2D.OverlapBox(rayboxCenter, rayboxSize, 0, mask) != null);
+            int count = Physics2D.OverlapBoxNonAlloc(rayboxCenter, rayboxSize, 0, cols, mask);
+            grounded = false;
+            for(int i = 0; i < count; i++)
+            {
+                if (!cols[i].isTrigger)
+                {
+                    grounded = true;
+                    break;
+                }
+            }
         }               
 
         //SafeColliders();
@@ -237,6 +258,23 @@ public class SimpleController : MonoBehaviour
     public Vector3 GetWorldPosition()
     {
         return m_WorldPosition3D;
+    }
+
+    /// <summary>
+    /// Resets Skia to current spawnpoint
+    /// Updated 2/14 in use
+    /// </summary>
+    void ResetSkia()
+    {
+        bool spawnable = SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
+        if (!spawnable)
+        {
+            print("Cannot spawn");
+        }
+        Vector3 point = spawnpoint;
+        point.z = transform.position.z;
+        transform.position = point;
+        rb.velocity = Vector2.zero;
     }
 
     void ResetPlayer()

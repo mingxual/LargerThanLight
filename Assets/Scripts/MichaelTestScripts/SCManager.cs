@@ -115,7 +115,7 @@ public class SCManager : MonoBehaviour
                         {
                             Debug.DrawRay(lightPos, dir * hitInfo.distance, Color.blue);
                             Debug.DrawRay(hitInfo.point, point - hitInfo.point, Color.green);
-                            print("Casted vertex " + p + " to point " + hitInfo.point + " transformed to " + point2D);
+                            //print("Casted vertex " + p + " to point " + hitInfo.point + " transformed to " + point2D);
                         }
                         lightCasts++;
                     }
@@ -178,6 +178,7 @@ public class SCManager : MonoBehaviour
                         handle.SetContactObject(originEventTrigger2D.GetContactObject());
                         handle.isEventTrigger = true;
                         handle.isEventCollider = false;
+                        handle.SetSpawnpointTrigger(originEventTrigger2D.IsSpawnpointTrigger());
                     }
                 }
                 else
@@ -200,6 +201,64 @@ public class SCManager : MonoBehaviour
         }
 
         //print(lightCasts);
+    }
+
+    public bool RaycastSpawnpoint(out Vector2 position)
+    {
+        Transform spawnpoint = LevelManager.Instance.GetSkiaSpawnpoint();
+        if(!spawnpoint)
+        {
+            position = Vector2.zero;
+            return false;
+        }
+
+        List<Vector2> points = new List<Vector2>();
+        foreach (SCLight sclight in LevelManager.Instance.GetCurrentSegment().GetLights())
+        {
+            if (!sclight.active) continue;
+            Light light = sclight.GetComponent<Light>();
+            Vector3 lightPos = light.transform.position;
+            if (Vector3.Angle(spawnpoint.position - lightPos, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(spawnpoint.position - lightPos) > light.range)
+                continue;
+            RaycastHit hitInfo;
+            Vector3 dir = spawnpoint.position - lightPos;
+            dir = dir.normalized;
+            if (Physics.Raycast(lightPos, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
+            {
+                Wall3D wall3D = hitInfo.collider.GetComponent<Wall3D>();
+                Vector3 point = wall3D.RaycastToWall2D(hitInfo.transform.InverseTransformPoint(hitInfo.point), transform.position);
+                points.Add(point);
+            }
+        }
+
+        if(points.Count == 0)
+        {
+            RaycastHit hitInfo;
+            if (Physics.Raycast(spawnpoint.position, spawnpoint.forward, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
+            {
+                Wall3D wall3D = hitInfo.collider.GetComponent<Wall3D>();
+                Vector3 point = wall3D.RaycastToWall2D(hitInfo.transform.InverseTransformPoint(hitInfo.point), transform.position);
+                position = point;
+                return false;
+            }
+            position = Vector2.zero;
+            return false;
+        }
+        else if(points.Count == 1)
+        {
+            position = points[0];
+            return true;
+        }
+        else
+        {
+            Vector2 sum = Vector2.zero;
+            foreach(Vector2 point in points)
+            {
+                sum += point;
+            }
+            position = sum / points.Count;
+            return true;
+        }
     }
 
     Vector3[] GetVerticesFromBox(BoxCollider box)

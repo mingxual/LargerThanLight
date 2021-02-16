@@ -12,7 +12,7 @@ public class EventTrigger2D : MonoBehaviour
     [SerializeField] GameObject m_ContactObject;
 
     // If the trigger is a spawnpoint set for Skia
-    // [SerializeField] bool m_SpawnpointTrigger;
+    [SerializeField] bool m_SpawnpointTrigger;
 
     // Variables to track the invoke status (such as whether it is invoked)
     private bool m_Triggered;
@@ -73,5 +73,10 @@ public class EventTrigger2D : MonoBehaviour
     public GameObject GetContactObject()
     {
         return m_ContactObject;
+    }
+
+    public bool IsSpawnpointTrigger()
+    {
+        return m_SpawnpointTrigger;
     }
 }

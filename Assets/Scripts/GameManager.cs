@@ -96,11 +96,8 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Break();
         m_LevelManager.SetNextSegment();
-        Transform skiaSpawnTransform = m_LevelManager.GetCurrentSegment().GetSkiaSpawnTransform();
-        if(skiaSpawnTransform)
-        {
-            MoveSkiaToPos(m_LevelManager.GetCurrentSegment().GetSkiaSpawnTransform());
-        }
+
+        skia.SendMessage("ResetSkia");
 
         Transform luxSpawnTransform = m_LevelManager.GetCurrentSegment().GetLuxSpawnTransform();
         if(luxSpawnTransform)

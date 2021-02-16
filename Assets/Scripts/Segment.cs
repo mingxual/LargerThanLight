@@ -6,9 +6,13 @@ public class Segment : MonoBehaviour
 {
     [SerializeField] List<SCLight> m_AllLights;
     [SerializeField] GameObject m_WallParent;
+    [SerializeField] GameObject m_ObstacleParent;
+    [SerializeField] GameObject m_SpawnpointParent;
     [SerializeField] Camera m_RenderCam;
     [SerializeField] Transform m_SkiaSpawnTransform;
     [SerializeField] Transform m_LuxSpawnTransform;
+
+    [SerializeField] List<Transform> m_SkiaSpawnTransforms;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +35,12 @@ public class Segment : MonoBehaviour
     {
         if (m_WallParent)
             m_WallParent.SetActive(true);
+        if (m_ObstacleParent)
+            m_ObstacleParent.SetActive(true);
+        if (m_SpawnpointParent)
+            m_SpawnpointParent.SetActive(true);
 
-        for(int i = 0; i < m_AllLights.Count; i++)
+        for (int i = 0; i < m_AllLights.Count; i++)
         {
             m_AllLights[i].active = true;
         }
@@ -45,6 +53,10 @@ public class Segment : MonoBehaviour
     {
         if (m_WallParent)
             m_WallParent.SetActive(false);
+        if (m_ObstacleParent)
+            m_ObstacleParent.SetActive(false);
+        if (m_SpawnpointParent)
+            m_SpawnpointParent.SetActive(false);
 
         for (int i = 0; i < m_AllLights.Count; i++)
         {
@@ -57,7 +69,8 @@ public class Segment : MonoBehaviour
 
     public Transform GetSkiaSpawnTransform()
     {
-        return m_SkiaSpawnTransform;
+        //return m_SkiaSpawnTransform;
+        return m_SkiaSpawnTransforms[0];
     }
 
     public Transform GetLuxSpawnTransform()
@@ -68,5 +81,10 @@ public class Segment : MonoBehaviour
     public List<SCLight> GetLights()
     {
         return m_AllLights;
+    }
+
+    public bool HasSkiaSpawnpoint(Transform t)
+    {
+        return m_SkiaSpawnTransforms.Contains(t);
     }
 }

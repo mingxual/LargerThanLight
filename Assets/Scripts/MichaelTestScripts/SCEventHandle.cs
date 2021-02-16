@@ -12,6 +12,7 @@ public class SCEventHandle : MonoBehaviour
 
     [SerializeField] string m_EventKey;
     [SerializeField] GameObject m_ContactObject;
+    [SerializeField] bool m_IsSpawnpoint;
 
     private bool m_HasTriggered;
     private bool m_IsTriggering;
@@ -58,7 +59,15 @@ public class SCEventHandle : MonoBehaviour
         {
             if(collision.gameObject == m_ContactObject && !m_HasTriggered)
             {
-                EventsManager.instance.InvokeEvent(m_EventKey);
+                if(m_IsSpawnpoint)
+                {
+                    LevelManager.Instance.SetSkiaSpawnpoint(GetComponent<SCEventHandle>().corrObject.transform);
+                    //print("triggered spawnpoint");
+                }
+                else
+                {
+                    EventsManager.instance.InvokeEvent(m_EventKey);
+                }
                 m_HasTriggered = true;
             }
         }
@@ -108,5 +117,10 @@ public class SCEventHandle : MonoBehaviour
     public GameObject GetContactObject()
     {
         return m_ContactObject;
+    }
+
+    public void SetSpawnpointTrigger(bool flag)
+    {
+        m_IsSpawnpoint = flag;
     }
 }

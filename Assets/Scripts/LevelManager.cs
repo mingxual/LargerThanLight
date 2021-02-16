@@ -24,6 +24,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Segment[] m_AllSegments;
     private int m_CurrentSegmentIndex = 0;
 
+    private Transform skiaSpawnpoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,5 +77,35 @@ public class LevelManager : MonoBehaviour
     {
         //Debug.Log("current segment index number: " + m_CurrentSegmentIndex);
         return m_AllSegments[m_CurrentSegmentIndex];
+    }
+
+    /// <summary>
+    /// gets skia's active spawnpoint
+    /// Updated 2/15 in use
+    /// </summary>
+    public Transform GetSkiaSpawnpoint()
+    {
+        if(!skiaSpawnpoint)
+        {
+            skiaSpawnpoint = GetCurrentSegment().GetSkiaSpawnTransform();
+        }
+        return skiaSpawnpoint;
+    }
+
+    /// <summary>
+    /// sets skia's active spawnpoint
+    /// Updated 2/15 in use
+    /// </summary>
+    public void SetSkiaSpawnpoint(Transform t)
+    {
+        if(GetCurrentSegment().HasSkiaSpawnpoint(t))
+        {
+            skiaSpawnpoint = t;
+            print("Set sp to " + t.name);
+        }
+        else
+        {
+            print("Fail set");
+        }
     }
 }
