@@ -8,6 +8,8 @@ public class GymManager : MonoBehaviour
     private bool active;
     private int towerflag;
 
+    [SerializeField] GameObject floodlights;
+
     private void Start()
     {
         active = true;
@@ -39,8 +41,14 @@ public class GymManager : MonoBehaviour
         if (towerflag >= 7)
         {
             Debug.Log("DONE");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            floodlights.SetActive(true);
+            Invoke("EndScene", 2f);
             active = false;
         }
+    }
+
+    private void EndScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

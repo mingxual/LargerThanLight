@@ -167,6 +167,7 @@ public class SCManager : MonoBehaviour
                 {
                     handle.isEventTrigger = false;
                     handle.isEventCollider = false;
+                    handle.SetSpawnpointTrigger(false);
                 }
                 else if(originEventTrigger2D)
                 {
@@ -189,6 +190,7 @@ public class SCManager : MonoBehaviour
                         handle.SetContactObject(originEventCollision2D.GetContactObject());
                         handle.isEventTrigger = false;
                         handle.isEventCollider = true;
+                        handle.SetSpawnpointTrigger(false);
                     }
                 }
             }

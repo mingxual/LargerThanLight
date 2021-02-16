@@ -57,17 +57,13 @@ public class SCEventHandle : MonoBehaviour
     {
         if(isEventTrigger)
         {
-            if(collision.gameObject == m_ContactObject && !m_HasTriggered)
+            if(collision.gameObject == m_ContactObject && m_IsSpawnpoint)
             {
-                if(m_IsSpawnpoint)
-                {
-                    LevelManager.Instance.SetSkiaSpawnpoint(GetComponent<SCEventHandle>().corrObject.transform);
-                    //print("triggered spawnpoint");
-                }
-                else
-                {
-                    EventsManager.instance.InvokeEvent(m_EventKey);
-                }
+                LevelManager.Instance.SetSkiaSpawnpoint(GetComponent<SCEventHandle>().corrObject.transform);
+            }
+            else if(collision.gameObject == m_ContactObject && !m_HasTriggered)
+            {
+                EventsManager.instance.InvokeEvent(m_EventKey);
                 m_HasTriggered = true;
             }
         }

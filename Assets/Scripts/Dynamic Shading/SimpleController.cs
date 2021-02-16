@@ -264,7 +264,7 @@ public class SimpleController : MonoBehaviour
     /// Resets Skia to current spawnpoint
     /// Updated 2/14 in use
     /// </summary>
-    void ResetSkia()
+    public void ResetSkia()
     {
         bool spawnable = SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
         if (!spawnable)
