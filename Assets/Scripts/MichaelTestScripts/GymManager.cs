@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GymManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class GymManager : MonoBehaviour
         if (towerflag >= 7)
         {
             Debug.Log("DONE");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             active = false;
         }
     }
