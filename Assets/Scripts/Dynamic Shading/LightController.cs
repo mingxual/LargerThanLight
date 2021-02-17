@@ -32,9 +32,15 @@ public class LightController : MonoBehaviour
 
     public CameraSwitch cameraSwitch;
 
+    private Vector3 forwardDir;
+    private Vector3 rightDir;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        forwardDir = Vector3.forward;
+        rightDir = Vector3.Cross(Vector3.up, forwardDir);
     }
 
     private void OnEnable()
@@ -91,12 +97,12 @@ public class LightController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            movementDirection.x -= 1;
+            movementDirection -= rightDir;
             luxControlsActivated = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            movementDirection.x += 1;
+            movementDirection += rightDir;
             luxControlsActivated = true;
         }
 
@@ -104,12 +110,12 @@ public class LightController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                movementDirection.z += 1;
+                movementDirection += forwardDir;
                 luxControlsActivated = true;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                movementDirection.z -= 1;
+                movementDirection -= forwardDir;
                 luxControlsActivated = true;
             }
         }
@@ -217,6 +223,12 @@ public class LightController : MonoBehaviour
     public void SetEnableForwardBack(bool val)
     {
         enableForwardBack = val;
+    }
+
+    public void SetForwardDir(Vector3 dir)
+    {
+        forwardDir = dir;
+        rightDir = Vector3.Cross(Vector3.up, forwardDir);
     }
 
     //void Update()
