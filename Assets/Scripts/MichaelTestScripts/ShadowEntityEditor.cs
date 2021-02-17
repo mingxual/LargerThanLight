@@ -5,21 +5,37 @@ using UnityEditor;
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(ShadowEntity))]
+[CanEditMultipleObjects]
 public class ShadowEntityEditor : Editor
 {
+    SerializedProperty debugLines;
+    SerializedProperty projPrefab;
+    SerializedProperty fireCooldown;
+    SerializedProperty targetTransforms;
+    SerializedProperty skia;
+
+    private void OnEnable()
+    {
+        debugLines = serializedObject.FindProperty("debugLines");
+        projPrefab = serializedObject.FindProperty("projPrefab");
+        fireCooldown = serializedObject.FindProperty("fireCooldown");
+        targetTransforms = serializedObject.FindProperty("targetTransforms");
+        skia = serializedObject.FindProperty("skia");
+    }
+
     public override void OnInspectorGUI()
     {
-        ShadowEntity script = (ShadowEntity)target;
+        serializedObject.Update();
 
-        script.enableRotation = GUILayout.Toggle(script.enableRotation, "Enable Rotation");
+        EditorGUILayout.PropertyField(debugLines, new GUIContent("Show Debug Lines"));
 
-        if (script.enableRotation)
-        {
-            script.rotationAxis = EditorGUILayout.Vector3Field("Axis", script.rotationAxis);
-            script.rotationSpeed = EditorGUILayout.FloatField("Speed", script.rotationSpeed);
-        }
+        EditorGUILayout.PropertyField(projPrefab, new GUIContent("Projectile"));
+        EditorGUILayout.PropertyField(fireCooldown, new GUIContent("Cooldown"));
 
-        script.debugLines = GUILayout.Toggle(script.debugLines, "Show Debug Lines");
+        EditorGUILayout.PropertyField(skia, new GUIContent("Skia"));
+        EditorGUILayout.PropertyField(targetTransforms, new GUIContent("Targets"));
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
 #endif

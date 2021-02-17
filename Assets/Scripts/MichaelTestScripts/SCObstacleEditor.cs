@@ -5,27 +5,47 @@ using UnityEditor;
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(SCObstacle))]
+[CanEditMultipleObjects]
 public class SCObstacleEditor : Editor
 {
+    SerializedProperty enableRotation;
+    SerializedProperty rotationAxis;
+    SerializedProperty rotationSpeed;
+    SerializedProperty debugLines;
+    SerializedProperty shadowprojaffect;
+    SerializedProperty shadowprojtime;
+
+    private void OnEnable()
+    {
+        enableRotation = serializedObject.FindProperty("enableRotation");
+        rotationAxis = serializedObject.FindProperty("rotationAxis");
+        rotationSpeed = serializedObject.FindProperty("rotationSpeed");
+        debugLines = serializedObject.FindProperty("debugLines");
+        shadowprojaffect = serializedObject.FindProperty("shadowprojaffect");
+        shadowprojtime = serializedObject.FindProperty("shadowprojtime");
+    }
+
     public override void OnInspectorGUI()
     {
-        SCObstacle script = (SCObstacle)target;
+        serializedObject.Update();
 
-        script.enableRotation = GUILayout.Toggle(script.enableRotation, "Enable Rotation");
+        EditorGUILayout.PropertyField(enableRotation, new GUIContent("Enable Rotation"));
 
-        if (script.enableRotation)
+        if (enableRotation.boolValue)
         {
-            script.rotationAxis = EditorGUILayout.Vector3Field("Axis", script.rotationAxis);
-            script.rotationSpeed = EditorGUILayout.FloatField("Speed", script.rotationSpeed);
+            EditorGUILayout.PropertyField(rotationAxis, new GUIContent("Axis"));
+            EditorGUILayout.PropertyField(rotationSpeed, new GUIContent("Speed"));
         }
 
-        script.debugLines = GUILayout.Toggle(script.debugLines, "Show Debug Lines");
+        EditorGUILayout.PropertyField(debugLines, new GUIContent("Show Debug Lines"));
 
-        script.shadowprojaffect = GUILayout.Toggle(script.shadowprojaffect, "Affected by Shadow Projectiles");
-        if(script.shadowprojaffect)
+        EditorGUILayout.PropertyField(shadowprojaffect, new GUIContent("Affected by Shadow Projectiles"));
+        if (shadowprojaffect.boolValue)
         {
-            script.shadowprojtime = EditorGUILayout.FloatField("Time affected by Shadow Projectiles", script.shadowprojtime);
+            EditorGUILayout.PropertyField(shadowprojtime, new GUIContent("Time affected by Shadow Projectiles"));
         }
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
 #endif

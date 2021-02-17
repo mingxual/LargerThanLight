@@ -52,6 +52,11 @@ public class SCManager : MonoBehaviour
         worldPositions = new List<Vector3>();
     }
 
+    public SimpleController GetSkia()
+    {
+        return skia;
+    }
+
     private void FixedUpdate()
     {
         RaycastLights();

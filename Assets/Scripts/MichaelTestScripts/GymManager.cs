@@ -40,11 +40,16 @@ public class GymManager : MonoBehaviour
     {
         if (towerflag >= 7)
         {
-            Debug.Log("DONE");
-            floodlights.SetActive(true);
-            Invoke("EndScene", 2f);
+            //Debug.Log("DONE");
+            Invoke("ActivateFloodLights", 2f);
             active = false;
         }
+    }
+    
+    private void ActivateFloodLights()
+    {
+        floodlights.SetActive(true);
+        Invoke("EndScene", 2f);
     }
 
     private void EndScene()

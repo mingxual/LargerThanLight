@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ShadowEntityProjectile : MonoBehaviour
 {
+    private SimpleController skia;
+
     private void OnEnable()
     {
         SCManager.Instance.AddShadowProj(this);
+        skia = SCManager.Instance.GetSkia();
     }
 
     private void OnDisable()
@@ -14,9 +17,27 @@ public class ShadowEntityProjectile : MonoBehaviour
         SCManager.Instance.RemoveShadowProj(this);
     }
 
+    [SerializeField] float stallTimer = 2f;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float rotateSpeed = 1f;
+
+    private void Update()
+    {
+        if(stallTimer > 0)
+        {
+            stallTimer -= Time.deltaTime;
+            transform.position += transform.up * 2 * moveSpeed * Time.deltaTime;
+            return;
+        }
+
+        transform.position += transform.up * moveSpeed * Time.deltaTime;
+        float dotp = Vector3.Dot((skia.transform.position - transform.position).normalized, transform.right);
+        transform.Rotate(0, 0, -rotateSpeed * dotp * Time.deltaTime);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("hello");
+        //print("hello");
         SCEventHandle handle = collision.GetComponent<SCEventHandle>();
         if (handle)
         {
@@ -27,11 +48,19 @@ public class ShadowEntityProjectile : MonoBehaviour
 
                 if (obs.shadowprojaffect)
                 {
-                    print("hit object");
+                    //print("hit object");
                     obs.HitByShadowProj();
                     Destroy(gameObject);
                 }
             }
+            return;
+        }
+
+        SimpleController sc = collision.GetComponent<SimpleController>();
+        if(sc)
+        {
+            sc.ResetSkia();
+            Destroy(gameObject);
         }
     }
 
