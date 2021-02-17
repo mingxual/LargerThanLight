@@ -9,6 +9,7 @@ using UnityEditor;
 public class ShadowEntityEditor : Editor
 {
     SerializedProperty debugLines;
+    SerializedProperty projActive;
     SerializedProperty projPrefab;
     SerializedProperty fireCooldown;
     SerializedProperty targetTransforms;
@@ -17,6 +18,7 @@ public class ShadowEntityEditor : Editor
     private void OnEnable()
     {
         debugLines = serializedObject.FindProperty("debugLines");
+        projActive = serializedObject.FindProperty("projActive");
         projPrefab = serializedObject.FindProperty("projPrefab");
         fireCooldown = serializedObject.FindProperty("fireCooldown");
         targetTransforms = serializedObject.FindProperty("targetTransforms");
@@ -29,6 +31,7 @@ public class ShadowEntityEditor : Editor
 
         EditorGUILayout.PropertyField(debugLines, new GUIContent("Show Debug Lines"));
 
+        EditorGUILayout.PropertyField(projActive, new GUIContent("Activate Projectiles"));
         EditorGUILayout.PropertyField(projPrefab, new GUIContent("Projectile"));
         EditorGUILayout.PropertyField(fireCooldown, new GUIContent("Cooldown"));
 

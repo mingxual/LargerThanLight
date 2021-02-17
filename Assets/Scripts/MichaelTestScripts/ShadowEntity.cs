@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShadowEntity : SCObstacle
 {
+    public bool projActive;
     public GameObject projPrefab;
     public float fireCooldown;
 
@@ -32,10 +33,7 @@ public class ShadowEntity : SCObstacle
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            FireProjectiles();
-        }
+        if (!projActive) return;
 
         if (fireCooldownTimer > 0)
         {
