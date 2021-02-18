@@ -56,6 +56,7 @@ public class SimpleController : MonoBehaviour
     public bool moveWithShadow;
     public Collider2D testCollider;
     public float ratio;
+    private GameObject m_LastGroundedGameObject;
 
     public GameObject particleEffect;
 
@@ -236,7 +237,7 @@ public class SimpleController : MonoBehaviour
             {
                 testCollider = hit.collider;
 
-                if (grounded && rb.velocity.x == 0)
+                if (grounded && rb.velocity.x == 0 && m_LastGroundedGameObject == testCollider.gameObject)
                 {
                     float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
                     displacement -= transform.position.x;
@@ -247,6 +248,7 @@ public class SimpleController : MonoBehaviour
                 }
                 else
                 {
+                    m_LastGroundedGameObject = testCollider.gameObject;
                     ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
                 }
             }
