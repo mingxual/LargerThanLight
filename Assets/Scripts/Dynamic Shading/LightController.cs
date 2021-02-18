@@ -32,15 +32,14 @@ public class LightController : MonoBehaviour
 
     public CameraSwitch cameraSwitch;
 
-    private Vector3 forwardDir;
+    [SerializeField] Vector3 forwardDir;
     private Vector3 rightDir;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
-        forwardDir = Vector3.forward;
-        rightDir = Vector3.Cross(Vector3.up, forwardDir);
+        SetForwardDir(forwardDir);
     }
 
     private void OnEnable()
