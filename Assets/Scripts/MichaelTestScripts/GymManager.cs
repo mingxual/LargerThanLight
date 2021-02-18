@@ -9,6 +9,7 @@ public class GymManager : MonoBehaviour
     private int towerflag;
 
     [SerializeField] GameObject floodlights;
+    [SerializeField] LightOutEffect LightOut;
 
     private void Start()
     {
@@ -50,6 +51,7 @@ public class GymManager : MonoBehaviour
     {
         floodlights.SetActive(true);
         Invoke("EndScene", 2f);
+        LightOut.SetActivate(true);
     }
 
     private void EndScene()
