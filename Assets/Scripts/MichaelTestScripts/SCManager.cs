@@ -65,6 +65,8 @@ public class SCManager : MonoBehaviour
     List<ShadowEntityProjectile> shadowProjs = new List<ShadowEntityProjectile>();
     List<Vector3> worldPositions;
 
+
+    RaycastHit[] obstacles = new RaycastHit[10];
     public void RaycastLights()
     {
         worldPositions.Clear();
@@ -89,9 +91,9 @@ public class SCManager : MonoBehaviour
                 //Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
                 if (Vector3.Angle(worldPosition - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(worldPosition - light.transform.position) > light.range)
                     continue;
-                RaycastHit[] obstacles = Physics.SphereCastAll(new Ray(lightPos, worldPosition - lightPos), lightcast_radius, Vector3.Magnitude(worldPosition - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
+                int obstacleCount = Physics.SphereCastNonAlloc(new Ray(lightPos, worldPosition - lightPos), lightcast_radius, obstacles, Vector3.Magnitude(worldPosition - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
                 //print("obs count: " + obstacles.Length);
-                for (int i = 0; i < obstacles.Length; i++)
+                for (int i = 0; i < obstacleCount; i++)
                 {
                     RaycastHit obstacle = obstacles[i];
                     if (obstacle.transform.GetComponent<SCObstacle>().shadowprojaffected) continue;
