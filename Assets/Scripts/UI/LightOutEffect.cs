@@ -30,6 +30,7 @@ public class LightOutEffect : MonoBehaviour
 
     public void SetActivate(bool active)
     {
+        LightImage.enabled = true;
         activate = active;
     }
 }
