@@ -33149,6 +33149,11 @@ GameObject:
   - component: {fileID: 166864433}
   - component: {fileID: 166864432}
   - component: {fileID: 166864431}
+  - component: {fileID: 166864437}
+  - component: {fileID: 166864436}
+  - component: {fileID: 166864440}
+  - component: {fileID: 166864439}
+  - component: {fileID: 166864438}
   m_Layer: 0
   m_Name: Bleachers (1)
   m_TagString: Obstacle
@@ -49126,6 +49131,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166864429}
   m_Mesh: {fileID: 1351125635}
+--- !u!65 &166864436
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166864429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5079981, y: 0.5033263, z: 1}
+  m_Center: {x: -0.94819534, y: -0.24833736, z: 0}
+--- !u!65 &166864437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166864429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19650635, y: 0.6220621, z: 1}
+  m_Center: {x: -0.6031753, y: -0.18896931, z: 0}
+--- !u!65 &166864438
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166864429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2982886, y: 0.12608546, z: 1}
+  m_Center: {x: -2.3508554, y: -0.43695778, z: 0}
+--- !u!65 &166864439
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166864429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.49955785, y: 0.254113, z: 1}
+  m_Center: {x: -1.9510082, y: -0.3729436, z: 0}
+--- !u!65 &166864440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166864429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.50074613, y: 0.37456366, z: 1}
+  m_Center: {x: -1.4474123, y: -0.31271878, z: 0}
 --- !u!1 &176228374
 GameObject:
   m_ObjectHideFlags: 0
@@ -50191,7 +50261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh376602
+  m_Name: pb_Mesh49150
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -91471,7 +91541,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh376678
+  m_Name: pb_Mesh49226
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
