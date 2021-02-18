@@ -66,7 +66,7 @@ public class SCManager : MonoBehaviour
     List<Vector3> worldPositions;
 
 
-    RaycastHit[] obstacles = new RaycastHit[10];
+    RaycastHit[] obstacles = new RaycastHit[50];
     public void RaycastLights()
     {
         worldPositions.Clear();
@@ -88,7 +88,11 @@ public class SCManager : MonoBehaviour
                 if (!sclight.active) continue;
                 Light light = sclight.GetComponent<Light>();
                 Vector3 lightPos = light.transform.position;
-                //Debug.DrawLine(skia.GetWorldPosition(), lightPos, Color.white);
+                /*Debug.DrawLine(worldPosition, lightPos, Color.white);
+                Debug.Log("lux forward: " + light.transform.forward);
+                Debug.Log("spot angle: " + light.spotAngle);
+                float angle = Vector3.Angle(worldPosition - light.transform.position, light.transform.forward);
+                Debug.Log("angle: " + angle);*/
                 if (Vector3.Angle(worldPosition - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(worldPosition - light.transform.position) > light.range)
                     continue;
                 int obstacleCount = Physics.SphereCastNonAlloc(new Ray(lightPos, worldPosition - lightPos), lightcast_radius, obstacles, Vector3.Magnitude(worldPosition - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
