@@ -35,6 +35,9 @@ public class ShadowEntity : SCObstacle
     {
         if (!projActive) return;
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            FireProjectiles();
+
         if (fireCooldownTimer > 0)
         {
             fireCooldownTimer -= Time.deltaTime;
