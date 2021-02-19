@@ -93,7 +93,7 @@ public class SCManager : MonoBehaviour
                 Debug.Log("spot angle: " + light.spotAngle);
                 float angle = Vector3.Angle(worldPosition - light.transform.position, light.transform.forward);
                 Debug.Log("angle: " + angle);*/
-                if (Vector3.Angle(worldPosition - light.transform.position, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(worldPosition - light.transform.position) > light.range)
+                if (Vector3.Angle(worldPosition - lightPos, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(worldPosition - lightPos) > light.range)
                     continue;
                 int obstacleCount = Physics.SphereCastNonAlloc(new Ray(lightPos, worldPosition - lightPos), lightcast_radius, obstacles, Vector3.Magnitude(worldPosition - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
                 //print("obs count: " + obstacles.Length);
@@ -127,13 +127,13 @@ public class SCManager : MonoBehaviour
                     m_CurrProjectedPoints2D.Clear();
                     for (int j = 0; j < numVertices; ++j)
                     {
-                        Vector3 p = obstacle.collider.transform.localToWorldMatrix * vertices[j];
+                        Vector3 p = obstacle.transform.localToWorldMatrix * vertices[j];
                         RaycastHit hitInfo;
                         Vector3 dir = currObstaclePos + p - lightPos;
                         dir = dir.normalized;
                         if (Physics.Raycast(lightPos, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
                         {
-                            Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
+                            Wall3D wall3D = hitInfo.collider.GetComponent<Wall3D>();
                             Vector3 point = wall3D.RaycastToWall2D(hitInfo.transform.InverseTransformPoint(hitInfo.point), transform.position, obstacle.collider.GetComponent<SCObstacle>().debugLines);
                             Vector2 point2D = Vector2.right * point.x + Vector2.up * point.y;
                             m_CurrProjectedPoints2D.Add(point2D + wall3D.coordinate2D);

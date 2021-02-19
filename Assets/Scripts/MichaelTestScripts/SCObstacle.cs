@@ -11,6 +11,7 @@ public class SCObstacle : MonoBehaviour
     public bool debugLines;
 
     // Occlusion variables
+    MeshRenderer[] m_MeshRenderers;
     Material[] m_TransparentMaterials;
     bool m_IsOccluded;
     float m_FadeTime = 0.4f;
@@ -27,15 +28,16 @@ public class SCObstacle : MonoBehaviour
     private void Awake()
     {
         gameObject.layer = LayerMask.NameToLayer("Obstacle");
-        MeshRenderer[] meshRenderers = GetComponents<MeshRenderer>();
-        if(meshRenderers.Length == 0)
+        m_MeshRenderers = GetComponents<MeshRenderer>();
+        if(m_MeshRenderers.Length == 0)
         {
-            meshRenderers = GetComponentsInChildren<MeshRenderer>();
+            m_MeshRenderers = GetComponentsInChildren<MeshRenderer>();
         }
-        m_TransparentMaterials = new Material[meshRenderers.Length];
-        for(int i = 0; i < meshRenderers.Length; i++)
+
+        m_TransparentMaterials = new Material[m_MeshRenderers.Length];
+        for(int i = 0; i < m_MeshRenderers.Length; i++)
         {
-            m_TransparentMaterials[i] = meshRenderers[i].materials[0];
+            m_TransparentMaterials[i] = m_MeshRenderers[i].materials[0];
         }
         m_CurrFadeTime = 0f;
         m_IsOccluded = true;
@@ -84,6 +86,14 @@ public class SCObstacle : MonoBehaviour
         }
     }
 
+    private void SetOcclusionState(bool flag)
+    {
+        for(int i = 0; i < m_TransparentMaterials.Length; i++)
+        {
+
+        }
+    }
+
     public void Occlude()
     {
         m_IsOccluded = true;
@@ -110,13 +120,7 @@ public class SCObstacle : MonoBehaviour
 
     private void ToggleRenderersForShadowProj(bool flag)
     {
-        MeshRenderer[] meshRenderers = GetComponents<MeshRenderer>();
-        if (meshRenderers.Length == 0)
-        {
-            meshRenderers = GetComponentsInChildren<MeshRenderer>();
-        }
-
-        foreach(MeshRenderer mr in meshRenderers)
+        foreach(MeshRenderer mr in m_MeshRenderers)
         {
             mr.shadowCastingMode = (UnityEngine.Rendering.ShadowCastingMode)(flag ? 1 : 0);
         }
