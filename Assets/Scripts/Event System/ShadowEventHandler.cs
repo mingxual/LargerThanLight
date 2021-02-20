@@ -20,6 +20,7 @@ public class ShadowEventHandler : MonoBehaviour
     // true when invoke many times, false when invoke only once
     [SerializeField] bool isReusable;
 
+    // if the current object is a spawnpoint
     [SerializeField] bool isSpawnPointTrigger;
 
     // private variables
@@ -61,6 +62,24 @@ public class ShadowEventHandler : MonoBehaviour
 
         // Reset it to false at the end for use in the next frame
         m_UpdateThisFrame = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject == mContactObject)
+        {
+            Debug.Log("Trigger stay");
+            SetContacted();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject == mContactObject)
+        {
+            Debug.Log("Collision stay");
+            SetContacted();
+        }
     }
 
     // All these can work because OnTrigger and OnCollision happens before Update()

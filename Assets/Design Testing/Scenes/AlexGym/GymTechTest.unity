@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -49505,12 +49505,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 220665662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &220665665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50766,12 +50769,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 351776383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &351776386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85363,12 +85369,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 858377860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: Tower3Switch
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: Tower3Switch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!114 &858377862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86365,12 +86374,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 907658717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!65 &907658720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89200,7 +89212,7 @@ GameObject:
   - component: {fileID: 1134782457}
   - component: {fileID: 1134782456}
   - component: {fileID: 1134782455}
-  - component: {fileID: 1134782454}
+  - component: {fileID: 1134782460}
   m_Layer: 0
   m_Name: trigger2
   m_TagString: Untagged
@@ -89208,21 +89220,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1134782454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134782453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EventKey: Tower2Switch
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
 --- !u!114 &1134782455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89316,6 +89313,24 @@ Transform:
   m_Father: {fileID: 2048548352}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134782460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134782453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEventKey: Tower2Switch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!1001 &1163265693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91106,12 +91121,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1339496767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &1339496770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91541,7 +91559,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh49226
+  m_Name: pb_Mesh161000
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -92694,12 +92712,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444513526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: Tower1Switch
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: Tower1Switch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!1 &1446170975
 GameObject:
   m_ObjectHideFlags: 0
@@ -96454,12 +96475,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1827021404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &1827021407
 MonoBehaviour:
   m_ObjectHideFlags: 0

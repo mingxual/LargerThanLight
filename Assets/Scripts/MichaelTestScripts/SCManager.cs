@@ -178,7 +178,7 @@ public class SCManager : MonoBehaviour
                         poolGO.transform.position = transform.position;
                         poolGO.layer = 10;
                         poolGO.AddComponent<PolygonCollider2D>().sharedMaterial = m_physicsMaterial;
-                        poolGO.AddComponent<SCEventHandle>();
+                        poolGO.AddComponent<UpdatedSCEventHandler>();
                         ShadowMoveSkia shadowMoveSkia = poolGO.AddComponent<ShadowMoveSkia>();
                         shadowMoveSkia.Initialize();
                         poolGO.tag = "Shadow";
@@ -188,43 +188,28 @@ public class SCManager : MonoBehaviour
 
                     poolGO.SetActive(true);
                     poolGO.GetComponent<PolygonCollider2D>().points = convexedPoints.ToArray();
-                    SCEventHandle handle = poolGO.GetComponent<SCEventHandle>();
+                    UpdatedSCEventHandler handle = poolGO.GetComponent<UpdatedSCEventHandler>();
                     handle.corrObject = obstacle.transform.gameObject;
 
 
                     // Check if there is any script attached
-                    EventTrigger2D originEventTrigger2D = obstacle.transform.GetComponent<EventTrigger2D>();
-                    EventCollision2D originEventCollision2D = obstacle.transform.GetComponent<EventCollision2D>();
-                    if (originEventTrigger2D == null && originEventCollision2D == null)
+                    ShadowEventHandler mapping3DHandler = obstacle.transform.GetComponent<ShadowEventHandler>();
+                    if (!mapping3DHandler || !mapping3DHandler.enabled)
                     {
+                        handle.enabled = false;
                         handle.isEventTrigger = false;
-                        handle.isEventCollider = false;
                         handle.SetSpawnpointTrigger(false);
-                    }
-                    else if (originEventTrigger2D)
-                    {
-                        poolGO.GetComponent<PolygonCollider2D>().isTrigger = true;
-
-                        if (originEventTrigger2D.GetEnableStatus())
-                        {
-                            handle.SetEventKey(originEventTrigger2D.GetEventKey());
-                            handle.SetContactObject(originEventTrigger2D.GetContactObject());
-                            handle.isEventTrigger = true;
-                            handle.isEventCollider = false;
-                            handle.SetSpawnpointTrigger(originEventTrigger2D.IsSpawnpointTrigger());
-                        }
                     }
                     else
                     {
-                        if (originEventCollision2D.GetEnableStatus())
-                        {
-                            handle.SetEventKey(originEventCollision2D.GetEventKey());
-                            handle.SetContactObject(originEventCollision2D.GetContactObject());
-                            handle.isEventTrigger = false;
-                            handle.isEventCollider = true;
-                            handle.SetSpawnpointTrigger(false);
-                        }
+                        handle.enabled = true;
+                        handle.SetEventKey(mapping3DHandler.GetEventKey());
+                        handle.SetContactObject(mapping3DHandler.GetContactObject());
+                        handle.isEventTrigger = mapping3DHandler.GetEventTrigger();
+                        handle.SetSpawnpointTrigger(mapping3DHandler.IsSpawnpointTrigger());
                     }
+
+                    poolGO.GetComponent<PolygonCollider2D>().isTrigger = handle.isEventTrigger;
                 }
             }
         }
