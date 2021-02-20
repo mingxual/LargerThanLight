@@ -27,14 +27,14 @@ public class ShadowEventHandler : MonoBehaviour
     private bool m_Contacted; // Variable to track whether its shadow collision is contacting with the target object 
     private bool m_UpdateThisFrame; // Variable to denote whether in the current frame, m_Contacted is set to true by its shadow collision
     private bool m_TriggeredThisContact; // Variable to track whether the event has been triggered (useful only in invoke multiple times)
-    private bool m_SpawnPointChange; // Variable to check the current spawnpoint script has already been triggered
+    // private bool m_SpawnPointChange; // Variable to check the current spawnpoint script has already been triggered
 
     private void Start()
     {
         m_Contacted = false;
         m_UpdateThisFrame = false;
         m_TriggeredThisContact = false;
-        m_SpawnPointChange = false;
+        // m_SpawnPointChange = false;
     }
 
     private void Update()
@@ -43,14 +43,14 @@ public class ShadowEventHandler : MonoBehaviour
         {
             // Two cases
             // one does not need space input, the other does
-            if (!isSpawnPointTrigger)
-            {
+            // if (!isSpawnPointTrigger)
+            //{
                 if (!isSpaceInputNeeded || Input.GetAxis("Interaction") > 0.8f)
                 {
                     EventsManager.instance.InvokeEvent(mEventKey);
                     m_TriggeredThisContact = true;
                 }
-            }
+            //}
         }
 
         // return directly if it can only be used once
@@ -63,7 +63,7 @@ public class ShadowEventHandler : MonoBehaviour
         {
             m_Contacted = false;
             m_TriggeredThisContact = false;
-            m_SpawnPointChange = false;
+            // m_SpawnPointChange = false;
         }
 
         // Reset it to false at the end for use in the next frame
@@ -115,6 +115,7 @@ public class ShadowEventHandler : MonoBehaviour
         return isSpawnPointTrigger;
     }
 
+    /*
     public void SetSpawnPointTriggered()
     {
         m_SpawnPointChange = true;
@@ -124,6 +125,7 @@ public class ShadowEventHandler : MonoBehaviour
     {
         return m_SpawnPointChange;
     }
+    */
 }
 
 

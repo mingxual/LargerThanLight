@@ -31,16 +31,18 @@ public class UpdatedSCEventHandler : MonoBehaviour
         {
             if (m_IsSpawnpoint)
             {
-                ShadowEventHandler corrHandler = corrObject.GetComponent<ShadowEventHandler>();
-                if(!corrHandler.GetSpawnPointTriggered())
-                {
+                //ShadowEventHandler corrHandler = corrObject.GetComponent<ShadowEventHandler>();
+                //if (!corrHandler.GetSpawnPointTriggered())
+                //{
                     LevelManager.Instance.SetSkiaSpawnpoint(corrObject.transform);
-                    corrHandler.SetSpawnPointTriggered();
-                }
+                //    corrHandler.SetSpawnPointTriggered();
+                //}
             }
-
-            Debug.Log("Trigger stay");
-            corrObject.GetComponent<ShadowEventHandler>().SetContacted();
+            else
+            {
+                Debug.Log("Trigger stay");
+                corrObject.GetComponent<ShadowEventHandler>().SetContacted();
+            }
         }
     }
 
