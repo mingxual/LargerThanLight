@@ -22,7 +22,7 @@ public class UpdatedSCEventHandler : MonoBehaviour
 
     private void Update()
     {
-        // GetComponent<Collider2D>().isTrigger = isEventTrigger;
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -31,13 +31,16 @@ public class UpdatedSCEventHandler : MonoBehaviour
         {
             if (m_IsSpawnpoint)
             {
-                LevelManager.Instance.SetSkiaSpawnpoint(corrObject.transform);
+                ShadowEventHandler corrHandler = corrObject.GetComponent<ShadowEventHandler>();
+                if(!corrHandler.GetSpawnPointTriggered())
+                {
+                    LevelManager.Instance.SetSkiaSpawnpoint(corrObject.transform);
+                    corrHandler.SetSpawnPointTriggered();
+                }
             }
-            else
-            {
-                Debug.Log("Trigger stay");
-                corrObject.GetComponent<ShadowEventHandler>().SetContacted();
-            }
+
+            Debug.Log("Trigger stay");
+            corrObject.GetComponent<ShadowEventHandler>().SetContacted();
         }
     }
 
