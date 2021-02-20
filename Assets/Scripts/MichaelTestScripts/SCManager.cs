@@ -101,6 +101,11 @@ public class SCManager : MonoBehaviour
                 {
                     RaycastHit obstacle = obstacles[i];
                     if (obstacle.transform.GetComponent<SCObstacle>().shadowprojaffected) continue;
+                    if (Vector3.Angle(obstacle.transform.position - lightPos, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(obstacle.transform.position - lightPos) > light.range)
+                    {
+                        print("wew " + obstacle.transform.name);
+                        continue;
+                    }
 
                     int numVertices = 0;
                     Vector3[] vertices = new Vector3[0];
@@ -131,7 +136,7 @@ public class SCManager : MonoBehaviour
                         RaycastHit hitInfo;
                         Vector3 dir = currObstaclePos + p - lightPos;
                         dir = dir.normalized;
-                        if (Physics.Raycast(lightPos, dir, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
+                        if (Physics.Raycast(lightPos, dir, out hitInfo, 200.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
                         {
                             Wall3D wall3D = hitInfo.collider.GetComponent<Wall3D>();
                             Vector3 point = wall3D.RaycastToWall2D(hitInfo.transform.InverseTransformPoint(hitInfo.point), transform.position, obstacle.collider.GetComponent<SCObstacle>().debugLines);
