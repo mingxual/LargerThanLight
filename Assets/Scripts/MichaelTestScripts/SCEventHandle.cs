@@ -37,20 +37,6 @@ public class SCEventHandle : MonoBehaviour
         }
 
         GetComponent<Collider2D>().isTrigger = isEventTrigger;
-
-        if (isEventCollider)
-        {
-            if(m_IsCollided && !m_IsTriggering && Input.GetAxis("Interaction") > 0.8f)
-            {
-                m_IsTriggering = true;
-                EventsManager.instance.InvokeEvent(m_EventKey);
-            }
-
-            if(Time.time - m_Timer > 0.5f)
-            {
-                m_IsCollided = false;
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +63,7 @@ public class SCEventHandle : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(isEventCollider)
@@ -86,12 +73,26 @@ public class SCEventHandle : MonoBehaviour
                 /*
                 m_IsCollided = true;
                 m_Timer = Time.time;
-                */
+                
                 EventsManager.instance.InvokeEvent(m_EventKey);
                 m_HasTriggered = true;
             }
         }
     }
+    */
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(isEventCollider)
+        {
+            if(collision.gameObject == m_ContactObject)
+            {
+                Debug.Log("Collision stay");
+                corrObject.GetComponent<EventCollision2D>().SetCollided(true);
+            }
+        }
+    }
+
 
     public void SetEnableStatus(bool val)
     {

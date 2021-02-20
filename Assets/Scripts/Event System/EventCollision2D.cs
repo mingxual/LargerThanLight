@@ -13,7 +13,9 @@ public class EventCollision2D : MonoBehaviour
 
     // Variables to track whether the script is invoked or not
     private bool m_Triggered;
-    private bool m_Collided;
+    public bool m_Collided;
+    public bool m_UpdateThisFrame;
+    // public bool m_TriggeredThisContact;
 
     // This is the variable to track whether the current script is on or off
     public bool m_OnEnable = true;
@@ -23,6 +25,8 @@ public class EventCollision2D : MonoBehaviour
     {
         m_Triggered = false;
         m_Collided = false;
+        m_UpdateThisFrame = false;
+        // m_TriggeredThisContact = false;
         // m_OnEnable = true;
     }
 
@@ -35,6 +39,14 @@ public class EventCollision2D : MonoBehaviour
             m_Triggered = true;
         }
 
+        if(!m_UpdateThisFrame)
+        {
+            m_Collided = false;
+            m_Triggered = false;
+        }
+
+        m_UpdateThisFrame = false;
+
         // currently disable this ui stuff, will pick up later to come up with a better solution
         // dealing with UI hints
         /*
@@ -46,6 +58,13 @@ public class EventCollision2D : MonoBehaviour
         */
     }
 
+    public void SetCollided(bool val)
+    {
+        m_Collided = val;
+        m_UpdateThisFrame = true;
+    }
+
+    /*
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == m_ContactObject)
@@ -62,6 +81,7 @@ public class EventCollision2D : MonoBehaviour
             m_Collided = false;
         }
     }
+    */
 
     public void SetEnableStatus(bool val)
     {
