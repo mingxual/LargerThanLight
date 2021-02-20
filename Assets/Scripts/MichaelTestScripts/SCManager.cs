@@ -101,11 +101,11 @@ public class SCManager : MonoBehaviour
                 {
                     RaycastHit obstacle = obstacles[i];
                     if (obstacle.transform.GetComponent<SCObstacle>().shadowprojaffected) continue;
-                    if (Vector3.Angle(obstacle.transform.position - lightPos, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(obstacle.transform.position - lightPos) > light.range)
-                    {
-                        print("wew " + obstacle.transform.name);
-                        continue;
-                    }
+                    //if (Vector3.Angle(obstacle.transform.position - lightPos, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(obstacle.transform.position - lightPos) > light.range)
+                    //{
+                    //    print("wew " + obstacle.transform.name);
+                    //    //continue;
+                    //}
 
                     int numVertices = 0;
                     Vector3[] vertices = new Vector3[0];
@@ -376,7 +376,7 @@ public class SCManager : MonoBehaviour
             // so that q is added to result 'hull'
             p = q;
 
-        } while (p != l); // While we don't come to first  
+        } while (points[p] != points[l]); // While we don't come to first  
                           // point 
 
         return m_ConvexHullPoints;
