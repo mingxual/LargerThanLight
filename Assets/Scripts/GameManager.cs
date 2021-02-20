@@ -98,13 +98,6 @@ public class GameManager : MonoBehaviour
         m_LevelManager.SetNextSegment();
 
         skia.SendMessage("ResetSkia");
-
-        Transform luxSpawnTransform = m_LevelManager.GetCurrentSegment().GetLuxSpawnTransform();
-        if(luxSpawnTransform)
-        {
-            MoveLuxToPos(luxSpawnTransform);
-            lux.GetComponentInChildren<SCLight>().active = true;
-        }
     }
 
     public void MoveLuxToPos(Transform pos)

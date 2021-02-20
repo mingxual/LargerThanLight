@@ -70,18 +70,23 @@ public class SCManager : MonoBehaviour
     public void RaycastLights()
     {
         worldPositions.Clear();
-        worldPositions.Add(skia.GetWorldPosition());
+        if(skia.gameObject.activeSelf)
+            worldPositions.Add(skia.GetWorldPosition());
         foreach(ShadowEntityProjectile shadowProj in shadowProjs)
         {
             worldPositions.Add(shadowProj.GetWorldPosition());
         }
 
+        float skiaLightPosition = -1;
+
         int lightCasts = 0;
         //print("light count: " + LevelManager.Instance.GetCurrentSegment().GetLights().Count);
 
         int poolI = 0;
-        foreach(Vector3 worldPosition in worldPositions)
+        for(int k = 0; k < worldPositions.Count; k++)
         {
+            Vector3 worldPosition = worldPositions[k];
+
             foreach (SCLight sclight in LevelManager.Instance.GetCurrentSegment().GetLights())
             //foreach (SCLight sclight in FindObjectsOfType<SCLight>())
             {
@@ -93,8 +98,23 @@ public class SCManager : MonoBehaviour
                 Debug.Log("spot angle: " + light.spotAngle);
                 float angle = Vector3.Angle(worldPosition - light.transform.position, light.transform.forward);
                 Debug.Log("angle: " + angle);*/
-                if (Vector3.Angle(worldPosition - lightPos, light.transform.forward) > light.spotAngle / 2 || Vector3.Magnitude(worldPosition - lightPos) > light.range)
+
+                float angle = Vector3.Angle(worldPosition - lightPos, light.transform.forward);
+                if (angle > light.spotAngle / 2 || Vector3.Magnitude(worldPosition - lightPos) > light.range)
                     continue;
+                else if(k == 0)
+                {
+                    if (angle > light.innerSpotAngle / 2)
+                    {
+                        float value = (angle - light.innerSpotAngle / 2) / (light.spotAngle / 2 - light.innerSpotAngle / 2);
+                        skiaLightPosition = skiaLightPosition == -1 ? value : Mathf.Min(skiaLightPosition, value);
+                    }
+                    else
+                    {
+                        skiaLightPosition = 0;
+                    }
+                }
+
                 int obstacleCount = Physics.SphereCastNonAlloc(new Ray(lightPos, worldPosition - lightPos), lightcast_radius, obstacles, Vector3.Magnitude(worldPosition - lightPos), m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
                 //print("obs count: " + obstacles.Length);
                 for (int i = 0; i < obstacleCount; i++)
@@ -227,6 +247,11 @@ public class SCManager : MonoBehaviour
                     }
                 }
             }
+
+            if(k == 0)
+            {
+                skia.SetLightStatus(skiaLightPosition);
+            }
         }
 
         while (poolI < m_ObstaclePool.Count)
@@ -241,9 +266,11 @@ public class SCManager : MonoBehaviour
     public bool RaycastSpawnpoint(out Vector2 position)
     {
         Transform spawnpoint = LevelManager.Instance.GetSkiaSpawnpoint();
+        //print("spawnpoint at " + spawnpoint.position);
         if(!spawnpoint)
         {
             position = Vector2.zero;
+            //print("no spawnpoint");
             return false;
         }
 
@@ -262,6 +289,7 @@ public class SCManager : MonoBehaviour
             {
                 Wall3D wall3D = hitInfo.collider.GetComponent<Wall3D>();
                 Vector3 point = wall3D.RaycastToWall2D(hitInfo.transform.InverseTransformPoint(hitInfo.point), transform.position);
+                //print(sclight.name + " " + hitInfo.point);
                 points.Add(point);
             }
         }
@@ -269,19 +297,22 @@ public class SCManager : MonoBehaviour
         if(points.Count == 0)
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(spawnpoint.position, spawnpoint.forward, out hitInfo, 10000.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
+            if (Physics.Raycast(spawnpoint.position, spawnpoint.forward, out hitInfo, 200.0f, m_WallLayerMask, QueryTriggerInteraction.Collide))
             {
                 Wall3D wall3D = hitInfo.collider.GetComponent<Wall3D>();
                 Vector3 point = wall3D.RaycastToWall2D(hitInfo.transform.InverseTransformPoint(hitInfo.point), transform.position);
                 position = point;
+                //print("spawnpoint hit wall at " + position);
                 return false;
             }
             position = Vector2.zero;
+            //print("spawnpoint invalid");
             return false;
         }
         else if(points.Count == 1)
         {
             position = points[0];
+            //print("spawnpoint in light at " + position);
             return true;
         }
         else
@@ -292,6 +323,7 @@ public class SCManager : MonoBehaviour
                 sum += point;
             }
             position = sum / points.Count;
+            //print("spawnpoint in " + points.Count + " lights. center at " + position);
             return true;
         }
     }

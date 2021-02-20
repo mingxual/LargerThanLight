@@ -24,7 +24,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Segment[] m_AllSegments;
     private int m_CurrentSegmentIndex = 0;
 
+    public GameObject skia;
+    public GameObject lux;
+
     private Transform skiaSpawnpoint;
+    private Transform luxSpawnpoint;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +60,7 @@ public class LevelManager : MonoBehaviour
         {
             m_CurrentSegmentIndex++;
             SetActiveSegment(m_CurrentSegmentIndex);
+            SetSkiaSpawnpoint(GetCurrentSegment().GetSkiaFirstSpawnTransform());
         }
     }
 
@@ -87,20 +92,34 @@ public class LevelManager : MonoBehaviour
     {
         if(!skiaSpawnpoint)
         {
-            skiaSpawnpoint = GetCurrentSegment().GetSkiaSpawnTransform();
+            skiaSpawnpoint = GetCurrentSegment().GetSkiaFirstSpawnTransform();
         }
         return skiaSpawnpoint;
     }
 
     /// <summary>
-    /// sets skia's active spawnpoint
+    /// gets skia's active spawnpoint
     /// Updated 2/15 in use
+    /// </summary>
+    public Transform GetLuxSpawnpoint()
+    {
+        if (!luxSpawnpoint)
+        {
+            luxSpawnpoint = GetCurrentSegment().GetLuxFirstSpawnTransform();
+        }
+        return luxSpawnpoint;
+    }
+
+    /// <summary>
+    /// sets lux's active spawnpoint
+    /// Updated 2/19 in use
     /// </summary>
     public void SetSkiaSpawnpoint(Transform t)
     {
         if(GetCurrentSegment().HasSkiaSpawnpoint(t))
         {
             skiaSpawnpoint = t;
+            luxSpawnpoint = GetCurrentSegment().GetLuxSpawnTransform(t);
             print("Set sp to " + t.name);
         }
         else

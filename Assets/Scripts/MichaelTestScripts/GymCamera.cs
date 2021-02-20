@@ -26,7 +26,7 @@ public class GymCamera : MonoBehaviour
             skiaDir.Normalize();
             float dotp = Vector3.Dot(skiaDir, forward);
             float theta = Mathf.Acos(dotp) * 180 / Mathf.PI;
-            print(theta);
+            //print(theta);
             if (theta > largeRotation)
                 theta = largeRotation;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.eulerAngles.x, -90 - theta, transform.rotation.eulerAngles.z), zRSpeed * Time.deltaTime);
