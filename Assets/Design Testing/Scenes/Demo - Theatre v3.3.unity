@@ -7007,8 +7007,8 @@ GameObject:
   - component: {fileID: 564052452}
   - component: {fileID: 564052451}
   - component: {fileID: 564052450}
-  - component: {fileID: 564052454}
   - component: {fileID: 564052455}
+  - component: {fileID: 564052454}
   m_Layer: 0
   m_Name: backstage door
   m_TagString: Obstacle
@@ -7100,12 +7100,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 564052449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30757eb1ec0ca8c488fc15169693b54e, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: GetExit
-  m_ContactObject: {fileID: 1327307194}
-  m_OnEnable: 0
+  mEventKey: GetExit
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!114 &564052455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10849,9 +10852,9 @@ GameObject:
   - component: {fileID: 827650368}
   - component: {fileID: 827650371}
   - component: {fileID: 827650370}
-  - component: {fileID: 827650372}
   - component: {fileID: 827650373}
   - component: {fileID: 827650369}
+  - component: {fileID: 827650372}
   m_Layer: 0
   m_Name: Key
   m_TagString: Obstacle
@@ -10942,12 +10945,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 827650367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: GetKey
-  m_ContactObject: {fileID: 1327307194}
-  m_SpawnpointTrigger: 0
+  mEventKey: GetKey
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!114 &827650373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13431,7 +13437,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1046351329}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1046351351}
   variables: []
   description: 
   stepPause: 0
@@ -13487,7 +13494,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -135.15384
     y: -53.571426
-    width: 75.7732
+    width: 74.74227
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13891,7 +13898,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 31.202393
     y: 4.634842
-    width: 113.40207
+    width: 111.85568
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14255,7 +14262,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -97.98971
     y: 73.457016
-    width: 107.731964
+    width: 105.25774
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14354,7 +14361,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 100.32268
-    width: 90.72166
+    width: 89.58763
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14923,25 +14930,8 @@ MonoBehaviour:
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: SwitchToLevel
-  targetMethodText: 'SwitchToLevel (Int32): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.Int32
-      intValue: 3
-      boolValue: 0
-      floatValue: 0
-      stringValue: 
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
+  targetMethodText: 'SwitchToLevel (): Void'
+  methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
   returnValueType: System.Void
@@ -19351,8 +19341,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1405502407}
   - component: {fileID: 1405502410}
-  - component: {fileID: 1405502409}
   - component: {fileID: 1405502408}
+  - component: {fileID: 1405502409}
   m_Layer: 0
   m_Name: Spawnpoint (1)
   m_TagString: Untagged
@@ -19402,12 +19392,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405502406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1327307194}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!65 &1405502410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19827,6 +19820,7 @@ MonoBehaviour:
   - LuxLadderUILeft
   - LuxLadderUIRight
   - LuxLadderUID
+  - Test
   m_EventsMapValues:
   - m_PersistentCalls:
       m_Calls:
@@ -19929,7 +19923,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 564052454}
+      - m_Target: {fileID: 0}
         m_MethodName: SetEnableStatus
         m_Mode: 6
         m_Arguments:
@@ -19975,7 +19969,7 @@ MonoBehaviour:
           m_StringArgument: OpenDoor
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 564052454}
+      - m_Target: {fileID: 0}
         m_MethodName: SetEnableStatus
         m_Mode: 6
         m_Arguments:
@@ -20124,6 +20118,19 @@ MonoBehaviour:
       - m_Target: {fileID: 84793573}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1618862619}
+        m_MethodName: test
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23066,6 +23073,8 @@ GameObject:
   - component: {fileID: 1618862616}
   - component: {fileID: 1618862615}
   - component: {fileID: 1618862618}
+  - component: {fileID: 1618862620}
+  - component: {fileID: 1618862619}
   m_Layer: 10
   m_Name: Cube (27)
   m_TagString: Obstacle
@@ -23167,6 +23176,36 @@ MonoBehaviour:
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
+--- !u!114 &1618862619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618862613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979f5c6656b8be94e819c52a4643cd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1618862620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618862613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEventKey: Test
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 1
+  isReusable: 1
+  isSpawnPointTrigger: 0
 --- !u!1 &1619765017
 GameObject:
   m_ObjectHideFlags: 0
@@ -23809,8 +23848,8 @@ GameObject:
   - component: {fileID: 1646853780}
   - component: {fileID: 1646853779}
   - component: {fileID: 1646853778}
-  - component: {fileID: 1646853777}
   - component: {fileID: 1646853782}
+  - component: {fileID: 1646853777}
   m_Layer: 10
   m_Name: Cube (29)
   m_TagString: Obstacle
@@ -23827,12 +23866,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1646853776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: Catwalk
-  m_ContactObject: {fileID: 0}
-  m_SpawnpointTrigger: 0
+  mEventKey: Catwalk
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!65 &1646853778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29124,12 +29166,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2080006926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30757eb1ec0ca8c488fc15169693b54e, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: PullCurtain
-  m_ContactObject: {fileID: 1327307194}
-  m_OnEnable: 1
+  mEventKey: PullCurtain
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 1
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!114 &2080006932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29297,8 +29342,8 @@ GameObject:
   - component: {fileID: 2089260016}
   - component: {fileID: 2089260015}
   - component: {fileID: 2089260014}
-  - component: {fileID: 2089260018}
   - component: {fileID: 2089260017}
+  - component: {fileID: 2089260018}
   m_Layer: 10
   m_Name: Cube (21)
   m_TagString: Obstacle
@@ -29409,12 +29454,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2089260012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30757eb1ec0ca8c488fc15169693b54e, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: CurtainUI
-  m_ContactObject: {fileID: 0}
-  m_OnEnable: 0
+  mEventKey: CurtainUI
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 0
+  isReusable: 1
+  isSpawnPointTrigger: 0
 --- !u!1 &2098230292
 GameObject:
   m_ObjectHideFlags: 0
