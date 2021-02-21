@@ -9,10 +9,11 @@ public class Segment : MonoBehaviour
     [SerializeField] GameObject m_ObstacleParent;
     [SerializeField] GameObject m_SpawnpointParent;
     [SerializeField] Camera m_RenderCam;
-    [SerializeField] Transform m_SkiaSpawnTransform;
-    [SerializeField] Transform m_LuxSpawnTransform;
+    //[SerializeField] Transform m_SkiaSpawnTransform;
+    //[SerializeField] Transform m_LuxSpawnTransform;
 
     [SerializeField] List<Transform> m_SkiaSpawnTransforms;
+    [SerializeField] List<Transform> m_LuxSpawnTransforms;
 
     // Start is called before the first frame update
     void Start()
@@ -67,15 +68,23 @@ public class Segment : MonoBehaviour
             m_RenderCam.gameObject.SetActive(false);
     }
 
-    public Transform GetSkiaSpawnTransform()
+    public Transform GetSkiaFirstSpawnTransform()
     {
         //return m_SkiaSpawnTransform;
         return m_SkiaSpawnTransforms[0];
     }
 
-    public Transform GetLuxSpawnTransform()
+    public Transform GetLuxFirstSpawnTransform()
     {
-        return m_LuxSpawnTransform;
+        return m_LuxSpawnTransforms[0];
+    }
+
+    public Transform GetLuxSpawnTransform(Transform skia)
+    {
+        int skiaSpawnpointIndex = m_SkiaSpawnTransforms.IndexOf(skia);
+        if(skiaSpawnpointIndex < m_LuxSpawnTransforms.Count)
+            return m_LuxSpawnTransforms[skiaSpawnpointIndex];
+        return null;
     }
 
     public List<SCLight> GetLights()

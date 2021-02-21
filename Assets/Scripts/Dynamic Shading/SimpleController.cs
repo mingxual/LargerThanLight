@@ -56,6 +56,7 @@ public class SimpleController : MonoBehaviour
     public bool moveWithShadow;
     public Collider2D testCollider;
     public float ratio;
+    private GameObject m_LastGroundedGameObject;
 
     public GameObject particleEffect;
 
@@ -78,6 +79,8 @@ public class SimpleController : MonoBehaviour
         jumping = false;
 
         m_LevelManager = FindObjectOfType<LevelManager>();
+
+        skiaVignette = GetComponent<SkiaVignette>();
     }
 
     void Start()
@@ -236,7 +239,7 @@ public class SimpleController : MonoBehaviour
             {
                 testCollider = hit.collider;
 
-                if (grounded && rb.velocity.x == 0)
+                if (grounded && rb.velocity.x == 0 && m_LastGroundedGameObject == testCollider.gameObject)
                 {
                     float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
                     displacement -= transform.position.x;
@@ -247,6 +250,7 @@ public class SimpleController : MonoBehaviour
                 }
                 else
                 {
+                    m_LastGroundedGameObject = testCollider.gameObject;
                     ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
                 }
             }
@@ -259,6 +263,20 @@ public class SimpleController : MonoBehaviour
         return m_WorldPosition3D;
     }
 
+    private SkiaVignette skiaVignette;
+
+    public void SetLightStatus(float status)
+    {
+        if(status == -1)
+        {
+            print("skia dead");
+            ResetSkia();
+            return;
+        }
+        if(skiaVignette)
+            skiaVignette.lightStatus = status;
+    }
+
     /// <summary>
     /// Resets Skia to current spawnpoint
     /// Updated 2/14 in use
@@ -268,7 +286,8 @@ public class SimpleController : MonoBehaviour
         bool spawnable = SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
         if (!spawnable)
         {
-            print("Cannot spawn");
+            //print("Cannot spawn at " + spawnpoint);
+            LevelManager.Instance.lux.GetComponent<LightController>().ResetLux();
         }
         Vector3 point = spawnpoint;
         point.z = transform.position.z;

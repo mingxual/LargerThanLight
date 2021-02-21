@@ -98,13 +98,6 @@ public class GameManager : MonoBehaviour
         m_LevelManager.SetNextSegment();
 
         skia.SendMessage("ResetSkia");
-
-        Transform luxSpawnTransform = m_LevelManager.GetCurrentSegment().GetLuxSpawnTransform();
-        if(luxSpawnTransform)
-        {
-            MoveLuxToPos(luxSpawnTransform);
-            lux.GetComponentInChildren<SCLight>().active = true;
-        }
     }
 
     public void MoveLuxToPos(Transform pos)
@@ -117,9 +110,9 @@ public class GameManager : MonoBehaviour
         skia.transform.position = pos.position;
     }
 
-    public void SwitchToLevel(int i)
+    public void SwitchToLevel()
     {
-        SceneManager.LoadScene(i);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void DisableGameObjectPool()

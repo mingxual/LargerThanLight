@@ -14,6 +14,9 @@ public class CameraFollow : MonoBehaviour
 
     public SimpleController skia;
 
+    [SerializeField] float maxSpeed;
+    [SerializeField] float deadZone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,24 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 currPos = transform.position;
-        Vector3 objPos = skia.GetWorldPosition();
-        currPos.x = objPos.x;
-        transform.position = currPos;
+        Vector3 skiaPos = skia.GetWorldPosition();
+        if(transform.position.x < skiaPos.x)
+        {
+            if (skiaPos.x - transform.position.x < deadZone) return;
+
+            float diffX = Mathf.Lerp(0, skiaPos.x - transform.position.x - deadZone, Time.deltaTime);
+            if (diffX > maxSpeed)
+                diffX = maxSpeed;
+            transform.position += Vector3.right * diffX;
+        }
+        else if(transform.position.x > skiaPos.x)
+        {
+            if (transform.position.x - skiaPos.x < deadZone) return;
+
+            float diffX = Mathf.Lerp(0, transform.position.x - skiaPos.x - deadZone, Time.deltaTime);
+            if (diffX > maxSpeed)
+                diffX = maxSpeed;
+            transform.position -= Vector3.right * diffX;
+        }
     }
 }

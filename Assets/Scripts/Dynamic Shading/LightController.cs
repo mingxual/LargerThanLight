@@ -10,6 +10,7 @@ public class LightController : MonoBehaviour
 
     [SerializeField] private Animator anim;
     [SerializeField] private Transform luxModel;
+    [SerializeField] private SCLight sclight;
     //public GameObject EmptyGO;
 
     private Rigidbody rb;
@@ -32,9 +33,14 @@ public class LightController : MonoBehaviour
 
     public CameraSwitch cameraSwitch;
 
+    [SerializeField] Vector3 forwardDir;
+    private Vector3 rightDir;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        SetForwardDir(forwardDir);
     }
 
     private void OnEnable()
@@ -91,12 +97,12 @@ public class LightController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            movementDirection.x -= 1;
+            movementDirection -= rightDir;
             luxControlsActivated = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            movementDirection.x += 1;
+            movementDirection += rightDir;
             luxControlsActivated = true;
         }
 
@@ -104,12 +110,12 @@ public class LightController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                movementDirection.z += 1;
+                movementDirection += forwardDir;
                 luxControlsActivated = true;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                movementDirection.z -= 1;
+                movementDirection -= forwardDir;
                 luxControlsActivated = true;
             }
         }
@@ -217,6 +223,24 @@ public class LightController : MonoBehaviour
     public void SetEnableForwardBack(bool val)
     {
         enableForwardBack = val;
+    }
+
+    public void SetForwardDir(Vector3 dir)
+    {
+        forwardDir = dir;
+        rightDir = Vector3.Cross(Vector3.up, forwardDir);
+    }
+
+    public void ResetLux()
+    {
+        if (!sclight.active) return;
+        Transform spawnpoint = LevelManager.Instance.GetLuxSpawnpoint();
+        if(spawnpoint)
+        {
+            transform.position = spawnpoint.position;
+            //print("Set spawnpoint at " + spawnpoint.position);
+            rb.velocity = Vector3.zero;
+        }
     }
 
     //void Update()
