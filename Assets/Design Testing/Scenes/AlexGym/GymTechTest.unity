@@ -148,7 +148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19641849}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5.08, y: 58.9, z: -76.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -221,6 +221,7 @@ MonoBehaviour:
   moveSpeed: 4
   anim: {fileID: 1109442300}
   luxModel: {fileID: 1109442298}
+  sclight: {fileID: 0}
   runningTransform: {fileID: 1109442299}
   currLadder: {fileID: 0}
   currLadder_collider_center: {x: 0, y: 0, z: 0}
@@ -319,6 +320,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28299629}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &37156325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37156326}
+  m_Layer: 0
+  m_Name: LuxSpawn2
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &37156326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37156325}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5.08, y: 58.9, z: -60.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664657365}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &43168897
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,13 +405,16 @@ MonoBehaviour:
   m_ObstacleParent: {fileID: 2048548351}
   m_SpawnpointParent: {fileID: 1664657364}
   m_RenderCam: {fileID: 577858047}
-  m_SkiaSpawnTransform: {fileID: 351776384}
-  m_LuxSpawnTransform: {fileID: 0}
   m_SkiaSpawnTransforms:
   - {fileID: 351776384}
   - {fileID: 1827021405}
   - {fileID: 220665663}
   - {fileID: 1339496768}
+  m_LuxSpawnTransforms:
+  - {fileID: 296874312}
+  - {fileID: 37156326}
+  - {fileID: 265100496}
+  - {fileID: 78345788}
 --- !u!1 &55282141
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +466,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -540,6 +574,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AllSegments:
   - {fileID: 43168899}
+  skia: {fileID: 1565225451}
+  lux: {fileID: 19641849}
+--- !u!1 &78345787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78345788}
+  m_Layer: 0
+  m_Name: LuxSpawn4
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78345788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78345787}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5.08, y: 58.9, z: -17.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664657365}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &80698188
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +779,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -49476,9 +49542,9 @@ GameObject:
   - component: {fileID: 220665665}
   - component: {fileID: 220665664}
   m_Layer: 0
-  m_Name: Spawnpoint (2)
+  m_Name: SkiaSpawn3
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -49489,13 +49555,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220665662}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -25.09, y: 64.02, z: -38.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664657365}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &220665664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49505,12 +49571,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 220665662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &220665665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49541,7 +49610,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6987457, z: 5.5008087}
+  m_Size: {x: 5.500809, y: 1.6987457, z: 1}
   m_Center: {x: 0, y: 0.34937286, z: 0.08616257}
 --- !u!1 &220927062
 GameObject:
@@ -49915,6 +49984,36 @@ Transform:
   m_Father: {fileID: 862259495}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &265100495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265100496}
+  m_Layer: 0
+  m_Name: LuxSpawn3
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &265100496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265100495}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5.08, y: 58.9, z: -38.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664657365}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &269830386
 GameObject:
   m_ObjectHideFlags: 0
@@ -50162,6 +50261,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289304294}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &296874311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296874312}
+  m_Layer: 0
+  m_Name: LuxSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &296874312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296874311}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5.08, y: 58.9, z: -76.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664657365}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &306053302
 GameObject:
   m_ObjectHideFlags: 0
@@ -50261,7 +50390,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh49150
+  m_Name: pb_Mesh431164
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -50737,7 +50866,7 @@ GameObject:
   - component: {fileID: 351776386}
   - component: {fileID: 351776385}
   m_Layer: 0
-  m_Name: Spawnpoint
+  m_Name: SkiaSpawn1
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -50750,13 +50879,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351776383}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -25.09, y: 64.02, z: -85.739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664657365}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &351776385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50766,12 +50895,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 351776383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &351776386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50802,7 +50934,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6987457, z: 2.4906464}
+  m_Size: {x: 2.490646, y: 1.6987457, z: 1}
   m_Center: {x: 0, y: 0.34937286, z: -0.3143158}
 --- !u!1 &366936995
 GameObject:
@@ -51995,7 +52127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -52488,7 +52620,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -53150,7 +53282,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -54228,7 +54360,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -71702,6 +71834,7 @@ MonoBehaviour:
   - Tower1Switch
   - Tower2Switch
   - Tower3Switch
+  - SkiaShadowTouch
   m_EventsMapValues:
   - m_PersistentCalls:
       m_Calls:
@@ -71767,6 +71900,19 @@ MonoBehaviour:
       - m_Target: {fileID: 858377860}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1565225458}
+        m_MethodName: ResetSkia
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -72273,7 +72419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -84333,7 +84479,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -85118,7 +85264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -85363,12 +85509,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 858377860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: Tower3Switch
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: Tower3Switch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!114 &858377862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85962,7 +86111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -86333,8 +86482,8 @@ GameObject:
   - component: {fileID: 907658722}
   - component: {fileID: 907658721}
   - component: {fileID: 907658720}
-  - component: {fileID: 907658719}
   - component: {fileID: 907658723}
+  - component: {fileID: 907658719}
   m_Layer: 0
   m_Name: ShadowEntity
   m_TagString: Untagged
@@ -86365,12 +86514,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 907658717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: SkiaShadowTouch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 1
+  isSpawnPointTrigger: 0
 --- !u!65 &907658720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86450,7 +86602,7 @@ MonoBehaviour:
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
-  projActive: 0
+  projActive: 1
   projPrefab: {fileID: 941772123}
   fireCooldown: 10
   targetTransforms:
@@ -86617,7 +86769,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -88670,7 +88822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -89157,7 +89309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -89217,12 +89369,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1134782453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: Tower2Switch
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: Tower2Switch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!114 &1134782455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89323,6 +89478,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2727920874048876956, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1979494533}
+    - target: {fileID: 2727920874048876956, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727920874048876956, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: invSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963846, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_Name
@@ -89414,6 +89584,11 @@ PrefabInstance:
       propertyPath: michaelsdebuggingflag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1979494533}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -90941,7 +91116,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -91077,9 +91252,9 @@ GameObject:
   - component: {fileID: 1339496770}
   - component: {fileID: 1339496769}
   m_Layer: 0
-  m_Name: Spawnpoint (3)
+  m_Name: SkiaSpawn4
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -91090,13 +91265,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339496767}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -25.09, y: 64.02, z: -9.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664657365}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1339496769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91106,12 +91281,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1339496767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &1339496770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91142,7 +91320,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6987457, z: 7.4391346}
+  m_Size: {x: 7.439135, y: 1.6987457, z: 1}
   m_Center: {x: 0, y: 0.34937286, z: -1.5592442}
 --- !u!1 &1343681923
 GameObject:
@@ -91541,7 +91719,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh49226
+  m_Name: pb_Mesh458396
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -91866,7 +92044,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -92694,12 +92872,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444513526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: Tower1Switch
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 0
+  mEventKey: Tower1Switch
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
 --- !u!1 &1446170975
 GameObject:
   m_ObjectHideFlags: 0
@@ -92858,7 +93039,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -93330,7 +93511,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.23584908, g: 0.23290846, b: 0.2302866, a: 1}
+  m_Color: {r: 0.3584906, g: 0.3567996, b: 0.3567996, a: 1}
   m_Intensity: 1
   m_Range: 64.04822
   m_SpotAngle: 30
@@ -94445,7 +94626,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -94782,7 +94963,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.1
     m_NormalBias: 0.1
-    m_NearPlane: 4
+    m_NearPlane: 3
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -95373,6 +95554,10 @@ Transform:
   - {fileID: 1827021405}
   - {fileID: 220665663}
   - {fileID: 1339496768}
+  - {fileID: 296874312}
+  - {fileID: 37156326}
+  - {fileID: 265100496}
+  - {fileID: 78345788}
   m_Father: {fileID: 43168898}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95835,7 +96020,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -95968,7 +96153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -96425,9 +96610,9 @@ GameObject:
   - component: {fileID: 1827021407}
   - component: {fileID: 1827021406}
   m_Layer: 0
-  m_Name: Spawnpoint (1)
+  m_Name: SkiaSpawn2
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -96438,13 +96623,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827021404}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -25.09, y: 64.02, z: -58.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664657365}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1827021406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96454,12 +96639,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1827021404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aa43243132a604a90ff836c9c83d27, type: 3}
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventKey: 
-  m_ContactObject: {fileID: 1565225451}
-  m_SpawnpointTrigger: 1
+  mEventKey: 
+  mContactObject: {fileID: 1565225451}
+  isEventTrigger: 1
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 1
 --- !u!114 &1827021407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96490,7 +96678,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6987457, z: 8.058636}
+  m_Size: {x: 8.058636, y: 1.6987457, z: 1}
   m_Center: {x: 0, y: 0.34937286, z: 0.1660099}
 --- !u!1 &1839229644
 GameObject:
@@ -96667,7 +96855,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -96795,7 +96983,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -97319,7 +97507,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -98744,7 +98932,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -98807,6 +98995,18 @@ MonoBehaviour:
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
+--- !u!114 &1979494533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4099819249464387718, guid: 466c9456fbc3cd5448acd32b20cf32f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1424149506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1979960324
 GameObject:
   m_ObjectHideFlags: 0
@@ -98962,7 +99162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floodlights: {fileID: 1770626647}
-  LightOut: {fileID: 0}
+  LightOut: {fileID: 1176319014}
 --- !u!1 &1995188746
 GameObject:
   m_ObjectHideFlags: 0
@@ -99028,7 +99228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -100506,7 +100706,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94a004f7f79b6241a1256bfe074fdb9, type: 2}
+  - {fileID: 2100000, guid: 67738197a179d5e49a15e00c9fa15335, type: 2}
   - {fileID: 2100000, guid: df729a0163429944296f296cb6ff4328, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

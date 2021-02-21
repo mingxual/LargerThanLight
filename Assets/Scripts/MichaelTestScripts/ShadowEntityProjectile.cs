@@ -38,7 +38,7 @@ public class ShadowEntityProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //print("hello");
-        SCEventHandle handle = collision.GetComponent<SCEventHandle>();
+        UpdatedSCEventHandler handle = collision.GetComponent<UpdatedSCEventHandler>();
         if (handle)
         {
             if(handle.corrObject)

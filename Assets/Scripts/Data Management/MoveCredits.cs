@@ -7,7 +7,7 @@ public class MoveCredits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.localPosition = new Vector3(0, -100, 0);
+        this.transform.localPosition = new Vector3(0, -600, 0);
     }
 
     // Update is called once per frame

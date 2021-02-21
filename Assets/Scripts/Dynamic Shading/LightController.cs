@@ -10,6 +10,7 @@ public class LightController : MonoBehaviour
 
     [SerializeField] private Animator anim;
     [SerializeField] private Transform luxModel;
+    [SerializeField] private SCLight sclight;
     //public GameObject EmptyGO;
 
     private Rigidbody rb;
@@ -228,6 +229,18 @@ public class LightController : MonoBehaviour
     {
         forwardDir = dir;
         rightDir = Vector3.Cross(Vector3.up, forwardDir);
+    }
+
+    public void ResetLux()
+    {
+        if (!sclight.active) return;
+        Transform spawnpoint = LevelManager.Instance.GetLuxSpawnpoint();
+        if(spawnpoint)
+        {
+            transform.position = spawnpoint.position;
+            //print("Set spawnpoint at " + spawnpoint.position);
+            rb.velocity = Vector3.zero;
+        }
     }
 
     //void Update()

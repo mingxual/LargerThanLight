@@ -13,11 +13,6 @@ public class ShadowEntity : SCObstacle
     public List<Transform> targetTransforms;
     public SimpleController skia;
 
-    void CollisionTrigger(GameObject skia)
-    {
-        skia.GetComponent<SimpleController>().ResetSkia();
-    }
-
     private void FireProjectiles()
     {
         GameObject projGO;
@@ -34,6 +29,9 @@ public class ShadowEntity : SCObstacle
     private void Update()
     {
         if (!projActive) return;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            FireProjectiles();
 
         if (fireCooldownTimer > 0)
         {
