@@ -16405,7 +16405,7 @@ RectTransform:
   m_Children:
   - {fileID: 1633195304}
   - {fileID: 701606661}
-  - {fileID: 2003196216}
+  - {fileID: 1341775260}
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17307,7 +17307,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 31.202393
     y: 4.634842
-    width: 112.784805
+    width: 112.025314
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17682,7 +17682,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -97.98971
     y: 73.457016
-    width: 107.72152
+    width: 109.49367
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22754,6 +22754,92 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.405877, y: 2.9811268, z: 3.3236182}
   m_Center: {x: 6.056677, y: 1.523595, z: -6.8042274}
+--- !u!1 &1341775259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341775260}
+  - component: {fileID: 1341775262}
+  - component: {fileID: 1341775261}
+  - component: {fileID: 1341775263}
+  m_Layer: 5
+  m_Name: SkiaPullUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1341775260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341775259}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1034350307}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 670, y: 299.99997}
+  m_SizeDelta: {x: 116.2, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1341775261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341775259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: ee635004294d8a54ea980dbd3208cbff, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1341775262
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341775259}
+  m_CullTransparentMesh: 0
+--- !u!114 &1341775263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341775259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3df643dfbec30e4aa89456f6bb46533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 5
+  key_pressed: 0
 --- !u!1 &1345101871
 GameObject:
   m_ObjectHideFlags: 0
@@ -24439,7 +24525,7 @@ MonoBehaviour:
           m_StringArgument: Curtain_Open
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2003196215}
+      - m_Target: {fileID: 1341775259}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -24636,7 +24722,7 @@ MonoBehaviour:
         m_CallState: 0
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2003196215}
+      - m_Target: {fileID: 1341775259}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -34681,95 +34767,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997845261}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2003196215
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003196216}
-  - component: {fileID: 2003196218}
-  - component: {fileID: 2003196217}
-  - component: {fileID: 2003196219}
-  m_Layer: 5
-  m_Name: SkiaPullUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2003196216
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003196215}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1034350307}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 520, y: 300}
-  m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2003196217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003196215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f79998f35a32da24eae9ccb59cf7d012, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2003196218
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003196215}
-  m_CullTransparentMesh: 0
---- !u!114 &2003196219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003196215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3df643dfbec30e4aa89456f6bb46533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 3
-  key_pressed: 0
 --- !u!1 &2004330430
 GameObject:
   m_ObjectHideFlags: 0
@@ -35415,6 +35412,89 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041033165}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2042491180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042491181}
+  - component: {fileID: 2042491183}
+  - component: {fileID: 2042491182}
+  - component: {fileID: 2042491184}
+  m_Layer: 10
+  m_Name: UItrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042491181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042491180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.063, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2089260013}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2042491182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042491180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEventKey: CurtainUI
+  mContactObject: {fileID: 1327307194}
+  isEventTrigger: 0
+  isSpaceInputNeeded: 0
+  isReusable: 0
+  isSpawnPointTrigger: 0
+--- !u!65 &2042491183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042491180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5315972, y: 0.005130347, z: 1}
+  m_Center: {x: 0.2342011, y: 0.4340045, z: 0}
+--- !u!114 &2042491184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042491180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89712380423f96641bfcfe6d2614a79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableRotation: 0
+  rotationAxis: {x: 0, y: 0, z: 0}
+  rotationSpeed: 0
+  debugLines: 0
+  shadowprojaffect: 0
+  shadowprojtime: 0
+  shadowprojaffected: 0
 --- !u!1 &2043921071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1390773610315631969, guid: da90e2bc10eb9244b885b2473e23360d,
@@ -36705,7 +36785,6 @@ GameObject:
   - component: {fileID: 2089260015}
   - component: {fileID: 2089260014}
   - component: {fileID: 2089260017}
-  - component: {fileID: 2089260018}
   m_Layer: 10
   m_Name: Cube (21)
   m_TagString: Obstacle
@@ -36725,6 +36804,7 @@ Transform:
   m_LocalScale: {x: 0.53249997, y: 4.089555, z: 0.40074316}
   m_Children:
   - {fileID: 2084565257}
+  - {fileID: 2042491181}
   m_Father: {fileID: 2098230293}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36808,24 +36888,6 @@ MonoBehaviour:
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
---- !u!114 &2089260018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089260012}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb91b28a132933e4fb1042d9c2c20736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mEventKey: CurtainUI
-  mContactObject: {fileID: 1327307194}
-  isEventTrigger: 0
-  isSpaceInputNeeded: 0
-  isReusable: 0
-  isSpawnPointTrigger: 0
 --- !u!1 &2098230292
 GameObject:
   m_ObjectHideFlags: 0
