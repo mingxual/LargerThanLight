@@ -22764,8 +22764,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1341775260}
   - component: {fileID: 1341775262}
-  - component: {fileID: 1341775261}
   - component: {fileID: 1341775263}
+  - component: {fileID: 1341775264}
+  - component: {fileID: 1341775261}
   m_Layer: 5
   m_Name: SkiaPullUI
   m_TagString: Untagged
@@ -22782,14 +22783,14 @@ RectTransform:
   m_GameObject: {fileID: 1341775259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1034350307}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 670, y: 299.99997}
+  m_AnchoredPosition: {x: 680, y: 299.99997}
   m_SizeDelta: {x: 116.2, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341775261
@@ -22801,23 +22802,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1341775259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ac8932de94bfbe45bfed4afc9c0c643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ee635004294d8a54ea980dbd3208cbff, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  duration: 1.5
+  sprites:
+  - {fileID: 7253652341725546674, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: -8640904000706516434, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: -5416222786248885519, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 8515913454031941174, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 4882149116565567084, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 890426472770691616, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: -974430472209397013, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 3391697891031640757, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 4611673593497679581, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 5285866453104389021, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 4377965126967044060, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: -5793801899793565772, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 5027234458172578886, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: -3599417956034748360, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: 6999179517916819572, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
+  - {fileID: -2818320699423275279, guid: 635ae532d8dd08d4abacc4cc3f253f59, type: 3}
 --- !u!222 &1341775262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22840,6 +22845,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 5
   key_pressed: 0
+--- !u!114 &1341775264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341775259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7253652341725546674, guid: 635ae532d8dd08d4abacc4cc3f253f59,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1345101871
 GameObject:
   m_ObjectHideFlags: 0
