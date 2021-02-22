@@ -10,6 +10,9 @@ public class EventCollision3D : MonoBehaviour
     // The gameobject that would trigger the event (would use the collider of the gameobject to trigger)
     [SerializeField] GameObject m_ContactObject;
 
+    // true when need to press space to invoke, false when not
+    [SerializeField] bool isSpaceInputNeeded = true;
+
     // Variables to track whether the script is invoked or not
     private bool m_Triggered;
     private bool m_Collided;
@@ -32,6 +35,13 @@ public class EventCollision3D : MonoBehaviour
         {
             EventsManager.instance.InvokeEvent(m_EventKey);
             m_Triggered = true;
+        }
+
+        if (m_Collided && !m_Triggered && !isSpaceInputNeeded)
+        {
+            EventsManager.instance.InvokeEvent(m_EventKey);
+            m_Triggered = true;
+            return;
         }
     }
 
