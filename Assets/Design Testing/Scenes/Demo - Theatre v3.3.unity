@@ -7809,7 +7809,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 846d747d4dc764540a7e73cab457d674, type: 3}
+  - {fileID: 2100000, guid: cd244933ba38c294cb46e4f9cda69f44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11885,7 +11885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 3
-  key_pressed: 0
 --- !u!1001 &712969070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16813,6 +16812,7 @@ GameObject:
   - component: {fileID: 1046351355}
   - component: {fileID: 1046351354}
   - component: {fileID: 1046351353}
+  - component: {fileID: 1046351366}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -16833,11 +16833,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 363.83188, y: 96.89057}
+  scrollPos: {x: 391.81863, y: 117.80264}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.79
+  zoom: 0.7300001
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -16845,9 +16845,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351325}
-  selectedCommands:
-  - {fileID: 1046351331}
+  - {fileID: 1046351329}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -16903,7 +16902,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -135.15384
     y: -53.571426
-    width: 75.31645
+    width: 74.65753
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17307,7 +17306,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 31.202393
     y: 4.634842
-    width: 112.025314
+    width: 111.36986
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17316,6 +17315,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1046351297}
   commandList:
+  - {fileID: 1046351366}
   - {fileID: 1046351309}
   - {fileID: 1046351318}
   - {fileID: 1046351312}
@@ -17682,7 +17682,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -97.98971
     y: 73.457016
-    width: 109.49367
+    width: 106.9863
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17716,7 +17716,7 @@ MonoBehaviour:
   storyText: Got the key.
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -17784,7 +17784,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 100.32268
-    width: 90.50633
+    width: 89.45206
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18716,7 +18716,7 @@ MonoBehaviour:
   storyText: "Thought you\u2019d be more upset about leaving the stage?\r\n"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -18726,6 +18726,27 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1046351366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 79
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 466105620}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
 --- !u!1 &1050958079
 GameObject:
   m_ObjectHideFlags: 0
@@ -22844,7 +22865,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 5
-  key_pressed: 0
 --- !u!114 &1341775264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25295,7 +25315,7 @@ MonoBehaviour:
   m_WallParent: {fileID: 1843543606}
   m_ObstacleParent: {fileID: 612695757}
   m_SpawnpointParent: {fileID: 1366062353}
-  m_RenderCam: {fileID: 1837602122}
+  m_RenderCam: {fileID: 618681134}
   m_SkiaSpawnTransforms:
   - {fileID: 1069407217}
   - {fileID: 1405502407}
