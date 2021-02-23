@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShadowEntityProjectile : MonoBehaviour
 {
+    public LightFlicking mlightFlickScript;
     private SimpleController skia;
 
     private void OnEnable()
@@ -59,6 +60,7 @@ public class ShadowEntityProjectile : MonoBehaviour
         SimpleController sc = collision.GetComponent<SimpleController>();
         if(sc)
         {
+            mlightFlickScript.turnOnFlicker();
             sc.ResetSkia();
             Destroy(gameObject);
         }

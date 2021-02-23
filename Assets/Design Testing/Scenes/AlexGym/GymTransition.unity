@@ -227,6 +227,7 @@ MonoBehaviour:
   currLadder_collider_center: {x: 0, y: 0, z: 0}
   cameraSwitch: {fileID: 0}
   forwardDir: {x: -1, y: 0, z: 0}
+  isMoving: 0
 --- !u!1 &28299629
 GameObject:
   m_ObjectHideFlags: 0
@@ -85032,7 +85033,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 783278399}
   selectedCommands:
-  - {fileID: 783278407}
+  - {fileID: 783278402}
   variables: []
   description: 
   stepPause: 0
@@ -85759,7 +85760,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &783278430
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -88756,6 +88757,9 @@ MonoBehaviour:
   - {fileID: 1134782459}
   - {fileID: 858377866}
   skia: {fileID: 1565225458}
+  lux: {fileID: 0}
+  aura: {fileID: 0}
+  lf: {fileID: 0}
 --- !u!1 &914498942
 GameObject:
   m_ObjectHideFlags: 0
