@@ -1066,6 +1066,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2088407779}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &38409494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38409493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575b8495e4f918441b5966719d7cfea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalFadeTime: 2
 --- !u!65 &38409495
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7768,6 +7781,7 @@ GameObject:
   - component: {fileID: 466105623}
   - component: {fileID: 466105622}
   - component: {fileID: 466105621}
+  - component: {fileID: 466105625}
   m_Layer: 8
   m_Name: DuplicatedCurtain
   m_TagString: Untagged
@@ -7809,7 +7823,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd244933ba38c294cb46e4f9cda69f44, type: 2}
+  - {fileID: 2100000, guid: 1fc13129f05b70340a7d3bb08c364965, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7852,6 +7866,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466105625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466105620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575b8495e4f918441b5966719d7cfea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalFadeTime: 2
 --- !u!1 &467264767
 GameObject:
   m_ObjectHideFlags: 0
@@ -9365,6 +9392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: banner_triangular Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420392049297712307, guid: d582449ff6e47244bacc8a1a49b72715,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d582449ff6e47244bacc8a1a49b72715, type: 3}
@@ -14839,6 +14871,7 @@ GameObject:
   - component: {fileID: 910401265}
   - component: {fileID: 910401264}
   - component: {fileID: 910401263}
+  - component: {fileID: 910401266}
   m_Layer: 0
   m_Name: stageframe top
   m_TagString: Untagged
@@ -14891,7 +14924,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93a9125a42a676941a601582f4040402, type: 2}
+  - {fileID: 2100000, guid: 6f4ca3b4d5edb0b4caf632c6ae8ab664, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14920,6 +14953,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910401261}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &910401266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910401261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575b8495e4f918441b5966719d7cfea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalFadeTime: 2
 --- !u!1 &926734317
 GameObject:
   m_ObjectHideFlags: 0
@@ -19069,6 +19115,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.131087, y: 27.925055, z: 1.244164}
   m_Center: {x: 5.299196, y: 17.035622, z: 0}
+--- !u!114 &1083618440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083618437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575b8495e4f918441b5966719d7cfea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalFadeTime: 2
 --- !u!1001 &1088196982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21038,6 +21097,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 207715626}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1212959834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212959833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575b8495e4f918441b5966719d7cfea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalFadeTime: 2
 --- !u!65 &1212959836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24645,6 +24717,72 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 910401266}
+        m_MethodName: FadeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 466105625}
+        m_MethodName: FadeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1212959834}
+        m_MethodName: FadeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 38409494}
+        m_MethodName: FadeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1420349637}
+        m_MethodName: FadeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1083618440}
+        m_MethodName: FadeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1072051574}
@@ -24807,6 +24945,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 561901543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1420349637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420349636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575b8495e4f918441b5966719d7cfea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TotalFadeTime: 2
 --- !u!114 &1420349638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36709,6 +36860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: banner_rectangularBlue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952932077400246941, guid: b6df9a1940cc0e84e9581737628fc7cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279587141659572366, guid: b6df9a1940cc0e84e9581737628fc7cc,
         type: 3}
