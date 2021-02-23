@@ -59,6 +59,8 @@ public class SimpleController : MonoBehaviour
     private GameObject m_LastGroundedGameObject;
 
     public GameObject particleEffect;
+    GameManager m_GameManager;
+    LightController m_LuxReference;
 
     public bool michaelsdebuggingflag;
     private void Awake()
@@ -87,11 +89,31 @@ public class SimpleController : MonoBehaviour
     {
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+        m_GameManager = FindObjectOfType<GameManager>();
+        if(m_GameManager)
+        {
+            if (m_GameManager.lux) m_LuxReference = m_GameManager.lux.GetComponent<LightController>();
+        }
         //mainCamera = Camera.main;
     }
 
     private void Update()
     {
+        if(SafeColliders())
+        {
+            if(m_LuxReference)
+            {
+                if(m_LuxReference.isMoving)
+                {
+                    ResetSkia();
+                }
+            }
+            else
+            {
+                ResetSkia();
+            }
+        }
+
         // Find and set its position in 3d space (aka game view)
         SetWorldPosition3D();
         OccludeObjects();
@@ -551,9 +573,15 @@ public class SimpleController : MonoBehaviour
     {
         Vector2 center = (Vector2)transform.position + playerCenter;
         float xDist = playerSize.x * 0.5f;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y - rayboxDistance), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y - rayboxDistance), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
-        if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
+        float yDist = playerSize.y * 0.5f;
+        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, (playerSize.y - rayboxDistance)*.9f), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, (playerSize.y - rayboxDistance)*.9f), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2((playerSize.x - rayboxDistance)*.9f, rayboxDistance), 0, Vector2.up, yDist, mask);
+        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2((playerSize.x - rayboxDistance) * .9f, rayboxDistance), 0, Vector2.down, yDist, mask);
+        //if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
+        if (collideLeft && collideRight)
+            return true;
+        if (collideTop && collideBottom)
             return true;
 
         if (collideLeft)
