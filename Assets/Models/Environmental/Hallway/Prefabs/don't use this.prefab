@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5827501128905108943
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285170256219777638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &8011854157312041506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18678895
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.50553244
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.046871662
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644197845160956515, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843848049132472388, guid: bc233747001722a4dbc154d02d964627,
+        type: 3}
+      propertyPath: m_Name
+      value: Locker Clump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc233747001722a4dbc154d02d964627, type: 3}
+--- !u!1 &285170256219777638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7843848049132472388, guid: bc233747001722a4dbc154d02d964627,
+    type: 3}
+  m_PrefabInstance: {fileID: 8011854157312041506}
+  m_PrefabAsset: {fileID: 0}

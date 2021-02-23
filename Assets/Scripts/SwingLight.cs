@@ -11,7 +11,7 @@ public enum SwingDirection
 
 public class SwingLight : MonoBehaviour
 {
-    [Range(0.05f, 0.3f)]
+    [Range(0.01f, 0.1f)]
     public float speed;
     [Range(0.5f, 3.0f)]
     public float distance;

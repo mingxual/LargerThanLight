@@ -367,6 +367,8 @@ public class SCManager : MonoBehaviour
         int p = l, q;
         do
         {
+            if (m_ConvexHullPoints.Count > points.Count) break;
+
             //Add current point to result
             m_ConvexHullPoints.Add(points[p]);
 
