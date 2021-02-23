@@ -84943,6 +84943,7 @@ GameObject:
   - component: {fileID: 783278429}
   - component: {fileID: 783278428}
   - component: {fileID: 783278427}
+  - component: {fileID: 783278430}
   m_Layer: 0
   m_Name: GymFlowchart
   m_TagString: Untagged
@@ -84995,6 +84996,7 @@ MonoBehaviour:
   - {fileID: 783278414}
   - {fileID: 783278422}
   - {fileID: 783278413}
+  - {fileID: 783278430}
   - {fileID: 783278410}
   - {fileID: 783278412}
   - {fileID: 783278409}
@@ -85027,8 +85029,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 783278399}
+  selectedCommands:
+  - {fileID: 783278430}
   variables: []
   description: 
   stepPause: 0
@@ -85753,6 +85757,34 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &783278430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783278398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 28
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 983225946}
+  targetComponentAssemblyName: ShadowDissapear, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: ShadowDissapear
+  targetMethod: ShadowGone
+  targetMethodText: 'ShadowGone (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!1 &785358677
 GameObject:
   m_ObjectHideFlags: 0
@@ -89871,6 +89903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983225947}
+  - component: {fileID: 983225948}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -89894,6 +89927,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &983225948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983225946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bffb34803eb73448a92d6ff3a19a557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSkiaRenderer: {fileID: 1690171345}
 --- !u!1 &1006397348
 GameObject:
   m_ObjectHideFlags: 0
@@ -97308,8 +97354,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1565225456}
-  selectedCommands:
-  - {fileID: 1565225453}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -98538,6 +98583,12 @@ Transform:
   m_Father: {fileID: 862259495}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1690171345 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 470711438763220280, guid: 0c17dc39988e3ac4c8f5b0be89c6f592,
+    type: 3}
+  m_PrefabInstance: {fileID: 1125121526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1708888033
 GameObject:
   m_ObjectHideFlags: 0
