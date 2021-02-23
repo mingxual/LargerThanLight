@@ -90,7 +90,10 @@ public class SimpleController : MonoBehaviour
         originalPosition = transform.position;
         originalRotation = transform.rotation;
         m_GameManager = FindObjectOfType<GameManager>();
-        if (m_GameManager.lux) m_LuxReference = m_GameManager.lux.GetComponent<LightController>();
+        if(m_GameManager)
+        {
+            if (m_GameManager.lux) m_LuxReference = m_GameManager.lux.GetComponent<LightController>();
+        }
         //mainCamera = Camera.main;
     }
 
