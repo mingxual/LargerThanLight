@@ -21,6 +21,10 @@ public class Fade : MonoBehaviour
         if(m_IsFading)
         {
             m_CurrFadeTime += Time.deltaTime;
+            if(m_CurrFadeTime > m_TotalFadeTime)
+            {
+                m_CurrFadeTime = m_TotalFadeTime;
+            }
             Color color = m_Material.color;
             color.a = Mathf.Lerp(1.0f, 0.0f, (m_CurrFadeTime / m_TotalFadeTime));
             m_Material.color = color;
