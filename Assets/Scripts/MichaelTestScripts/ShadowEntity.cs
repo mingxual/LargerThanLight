@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShadowEntity : SCObstacle
 {
@@ -12,6 +13,14 @@ public class ShadowEntity : SCObstacle
 
     public List<Transform> targetTransforms;
     public SimpleController skia;
+    public GameObject lux;
+
+    public GameObject aura;
+    public LightFlicking lf;
+
+    private bool checkForLux;
+    private bool luxTrigger;
+    private bool luxFlickering;
 
     private void FireProjectiles()
     {
@@ -42,14 +51,68 @@ public class ShadowEntity : SCObstacle
         if(TrackSkiaTargets())
         {
             FireProjectiles();
+            checkForLux = true;
         }
+
+        aura.SetActive(SCManager.Instance.ProjectileCount() > 0);
+
+        if (checkForLux)
+        {
+            if(!LuxInAura())
+            {
+                lf.turnOffFlicker();
+                luxTrigger = false;
+            }
+            else if(!luxTrigger)
+            {
+                print("lux trigger initiated");
+                luxTrigger = true;
+                Invoke("LuxTriggerActivate", 2f);
+            }
+        }
+    }
+
+    private bool LuxInAura()
+    {
+        return Vector3.Distance(lux.transform.position, aura.transform.position) < 18;
+    }
+
+    private void LuxTriggerActivate()
+    {
+        if (!LuxInAura())
+        {
+            print("lux left area before trigger");
+            return;
+        }
+        print("lux trigger activated");
+        lf.turnOnFlicker();
+        Invoke("LuxKill", 20f);
+    }
+
+    private void LuxKill()
+    {
+        if(!LuxInAura())
+        {
+            print("lux left area before kill");
+            return;
+        }
+        print("kill");
+        lf.turnOffLight();
+        skia.Disable();
+        lux.GetComponent<LightController>().enabled = false;
+        Invoke("Restart", 2f);
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private bool TrackSkiaTargets()
     {
         foreach(Transform t in targetTransforms)
         {
-            if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition()) < 36)
+            if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition()) < 49)
                 return true;
         }
         return false;

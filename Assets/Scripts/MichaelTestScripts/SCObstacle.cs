@@ -107,6 +107,7 @@ public class SCObstacle : MonoBehaviour
     public void HitByShadowProj()
     {
         if (!shadowprojaffect) return;
+        if (shadowprojtime <= 0) return;
         shadowprojaffected = true;
         ToggleRenderersForShadowProj(false);
         Invoke("RecoverFromShadowProj", shadowprojtime);

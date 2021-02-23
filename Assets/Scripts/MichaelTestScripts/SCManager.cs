@@ -327,6 +327,11 @@ public class SCManager : MonoBehaviour
         }
     }
 
+    public int ProjectileCount()
+    {
+        return shadowProjs.Count;
+    }
+
     Vector3[] GetVerticesFromBox(BoxCollider box)
     {
         Vector3[] vertices = new Vector3[8];
