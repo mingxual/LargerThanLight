@@ -17133,9 +17133,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351329}
-  selectedCommands:
-  - {fileID: 1046351328}
+  - {fileID: 1046351325}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -17171,9 +17170,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351293
 MonoBehaviour:
@@ -17189,7 +17188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -135.15384
+    x: -136.58241
     y: -53.571426
     width: 75.71428
     height: 40
@@ -17249,9 +17248,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351295
 MonoBehaviour:
@@ -17276,9 +17275,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351296
 MonoBehaviour:
@@ -17335,9 +17334,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351299
 MonoBehaviour:
@@ -17362,9 +17361,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351300
 MonoBehaviour:
@@ -17390,9 +17389,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351301
 MonoBehaviour:
@@ -17418,9 +17417,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351302
 MonoBehaviour:
@@ -17569,7 +17568,7 @@ MonoBehaviour:
   storyText: Raising the curtains!
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: d24455621a807fe43866d4a9d7de7e7d, type: 3}
   showAlways: 1
   showCount: 1
@@ -17671,14 +17670,14 @@ MonoBehaviour:
   storyText: Let the show begin.
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351313
@@ -17716,7 +17715,7 @@ MonoBehaviour:
   storyText: "Oh...\r"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 8300000, guid: efc3aa268717070418e3717618b82daf, type: 3}
   showAlways: 1
   showCount: 1
@@ -17744,12 +17743,12 @@ MonoBehaviour:
     \n"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 99a8b693bcf9d1446bd51c6096df74be, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
   waitForVO: 1
@@ -17789,12 +17788,12 @@ MonoBehaviour:
   storyText: "Do you remember that feeling when a play finished? \n"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 153d9eba058adb54caefeb4af7f8996c, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
   waitForVO: 1
@@ -17853,12 +17852,12 @@ MonoBehaviour:
     felt amazing\u2026\r"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 8300000, guid: a40e50f973102d34d86e54f8977fba94, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
   waitForVO: 1
@@ -17899,12 +17898,12 @@ MonoBehaviour:
     \r"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 1ac418e119157394598351546321e42f, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
   waitForVO: 1
@@ -17969,7 +17968,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -97.98971
-    y: 73.457016
+    y: 74.88559
     width: 108.57142
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -18052,9 +18051,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351329
 MonoBehaviour:
@@ -18311,9 +18310,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351339
 MonoBehaviour:
@@ -18359,14 +18358,14 @@ MonoBehaviour:
   storyText: You assume correctly.
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 8891a85843168864b801db475a71e61c, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  waitForClick: 0
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351341
@@ -18386,14 +18385,14 @@ MonoBehaviour:
   storyText: "I\u2019m assuming that door is locked too?"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  waitForClick: 0
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351343
@@ -18497,7 +18496,7 @@ MonoBehaviour:
   storyText: Did you ever want to be on stage performing?
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -25008,6 +25007,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: GetExit
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 454321956}
+        m_MethodName: UpdateLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   - m_PersistentCalls:

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -50469,7 +50469,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh127156
+  m_Name: pb_Mesh310110
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51195,71 +51195,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[5].clips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: Key_Collection
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[4].clips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: a90d9f930fcd64596b593ed7b12cd8cf, type: 3}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[5].name
-      value: Key_Collection
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[5].clips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: a90d9f930fcd64596b593ed7b12cd8cf, type: 3}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[5].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: sounds.Array.data[5].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].name
-      value: Lux_Hum
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7b92a10481ec34921b212e798885f1a9, type: 3}
-    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: musics.Array.data[0].volume
-      value: 0.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}
@@ -91900,7 +91835,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh127232
+  m_Name: pb_Mesh310186
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -96878,11 +96813,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 163
     y: 259
-    width: 208.4
+    width: 205
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 0
+  itemId: 7
   blockName: New Block (Copy)1 (Copy)1
   description: 
   eventHandler: {fileID: 1818493438}
@@ -96920,11 +96855,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 163
     y: 259
-    width: 202.4
+    width: 199
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 0
+  itemId: 6
   blockName: New Block (Copy)1 (Copy)
   description: 
   eventHandler: {fileID: 1818493440}
@@ -96961,11 +96896,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 165
     y: 195
-    width: 160.4
+    width: 158
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 0
+  itemId: 5
   blockName: New Block (Copy)1
   description: 
   eventHandler: {fileID: 1818493442}
@@ -97003,11 +96938,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 165
     y: 195
-    width: 154.4
+    width: 152
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 0
+  itemId: 4
   blockName: New Block (Copy)
   description: 
   eventHandler: {fileID: 1818493444}
@@ -97044,7 +96979,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 167
     y: 132
-    width: 112.4
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
