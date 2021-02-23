@@ -99,7 +99,8 @@ public class SimpleController : MonoBehaviour
 
     private void Update()
     {
-        if(SafeColliders())
+        int death = SafeColliders();
+        if (death == -1)
         {
             if(m_LuxReference.LightActive())
             {
@@ -112,6 +113,10 @@ public class SimpleController : MonoBehaviour
             {
                 ResetSkia();
             }
+        }
+        else
+        {
+            skiaVignette.squishStatus = death;
         }
 
         // Find and set its position in 3d space (aka game view)
@@ -580,24 +585,34 @@ public class SimpleController : MonoBehaviour
         return ret;
     }
 
-    bool SafeColliders()
+    int SafeColliders()
     {
         Vector2 center = (Vector2)transform.position + playerCenter;
         float xDist = playerSize.x * 0.5f;
         float yDist = playerSize.y * 0.5f;
 
         Physics2D.queriesHitTriggers = false;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist - rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist - rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
-        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist - rayboxDistance, mask);
-        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist - rayboxDistance, mask);
+        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist + rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist + rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist + rayboxDistance, mask);
+        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist + rayboxDistance, mask);
         Physics2D.queriesHitTriggers = true;
 
         //if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
         if (collideLeft && collideRight)
-            return true;
+        {
+            if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
+                return -1;
+            else
+                return 1;
+        }
         if (collideTop && collideBottom)
-            return true;
+        {
+            if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
+                return -1;
+            else
+                return 1;
+        }
 
         if (collideLeft)
         {
@@ -614,7 +629,7 @@ public class SimpleController : MonoBehaviour
                 transform.Translate(Vector2.left * (xDist - collideRight.distance));
             }
         }
-        return false;
+        return 0;
     }
 
     Vector2 pastPosition;
