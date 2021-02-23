@@ -99,7 +99,7 @@ public class SimpleController : MonoBehaviour
 
     private void Update()
     {
-        int death = SafeColliders();
+        float death = SafeColliders();
         if (death == -1)
         {
             if(m_LuxReference.LightActive())
@@ -585,7 +585,7 @@ public class SimpleController : MonoBehaviour
         return ret;
     }
 
-    int SafeColliders()
+    float SafeColliders()
     {
         Vector2 center = (Vector2)transform.position + playerCenter;
         float xDist = playerSize.x * 0.5f;
@@ -604,14 +604,14 @@ public class SimpleController : MonoBehaviour
             if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
                 return -1;
             else
-                return 1;
+                return 0.5f;
         }
         if (collideTop && collideBottom)
         {
             if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
                 return -1;
             else
-                return 1;
+                return 0.5f;
         }
 
         if (collideLeft)
