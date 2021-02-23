@@ -101,7 +101,7 @@ public class SimpleController : MonoBehaviour
     {
         if(SafeColliders())
         {
-            if(m_LuxReference)
+            if(m_LuxReference.LightActive())
             {
                 if(m_LuxReference.isMoving)
                 {
@@ -373,49 +373,60 @@ public class SimpleController : MonoBehaviour
     }
 
     private List<Obstacle> obstacleCache = new List<Obstacle>();
+    private RaycastHit[] occlusionBuffer = new RaycastHit[20];
 
     void OccludeObjects()
     {
-        Vector3 topRightToCam = m_CurrCamera.transform.position - m_WorldTopRight;
-        Vector3 topLeftToCam = m_CurrCamera.transform.position - m_WorldTopLeft;
-        Vector3 bottomRightToCam = m_CurrCamera.transform.position - m_WorldBottomRight;
-        Vector3 bottomLeftToCam = m_CurrCamera.transform.position - m_WorldBottomLeft;
-        Debug.DrawLine(m_WorldTopLeft, m_WorldTopLeft + topLeftToCam);
-        Debug.DrawLine(m_WorldTopRight, m_WorldTopRight + topRightToCam);
-        Debug.DrawLine(m_WorldBottomRight, m_WorldBottomRight + bottomRightToCam);
-        Debug.DrawLine(m_WorldBottomLeft, m_WorldBottomLeft + bottomLeftToCam);
-        RaycastHit hitInfo;
-        if(Physics.Raycast(m_WorldTopRight, topRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        //Vector3 topRightToCam = m_CurrCamera.transform.position - m_WorldTopRight;
+        //Vector3 topLeftToCam = m_CurrCamera.transform.position - m_WorldTopLeft;
+        //Vector3 bottomRightToCam = m_CurrCamera.transform.position - m_WorldBottomRight;
+        //Vector3 bottomLeftToCam = m_CurrCamera.transform.position - m_WorldBottomLeft;
+        //Debug.DrawLine(m_WorldTopLeft, m_WorldTopLeft + topLeftToCam);
+        //Debug.DrawLine(m_WorldTopRight, m_WorldTopRight + topRightToCam);
+        //Debug.DrawLine(m_WorldBottomRight, m_WorldBottomRight + bottomRightToCam);
+        //Debug.DrawLine(m_WorldBottomLeft, m_WorldBottomLeft + bottomLeftToCam);
+        //RaycastHit hitInfo;
+        //if(Physics.Raycast(m_WorldTopRight, topRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        //{
+        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+        //    if(scObstacle)
+        //    {
+        //        scObstacle.Occlude();
+        //    }
+        //}
+        //if (Physics.Raycast(m_WorldTopLeft, topLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        //{
+        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+        //    if (scObstacle)
+        //    {
+        //        scObstacle.Occlude();
+        //    }
+        //}
+        //if (Physics.Raycast(m_WorldBottomRight, bottomRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        //{
+        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+        //    if (scObstacle)
+        //    {
+        //        scObstacle.Occlude();
+        //    }
+        //}
+        //if (Physics.Raycast(m_WorldBottomLeft, bottomLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
+        //{
+        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
+        //    if (scObstacle)
+        //    {
+        //        scObstacle.Occlude();
+        //    }
+        //}
+
+        Debug.DrawLine(m_WorldPosition3D, m_CurrCamera.transform.position);
+        Vector3 centerToCam = m_CurrCamera.transform.position - m_WorldPosition3D;
+        int k = Physics.SphereCastNonAlloc(m_WorldPosition3D, m_OcclusionAngle, centerToCam.normalized, occlusionBuffer, 100f, obstacleLayerMask, QueryTriggerInteraction.Collide);
+        for(int i = 0; i < k; i++)
         {
-            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-            if(scObstacle)
-            {
-                scObstacle.Occlude();
-            }
-        }
-        if (Physics.Raycast(m_WorldTopLeft, topLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        {
-            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-            if (scObstacle)
-            {
-                scObstacle.Occlude();
-            }
-        }
-        if (Physics.Raycast(m_WorldBottomRight, bottomRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        {
-            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-            if (scObstacle)
-            {
-                scObstacle.Occlude();
-            }
-        }
-        if (Physics.Raycast(m_WorldBottomLeft, bottomLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        {
-            SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-            if (scObstacle)
-            {
-                scObstacle.Occlude();
-            }
+            SCObstacle sCObstacle = occlusionBuffer[i].collider.GetComponent<SCObstacle>();
+            if (sCObstacle)
+                sCObstacle.Occlude();
         }
         /*foreach (Obstacle obs in obstacleCache)
         {
@@ -574,10 +585,14 @@ public class SimpleController : MonoBehaviour
         Vector2 center = (Vector2)transform.position + playerCenter;
         float xDist = playerSize.x * 0.5f;
         float yDist = playerSize.y * 0.5f;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, (playerSize.y - rayboxDistance)*.9f), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, (playerSize.y - rayboxDistance)*.9f), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
-        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2((playerSize.x - rayboxDistance)*.9f, rayboxDistance), 0, Vector2.up, yDist, mask);
-        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2((playerSize.x - rayboxDistance) * .9f, rayboxDistance), 0, Vector2.down, yDist, mask);
+
+        Physics2D.queriesHitTriggers = false;
+        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist - rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist - rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist - rayboxDistance, mask);
+        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist - rayboxDistance, mask);
+        Physics2D.queriesHitTriggers = true;
+
         //if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
         if (collideLeft && collideRight)
             return true;

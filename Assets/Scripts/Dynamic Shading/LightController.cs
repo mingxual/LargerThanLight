@@ -249,6 +249,11 @@ public class LightController : MonoBehaviour
         }
     }
 
+    public bool LightActive()
+    {
+        return sclight.active;
+    }
+
     //void Update()
     //{
     //    if (Input.GetKey(KeyCode.LeftArrow))
