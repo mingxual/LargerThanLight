@@ -221,7 +221,7 @@ MonoBehaviour:
   moveSpeed: 4
   anim: {fileID: 1109442300}
   luxModel: {fileID: 1109442298}
-  sclight: {fileID: 0}
+  sclight: {fileID: 1615533710}
   runningTransform: {fileID: 1109442299}
   currLadder: {fileID: 0}
   currLadder_collider_center: {x: 0, y: 0, z: 0}
@@ -71639,7 +71639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1565225457}
+  selectedFlowchart: {fileID: 1818493433}
 --- !u!4 &700689706
 Transform:
   m_ObjectHideFlags: 1
@@ -96810,9 +96810,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1818493447}
+  - {fileID: 1818493441}
   selectedCommands:
-  - {fileID: 1818493437}
+  - {fileID: 1818493460}
   variables: []
   description: 
   stepPause: 0
@@ -96949,7 +96949,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 258
-    width: 208.4
+    width: 205
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97004,7 +97004,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 167.2
     y: 73
-    width: 118.4
+    width: 117
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97057,7 +97057,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 194
-    width: 160.4
+    width: 158
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97142,7 +97142,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 132
-    width: 112.4
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97363,7 +97363,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493456
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -97485,7 +97485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: "It <i>came</i> from you Skia! That\u2019s what I was trying to say!"
+  storyText: "It CAME from you Skia! That\u2019s what I was trying to say!"
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}

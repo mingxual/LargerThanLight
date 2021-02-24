@@ -99,7 +99,7 @@ public class SimpleController : MonoBehaviour
 
     private void Update()
     {
-        int death = SafeColliders();
+        float death = SafeColliders();
         if (death == -1)
         {
             if(m_LuxReference.LightActive())
@@ -585,17 +585,17 @@ public class SimpleController : MonoBehaviour
         return ret;
     }
 
-    int SafeColliders()
+    float SafeColliders()
     {
         Vector2 center = (Vector2)transform.position + playerCenter;
         float xDist = playerSize.x * 0.5f;
         float yDist = playerSize.y * 0.5f;
 
         Physics2D.queriesHitTriggers = false;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist + rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist + rayboxDistance, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
-        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist + rayboxDistance, mask);
-        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist + rayboxDistance, mask);
+        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist, mask);
+        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist, mask);
         Physics2D.queriesHitTriggers = true;
 
         //if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
@@ -603,15 +603,15 @@ public class SimpleController : MonoBehaviour
         {
             if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
                 return -1;
-            else
-                return 1;
+            else if(collideLeft.distance < xDist && collideRight.distance < xDist)
+                return 0.4f;
         }
         if (collideTop && collideBottom)
         {
             if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
                 return -1;
-            else
-                return 1;
+            else if(collideTop.distance < yDist && collideBottom.distance < yDist)
+                return 0.2f;
         }
 
         if (collideLeft)
