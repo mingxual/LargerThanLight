@@ -84968,7 +84968,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 112.4
+    width: 72.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -85030,10 +85030,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 783278399}
-  selectedCommands:
-  - {fileID: 783278402}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -85184,11 +85182,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 16
   indentLevel: 0
-  storyText: Oh fuck lol
+  storyText: ?!
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: b8b06ca89f30db6408ea5ce4ff7b292e, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 70f3ad5c22ae4f442a18b2784b073d44, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -89563,6 +89561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cd4ff732cc45b4295f6605f7e95b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mlightFlickScript: {fileID: 0}
   stallTimer: 1
   moveSpeed: 1.5
   rotateSpeed: 20
