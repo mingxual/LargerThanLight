@@ -1740,7 +1740,6 @@ GameObject:
   - component: {fileID: 2137610517}
   - component: {fileID: 2137610516}
   - component: {fileID: 2137610504}
-  - component: {fileID: 2137610515}
   - component: {fileID: 2137610514}
   - component: {fileID: 2137610513}
   - component: {fileID: 2137610512}
@@ -1750,6 +1749,8 @@ GameObject:
   - component: {fileID: 2137610508}
   - component: {fileID: 2137610507}
   - component: {fileID: 2137610506}
+  - component: {fileID: 2137610519}
+  - component: {fileID: 2137610515}
   m_Layer: 0
   m_Name: SlideshowCutsceneManager
   m_TagString: Untagged
@@ -1824,7 +1825,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 2137610505}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 2137610507}
   variables: []
   description: 
   stepPause: 0
@@ -1850,11 +1852,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: "No! You took charge and beat that thing almost single-handedly! You\u2019re
-    amazing!"
+  storyText: Yea whatever. I'm not as dumb as you think.
   description: 
-  character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  character: {fileID: 59423936}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1891,10 +1892,11 @@ MonoBehaviour:
   commandList:
   - {fileID: 2137610517}
   - {fileID: 2137610516}
+  - {fileID: 2137610519}
   - {fileID: 2137610504}
-  - {fileID: 2137610515}
   - {fileID: 2137610514}
   - {fileID: 2137610513}
+  - {fileID: 2137610515}
   - {fileID: 2137610512}
   - {fileID: 2137610511}
   - {fileID: 2137610510}
@@ -1949,7 +1951,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 9746a55d2873ebb48ad41e034bc24580, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2004,7 +2006,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 07297a2661640a342940d358a0e1cf4b, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2059,7 +2061,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 945d6f67b8fbb694195712b7cc177078, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2109,13 +2111,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
-  storyText: "Hey, it\u2019s fine, okay? Yes, it wasn\u2019t cool of you to do that,
-    but we can move on, yeah? Work on not showboating as much or giving me room to
-    talk?"
+  storyText: "Hey, it\u2019s fine, okay? It's not really your fault. It's not really
+    mine either, it's just... "
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: fdd5f13893118a84dbb05f81ea607f70, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2138,9 +2139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: "Skia, I\u2019m\u2026 so sorry! God, how did I not realize how much
-    I steal your thunder, even now? I\u2026 I know it doesn\u2019t forgive anything,
-    but I never meant to hurt you\u2026"
+  storyText: "Skia, I\u2019m\u2026 sorry! God, how did I not realize how much I steal
+    your thunder, even now? I\u2026 I know it doesn\u2019t forgive anything, but
+    I never meant to hurt you\u2026"
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
@@ -2155,7 +2156,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610515
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2165,14 +2166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 4
+  itemId: 15
   indentLevel: 0
-  storyText: "W-Well, stage crew trains you to run around on shaky catwalks for light
-    management, it\u2019s not that special\u2026 "
+  storyText: 'Remember that I exist now and then, will ya? Don''t write me off anymore. '
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: bfed54e2f0f7786478013903d2f76058, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 65bf85dfc1da26148a326e52b2715467, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2252,3 +2252,31 @@ MonoBehaviour:
   parentBlock: {fileID: 2137610505}
   suppressBlockAutoSelect: 0
   waitForFrames: 1
+--- !u!114 &2137610519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137610500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 14
+  indentLevel: 0
+  storyText: "No! You took charge and beat that thing almost single-handedly! You\u2019re
+    amazing!"
+  description: 
+  character: {fileID: 128876999}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
