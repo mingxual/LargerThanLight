@@ -611,7 +611,7 @@ public class SimpleController : MonoBehaviour
             if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
                 return -1;
             else if(collideTop.distance < yDist && collideBottom.distance < yDist)
-                return 0.2f;
+                return 0.3f;
         }
 
         if (collideLeft)
