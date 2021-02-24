@@ -21,8 +21,16 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 6bffeb5387af5974597b9307cf3e4081, type: 3}
-    - time: 45.133335
-      value: {fileID: 21300000, guid: 6bffeb5387af5974597b9307cf3e4081, type: 3}
+    - time: 1.55
+      value: {fileID: 21300000, guid: 8ce8d85c4a4dd0243826896cb75c7534, type: 3}
+    - time: 3.25
+      value: {fileID: 21300000, guid: 622402c8c4cb98d42bf890fc94883d74, type: 3}
+    - time: 6.5833335
+      value: {fileID: 21300000, guid: 1661defff6a91df479d875e5365fe7eb, type: 3}
+    - time: 11.183333
+      value: {fileID: 21300000, guid: 8890d6126fc26ed4cb582c76a8bdb99e, type: 3}
+    - time: 16.6
+      value: {fileID: 21300000, guid: 8890d6126fc26ed4cb582c76a8bdb99e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -43,18 +51,22 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: 6bffeb5387af5974597b9307cf3e4081, type: 3}
-    - {fileID: 21300000, guid: 6bffeb5387af5974597b9307cf3e4081, type: 3}
+    - {fileID: 21300000, guid: 8ce8d85c4a4dd0243826896cb75c7534, type: 3}
+    - {fileID: 21300000, guid: 622402c8c4cb98d42bf890fc94883d74, type: 3}
+    - {fileID: 21300000, guid: 1661defff6a91df479d875e5365fe7eb, type: 3}
+    - {fileID: 21300000, guid: 8890d6126fc26ed4cb582c76a8bdb99e, type: 3}
+    - {fileID: 21300000, guid: 8890d6126fc26ed4cb582c76a8bdb99e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 45.15
+    m_StopTime: 16.616667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -68,4 +80,25 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 3.2666667
+    functionName: PlaySmash
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.5
+    functionName: PlayScreech
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 11.433333
+    functionName: MsgSend
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
