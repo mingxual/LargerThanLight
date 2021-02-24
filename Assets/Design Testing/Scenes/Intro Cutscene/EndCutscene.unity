@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1865,8 +1865,6 @@ GameObject:
   - component: {fileID: 2137610519}
   - component: {fileID: 2137610515}
   - component: {fileID: 2137610518}
-  - component: {fileID: 2137610520}
-  - component: {fileID: 2137610521}
   - component: {fileID: 2137610522}
   m_Layer: 0
   m_Name: SlideshowCutsceneManager
@@ -1943,7 +1941,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2137610505}
   selectedCommands:
-  - {fileID: 2137610506}
+  - {fileID: 2137610517}
   variables: []
   description: 
   stepPause: 0
@@ -1998,7 +1996,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 160.98323
     y: 280.44186
-    width: 109.48274
+    width: 110.68964
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2007,8 +2005,6 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 2137610518}
   commandList:
-  - {fileID: 2137610521}
-  - {fileID: 2137610520}
   - {fileID: 2137610517}
   - {fileID: 2137610516}
   - {fileID: 2137610519}
@@ -2400,41 +2396,6 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
---- !u!114 &2137610520
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137610500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 16
-  indentLevel: 0
-  musicClip: {fileID: 8300000, guid: a8fe36483a506c34c8e446fcc32c7fa9, type: 3}
-  atTime: 0
-  loop: 1
-  fadeDuration: 1
---- !u!114 &2137610521
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137610500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4015e84616cc45cfb498561373899d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 17
-  indentLevel: 0
-  volume: 0.173
-  fadeDuration: 0
-  waitUntilFinished: 0
 --- !u!114 &2137610522
 MonoBehaviour:
   m_ObjectHideFlags: 2
