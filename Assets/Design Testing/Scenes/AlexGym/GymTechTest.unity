@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -94711,7 +94711,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 112.10525
+    width: 113.81578
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -94747,7 +94747,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 1565225456}
   selectedCommands: []
   variables: []
   description: 
@@ -96812,7 +96813,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1818493439}
   selectedCommands:
-  - {fileID: 1818493435}
+  - {fileID: 1818493461}
   variables: []
   description: 
   stepPause: 0
@@ -96854,15 +96855,15 @@ MonoBehaviour:
   storyText: That's the last! Shield your eyes!
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: b1b34d48065898f468e3915dc178c641, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493436
 MonoBehaviour:
@@ -96881,15 +96882,15 @@ MonoBehaviour:
   storyText: That's two, keep at it!
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 3b14cc3bf3c37412f930f282b06ab896, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493437
 MonoBehaviour:
@@ -96908,15 +96909,15 @@ MonoBehaviour:
   storyText: There's one!
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 2ba0f040c46c5ee4f990fe07e5cd4a76, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493438
 MonoBehaviour:
@@ -96948,8 +96949,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 171
-    y: 258
-    width: 208.4
+    y: 259
+    width: 205
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -96984,9 +96985,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493441
 MonoBehaviour:
@@ -97004,7 +97005,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 167.2
     y: 73
-    width: 118.4
+    width: 117
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97056,8 +97057,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 170
-    y: 194
-    width: 160.4
+    y: 195
+    width: 158
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97101,15 +97102,15 @@ MonoBehaviour:
   storyText: I know <i>I</i> can. I just need <i> you </i> to be there to help me.
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 218c9446b6cc8634eab3265c6176456f, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493446
 MonoBehaviour:
@@ -97140,9 +97141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 170
+    x: 171
     y: 132
-    width: 112.4
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97186,15 +97187,15 @@ MonoBehaviour:
   storyText: How... I can't believe you managed to do that!
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 7c5823dd9876b4aa88e0b587939dc20b, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493450
 MonoBehaviour:
@@ -97220,9 +97221,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493451
 MonoBehaviour:
@@ -97242,14 +97243,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 3971db1ead4144acab9db7907ad87810, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493452
 MonoBehaviour:
@@ -97269,14 +97270,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: f33e1162b2a9847139b77bfad13b9888, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493453
 MonoBehaviour:
@@ -97301,9 +97302,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493454
 MonoBehaviour:
@@ -97325,14 +97326,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 38604dd1919b14029ac7f14081e2d788, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493455
 MonoBehaviour:
@@ -97357,9 +97358,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493456
 MonoBehaviour:
@@ -97412,9 +97413,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493458
 MonoBehaviour:
@@ -97435,14 +97436,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 4b7b1778e23ae48b0a935ddbfed97542, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493459
 MonoBehaviour:
@@ -97467,9 +97468,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493460
 MonoBehaviour:
@@ -97489,14 +97490,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: cdede119b4a5645668bc08cf6a0e875d, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493461
 MonoBehaviour:
@@ -97515,15 +97516,15 @@ MonoBehaviour:
   storyText: I don't <i>have</i> eyes!
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 35550e6abd9e443a8a08ef120a8800f5, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493462
 MonoBehaviour:
