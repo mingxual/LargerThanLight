@@ -6,6 +6,7 @@ public class UITimer : MonoBehaviour
 {
     public float time = 5f;
     public bool keyPressed = false;
+    public Animator uiAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,8 @@ public class UITimer : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) ||Input.GetKey(KeyCode.DownArrow))
             {
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
+                uiAnimator.SetBool("startFade", true);
             }
         }
     }
