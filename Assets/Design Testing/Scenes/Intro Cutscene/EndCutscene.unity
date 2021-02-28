@@ -154,7 +154,12 @@ MonoBehaviour:
   nameColor: {r: 0.7853204, g: 0.7176471, b: 1, a: 1}
   soundEffect: {fileID: 8300000, guid: 8a7ffd3ebb0024146ad3fd523c1b30e7, type: 3}
   portraits:
+  - {fileID: 21300000, guid: 6821f2090ab635846a1957332e676d9b, type: 3}
+  - {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
+  - {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
+  - {fileID: 21300000, guid: da886751331d0b94d9994c8e00b7df02, type: 3}
   - {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  - {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
   portraitsFace: 2
   setSayDialog: {fileID: 0}
   description: 
@@ -499,6 +504,13 @@ MonoBehaviour:
   nameColor: {r: 1, g: 0.8701966, b: 0.41509432, a: 1}
   soundEffect: {fileID: 8300000, guid: 17f6216f0fd904fc9985f856c870efd4, type: 3}
   portraits:
+  - {fileID: 21300000, guid: 478aaa053d28c634fa59b76c5926aa2b, type: 3}
+  - {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
+  - {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
+  - {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
+  - {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
+  - {fileID: 21300000, guid: 8ae88a1792b870e449b95e24465e98eb, type: 3}
+  - {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   - {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   portraitsFace: 1
   setSayDialog: {fileID: 0}
@@ -1938,8 +1950,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 2137610505}
+  selectedCommands:
+  - {fileID: 2137610511}
   variables: []
   description: 
   stepPause: 0
@@ -1968,7 +1982,7 @@ MonoBehaviour:
   storyText: Yea whatever. I'm not as dumb as you think.
   description: 
   character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 8d178a4e6e0d81e47ae276607e8a7d5a, type: 3}
   showAlways: 1
   showCount: 1
@@ -2036,7 +2050,7 @@ MonoBehaviour:
   storyText: "Alright gremlin, c\u2019mon.\r"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: b09f3d6269df44bb7a9123cc7f8dc406, type: 3}
   showAlways: 1
   showCount: 1
@@ -2064,7 +2078,7 @@ MonoBehaviour:
     my calling.\r\n"
   description: 
   character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 9746a55d2873ebb48ad41e034bc24580, type: 3}
   showAlways: 1
   showCount: 1
@@ -2092,7 +2106,7 @@ MonoBehaviour:
     for you\u2026 \r\n"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: c866651c408384f459ff319cf8d27efb, type: 3}
   showAlways: 1
   showCount: 1
@@ -2119,7 +2133,7 @@ MonoBehaviour:
   storyText: "Don\u2019t press your luck Tungsten Boy, let\u2019s leave already.\r\n"
   description: 
   character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 07297a2661640a342940d358a0e1cf4b, type: 3}
   showAlways: 1
   showCount: 1
@@ -2147,7 +2161,7 @@ MonoBehaviour:
     us?
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
   voiceOverClip: {fileID: 8300000, guid: e5c8c2fdbe5034aaaa0b54b2070aebce, type: 3}
   showAlways: 1
   showCount: 1
@@ -2201,7 +2215,7 @@ MonoBehaviour:
   storyText: "Y-Yes! Of course!\r"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 609cbe558eaee48d8931287186db9115, type: 3}
   showAlways: 1
   showCount: 1
@@ -2258,7 +2272,7 @@ MonoBehaviour:
     I never meant to hurt you\u2026"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 298482cb446f7481196e374403c7ab5c, type: 3}
   showAlways: 1
   showCount: 1
@@ -2341,7 +2355,7 @@ MonoBehaviour:
   storyText: "Skia\u2026 that was incredible!\r\n"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 495e4c66228664b41b110669d484dabf, type: 3}
   showAlways: 1
   showCount: 1
@@ -2384,7 +2398,7 @@ MonoBehaviour:
     amazing!"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 50672add1b0c949c38829602e71f2934, type: 3}
   showAlways: 1
   showCount: 1

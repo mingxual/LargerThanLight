@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -173,6 +173,13 @@ MonoBehaviour:
   nameColor: {r: 1, g: 0.8701966, b: 0.41509432, a: 1}
   soundEffect: {fileID: 8300000, guid: 17f6216f0fd904fc9985f856c870efd4, type: 3}
   portraits:
+  - {fileID: 21300000, guid: 478aaa053d28c634fa59b76c5926aa2b, type: 3}
+  - {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
+  - {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
+  - {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
+  - {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
+  - {fileID: 21300000, guid: 8ae88a1792b870e449b95e24465e98eb, type: 3}
+  - {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   - {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   portraitsFace: 1
   setSayDialog: {fileID: 0}
@@ -85043,7 +85050,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 112.4
+    width: 111.0989
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -85094,11 +85101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 11.670322, y: 23.835148}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.9100001
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -85108,7 +85115,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 783278399}
   selectedCommands:
-  - {fileID: 783278406}
+  - {fileID: 783278409}
   variables: []
   description: 
   stepPause: 0
@@ -85151,7 +85158,7 @@ MonoBehaviour:
   storyText: Woah...what happened to this place...?
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -85193,7 +85200,7 @@ MonoBehaviour:
   storyText: Mom and Dad were really hard on you, huh?
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
   voiceOverClip: {fileID: 8300000, guid: ab1619371b8e4b44b88767b1fe8955d9, type: 3}
   showAlways: 1
   showCount: 1
@@ -85289,7 +85296,7 @@ MonoBehaviour:
   storyText: SKIA!
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 8ae88a1792b870e449b95e24465e98eb, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 0d8b108595fd5a04885a7b6d6e12f794, type: 3}
   showAlways: 1
   showCount: 1
@@ -85316,7 +85323,7 @@ MonoBehaviour:
   storyText: Um...Skia?
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
   voiceOverClip: {fileID: 8300000, guid: b933267ff23310f4b91dedd90a3285d6, type: 3}
   showAlways: 1
   showCount: 1
@@ -85447,7 +85454,7 @@ MonoBehaviour:
   storyText: That stuff was AGES ago.
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
   voiceOverClip: {fileID: 8300000, guid: d0398e2dfda4dfe4e827ad7ac5a053d5, type: 3}
   showAlways: 1
   showCount: 1
@@ -85529,7 +85536,7 @@ MonoBehaviour:
   storyText: What? No! But what did I ever do that I need to apologize for?
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
   voiceOverClip: {fileID: 8300000, guid: ed4feead3377478449c5df54002fae9e, type: 3}
   showAlways: 1
   showCount: 1
@@ -85823,7 +85830,7 @@ MonoBehaviour:
   storyText: 'Listen... I... I''m sorry. '
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 8fb829a64f3b75f479edf47ffff07740, type: 3}
   showAlways: 1
   showCount: 1
