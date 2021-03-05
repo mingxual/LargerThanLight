@@ -35,6 +35,7 @@ public class LightController : MonoBehaviour
 
     [SerializeField] Vector3 forwardDir;
     private Vector3 rightDir;
+    public bool isMoving = false;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class LightController : MonoBehaviour
 
     void Update()
     {
+        isMoving = false;
         movementDirection = Vector3.zero;
         luxControlsActivated = false;
 
@@ -99,11 +101,13 @@ public class LightController : MonoBehaviour
         {
             movementDirection -= rightDir;
             luxControlsActivated = true;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             movementDirection += rightDir;
             luxControlsActivated = true;
+            isMoving = true;
         }
 
         if (enableForwardBack)
@@ -112,11 +116,13 @@ public class LightController : MonoBehaviour
             {
                 movementDirection += forwardDir;
                 luxControlsActivated = true;
+                isMoving = true;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 movementDirection -= forwardDir;
                 luxControlsActivated = true;
+                isMoving = true;
             }
         }
     }
@@ -241,6 +247,11 @@ public class LightController : MonoBehaviour
             //print("Set spawnpoint at " + spawnpoint.position);
             rb.velocity = Vector3.zero;
         }
+    }
+
+    public bool LightActive()
+    {
+        return sclight.active;
     }
 
     //void Update()

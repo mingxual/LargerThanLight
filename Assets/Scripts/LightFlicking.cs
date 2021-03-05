@@ -37,7 +37,7 @@ public class LightFlicking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        light.intensity = maxIntensity;
+        //light.intensity = maxIntensity;
         smoothQueue = new Queue<float>();
 
         if(flickerOn)
@@ -48,6 +48,7 @@ public class LightFlicking : MonoBehaviour
 
     private void Reset()
     {
+        light.intensity = maxIntensity;
         smoothQueue.Clear();
         lastSum = 0;
     }
@@ -55,8 +56,11 @@ public class LightFlicking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(flickerOn)
-        {
+
+       if (flickerOn)
+       {
+            turnOnFlicker();
+
             // Change the light intensity only when subphasePeriod passes
             if (currPeriod == flickingPeriod)
             {
@@ -84,7 +88,7 @@ public class LightFlicking : MonoBehaviour
                 timer = 0.0f;
             }
         }
-
+        
         // flickerOnLastFrame = flickerOn;
     }
 
@@ -126,6 +130,8 @@ public class LightFlicking : MonoBehaviour
     public void turnOnLight()
     {
         light.enabled = true;
+        light.intensity = maxIntensity;
+
     }
 
     // Turn off the light
