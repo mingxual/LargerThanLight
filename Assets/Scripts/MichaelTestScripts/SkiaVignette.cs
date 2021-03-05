@@ -10,17 +10,42 @@ public class SkiaVignette : MonoBehaviour
     [HideInInspector] public float squishStatus;
     [SerializeField] Volume volume;
     Vignette vignette;
+    ChromaticAberration chAbr;
+    public SimpleController skiaCtrlr;
 
     public float invSpeed;
+
+    public float chrabrValue;
 
     void Start()
     {
         volume.profile.TryGet(out vignette);
+        volume.profile.TryGet(out chAbr);
     }
 
     void Update()
     {
+        chrabrValue = chAbr.intensity.value;
         CheckLightStatus();
+        if(skiaCtrlr.iDied == true)
+        {
+            SkiaDiedStuff();
+        }
+    }
+
+    void SkiaDiedStuff()
+    {
+        if(chAbr.intensity.value < 1)
+        {
+            chAbr.intensity.value += 0.25f;
+        }
+        else
+        {
+            chAbr.intensity.value = 0;
+            skiaCtrlr.iDied = false;
+
+        }
+
     }
 
     void CheckLightStatus()
@@ -47,5 +72,8 @@ public class SkiaVignette : MonoBehaviour
             if (vignette.intensity.value < status)
                 vignette.intensity.value = status;
         }
+       
     }
+    
+   
 }

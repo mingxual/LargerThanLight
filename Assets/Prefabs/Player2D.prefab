@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4062911558463963865}
   - component: {fileID: 4062911558463963868}
   - component: {fileID: 2727920874048876956}
+  - component: {fileID: 8258136942181485396}
   m_Layer: 0
   m_Name: Player2D
   m_TagString: Untagged
@@ -183,5 +184,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightStatus: 0
+  squishStatus: 0
   volume: {fileID: 0}
-  speed: 0
+  invSpeed: 0
+--- !u!114 &8258136942181485396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062911558463963846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Skia
+  nameColor: {r: 0.7853204, g: 0.7176471, b: 1, a: 1}
+  soundEffect: {fileID: 8300000, guid: 8a7ffd3ebb0024146ad3fd523c1b30e7, type: 3}
+  portraits:
+  - {fileID: 21300000, guid: 6821f2090ab635846a1957332e676d9b, type: 3}
+  - {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
+  - {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
+  - {fileID: 21300000, guid: da886751331d0b94d9994c8e00b7df02, type: 3}
+  - {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  - {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
+  portraitsFace: 2
+  setSayDialog: {fileID: 0}
+  description: 

@@ -13,6 +13,7 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private float defaultMultiplier = 2f;
     [SerializeField] private float rayboxDistance = 0.05f;
     [SerializeField] private LayerMask mask;
+    public bool iDied;
 
     LevelManager m_LevelManager;
 
@@ -310,6 +311,7 @@ public class SimpleController : MonoBehaviour
     /// </summary>
     public void ResetSkia()
     {
+        iDied = true;
         bool spawnable = SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
         if (!spawnable)
         {
