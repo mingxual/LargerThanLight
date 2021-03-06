@@ -298,7 +298,7 @@ public class SCManager : MonoBehaviour
         {
             position = points[0];
             //print("spawnpoint in light at " + position);
-            return true;
+            return !Physics2D.OverlapPoint(position);
         }
         else
         {
@@ -309,7 +309,7 @@ public class SCManager : MonoBehaviour
             }
             position = sum / points.Count;
             //print("spawnpoint in " + points.Count + " lights. center at " + position);
-            return true;
+            return !Physics2D.OverlapPoint(position);
         }
     }
 

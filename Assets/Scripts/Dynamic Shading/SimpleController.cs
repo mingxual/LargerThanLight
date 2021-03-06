@@ -279,12 +279,12 @@ public class SimpleController : MonoBehaviour
             {
                 if (m_LuxReference.isMoving)
                 {
-                    ResetSkia();
+                    SkiaDeath();
                 }
             }
             else
             {
-                ResetSkia();
+                SkiaDeath();
             }
         }
         else
@@ -305,20 +305,26 @@ public class SimpleController : MonoBehaviour
         if(status == -1)
         {
             print("skia dead");
-            ResetSkia();
+            SkiaDeath();
             return;
         }
         if(skiaVignette)
             skiaVignette.lightStatus = status;
     }
 
+    public void SkiaDeath()
+    {
+        iDied = true;
+        ResetSkia();
+    }
+
+
     /// <summary>
     /// Resets Skia to current spawnpoint
     /// Updated 2/14 in use
     /// </summary>
-    public void ResetSkia()
+    private void ResetSkia()
     {
-        iDied = true;
         bool spawnable = SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
         if (!spawnable)
         {
