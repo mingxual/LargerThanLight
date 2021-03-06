@@ -63,6 +63,8 @@ public class SimpleController : MonoBehaviour
     GameManager m_GameManager;
     LightController m_LuxReference;
 
+    public ContactFilter2D groundedContactFilter;
+
     public bool michaelsdebuggingflag;
     private void Awake()
     {
@@ -100,25 +102,6 @@ public class SimpleController : MonoBehaviour
 
     private void Update()
     {
-        float death = SafeColliders();
-        if (death == -1)
-        {
-            if(m_LuxReference.LightActive())
-            {
-                if(m_LuxReference.isMoving)
-                {
-                    ResetSkia();
-                }
-            }
-            else
-            {
-                ResetSkia();
-            }
-        }
-        else
-        {
-            skiaVignette.squishStatus = death;
-        }
 
         // Find and set its position in 3d space (aka game view)
         SetWorldPosition3D();
@@ -174,8 +157,11 @@ public class SimpleController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        SafeColliders(true);
+
         if (jumpAction)
         {
+            rb.velocity = Vector3.zero;
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpAction = false;
             grounded = false;
@@ -184,21 +170,23 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
-            Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
-            int count = Physics2D.OverlapBoxNonAlloc(rayboxCenter, rayboxSize, 0, cols, mask);
-            grounded = false;
-            for(int i = 0; i < count; i++)
-            {
-                if (!cols[i].isTrigger)
-                {
-                    grounded = true;
-                    break;
-                }
-            }
-        }               
+            //Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
+            //int count = Physics2D.OverlapBoxNonAlloc(rayboxCenter, rayboxSize, 0, cols, mask);
+            //grounded = false;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    if (!cols[i].isTrigger)
+            //    {
+            //        grounded = true;
+            //        break;
+            //    }
+            //}
+            
+            grounded = collider.IsTouching(groundedContactFilter);
+        }
 
         //SafeColliders();
-        SafeTrackPosition();
+        //SafeTrackPosition();
 
         //fit collider with anim
         if (!grounded)
@@ -284,6 +272,25 @@ public class SimpleController : MonoBehaviour
             }
         }
 
+        float death = SafeColliders(false);
+        if (death == -1)
+        {
+            if (m_LuxReference.LightActive())
+            {
+                if (m_LuxReference.isMoving)
+                {
+                    ResetSkia();
+                }
+            }
+            else
+            {
+                ResetSkia();
+            }
+        }
+        else
+        {
+            skiaVignette.squishStatus = death;
+        }
     }
 
     public Vector3 GetWorldPosition()
@@ -379,53 +386,9 @@ public class SimpleController : MonoBehaviour
         return point;
     }
 
-    private List<Obstacle> obstacleCache = new List<Obstacle>();
     private RaycastHit[] occlusionBuffer = new RaycastHit[20];
-
     void OccludeObjects()
     {
-        //Vector3 topRightToCam = m_CurrCamera.transform.position - m_WorldTopRight;
-        //Vector3 topLeftToCam = m_CurrCamera.transform.position - m_WorldTopLeft;
-        //Vector3 bottomRightToCam = m_CurrCamera.transform.position - m_WorldBottomRight;
-        //Vector3 bottomLeftToCam = m_CurrCamera.transform.position - m_WorldBottomLeft;
-        //Debug.DrawLine(m_WorldTopLeft, m_WorldTopLeft + topLeftToCam);
-        //Debug.DrawLine(m_WorldTopRight, m_WorldTopRight + topRightToCam);
-        //Debug.DrawLine(m_WorldBottomRight, m_WorldBottomRight + bottomRightToCam);
-        //Debug.DrawLine(m_WorldBottomLeft, m_WorldBottomLeft + bottomLeftToCam);
-        //RaycastHit hitInfo;
-        //if(Physics.Raycast(m_WorldTopRight, topRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        //{
-        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-        //    if(scObstacle)
-        //    {
-        //        scObstacle.Occlude();
-        //    }
-        //}
-        //if (Physics.Raycast(m_WorldTopLeft, topLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        //{
-        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-        //    if (scObstacle)
-        //    {
-        //        scObstacle.Occlude();
-        //    }
-        //}
-        //if (Physics.Raycast(m_WorldBottomRight, bottomRightToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        //{
-        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-        //    if (scObstacle)
-        //    {
-        //        scObstacle.Occlude();
-        //    }
-        //}
-        //if (Physics.Raycast(m_WorldBottomLeft, bottomLeftToCam, out hitInfo, Mathf.Infinity, obstacleLayerMask, QueryTriggerInteraction.Collide))
-        //{
-        //    SCObstacle scObstacle = hitInfo.collider.gameObject.GetComponent<SCObstacle>();
-        //    if (scObstacle)
-        //    {
-        //        scObstacle.Occlude();
-        //    }
-        //}
-
         Debug.DrawLine(m_WorldPosition3D, m_CurrCamera.transform.position);
         Vector3 centerToCam = m_CurrCamera.transform.position - m_WorldPosition3D;
         int k = Physics.SphereCastNonAlloc(m_WorldPosition3D, m_OcclusionAngle, centerToCam.normalized, occlusionBuffer, 100f, obstacleLayerMask, QueryTriggerInteraction.Collide);
@@ -435,79 +398,7 @@ public class SimpleController : MonoBehaviour
             if (sCObstacle)
                 sCObstacle.Occlude();
         }
-        /*foreach (Obstacle obs in obstacleCache)
-        {
-            obs.Occlude();
-        }
-        obstacleCache.Clear();
-
-        RaycastHit[] hits = Physics.SphereCastAll(m_WorldPosition3D, m_OcclusionAngle, m_CurrCamera.transform.position - m_WorldPosition3D, 100);
-        foreach (RaycastHit hit in hits)
-        {
-            Obstacle obs = hit.transform.GetComponent<Obstacle>();
-            if (obs != null)
-            {
-                obs.NonOcclude();
-                obstacleCache.Add(obs);
-            }
-        }*/
-        /*
-        for (int i = 0; i < GameManager.m_Obstacles.Count; i++)
-        {
-            Vector3 camToPlayer = m_CurrCamera.transform.position - m_WorldPosition3D;
-            camToPlayer = camToPlayer.normalized;
-
-            Vector3 camToObstacle = m_CurrCamera.transform.position - GameManager.m_Obstacles[i].transform.position;
-            camToObstacle = camToObstacle.normalized;
-
-            float anglePlayerToObstacle = Mathf.Acos(Vector3.Dot(camToPlayer, camToObstacle)) * Mathf.Rad2Deg;
-            if (!(anglePlayerToObstacle < m_OcclusionAngle))
-            {
-                GameManager.m_Obstacles[i].Occlude();
-            }
-            else
-            {
-                GameManager.m_Obstacles[i].NonOcclude();
-            }
-
-        }
-        */
     }
-
-    //private Camera mainCamera;
-    //private List<Renderer> obstacleRendererCache = new List<Renderer>();
-
-    //private void CheckObjectBlocking()
-    //{
-    //    RaycastHit wall2dhit;
-    //    if(Physics.Raycast(transform.position, transform.forward, out wall2dhit, 5, wall2DLayermask))
-    //    {
-    //        Wall2D wall2d = wall2dhit.collider.GetComponent<Wall2D>();
-    //        print(wall2d);
-    //        if(wall2d != null)
-    //        {
-    //            print("yeey");
-    //            Vector3 wall3dpos = wall2d.SwitchTo3D(wall2dhit.transform.InverseTransformPoint(wall2dhit.point));
-    //            RaycastHit[] hits = Physics.SphereCastAll(wall3dpos, 4, mainCamera.transform.position - wall3dpos, 20);
-    //            foreach(RaycastHit hit in hits)
-    //            {
-    //                print("boom");
-    //                if (hit.transform.tag == "Obstacle")
-    //                {
-    //                    Renderer obsRenderer = hit.transform.GetComponent<Renderer>();
-    //                    if(!obstacleRendererCache.Contains(obsRenderer))
-    //                    {
-    //                        Color c = obsRenderer.material.color;
-    //                        c.a = 0.5f;
-    //                        obsRenderer.material.color = c;
-
-    //                        obstacleRendererCache.Add(obsRenderer);
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
 
     public void SwitchRealm()
     {
@@ -587,7 +478,7 @@ public class SimpleController : MonoBehaviour
         return ret;
     }
 
-    float SafeColliders()
+    float SafeColliders(bool flagInitial)
     {
         Vector2 center = (Vector2)transform.position + playerCenter;
         float xDist = playerSize.x * 0.5f;
@@ -601,19 +492,22 @@ public class SimpleController : MonoBehaviour
         Physics2D.queriesHitTriggers = true;
 
         //if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
-        if (collideLeft && collideRight)
+        if(!flagInitial)
         {
-            if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
-                return -1;
-            else if(collideLeft.distance < xDist && collideRight.distance < xDist)
-                return 0.4f;
-        }
-        if (collideTop && collideBottom)
-        {
-            if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
-                return -1;
-            else if(collideTop.distance < yDist && collideBottom.distance < yDist)
-                return 0.3f;
+            if (collideLeft && collideRight)
+            {
+                if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
+                    return -1;
+                else if (collideLeft.distance < xDist && collideRight.distance < xDist)
+                    return 0.4f;
+            }
+            if (collideTop && collideBottom)
+            {
+                if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
+                    return -1;
+                else if (collideTop.distance < yDist && collideBottom.distance < yDist)
+                    return 0.3f;
+            }
         }
 
         if (collideLeft)
