@@ -61,7 +61,7 @@ public class ShadowEntityProjectile : MonoBehaviour
         if(sc)
         {
             mlightFlickScript.turnOnFlicker();
-            sc.ResetSkia();
+            sc.SkiaDeath();
             Destroy(gameObject);
         }
     }
