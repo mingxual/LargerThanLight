@@ -61,13 +61,18 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
+        //Debug
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            MatricesManager.Restart();           
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftControl))
+            {
+                //if(MatricesManager)
+                //    MatricesManager.Restart();
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                skia.SendMessage("SkiaDeath");
+            }      
         }
 
-        //Debug
         /*if (Input.GetKeyDown(KeyCode.N))
         {
             SpawnSkiaNextSegment();

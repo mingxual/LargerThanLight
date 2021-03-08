@@ -9,6 +9,7 @@ public class SCObstacle : MonoBehaviour
     public float rotationSpeed;
 
     public bool debugLines;
+    public float m_TargetAlphaFade = 0.4f;
 
     // Occlusion variables
     MeshRenderer[] m_MeshRenderers;
@@ -81,7 +82,7 @@ public class SCObstacle : MonoBehaviour
         for(int i = 0; i < m_TransparentMaterials.Length; i++)
         {
             Color materialColor = m_TransparentMaterials[i].color;
-            materialColor.a = Mathf.Lerp(.4f, 1f, (m_CurrFadeTime / m_FadeTime));
+            materialColor.a = Mathf.Lerp(m_TargetAlphaFade, 1f, (m_CurrFadeTime / m_FadeTime));
             m_TransparentMaterials[i].color = materialColor;
         }
     }
