@@ -21,6 +21,7 @@ public class SkiaVignette : MonoBehaviour
     {
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out chAbr);
+        skiaCtrlr = GetComponent<SimpleController>();
     }
 
     void Update()
