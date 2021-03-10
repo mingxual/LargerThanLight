@@ -30,10 +30,17 @@ public class LevelManager : MonoBehaviour
     private Transform skiaSpawnpoint;
     private Transform luxSpawnpoint;
 
-    // Start is called before the first frame update
+    private float fixedDeltaTime;
     void Start()
     {
-        
+        fixedDeltaTime = Time.fixedDeltaTime;
+    }
+
+    public void SlowTime(bool flag)
+    {
+        float scale = flag ? 0.25f : 1;
+        Time.timeScale = scale;
+        Time.fixedDeltaTime = scale * fixedDeltaTime;
     }
 
     // Update is called once per frame
