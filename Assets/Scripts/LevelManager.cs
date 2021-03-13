@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     private static LevelManager _instance;
+
+    public bool isDebugging = true;
+    private int sceneLoaded;
     public static LevelManager Instance { get { return _instance; } }
+
+
 
     private void Awake()
     {
@@ -46,6 +52,30 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDebugging)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Debug.Log("Enter Prev Scene");
+                
+                sceneLoaded = SceneManager.GetActiveScene().buildIndex - 1;
+                if (sceneLoaded < 0) return;
+                SceneManager.LoadScene(sceneLoaded);
+                
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Debug.Log("Enter Next Scene");
+                sceneLoaded = SceneManager.GetActiveScene().buildIndex + 1;
+                if (sceneLoaded == SceneManager.sceneCountInBuildSettings) return;
+                
+                SceneManager.LoadScene(sceneLoaded);
+            }
+        }
+       
+
+        
 
     }
 
