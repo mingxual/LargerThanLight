@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -689,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b6fd56f845d5f4f87583a5f5180cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebugging: 1
   m_AllSegments:
   - {fileID: 43168899}
   skia: {fileID: 1565225451}
@@ -97711,8 +97712,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1818493441}
-  selectedCommands:
-  - {fileID: 1818493440}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -97849,7 +97849,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 259
-    width: 208.8059
+    width: 200.7462
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97905,7 +97905,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 167.2
     y: 73
-    width: 119.2537
+    width: 115.67161
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -97958,7 +97958,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 195
-    width: 161.04472
+    width: 155.22383
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -98044,7 +98044,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 132
-    width: 113.283554
+    width: 109.70146
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
