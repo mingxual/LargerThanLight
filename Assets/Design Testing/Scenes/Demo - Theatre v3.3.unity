@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3917,6 +3917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b6fd56f845d5f4f87583a5f5180cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebugging: 1
   m_AllSegments:
   - {fileID: 549616686}
   - {fileID: 1442889177}
@@ -36701,8 +36702,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5315972, y: 0.005130347, z: 1}
-  m_Center: {x: 0.2342011, y: 0.4340045, z: 0}
+  m_Size: {x: 1.1637137, y: 0.005130347, z: 1.4712753}
+  m_Center: {x: 0.47154942, y: 0.4340045, z: 0.0668423}
 --- !u!114 &2042491184
 MonoBehaviour:
   m_ObjectHideFlags: 0
