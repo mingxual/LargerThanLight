@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5977,6 +5977,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308708539}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!137 &315451005 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8531598162154339733, guid: f16682f0e536a3c49bc78d904edc1eca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284836423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &315893484
 GameObject:
   m_ObjectHideFlags: 0
@@ -17484,9 +17490,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351310}
+  - {fileID: 1046351293}
   selectedCommands:
-  - {fileID: 1046351353}
+  - {fileID: 1046351348}
   variables: []
   description: 
   stepPause: 0
@@ -17542,7 +17548,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -136.58241
     y: -50.714287
-    width: 76.2295
+    width: 72.95081
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17947,7 +17953,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 32.630962
     y: 6.063413
-    width: 114.754074
+    width: 109.01637
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18322,7 +18328,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 79.17131
-    width: 109.01637
+    width: 102.459
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18424,7 +18430,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 101.75125
-    width: 90.9836
+    width: 87.70491
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19406,7 +19412,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -123.77557
     y: 194.72177
-    width: 73.770485
+    width: 71.31147
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23262,6 +23268,17 @@ PrefabInstance:
       propertyPath: michaelsdebuggingflag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: deathParticleEffect
+      value: 
+      objectReference: {fileID: 5886872592109432650, guid: e40101fa19b660a41be54bed1c43f17b,
+        type: 3}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: skiaSkin
+      value: 
+      objectReference: {fileID: 315451005}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23354,11 +23371,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 194.95709, y: 100.885376}
+  scrollPos: {x: 265.14566, y: 145.22464}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.76000017
+  zoom: 0.67000026
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -23395,7 +23412,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 112.10525
+    width: 114.17908
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -37012,7 +37029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1046351291}
+  selectedFlowchart: {fileID: 1327307195}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1

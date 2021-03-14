@@ -75,6 +75,9 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private float jumpGraceDelay;
     private float jumpGraceTimer;
 
+    public GameObject deathParticleEffect;
+    public SkinnedMeshRenderer skiaSkin;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -329,6 +332,13 @@ public class SimpleController : MonoBehaviour
     public void SkiaDeath()
     {
         iDied = true;
+        Instantiate(deathParticleEffect, transform.position, transform.rotation);
+        GameObject dragPart = Instantiate(particleEffect, transform.position, transform.rotation);
+        dragPart.GetComponent<MoveToOrigin>().target = originalPosition;
+        skiaSkin.enabled = false;
+        dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = skiaSkin;
+        //SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
+        //dragPart.transform.position = transform.position = Vector3.MoveTowards(transform.position, spawnpoint, 10f);
         ResetSkia();
     }
 
