@@ -21,6 +21,7 @@ public class SkiaVignette : MonoBehaviour
     {
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out chAbr);
+        skiaCtrlr = GetComponent<SimpleController>();
     }
 
     void Update()
@@ -62,13 +63,13 @@ public class SkiaVignette : MonoBehaviour
         vignette.smoothness.value = 0.75f + 0.15f * sin;
         if (vignette.intensity.value < status)
         {
-            vignette.intensity.value += Time.deltaTime;
+            vignette.intensity.value += Time.deltaTime / Time.timeScale;
             if (vignette.intensity.value > status)
                 vignette.intensity.value = status;
         }
         else if (vignette.intensity.value > status)
         {
-            vignette.intensity.value -= Time.deltaTime * 2;
+            vignette.intensity.value -= Time.deltaTime * 2 / Time.timeScale;
             if (vignette.intensity.value < status)
                 vignette.intensity.value = status;
         }

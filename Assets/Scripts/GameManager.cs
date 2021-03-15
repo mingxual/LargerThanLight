@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public GameObject lux;
     public GameObject skia;
 
+    public GameObject OptionsUI;
     //Matrices Control
     public DataOutput MatricesManager;
 
@@ -53,13 +54,11 @@ public class GameManager : MonoBehaviour
         m_LevelManager.InitializeSubLevels();
     }
 
+    
     private void Update()
     {
         // For testing
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+       
 
         //Debug
         if (Input.GetKeyDown(KeyCode.R))

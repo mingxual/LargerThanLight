@@ -6,13 +6,14 @@ public class MoveToOrigin : MonoBehaviour
 {
     public Vector3 target;
     public float speed = 1.0f;
-    public GameObject thePlayer;
+    public SkinnedMeshRenderer thePlayerMesh;
+    public GameObject respawnAnimation;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject thePlayer = GameObject.Find("Player2D");
-        SimpleController playerScript = thePlayer.GetComponent<SimpleController>();
-        target = playerScript.originalPosition;
+        GameObject thePlayerMesh = GameObject.Find("Player2D");
+        //SimpleController playerScript = thePlayer.GetComponent<SimpleController>();
+        //target = playerScript.originalPosition;
     }
 
     // Update is called once per frame
@@ -28,9 +29,8 @@ public class MoveToOrigin : MonoBehaviour
             // Swap the position of the cylinder.
             target *= -1.0f;
             Destroy(gameObject);
-            GameObject cH = GameObject.Find("Ch46");
-            SkinnedMeshRenderer cHrenderer = cH.GetComponent<SkinnedMeshRenderer>();
-            cHrenderer.enabled = true;
+            Instantiate(respawnAnimation, transform.position, transform.rotation);
+            thePlayerMesh.enabled = true;
         }
 
     }

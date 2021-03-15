@@ -33,7 +33,7 @@ public class SwingLight : MonoBehaviour
     void Update()
     {
         //floating
-        radian += speed;
+        radian += speed * 1000.0f/16.0f * Time.deltaTime; //multplied 1000/16 to Time.deltaTime to not affect original value of speed
         float dx = Mathf.Cos(radian) * distance;
         switch (direction)
         {

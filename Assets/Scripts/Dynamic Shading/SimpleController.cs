@@ -27,10 +27,12 @@ public class SimpleController : MonoBehaviour
     private Vector2 rayboxSize;
     private float squishDistance;
 
+    private SkinnedMeshRenderer skinnedMeshRenderer;
     private BoxCollider2D collider;
     private Vector2 colliderCenter;
     private Vector2 colliderSize;
     bool jumping;
+    bool canJump;
 
     public Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -66,21 +68,33 @@ public class SimpleController : MonoBehaviour
     public ContactFilter2D groundedContactFilter;
 
     public bool michaelsdebuggingflag;
+
+    public float animationShiftUp;
+    public float animationShiftDown;
+
+    [SerializeField] private float jumpGraceDelay;
+    private float jumpGraceTimer;
+
+    public GameObject deathParticleEffect;
+    public SkinnedMeshRenderer skiaSkin;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        skinnedMeshRenderer.updateWhenOffscreen = true;
 
-        playerCenter = GetComponent<BoxCollider2D>().offset;
-        playerSize = GetComponent<BoxCollider2D>().size;
+        collider = GetComponent<BoxCollider2D>();
+        colliderCenter = collider.offset;
+        colliderSize = collider.size;
+
+        playerCenter = collider.offset;
+        playerSize = collider.size;
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
         squishDistance = playerSize.x * 0.5f;
 
         leftFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, -skiaModel.localScale.z);
         rightFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, skiaModel.localScale.z);
-
-        collider = GetComponent<BoxCollider2D>();
-        colliderCenter = collider.offset;
-        colliderSize = collider.size;
         jumping = false;
 
         m_LevelManager = FindObjectOfType<LevelManager>();
@@ -102,6 +116,13 @@ public class SimpleController : MonoBehaviour
 
     private void Update()
     {
+        if(!grounded)
+        {
+            if (jumpGraceTimer > 0)
+                jumpGraceTimer -= Time.deltaTime;
+            else
+                canJump = false;
+        }
 
         // Find and set its position in 3d space (aka game view)
         SetWorldPosition3D();
@@ -120,7 +141,7 @@ public class SimpleController : MonoBehaviour
             movementDirection += 1;
             skiaControlsActivated = true;
         }
-        if (Input.GetKeyDown(KeyCode.W) && grounded)
+        if (Input.GetKeyDown(KeyCode.W) && canJump)
         {
             jumpAction = true;
         }
@@ -164,9 +185,10 @@ public class SimpleController : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpAction = false;
+            canJump = false;
             grounded = false;
             jumping = true;
-            anim.Play("Jump");           
+            anim.Play("Jump");
         }
         else
         {
@@ -183,45 +205,38 @@ public class SimpleController : MonoBehaviour
             //}
             
             grounded = collider.IsTouching(groundedContactFilter);
+            if (grounded && !jumping)
+            {
+                canJump = true;
+                jumpGraceTimer = jumpGraceDelay;
+            }
         }
 
-        //SafeColliders();
-        //SafeTrackPosition();
-
-        //fit collider with anim
-        if (!grounded)
+        if (jumping)
         {
-            float displace = 0.035f;
-            float animDisplace = 0.03f;
+            Bounds bounds = skinnedMeshRenderer.bounds;
+            collider.size = new Vector2(collider.size.x, bounds.size.y - 0.2f);
+            collider.offset = new Vector2(collider.offset.x, bounds.extents.y - 0.1f);
+
             if (rb.velocity.y > 0)
+                anim.transform.position -= Vector3.up * animationShiftUp;
+            else if (rb.velocity.y < 0)
+                anim.transform.position += Vector3.up * animationShiftDown;
+
+            if(grounded)
             {
-                collider.offset -= new Vector2(0, displace / 2);
-                anim.transform.position -= new Vector3(0, animDisplace, 0);
-                //collider.size += new Vector2(0.02f, -0.03f);
-                collider.size -= new Vector2(0.00f, displace);
-            }
-            else if (rb.velocity.y < 0 && jumping)
-            {
-                collider.offset += new Vector2(0, displace / 2);
-                anim.transform.position += new Vector3(0, animDisplace, 0);
-                collider.size += new Vector2(0, displace);
-            }
-        }
-        else
-        {
-            if (jumping)
-            {
-                float difference = collider.offset.y - colliderCenter.y;
-                if (difference > 0)
+                collider.offset = colliderCenter;
+                collider.size = colliderSize;
+                anim.transform.position = transform.position;
+
+                if(rb.velocity.y <= 0)
                 {
-                    transform.position += new Vector3(0, difference, 0);
+                    jumping = false;
+                    print("jump ended");
                 }
-                jumping = false;
             }
-            collider.offset = colliderCenter;
-            collider.size = colliderSize;
-            anim.transform.position = transform.position;
         }
+
         playerCenter = collider.offset;
         playerSize = collider.size;
         rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
@@ -244,7 +259,7 @@ public class SimpleController : MonoBehaviour
         else
             rb.gravityScale = defaultMultiplier;
         if (grounded)
-            rb.gravityScale = 0;
+            rb.gravityScale = 1;
 
 
         //move Skia with shadow
@@ -289,7 +304,8 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
-            skiaVignette.squishStatus = death;
+            skiaVignette.squishStatus = death * 0.8f;
+            LevelManager.Instance.SlowTime(death > 0.4f);
         }
     }
 
@@ -308,6 +324,7 @@ public class SimpleController : MonoBehaviour
             SkiaDeath();
             return;
         }
+
         if(skiaVignette)
             skiaVignette.lightStatus = status;
     }
@@ -315,6 +332,13 @@ public class SimpleController : MonoBehaviour
     public void SkiaDeath()
     {
         iDied = true;
+        Instantiate(deathParticleEffect, transform.position, transform.rotation);
+        GameObject dragPart = Instantiate(particleEffect, transform.position, transform.rotation);
+        dragPart.GetComponent<MoveToOrigin>().target = originalPosition;
+        skiaSkin.enabled = false;
+        dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = skiaSkin;
+        //SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
+        //dragPart.transform.position = transform.position = Vector3.MoveTowards(transform.position, spawnpoint, 10f);
         ResetSkia();
     }
 
@@ -329,7 +353,7 @@ public class SimpleController : MonoBehaviour
         if (!spawnable)
         {
             //print("Cannot spawn at " + spawnpoint);
-            LevelManager.Instance.lux.GetComponent<LightController>().ResetLux();
+            m_LuxReference.ResetLux();
         }
         Vector3 point = spawnpoint;
         point.z = transform.position.z;
@@ -491,8 +515,8 @@ public class SimpleController : MonoBehaviour
         float yDist = playerSize.y * 0.5f;
 
         Physics2D.queriesHitTriggers = false;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, 2 * xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, 2 * xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
         RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist, mask);
         RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist, mask);
         Physics2D.queriesHitTriggers = true;
@@ -504,15 +528,17 @@ public class SimpleController : MonoBehaviour
             {
                 if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
                     return -1;
-                else if (collideLeft.distance < xDist && collideRight.distance < xDist)
-                    return 0.4f;
+                else
+                {
+                    return 1 - (collideLeft.distance + collideRight.distance - 2 * xDist) / (2 * xDist + rayboxDistance);
+                }
             }
             if (collideTop && collideBottom)
             {
                 if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
                     return -1;
-                else if (collideTop.distance < yDist && collideBottom.distance < yDist)
-                    return 0.3f;
+                else
+                    return 1 - (collideTop.distance + collideBottom.distance - 2 * yDist) / rayboxDistance;
             }
         }
 

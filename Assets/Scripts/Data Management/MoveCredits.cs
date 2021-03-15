@@ -16,7 +16,7 @@ public class MoveCredits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.localPosition += new Vector3(0, 150 * Time.deltaTime, 0);
+        this.transform.localPosition += new Vector3(0, 15, 0);
         if (this.transform.position.y >= endHere)
         {
             SceneManager.LoadScene("1STARTHERE");
