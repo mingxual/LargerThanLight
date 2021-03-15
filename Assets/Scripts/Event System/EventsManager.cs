@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EventsManager : MonoBehaviour
 {
@@ -49,6 +51,14 @@ public class EventsManager : MonoBehaviour
     {
         if(m_EventsMap.ContainsKey(key))
         {
+            Debug.Log("Event Invoke:"+key);
+            AnalyticsResult ar = Analytics.CustomEvent("TimeSpent", new Dictionary<string, object> {
+                {"Level",SceneManager.GetActiveScene().buildIndex},
+                {"EventName",key},
+                {"TimeInScene",Time.timeSinceLevelLoad}
+            });
+            Debug.Log("Analytics Result:"+ar.ToString());
+            Debug.Log("Result is " + ar.ToString());
             m_EventsMap[key].Invoke();
             // m_EventsMap.Remove(key);
         }
