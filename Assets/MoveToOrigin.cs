@@ -22,15 +22,14 @@ public class MoveToOrigin : MonoBehaviour
         // Move our position a step closer to the target.
         float step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, target, step);
-
         // Check if the position of the cube and sphere are approximately equal.
         if (Vector3.Distance(transform.position, target) < 0.001f)
         {
             // Swap the position of the cylinder.
             target *= -1.0f;
-            Destroy(gameObject);
             Instantiate(respawnAnimation, transform.position, transform.rotation);
             thePlayerMesh.enabled = true;
+            Destroy(gameObject);
         }
 
     }

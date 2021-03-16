@@ -331,15 +331,16 @@ public class SimpleController : MonoBehaviour
 
     public void SkiaDeath()
     {
-        iDied = true;
-        Instantiate(deathParticleEffect, transform.position, transform.rotation);
-        GameObject dragPart = Instantiate(particleEffect, transform.position, transform.rotation);
-        dragPart.GetComponent<MoveToOrigin>().target = originalPosition;
+        Vector3 oldPosition = transform.position;
         skiaSkin.enabled = false;
+        ResetSkia();
+        iDied = true;
+        Instantiate(deathParticleEffect, oldPosition, transform.rotation);
+        GameObject dragPart = Instantiate(particleEffect, oldPosition, transform.rotation);
+        dragPart.GetComponent<MoveToOrigin>().target = originalPosition;
         dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = skiaSkin;
         //SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
         //dragPart.transform.position = transform.position = Vector3.MoveTowards(transform.position, spawnpoint, 10f);
-        ResetSkia();
     }
 
 
@@ -358,6 +359,7 @@ public class SimpleController : MonoBehaviour
         Vector3 point = spawnpoint;
         point.z = transform.position.z;
         transform.position = point;
+        originalPosition = point;
         rb.velocity = Vector2.zero;
     }
 
