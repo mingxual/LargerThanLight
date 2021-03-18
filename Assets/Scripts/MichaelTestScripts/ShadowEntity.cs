@@ -112,7 +112,7 @@ public class ShadowEntity : SCObstacle
     {
         foreach(Transform t in targetTransforms)
         {
-            if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition()) < 36)
+            if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition3D()) < 36)
                 return true;
         }
         return false;

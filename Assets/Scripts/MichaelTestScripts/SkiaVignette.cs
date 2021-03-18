@@ -28,7 +28,7 @@ public class SkiaVignette : MonoBehaviour
     {
         chrabrValue = chAbr.intensity.value;
         CheckLightStatus();
-        if(skiaCtrlr.iDied == true)
+        if(skiaCtrlr.IsDead() == true)
         {
             SkiaDiedStuff();
         }
@@ -43,7 +43,7 @@ public class SkiaVignette : MonoBehaviour
         else
         {
             chAbr.intensity.value = 0;
-            skiaCtrlr.iDied = false;
+            skiaCtrlr.SetDeadStatus(false);
 
         }
 

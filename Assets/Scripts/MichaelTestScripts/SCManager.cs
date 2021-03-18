@@ -71,7 +71,7 @@ public class SCManager : MonoBehaviour
     {
         worldPositions.Clear();
         if(skia.gameObject.activeSelf)
-            worldPositions.Add(skia.GetWorldPosition());
+            worldPositions.Add(skia.GetWorldPosition3D());
         foreach(ShadowEntityProjectile shadowProj in shadowProjs)
         {
             worldPositions.Add(shadowProj.GetWorldPosition());

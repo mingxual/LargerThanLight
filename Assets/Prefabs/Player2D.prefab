@@ -143,34 +143,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b333d93facffe584aa306e700e6c4cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skiaModel: {fileID: 0}
-  anim: {fileID: 0}
-  moveSpeed: 5
-  jumpSpeed: 12
-  fallMultiplier: 4.5
-  defaultMultiplier: 3
-  rayboxDistance: 0.05
-  mask:
+  m_SkiaModelTransform: {fileID: 0}
+  m_Animator: {fileID: 0}
+  m_CurrentGameCamera: {fileID: 0}
+  m_DeathParticleEffect: {fileID: 0}
+  m_DraggingParticleEffect: {fileID: 0}
+  m_MoveSpeed: 4
+  m_JumpSpeed: 11
+  m_FallingStateGravityMultiplier: 4.5
+  m_DefaultGravityMultiplier: 3
+  m_RayboxDistance: 0.05
+  m_AnimationGameObjectShiftUp: 0.035
+  m_AnimationGameObjectShiftDown: 0.05
+  m_OcclusionAngle: 0
+  m_JumpGraceDelay: 0.05
+  m_ObstacleLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  iDied: 0
-  originalPosition: {x: 0, y: 0, z: 0}
-  wall2DLayermask:
+  m_Wall2DLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  wall3DLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  obstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_CurrCamera: {fileID: 0}
-  m_OcclusionAngle: 0
-  moveWithShadow: 0
-  testCollider: {fileID: 0}
-  ratio: 0
-  particleEffect: {fileID: 0}
-  groundedContactFilter:
+  m_GroundedContactFilter:
     useTriggers: 0
     useLayerMask: 1
     useDepth: 0
@@ -184,11 +177,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 45
     maxNormalAngle: 135
-  michaelsdebuggingflag: 0
-  animationShiftUp: 0.035
-  animationShiftDown: 0.05
-  jumpGraceDelay: 0.05
-  thresholdDistance: 0.1
+  m_MichaelsDebuggingFlag: 0
 --- !u!114 &2727920874048876956
 MonoBehaviour:
   m_ObjectHideFlags: 0
