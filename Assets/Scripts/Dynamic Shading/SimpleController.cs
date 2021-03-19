@@ -65,6 +65,7 @@ public class SimpleController : MonoBehaviour
     private GameObject m_LastGroundedGameObject;
     private Wall2D m_CurrWall2D;
     private float m_CurrentJumpGraceTimer;
+    private float m_ShadowDistanceRatio;
     #endregion
 
     #region Manager References
@@ -268,6 +269,7 @@ public class SimpleController : MonoBehaviour
                 }
                 else
                 {
+                    m_ShadowDistanceRatio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
                     // Update a new game object that doesn't match the last collider's game object
                     m_LastGroundedGameObject = m_CurrentlyHitCollider.gameObject;
                 }
