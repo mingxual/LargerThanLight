@@ -9,7 +9,7 @@ public class SCObstacle : MonoBehaviour
     public float rotationSpeed;
 
     public bool debugLines;
-    public float m_TargetAlphaFade = 0.4f;
+    private float m_TargetAlphaFade = 0.15f;
 
     // Occlusion variables
     MeshRenderer[] m_MeshRenderers;
