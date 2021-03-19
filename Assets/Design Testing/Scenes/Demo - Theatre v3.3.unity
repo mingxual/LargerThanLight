@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -17663,11 +17663,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 429.16034, y: 188.01865}
+  scrollPos: {x: 334.10028, y: 164.19603}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 404
-  zoom: 0.6100002
+  blockViewHeight: 489
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -17675,9 +17675,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351293}
-  selectedCommands:
-  - {fileID: 1046351348}
+  - {fileID: 1046351310}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -17732,8 +17731,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -136.58241
-    y: -50.714287
-    width: 72.95081
+    y: -48.714287
+    width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18138,7 +18137,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 32.630962
     y: 6.063413
-    width: 109.01637
+    width: 112
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18513,7 +18512,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 79.17131
-    width: 102.459
+    width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18615,7 +18614,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 101.75125
-    width: 87.70491
+    width: 90
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19597,7 +19596,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -123.77557
     y: 194.72177
-    width: 71.31147
+    width: 73
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23491,6 +23490,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5917851597927996895, guid: ff05ab008d8002a47aebec7984e4c1c0,
         type: 3}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_IsMovingWithShadow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25644,7 +25648,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 466105621}
         m_MethodName: MoveToTargetPos
         m_Mode: 1

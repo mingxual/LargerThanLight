@@ -6,8 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class SkiaVignette : MonoBehaviour
 {
-    [HideInInspector] public float lightStatus;
-    [HideInInspector] public float squishStatus;
+    public float lightStatus;
+    public float squishStatus;
     [SerializeField] Volume volume;
     Vignette vignette;
     ChromaticAberration chAbr;

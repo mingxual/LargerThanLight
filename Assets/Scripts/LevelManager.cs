@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
 
     public void SlowTime(bool flag)
     {
-        float scale = flag ? 0.25f : 1;
+        float scale = flag ? 0.35f : 1;
         Time.timeScale = scale;
         Time.fixedDeltaTime = scale * fixedDeltaTime;
     }

@@ -32,6 +32,7 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private LayerMask m_ObstacleLayerMask;
     [SerializeField] private LayerMask m_Wall2DLayerMask;
     [SerializeField] private ContactFilter2D m_GroundedContactFilter;
+    [SerializeField] private bool m_IsMovingWithShadow;
     #endregion
 
     #region Skia State Variables Updated During Runtime 
@@ -41,7 +42,6 @@ public class SimpleController : MonoBehaviour
     private bool m_IsGrounded;
     private bool m_IsJumping;
     private bool m_CanJump;
-    private bool m_IsMovingWithShadow;
 
     /* Keep track if any key is pressed during each frame */
     private bool m_KeysPressed;
@@ -293,8 +293,8 @@ public class SimpleController : MonoBehaviour
         else
         {
             // Adjust vignette effect depending on how much she's squished
-            m_SkiaVignette.squishStatus = death * 0.8f;
-            LevelManager.Instance.SlowTime(death > 0.4f);
+            m_SkiaVignette.squishStatus = death * 0.6f;
+            LevelManager.Instance.SlowTime(death > 0.5f);
         }
     }
 
