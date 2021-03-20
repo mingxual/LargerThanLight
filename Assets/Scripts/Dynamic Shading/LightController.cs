@@ -132,10 +132,13 @@ public class LightController : MonoBehaviour
 
     // Will check if Lux hits an object and will stop him from further moving in that direction
     private void StopMovementIfBlocked()
-    {
+    { 
+        // Determine origin of ray for raycasting against any collider
         Vector3 rayOrigin = m_LuxModelTransform.position;
         if (!m_CheckIsBlockedAtFeet) rayOrigin += Vector3.up * 0.5f;
         else rayOrigin += Vector3.up * 0.01f;
+
+        // Check if we hit any collider
         if (Physics.Raycast(rayOrigin, m_MovementDirection, m_RaycastMovementLength))
         {
             m_IsMoving = false;
@@ -150,6 +153,14 @@ public class LightController : MonoBehaviour
     {
         m_ForwardDirection = dir;
         m_RightDirection = Vector3.Cross(Vector3.up, m_ForwardDirection);
+    }
+
+    // Stop Lux moving animation and speed
+    public void DisableLuxMovement()
+    {
+        m_MovementDirection = Vector3.zero;
+        m_Animator.SetBool("Moving", false);
+        m_Rigidbody.velocity = Vector3.zero;
     }
 
     // Reset Lux's position to a spawn point, if any
@@ -176,8 +187,16 @@ public class LightController : MonoBehaviour
         return m_IsMoving;
     }
 
+    // By default, Lux is assumed to only have horizontal movement
+    // Assign whether he can move vertically or not
     public void SetVerticalMovement(bool val)
     {
         m_AlsoVerticalMovement = val;
+    }
+
+    // Set the length amount for raycasting against colliders to check if Lux's animation should stop if there's a hit
+    public void SetRaycastMovementLength(float length)
+    {
+        m_RaycastMovementLength = length;
     }
 }
