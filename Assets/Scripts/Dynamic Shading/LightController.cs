@@ -16,20 +16,20 @@ public class LightController : MonoBehaviour
     #region Lux Inspector Variables To Be Set Before Runtime
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] Vector3 m_ForwardDirection;
-    [SerializeField] private bool m_CheckIsBlockedAtFeet = true;
-    [SerializeField] private float m_RaycastMovementLength = 1.0f;
+    [SerializeField] private bool m_CheckIsBlockedAtFeet = true; // Check if feet hit colliders to stop Lux animation
+    [SerializeField] private float m_RaycastMovementLength = 1.0f; // Distance to check where Lux hits colliders to stop his animation
     #endregion
 
     #region Lux State Variables Updated During Runtime
     public static bool m_LuxKeyPressed;
-    private bool m_StoppedByCollider;
+    private bool m_StoppedByCollider; // Check if Lux is stopped by a collider
     private bool m_IsMoving = false;
     #endregion
 
     #region Lux Information Updated During Runtime
     private Vector3 m_MovementDirection;
-    private Vector3 m_AttemptedLookDirection;
-    private Vector3 m_RightDirection;
+    private Vector3 m_AttemptedLookDirection; // The direction player wants Lux to look at
+    private Vector3 m_RightDirection; // Lux's right direction
     #endregion
 
     private void Awake()
@@ -136,7 +136,6 @@ public class LightController : MonoBehaviour
         Vector3 rayOrigin = m_LuxModelTransform.position;
         if (!m_CheckIsBlockedAtFeet) rayOrigin += Vector3.up * 0.5f;
         else rayOrigin += Vector3.up * 0.01f;
-        Debug.DrawRay(rayOrigin, m_MovementDirection * m_RaycastMovementLength);
         if (Physics.Raycast(rayOrigin, m_MovementDirection, m_RaycastMovementLength))
         {
             m_IsMoving = false;

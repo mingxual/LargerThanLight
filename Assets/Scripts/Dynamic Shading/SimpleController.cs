@@ -415,10 +415,12 @@ public class SimpleController : MonoBehaviour
 
         /* Check for shadow/obstacle collisions on each side of Skia */
         Physics2D.queriesHitTriggers = false;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(skiaCenterPosition, new Vector2(m_RayboxDistance, m_PlayerSize.y * 0.9f), 0, Vector2.left, 2 * xDist, m_ObstacleLayerMask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(skiaCenterPosition, new Vector2(m_RayboxDistance, m_PlayerSize.y * 0.9f), 0, Vector2.right, 2 * xDist, m_ObstacleLayerMask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
-        RaycastHit2D collideTop = Physics2D.BoxCast(skiaCenterPosition, new Vector2(m_PlayerSize.x * 0.9f, m_RayboxDistance), 0, Vector2.up, yDist, m_ObstacleLayerMask);
-        RaycastHit2D collideBottom = Physics2D.BoxCast(skiaCenterPosition, new Vector2(m_PlayerSize.x * 0.9f, m_RayboxDistance), 0, Vector2.down, yDist, m_ObstacleLayerMask);
+        Vector2 verticalSize = Vector2.right * m_RayboxDistance + Vector2.up * m_PlayerSize.y * 0.9f;
+        Vector2 horizontalSize = Vector2.right * m_PlayerSize.x * 0.9f + Vector2.up * m_RayboxDistance;
+        RaycastHit2D collideLeft = Physics2D.BoxCast(skiaCenterPosition, verticalSize, 0, Vector2.left, 2 * xDist, m_ObstacleLayerMask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(skiaCenterPosition, verticalSize, 0, Vector2.right, 2 * xDist, m_ObstacleLayerMask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideTop = Physics2D.BoxCast(skiaCenterPosition, horizontalSize, 0, Vector2.up, yDist, m_ObstacleLayerMask);
+        RaycastHit2D collideBottom = Physics2D.BoxCast(skiaCenterPosition, horizontalSize, 0, Vector2.down, yDist, m_ObstacleLayerMask);
         Physics2D.queriesHitTriggers = true;
 
         if(checkingIfDead)
