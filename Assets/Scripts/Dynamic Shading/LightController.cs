@@ -1,323 +1,184 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
 public class LightController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
-    //[SerializeField] private float rotateSpeed;
+    #region Lux Components To Be Set Before Runtime
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private Transform m_LuxModelTransform;
+    [SerializeField] private SCLight m_SCLight;
+    #endregion
 
-    [SerializeField] private Animator anim;
-    [SerializeField] private Transform luxModel;
-    [SerializeField] private SCLight sclight;
-    //public GameObject EmptyGO;
+    #region Lux Components To Be Set At The Beginning Of Runtime
+    private Rigidbody m_Rigidbody;
+    private bool m_AlsoVerticalMovement; // Determines whether Lux is restricted to horizontal movement or not
+    #endregion
 
-    private Rigidbody rb;
-    private Vector3 movementDirection;
-    public static bool luxControlsActivated;
-    public static bool activate = false;
+    #region Lux Inspector Variables To Be Set Before Runtime
+    [SerializeField] private float m_MoveSpeed;
+    [SerializeField] Vector3 m_ForwardDirection;
+    [SerializeField] private bool m_CheckIsBlockedAtFeet = true;
+    [SerializeField] private float m_RaycastMovementLength = 1.0f;
+    #endregion
 
-    private bool isClimb = false;
-    private bool isTouch = false;
-    // integer to denote the direction
-    // 0 no move, 1 up, 2 down
-    private int climbDir = 0;
+    #region Lux State Variables Updated During Runtime
+    public static bool m_LuxKeyPressed;
+    private bool m_StoppedByCollider;
+    private bool m_IsMoving = false;
+    #endregion
 
-    // bool to control whether Lux can move in z direction
-    private bool enableForwardBack;
-
-    [SerializeField] private GameObject runningTransform;
-    public GameObject currLadder;
-    public Vector3 currLadder_collider_center;
-
-    public CameraSwitch cameraSwitch;
-
-    [SerializeField] Vector3 forwardDir;
-    private Vector3 rightDir;
-    public bool isMoving = false;
+    #region Lux Information Updated During Runtime
+    private Vector3 m_MovementDirection;
+    private Vector3 m_AttemptedLookDirection;
+    private Vector3 m_RightDirection;
+    #endregion
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        // Get compnents
+        m_Rigidbody = GetComponent<Rigidbody>();
 
-        SetForwardDir(forwardDir);
+        // Set Lux's forward vector
+        SetForwardDirection(m_ForwardDirection);
     }
 
     private void OnEnable()
     {
-        activate = true;
-        enableForwardBack = true;
+        m_AlsoVerticalMovement = true; // Enable vertical movement in addition to horizontal
     }
 
     void Update()
     {
-        isMoving = false;
-        movementDirection = Vector3.zero;
-        luxControlsActivated = false;
+        m_IsMoving = false;
+        m_StoppedByCollider = false;
+        m_MovementDirection = Vector3.zero;
+        m_AttemptedLookDirection = Vector3.zero;
+        m_LuxKeyPressed = false;
 
-        if(isTouch && climbDir != 0 && Input.GetAxis("Interaction") > 0.8f)
-        {
-
-            currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
-            Vector3 curr_position = transform.position;
-            curr_position.x = currLadder_collider_center.x;
-            curr_position.z = currLadder_collider_center.z;
-            transform.position = curr_position;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            runningTransform.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            isClimb = true;
-            PlayAnim();
-
-            if (cameraSwitch != null && cameraSwitch.gameObject.activeInHierarchy)
-            {
-                if (climbDir == 1)
-                {
-                    cameraSwitch.ChangeToCamera(1);
-                }
-                else if (climbDir == 2)
-                {
-                    cameraSwitch.ChangeToCamera(0);
-                }
-            }
-        }
-
-        if(isClimb)
-        {
-            if (climbDir == 1)
-            {
-                movementDirection.y = 1;
-            }
-            else
-            {
-                movementDirection.y = -1;
-            }
-            luxControlsActivated = true;
-            return;
-        }
-
+        //---------INPUT CONTROLS------------
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            movementDirection -= rightDir;
-            luxControlsActivated = true;
-            isMoving = true;
+            m_MovementDirection -= m_RightDirection;
+            m_LuxKeyPressed = true;
+            m_IsMoving = true;
+
+            StopMovementIfBlocked();
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            movementDirection += rightDir;
-            luxControlsActivated = true;
-            isMoving = true;
+            m_MovementDirection += m_RightDirection;
+            m_LuxKeyPressed = true;
+            m_IsMoving = true;
+
+            StopMovementIfBlocked();
         }
 
-        if (enableForwardBack)
+        // Lux's horizontal movement input
+        if (m_AlsoVerticalMovement)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                movementDirection += forwardDir;
-                luxControlsActivated = true;
-                isMoving = true;
+                m_MovementDirection += m_ForwardDirection;
+                m_LuxKeyPressed = true;
+                m_IsMoving = true;
+
+                StopMovementIfBlocked();
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                movementDirection -= forwardDir;
-                luxControlsActivated = true;
-                isMoving = true;
+                m_MovementDirection -= m_ForwardDirection;
+                m_LuxKeyPressed = true;
+                m_IsMoving = true;
+
+                StopMovementIfBlocked();
             }
         }
+
+        //------END OF INPUT CONTROLS------
     }
 
     private void FixedUpdate()
     {
-        if(movementDirection == Vector3.zero)
+        // Stop moving Lux if there's no movement
+        if(m_MovementDirection == Vector3.zero)
         {
-            rb.velocity = new Vector3(0f, -1f, 0f);
-            if (!luxControlsActivated)
-               anim.SetBool("Moving", false);
+            m_Rigidbody.velocity = Vector3.down;
+            if (!m_LuxKeyPressed)
+               m_Animator.SetBool("Moving", false);
+            else if (m_StoppedByCollider)
+            {
+                // Don't let Lux move if he's moving into a collider, but at least let him look in the direction it's blocked
+                m_Animator.SetBool("Moving", false);
+                m_LuxModelTransform.LookAt(m_LuxModelTransform.position + m_AttemptedLookDirection);
+            }
             return;
         }
 
-        rb.velocity = movementDirection.normalized * moveSpeed;
-        if (movementDirection.y == 0)
+        // Set Lux's speed if moving
+        m_Rigidbody.velocity = m_MovementDirection.normalized * m_MoveSpeed;
+        if (m_MovementDirection.y == 0)
         {
-            rb.velocity = new Vector3(rb.velocity.x, -1f, rb.velocity.z);
+            m_Rigidbody.velocity = Vector3.right * m_Rigidbody.velocity.x + Vector3.down + Vector3.forward * m_Rigidbody.velocity.z; // Vector3(m_Rigidbody.velocity.x, -1f, m_Rigidbody.velocity.z);
         }
 
         // Make sure Lux does not look upward or downward
-        Vector3 sightDirection = movementDirection;
+        Vector3 sightDirection = m_MovementDirection;
         sightDirection.y = 0f;
         if (sightDirection != Vector3.zero)
         {
-            luxModel.LookAt(luxModel.position + sightDirection);
-            anim.SetBool("Moving", true);
+            m_LuxModelTransform.LookAt(m_LuxModelTransform.position + sightDirection);
+            m_Animator.SetBool("Moving", true);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Will check if Lux hits an object and will stop him from further moving in that direction
+    private void StopMovementIfBlocked()
     {
-        if(other.tag == "TouchUp")
+        Vector3 rayOrigin = m_LuxModelTransform.position;
+        if (!m_CheckIsBlockedAtFeet) rayOrigin += Vector3.up * 0.5f;
+        else rayOrigin += Vector3.up * 0.01f;
+        Debug.DrawRay(rayOrigin, m_MovementDirection * m_RaycastMovementLength);
+        if (Physics.Raycast(rayOrigin, m_MovementDirection, m_RaycastMovementLength))
         {
-            currLadder = other.gameObject;
-            if (isClimb && climbDir == 1)
-            {
-                // Set the position
-                currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
-                Vector3 curr_position = transform.position;
-                curr_position.x = currLadder_collider_center.x;
-                // Move in a little bit to land on the platform
-                curr_position.z = currLadder_collider_center.z + 1.5f;
-                transform.position = curr_position;
-
-                anim.SetBool("TouchUp", false);
-                climbDir = 0;
-                isClimb = false;
-            }
-            else if(!isClimb)
-            {
-                // anim.SetBool("TouchDown", false);
-                climbDir = 2;
-            }
+            m_IsMoving = false;
+            m_AttemptedLookDirection = m_MovementDirection;
+            m_MovementDirection = Vector3.zero;
+            m_StoppedByCollider = true;
         }
-        else if(other.tag == "TouchDown")
-        {
-            currLadder = other.gameObject;
-            if (isClimb && climbDir == 2)
-            {
-                // Set the position
-                currLadder_collider_center = currLadder.transform.position + currLadder.GetComponent<BoxCollider>().center;
-                Vector3 curr_position = transform.position;
-                curr_position.x = currLadder_collider_center.x;
-                // Move in a little bit to land on the platform
-                // curr_position.y -= 1f;
-                curr_position.z = currLadder_collider_center.z - 0.25f;
-                transform.position = curr_position;
-
-                anim.SetBool("TouchDown", false);
-                climbDir = 0;
-                isClimb = false;
-            }
-            else if (!isClimb)
-            {
-                // anim.SetBool("TouchUp", false);
-                climbDir = 1;
-            }
-        }
-
-        isTouch = true;
     }
 
-    private void OnTriggerExit(Collider other)
+    // Set the forward direction of Lux
+    public void SetForwardDirection(Vector3 dir)
     {
-        if (other.tag == "TouchUp" || other.tag == "TouchDown")
-        {
-            isTouch = false;
-        }
+        m_ForwardDirection = dir;
+        m_RightDirection = Vector3.Cross(Vector3.up, m_ForwardDirection);
     }
 
-    void PlayAnim()
-    {
-        if(climbDir == 1)
-        {
-            anim.SetBool("TouchUp", true);
-        }
-        else
-        {
-            anim.SetBool("TouchDown", true);
-        }
-    }
-
-    public void SetEnableForwardBack(bool val)
-    {
-        enableForwardBack = val;
-    }
-
-    public void SetForwardDir(Vector3 dir)
-    {
-        forwardDir = dir;
-        rightDir = Vector3.Cross(Vector3.up, forwardDir);
-    }
-
+    // Reset Lux's position to a spawn point, if any
     public void ResetLux()
     {
-        if (!sclight.active) return;
+        if (!m_SCLight.active) return;
         Transform spawnpoint = LevelManager.Instance.GetLuxSpawnpoint();
         if(spawnpoint)
         {
             transform.position = spawnpoint.position;
-            //print("Set spawnpoint at " + spawnpoint.position);
-            rb.velocity = Vector3.zero;
+            m_Rigidbody.velocity = Vector3.zero;
         }
     }
 
-    public bool LightActive()
+    // Return status of light script attached to Lux
+    public bool LightActiveStatus()
     {
-        return sclight.active;
+        return m_SCLight.active;
     }
 
-    //void Update()
-    //{
-    //    if (Input.GetKey(KeyCode.LeftArrow))
-    //    {
-    //        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-    //        anim.SetBool("Moving", true);
-    //    }
-    //    if (Input.GetKey(KeyCode.RightArrow))
-    //    {
-    //        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-    //        anim.SetBool("Moving", true);
+    // Return whether Lux is moving
+    public bool IsMoving()
+    {
+        return m_IsMoving;
+    }
 
-    //    }
-    //    if (Input.GetKey(KeyCode.UpArrow))
-    //    {
-    //        transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-    //        anim.SetBool("Moving", true);
-
-    //    }
-    //    if (Input.GetKey(KeyCode.DownArrow))
-    //    {
-    //        transform.position += Vector3.back * moveSpeed * Time.deltaTime;
-    //        anim.SetBool("Moving", true);
-
-    //    }
-
-    //    //he stops running animation when no key is pressed
-    //    if (Input.anyKey == false)
-    //    {
-    //        anim.SetBool("Moving", false);
-    //    }
-
-    //    //I just hardcoded lux's size for testing purposes
-    //    /* if (Input.GetKeyDown(KeyCode.LeftArrow))
-    //     {
-    //         luxModel.transform.localScale = new Vector3(14.3759f, 14.3759f, -14.3759f);
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.RightArrow))
-    //     {
-    //         luxModel.transform.localScale = new Vector3(14.3759f, 14.3759f, 14.3759f);
-    //     }*/
-
-    //    float moveVertical = Input.GetAxis("Vertical");
-    //    float moveHorizontal = Input.GetAxis("Horizontal");
-
-    //    Vector3 newPosition = new Vector3(moveHorizontal, 0.0f, moveVertical);
-    //    luxModel.transform.LookAt(newPosition + luxModel.transform.position);
-    //    //luxModel.transform.Translate(newPosition * Time.deltaTime, Space.World);
-
-    //    /*if (Input.GetKey(KeyCode.L))
-    //    {
-    //        transform.Rotate(0.0f, rotateSpeed * Time.deltaTime, 0.0f);
-    //    }
-    //    if (Input.GetKey(KeyCode.J))
-    //    {
-    //        transform.Rotate(0.0f, -rotateSpeed * Time.deltaTime, 0.0f);
-    //    }
-    //    if (Input.GetKey(KeyCode.I))
-    //    {
-    //        transform.Rotate(-rotateSpeed * Time.deltaTime, 0.0f, 0.0f);
-    //    }
-    //    if (Input.GetKey(KeyCode.K))
-    //    {
-    //        transform.Rotate(rotateSpeed * Time.deltaTime, 0.0f, 0.0f);
-    //    }*/
-    //}
+    public void SetVerticalMovement(bool val)
+    {
+        m_AlsoVerticalMovement = val;
+    }
 }

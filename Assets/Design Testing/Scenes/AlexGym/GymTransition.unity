@@ -225,16 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4336f4f5e23814c9cad62515a5ceb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  anim: {fileID: 1109442300}
-  luxModel: {fileID: 1109442298}
-  sclight: {fileID: 0}
-  runningTransform: {fileID: 1109442299}
-  currLadder: {fileID: 0}
-  currLadder_collider_center: {x: 0, y: 0, z: 0}
-  cameraSwitch: {fileID: 0}
-  forwardDir: {x: -1, y: 0, z: 0}
-  isMoving: 0
+  m_Animator: {fileID: 535167754}
+  m_LuxModelTransform: {fileID: 1109442298}
+  m_SCLight: {fileID: 1615533710}
+  m_MoveSpeed: 5
+  m_ForwardDirection: {x: -1, y: 0, z: 0}
 --- !u!1 &28299629
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +529,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -1019,7 +1013,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -17011,7 +17004,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -33542,7 +33534,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -49882,7 +49873,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -51629,7 +51619,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -51831,7 +51820,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -53008,7 +52996,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -53422,7 +53409,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -53723,7 +53709,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -53838,7 +53823,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -54240,7 +54224,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -54294,7 +54277,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -54470,7 +54452,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -54678,7 +54659,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -54788,6 +54768,12 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &535167754 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4695795086921588864, guid: 453e078d361f4374088a9d7c80fa35ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109442297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547502056
 GameObject:
   m_ObjectHideFlags: 0
@@ -55360,7 +55346,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -55414,7 +55399,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -56058,7 +56042,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -56173,7 +56156,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -56449,7 +56431,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -74176,7 +74157,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -74384,7 +74364,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -86275,7 +86254,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -87734,7 +87712,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -88073,7 +88050,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -88298,7 +88274,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -88607,7 +88582,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -88923,7 +88897,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -90246,7 +90219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907658717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 999157d6106b51843aec99ca245213fb, type: 3}
   m_Name: 
@@ -90255,7 +90228,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -90267,7 +90239,7 @@ MonoBehaviour:
   - {fileID: 1134782459}
   - {fileID: 858377866}
   skia: {fileID: 1565225458}
-  lux: {fileID: 0}
+  lux: {fileID: 19641849}
   aura: {fileID: 0}
   lf: {fileID: 0}
 --- !u!1 &914498942
@@ -90489,7 +90461,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -90543,7 +90514,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -90975,7 +90945,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -91028,7 +90997,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -91700,7 +91668,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -91815,7 +91782,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -91883,7 +91849,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -92029,7 +91994,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -92416,7 +92380,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -92811,7 +92774,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -92965,7 +92927,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -93375,18 +93336,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1109442297}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1109442299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3606043918534637613, guid: 453e078d361f4374088a9d7c80fa35ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 1109442297}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1109442300 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4695795086921588864, guid: 453e078d361f4374088a9d7c80fa35ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 1109442297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1120519867
 GameObject:
   m_ObjectHideFlags: 0
@@ -93437,7 +93386,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -93651,7 +93599,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -93894,6 +93841,38 @@ PrefabInstance:
       propertyPath: skiaSkin
       value: 
       objectReference: {fileID: 384176058}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_SkiaModelTransform
+      value: 
+      objectReference: {fileID: 1608589612}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_Animator
+      value: 
+      objectReference: {fileID: 1608589610}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_CurrentGameCamera
+      value: 
+      objectReference: {fileID: 577858047}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_DeathParticleEffect
+      value: 
+      objectReference: {fileID: 5886872592109432650, guid: e40101fa19b660a41be54bed1c43f17b,
+        type: 3}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_DraggingParticleEffect
+      value: 
+      objectReference: {fileID: 5917851597927996895, guid: ff05ab008d8002a47aebec7984e4c1c0,
+        type: 3}
+    - target: {fileID: 4062911558463963868, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4062911558463963869, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94729,7 +94708,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -95728,7 +95706,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -96132,7 +96109,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -96260,7 +96236,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -96538,7 +96513,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -97011,7 +96985,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -97437,7 +97410,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -97725,7 +97697,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -98103,7 +98074,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -98572,7 +98542,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -99046,7 +99015,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -99924,7 +99892,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -100053,7 +100020,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -100168,7 +100134,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -101434,7 +101399,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -101680,7 +101644,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -101823,7 +101786,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -102226,7 +102188,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -102561,7 +102522,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 0
   shadowprojtime: 0
   shadowprojaffected: 0
@@ -102971,7 +102931,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -103160,7 +103119,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -103759,7 +103717,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -103874,7 +103831,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -104606,7 +104562,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -104930,7 +104885,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -105276,7 +105230,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -105403,7 +105356,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -105687,7 +105639,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -106834,7 +106785,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -106949,7 +106899,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
@@ -107204,7 +107153,6 @@ MonoBehaviour:
   rotationAxis: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   debugLines: 0
-  m_TargetAlphaFade: 0.4
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0

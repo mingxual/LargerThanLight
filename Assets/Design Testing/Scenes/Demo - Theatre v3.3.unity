@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21725,12 +21725,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1199821604}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1199821606 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3606043918534637613, guid: 453e078d361f4374088a9d7c80fa35ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 1199821604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1199821607 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4695795086921588864, guid: 453e078d361f4374088a9d7c80fa35ff,
@@ -24363,16 +24357,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4336f4f5e23814c9cad62515a5ceb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  anim: {fileID: 1199821607}
-  luxModel: {fileID: 1199821605}
-  sclight: {fileID: 327552569}
-  runningTransform: {fileID: 1199821606}
-  currLadder: {fileID: 0}
-  currLadder_collider_center: {x: 0, y: 0, z: 0}
-  cameraSwitch: {fileID: 797148724}
-  forwardDir: {x: 0, y: 0, z: 1}
-  isMoving: 0
+  m_Animator: {fileID: 1199821607}
+  m_LuxModelTransform: {fileID: 1199821605}
+  m_SCLight: {fileID: 327552569}
+  m_MoveSpeed: 4
+  m_ForwardDirection: {x: 0, y: 0, z: 1}
+  m_IsMoving: 0
 --- !u!54 &1359792203
 Rigidbody:
   m_ObjectHideFlags: 0

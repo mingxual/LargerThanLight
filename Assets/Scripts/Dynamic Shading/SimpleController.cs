@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SimpleController : MonoBehaviour
 {
@@ -280,9 +278,9 @@ public class SimpleController : MonoBehaviour
         float death = CheckCollisions(true);
         if (death == -1) // If squished (aka dead), reset Skia
         {
-            if (m_LuxReference.LightActive())
+            if (m_LuxReference.LightActiveStatus())
             {
-                if (m_LuxReference.isMoving)
+                if (m_LuxReference.IsMoving())
                 {
                     SkiaDeath();
                 }
