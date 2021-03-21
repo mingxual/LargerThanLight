@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -337,7 +337,8 @@ MonoBehaviour:
   m_SCLight: {fileID: 1615533710}
   m_MoveSpeed: 5
   m_ForwardDirection: {x: -1, y: 0, z: 0}
-  m_IsMoving: 0
+  m_CheckIsBlockedAtFeet: 1
+  m_RaycastMovementLength: 1
 --- !u!1 &28299629
 GameObject:
   m_ObjectHideFlags: 0
@@ -97156,6 +97157,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   m_ShowObjectRaycasts: 0
+  overlapContactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!4 &1528349536
 Transform:
   m_ObjectHideFlags: 0
@@ -97753,7 +97768,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 113.81578
+    width: 109.21051
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0

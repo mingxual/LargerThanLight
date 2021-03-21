@@ -6,7 +6,7 @@ public class UpdatedSCEventHandler : MonoBehaviour
 {
     [SerializeField] string m_EventKey;
     [SerializeField] GameObject m_ContactObject;
-    [SerializeField] bool m_IsSpawnpoint;
+    public bool m_IsSpawnpoint;
 
     // true when trigger, false when collide
     public bool isEventTrigger;

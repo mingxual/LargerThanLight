@@ -24362,7 +24362,8 @@ MonoBehaviour:
   m_SCLight: {fileID: 327552569}
   m_MoveSpeed: 4
   m_ForwardDirection: {x: 0, y: 0, z: 1}
-  m_IsMoving: 0
+  m_CheckIsBlockedAtFeet: 1
+  m_RaycastMovementLength: 1
 --- !u!54 &1359792203
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28214,6 +28215,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   m_ShowObjectRaycasts: 0
+  overlapContactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!4 &1529685535
 Transform:
   m_ObjectHideFlags: 0
@@ -37194,7 +37209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1046351291}
+  selectedFlowchart: {fileID: 1327307195}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
