@@ -17594,8 +17594,6 @@ GameObject:
   - component: {fileID: 1046351343}
   - component: {fileID: 1046351348}
   - component: {fileID: 1046351349}
-  - component: {fileID: 1046351350}
-  - component: {fileID: 1046351331}
   - component: {fileID: 1046351351}
   - component: {fileID: 1046351361}
   - component: {fileID: 1046351362}
@@ -17639,7 +17637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 663.0824, y: 329.2143}
+  scrollPos: {x: 553.0824, y: 171.2143}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 489
@@ -17651,9 +17649,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351293}
+  - {fileID: 1046351367}
   selectedCommands:
-  - {fileID: 1046351372}
+  - {fileID: 1046351368}
   variables: []
   description: 
   stepPause: 0
@@ -17689,9 +17687,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351293
 MonoBehaviour:
@@ -17709,7 +17707,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -136.58241
     y: -48.714287
-    width: 75
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17769,9 +17767,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351295
 MonoBehaviour:
@@ -17796,9 +17794,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351296
 MonoBehaviour:
@@ -17855,9 +17853,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351299
 MonoBehaviour:
@@ -17882,9 +17880,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351300
 MonoBehaviour:
@@ -17910,7 +17908,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -17938,7 +17936,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -18094,10 +18092,10 @@ MonoBehaviour:
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 1
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351310
 MonoBehaviour:
@@ -18115,7 +18113,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 32.630962
     y: 6.063413
-    width: 112
+    width: 72
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18199,7 +18197,7 @@ MonoBehaviour:
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351313
 MonoBehaviour:
@@ -18470,7 +18468,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -18490,7 +18488,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 79.17131
-    width: 107
+    width: 67
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18499,13 +18497,11 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1046351327}
   commandList:
-  - {fileID: 1046351350}
   - {fileID: 1046351326}
   - {fileID: 1046351324}
   - {fileID: 1046351365}
   - {fileID: 1046351364}
   - {fileID: 1046351363}
-  - {fileID: 1046351331}
   suppressAllAutoSelections: 0
 --- !u!114 &1046351326
 MonoBehaviour:
@@ -18530,7 +18526,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -18592,7 +18588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 101.75125
-    width: 90
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18619,34 +18615,6 @@ MonoBehaviour:
   parentBlock: {fileID: 1046351329}
   suppressBlockAutoSelect: 0
   message: GetExit
---- !u!114 &1046351331
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046351290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 63
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 512948503}
-  targetComponentAssemblyName: GameManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: GameManager
-  targetMethod: EnableCharacterControl
-  targetMethodText: 'EnableCharacterControl (): Void'
-  methodParameters: []
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
 --- !u!114 &1046351332
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -18831,7 +18799,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -18858,7 +18826,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -18885,7 +18853,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -18912,7 +18880,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -19109,34 +19077,6 @@ MonoBehaviour:
   targetComponentText: GameManager
   targetMethod: EnableCharacterControl
   targetMethodText: 'EnableCharacterControl (): Void'
-  methodParameters: []
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &1046351350
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046351290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 62
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 512948503}
-  targetComponentAssemblyName: GameManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: GameManager
-  targetMethod: DisableCharacterControl
-  targetMethodText: 'DisableCharacterControl (): Void'
   methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
@@ -19478,7 +19418,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -19506,7 +19446,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -19533,7 +19473,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -19572,9 +19512,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -123.77557
-    y: 194.72177
-    width: 73
+    x: -124.77557
+    y: 196.72177
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19611,7 +19551,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -19674,7 +19614,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1046351372
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -23603,7 +23543,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 114.17908
+    width: 74.17908
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25805,7 +25745,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: PullCurtain
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 827650367}
         m_MethodName: SetActive
         m_Mode: 6
@@ -25870,6 +25810,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1072051574}
+        m_MethodName: RotateToTargetPos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -37209,7 +37160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1327307195}
+  selectedFlowchart: {fileID: 1046351291}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
