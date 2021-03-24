@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShadowEntityProjectile : MonoBehaviour
 {
+    public ShadowEntity se;
     public LightFlicking mlightFlickScript;
     private SimpleController skia;
 
@@ -16,6 +17,7 @@ public class ShadowEntityProjectile : MonoBehaviour
     private void OnDisable()
     {
         SCManager.Instance.RemoveShadowProj(this);
+        se.DestroyedProjectile();
     }
 
     [SerializeField] float stallTimer = 2f;
