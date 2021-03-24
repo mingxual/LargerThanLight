@@ -100546,8 +100546,6 @@ GameObject:
   - component: {fileID: 1818493462}
   - component: {fileID: 1818493458}
   - component: {fileID: 1818493456}
-  - component: {fileID: 1818493455}
-  - component: {fileID: 1818493454}
   - component: {fileID: 1818493453}
   - component: {fileID: 1818493469}
   - component: {fileID: 1818493457}
@@ -100555,6 +100553,8 @@ GameObject:
   - component: {fileID: 1818493468}
   - component: {fileID: 1818493451}
   - component: {fileID: 1818493467}
+  - component: {fileID: 1818493455}
+  - component: {fileID: 1818493454}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -100587,9 +100587,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1818493441}
-  selectedCommands:
-  - {fileID: 1818493459}
+  - {fileID: 1818493439}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -100726,7 +100725,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 259
-    width: 171.19395
+    width: 211.19395
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -100782,7 +100781,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 167.2
     y: 73
-    width: 78.656685
+    width: 118.656685
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -100827,7 +100826,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 195
-    width: 121.94025
+    width: 161.94025
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -100839,6 +100838,7 @@ MonoBehaviour:
   - {fileID: 1818493464}
   - {fileID: 1818493436}
   - {fileID: 1818493445}
+  - {fileID: 1818493454}
   suppressAllAutoSelections: 0
 --- !u!114 &1818493444
 MonoBehaviour:
@@ -100869,18 +100869,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 10
   indentLevel: 0
-  storyText: I know <i>I</i> can. I just need <i> you </i> to be there to help me.
+  storyText: 'We need to hurry. I feel like... that thing is feeding off of me. '
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 218c9446b6cc8634eab3265c6176456f, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493446
 MonoBehaviour:
@@ -100913,7 +100913,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 132
-    width: 72.68654
+    width: 112.68654
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -100982,12 +100982,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
-  storyText: "W-Well, stage crew trains you to run around on shaky catwalks for light
-    management, it\u2019s not that special\u2026 \r\n"
+  storyText: I know I can. I just need you to be there to help me.
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 5c6f9bd77d822c74f9f2e2ecb07322a3, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 218c9446b6cc8634eab3265c6176456f, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -101010,10 +101009,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 47
   indentLevel: 0
-  storyText: What do we do?
+  storyText: Okay...we need to turn on the lights, lights will make it go away.
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -101021,7 +101020,7 @@ MonoBehaviour:
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493452
 MonoBehaviour:
@@ -101037,9 +101036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 346.90146
-    y: 78.97015
-    width: 121.94025
+    x: 340.93134
+    y: 68.522385
+    width: 161.94025
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101049,15 +101048,14 @@ MonoBehaviour:
   eventHandler: {fileID: 1818493469}
   commandList:
   - {fileID: 1818493468}
-  - {fileID: 1818493451}
-  - {fileID: 1818493467}
+  - {fileID: 1818493455}
   - {fileID: 1818493466}
+  - {fileID: 1818493467}
   - {fileID: 1818493462}
   - {fileID: 1818493458}
   - {fileID: 1818493457}
+  - {fileID: 1818493451}
   - {fileID: 1818493456}
-  - {fileID: 1818493455}
-  - {fileID: 1818493454}
   - {fileID: 1818493453}
   suppressAllAutoSelections: 0
 --- !u!114 &1818493453
@@ -101099,20 +101097,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 40
+  itemId: 50
   indentLevel: 0
-  storyText: Just follow my lead for once, okay?!
+  storyText: "Like years of built up angst all trapped in an old middle school.\r"
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 0ab12447c2a7ab049b1cabc3125af9c1, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493455
 MonoBehaviour:
@@ -101126,15 +101124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 39
+  itemId: 49
   indentLevel: 0
-  storyText: 'With that thing chasing us?!
-
-'
+  storyText: "Please don\u2019t let me get too close to those things. \r"
   description: 
-  character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 38604dd1919b14029ac7f14081e2d788, type: 3}
+  character: {fileID: 1565225454}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -101157,7 +101153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 38
   indentLevel: 0
-  storyText: Wait! The floodlights! I can get up there and light them up manually!
+  storyText: I can get up there and light them up manually.
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
@@ -101398,19 +101394,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 34
   indentLevel: 0
-  storyText: "H-I don\u2019t know! Maybe\u2026 no, that wouldn\u2019t work, ergh\u2026
-    \r\n"
+  storyText: Oh no...
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 4b7b1778e23ae48b0a935ddbfed97542, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493467
 MonoBehaviour:
@@ -101454,10 +101449,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 46
   indentLevel: 0
-  storyText: THEY MESS WITH THE SHADOWS!?!
+  storyText: "That thing...it DESTROYS shadows\r"
   description: 
-  character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  character: {fileID: 19641851}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1

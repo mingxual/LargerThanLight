@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -230,6 +230,8 @@ MonoBehaviour:
   m_SCLight: {fileID: 1615533710}
   m_MoveSpeed: 5
   m_ForwardDirection: {x: -1, y: 0, z: 0}
+  m_CheckIsBlockedAtFeet: 1
+  m_RaycastMovementLength: 1
 --- !u!1 &28299629
 GameObject:
   m_ObjectHideFlags: 0
@@ -50963,7 +50965,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh176282
+  m_Name: pb_Mesh125092
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52449,7 +52451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1565225457}
+  selectedFlowchart: {fileID: 783278400}
 --- !u!4 &394600864
 Transform:
   m_ObjectHideFlags: 1
@@ -86274,13 +86276,6 @@ GameObject:
   - component: {fileID: 783278405}
   - component: {fileID: 783278404}
   - component: {fileID: 783278418}
-  - component: {fileID: 783278417}
-  - component: {fileID: 783278416}
-  - component: {fileID: 783278415}
-  - component: {fileID: 783278414}
-  - component: {fileID: 783278413}
-  - component: {fileID: 783278412}
-  - component: {fileID: 783278411}
   - component: {fileID: 783278410}
   - component: {fileID: 783278409}
   - component: {fileID: 783278408}
@@ -86289,14 +86284,14 @@ GameObject:
   - component: {fileID: 783278424}
   - component: {fileID: 783278423}
   - component: {fileID: 783278422}
-  - component: {fileID: 783278421}
-  - component: {fileID: 783278420}
-  - component: {fileID: 783278426}
-  - component: {fileID: 783278425}
   - component: {fileID: 783278429}
   - component: {fileID: 783278428}
   - component: {fileID: 783278427}
   - component: {fileID: 783278430}
+  - component: {fileID: 783278414}
+  - component: {fileID: 783278413}
+  - component: {fileID: 783278412}
+  - component: {fileID: 783278411}
   m_Layer: 0
   m_Name: GymFlowchart
   m_TagString: Untagged
@@ -86320,7 +86315,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 109.78021
+    width: 109.34065
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -86339,21 +86334,14 @@ MonoBehaviour:
   - {fileID: 783278423}
   - {fileID: 783278418}
   - {fileID: 783278424}
-  - {fileID: 783278417}
-  - {fileID: 783278420}
-  - {fileID: 783278426}
-  - {fileID: 783278416}
-  - {fileID: 783278425}
-  - {fileID: 783278415}
-  - {fileID: 783278421}
   - {fileID: 783278414}
-  - {fileID: 783278422}
-  - {fileID: 783278413}
   - {fileID: 783278430}
   - {fileID: 783278410}
-  - {fileID: 783278412}
+  - {fileID: 783278422}
+  - {fileID: 783278413}
   - {fileID: 783278409}
   - {fileID: 783278411}
+  - {fileID: 783278412}
   - {fileID: 783278408}
   - {fileID: 783278407}
   - {fileID: 783278419}
@@ -86374,7 +86362,7 @@ MonoBehaviour:
   scrollPos: {x: 11.670322, y: 23.835148}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 400
+  blockViewHeight: 607
   zoom: 0.9100001
   scrollViewRect:
     serializedVersion: 2
@@ -86385,7 +86373,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 783278399}
   selectedCommands:
-  - {fileID: 783278418}
+  - {fileID: 783278407}
   variables: []
   description: 
   stepPause: 0
@@ -86467,11 +86455,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   indentLevel: 0
-  storyText: Mom and Dad were really hard on you, huh?
+  storyText: "But you can\u2019t do something like this again."
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: ab1619371b8e4b44b88767b1fe8955d9, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -86494,7 +86482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: I don't know, but there's gotta be a way out through here... somehow.
+  storyText: Whatever, we're almost out. Lets go!!
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
@@ -86626,34 +86614,32 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &783278411
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783278398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 12
+  itemId: 32
   indentLevel: 0
-  storyText: Your shoe's were too big to fill then and they sure as hell are now!
-  description: 
-  character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 6821f2090ab635846a1957332e676d9b, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: b6bb08dcc90757b4897b71ebffebb804, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  _animator:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 1012612278}
+  _parameterName:
+    stringRef: {fileID: 0}
+    stringVal: anger
+  value:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  animatorOLD: {fileID: 0}
+  parameterNameOLD: 
 --- !u!114 &783278412
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86663,14 +86649,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 11
+  itemId: 31
   indentLevel: 0
-  storyText: 'Meanwhile I''M stuck being the ''problem child'', no matter how hard
-    I try. '
+  storyText: "Even though I don\u2019t act like it, I need you to be there for me\u2026
+    but you left me alone! \r\n"
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 6821f2090ab635846a1957332e676d9b, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: dc02679b60bd07842a22a5e8e45f3942, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -86681,7 +86667,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &783278413
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86691,14 +86677,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 10
+  itemId: 30
   indentLevel: 0
-  storyText: Yeah? Must feel that way, considering you find it so easy to forget
-    the past when you have it so cushy now.
+  storyText: "You\u2019re my big brother! "
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: fe03f90c9abe03648a47c85d44a543f8, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -86709,7 +86694,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &783278414
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86719,95 +86704,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 9
+  itemId: 29
   indentLevel: 0
-  storyText: That stuff was AGES ago.
-  description: 
-  character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: d0398e2dfda4dfe4e827ad7ac5a053d5, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &783278415
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 8
-  indentLevel: 0
-  storyText: or maybe even just NOT snickering at me with all the other kids at school.
+  storyText: "Lux, all I ever wanted from you is to have my back like you used to
+    when we were kids! \r"
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 7fa0bcd310f3bb24b962264f4921599d, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &783278416
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 7
-  indentLevel: 0
-  storyText: 'I don''t know, dipshit. Maybe you could start by even ONCE standing
-    up for me, '
-  description: 
-  character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 7b226e23b17d5c04a96229edc6e4550b, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &783278417
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 6
-  indentLevel: 0
-  storyText: What? No! But what did I ever do that I need to apologize for?
-  description: 
-  character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: ed4feead3377478449c5df54002fae9e, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -86830,12 +86734,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: THAT's what you're sorry for? You're not even apologizing, you're just
-    feeling sorry FOR me?
+  storyText: What?! After all this, how can you still say that?!
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 50e04568c4880dd4cbeb00a89199d978, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -86863,56 +86766,6 @@ MonoBehaviour:
     stringVal: GymTechTest
   loadingImage: {fileID: 0}
   sceneNameOLD: 
---- !u!114 &783278420
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 22
-  indentLevel: 0
-  _animator:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 1012612278}
-  _parameterName:
-    stringRef: {fileID: 0}
-    stringVal: anger
-  value:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  animatorOLD: {fileID: 0}
-  parameterNameOLD: 
---- !u!114 &783278421
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 21
-  indentLevel: 0
-  _animator:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 1012612278}
-  _parameterName:
-    stringRef: {fileID: 0}
-    stringVal: anger
-  value:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  animatorOLD: {fileID: 0}
-  parameterNameOLD: 
 --- !u!114 &783278422
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -86988,56 +86841,6 @@ MonoBehaviour:
     booleanVal: 0
   animatorOLD: {fileID: 0}
   parameterNameOLD: 
---- !u!114 &783278425
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 24
-  indentLevel: 0
-  _animator:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 1012612278}
-  _parameterName:
-    stringRef: {fileID: 0}
-    stringVal: anger
-  value:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  animatorOLD: {fileID: 0}
-  parameterNameOLD: 
---- !u!114 &783278426
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 23
-  indentLevel: 0
-  _animator:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 1012612278}
-  _parameterName:
-    stringRef: {fileID: 0}
-    stringVal: anger
-  value:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  animatorOLD: {fileID: 0}
-  parameterNameOLD: 
 --- !u!114 &783278427
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -87070,11 +86873,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 26
   indentLevel: 0
-  storyText: Uhh sorry for what?
+  storyText: Ok...
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: f4615dae59228b24fb86f74db1e1b8e3, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -87097,11 +86900,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 25
   indentLevel: 0
-  storyText: 'Listen... I... I''m sorry. '
+  storyText: Listen... when we get out of here, I promse to have your back..
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 8fb829a64f3b75f479edf47ffff07740, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -91045,6 +90848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cd4ff732cc45b4295f6605f7e95b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  se: {fileID: 0}
   mlightFlickScript: {fileID: 0}
   stallTimer: 1
   moveSpeed: 1.5
@@ -96522,7 +96326,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh176358
+  m_Name: pb_Mesh125174
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -99159,6 +98963,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   m_ShowObjectRaycasts: 0
+  overlapContactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!4 &1528349536
 Transform:
   m_ObjectHideFlags: 0
@@ -99774,7 +99592,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 112.10525
+    width: 109.21051
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
