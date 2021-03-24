@@ -17544,9 +17544,6 @@ GameObject:
   - component: {fileID: 1046351301}
   - component: {fileID: 1046351300}
   - component: {fileID: 1046351299}
-  - component: {fileID: 1046351298}
-  - component: {fileID: 1046351295}
-  - component: {fileID: 1046351294}
   - component: {fileID: 1046351292}
   - component: {fileID: 1046351305}
   - component: {fileID: 1046351304}
@@ -17617,6 +17614,16 @@ GameObject:
   - component: {fileID: 1046351342}
   - component: {fileID: 1046351371}
   - component: {fileID: 1046351372}
+  - component: {fileID: 1046351377}
+  - component: {fileID: 1046351376}
+  - component: {fileID: 1046351375}
+  - component: {fileID: 1046351374}
+  - component: {fileID: 1046351373}
+  - component: {fileID: 1046351350}
+  - component: {fileID: 1046351331}
+  - component: {fileID: 1046351298}
+  - component: {fileID: 1046351295}
+  - component: {fileID: 1046351294}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -17650,7 +17657,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1046351293}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1046351377}
   variables: []
   description: 
   stepPause: 0
@@ -17676,19 +17684,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 9
   indentLevel: 0
-  storyText: That... could work. I'll head over and raise the curtain, maybe there's
-    another way backstage we can't see from this angle.
+  storyText: 'That was ages ago, but yea... I guess. '
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 594d3f053c9bc5b4e9362a3b392afc3e, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351293
 MonoBehaviour:
@@ -17706,7 +17713,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -136.58241
     y: -48.714287
-    width: 60
+    width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17718,15 +17725,16 @@ MonoBehaviour:
   - {fileID: 1046351307}
   - {fileID: 1046351306}
   - {fileID: 1046351372}
-  - {fileID: 1046351301}
   - {fileID: 1046351300}
+  - {fileID: 1046351376}
   - {fileID: 1046351296}
   - {fileID: 1046351348}
   - {fileID: 1046351299}
-  - {fileID: 1046351298}
-  - {fileID: 1046351295}
-  - {fileID: 1046351294}
+  - {fileID: 1046351374}
+  - {fileID: 1046351373}
+  - {fileID: 1046351375}
   - {fileID: 1046351292}
+  - {fileID: 1046351377}
   - {fileID: 1046351305}
   - {fileID: 1046351304}
   - {fileID: 1046351308}
@@ -17742,6 +17750,12 @@ MonoBehaviour:
   - {fileID: 1046351311}
   - {fileID: 1046351314}
   - {fileID: 1046351313}
+  - {fileID: 1046351301}
+  - {fileID: 1046351298}
+  - {fileID: 1046351350}
+  - {fileID: 1046351295}
+  - {fileID: 1046351331}
+  - {fileID: 1046351294}
   suppressAllAutoSelections: 0
 --- !u!114 &1046351294
 MonoBehaviour:
@@ -17752,24 +17766,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046351290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 8
+  itemId: 96
   indentLevel: 0
-  storyText: You could probably get across as a shadow!
-  description: 
-  character: {fileID: 1359792205}
-  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 0b7b4f7f4bee147bbbaf48082d5d2248, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 0
-  waitForVO: 1
-  setSayDialog: {fileID: 0}
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!114 &1046351295
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -17779,24 +17784,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046351290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 7
+  itemId: 95
   indentLevel: 0
-  storyText: Oh wait, let's try this!
-  description: 
-  character: {fileID: 1359792205}
-  portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 8de1d6b099b3c445f8444af113ad6343, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 0
-  waitForVO: 1
-  setSayDialog: {fileID: 0}
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!114 &1046351296
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -17838,24 +17834,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046351290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 4
+  itemId: 94
   indentLevel: 0
-  storyText: Alright, then we'll just cut across backstage then.
-  description: 
-  character: {fileID: 1327307198}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: cb5d2c5e7a7abe74ead76fe641fd689a, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 0
-  waitForVO: 1
-  setSayDialog: {fileID: 0}
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!114 &1046351299
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -17897,19 +17884,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 2
   indentLevel: 0
-  storyText: Focus Lux, Let's just head across the stage and get to the backdoor
-    exit already-
+  storyText: "There\u2019s an exit backstage.\r\n"
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: c824280093542c041b44aced5a0af8df, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351301
 MonoBehaviour:
@@ -17925,19 +17911,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: Ah, looks just like how I remembered it, albeit with a few more layers
-    of dust than usual...
+  storyText: "We were so close\u2026 what happened?\r\n"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: a416de08cbcab4eee969f0ae594b7c89, type: 3}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351302
 MonoBehaviour:
@@ -18112,7 +18097,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 32.630962
     y: 6.063413
-    width: 72
+    width: 112
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18214,7 +18199,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 3
+    floatVal: 15
   durationOLD: 0
 --- !u!114 &1046351314
 MonoBehaviour:
@@ -18487,7 +18472,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 79.17131
-    width: 67
+    width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18587,7 +18572,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 101.75125
-    width: 60
+    width: 90
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18614,6 +18599,33 @@ MonoBehaviour:
   parentBlock: {fileID: 1046351329}
   suppressBlockAutoSelect: 0
   message: GetExit
+--- !u!114 &1046351331
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 93
+  indentLevel: 0
+  storyText: "It sucked.\r"
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &1046351332
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -19082,6 +19094,33 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1046351350
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 92
+  indentLevel: 0
+  storyText: "The farther away you got, the smaller everything around me became.\r"
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &1046351351
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -19513,7 +19552,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -124.77557
     y: 196.72177
-    width: 60
+    width: 73
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19628,6 +19667,147 @@ MonoBehaviour:
   targetObject: {fileID: 512948503}
   methodName: DisableCharacterControl
   delay: 0
+--- !u!114 &1046351373
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 91
+  indentLevel: 0
+  storyText: "I\u2019ll guide you across...\n\n"
+  description: 
+  character: {fileID: 1359792205}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351374
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 89
+  indentLevel: 0
+  storyText: 'Hm, I could probably get across in shadow form.
+
+'
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351375
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 88
+  indentLevel: 0
+  storyText: 'Like when we were kids...!
+
+'
+  description: 
+  character: {fileID: 1359792205}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351376
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 87
+  indentLevel: 0
+  storyText: 'Seems easy enough...
+
+'
+  description: 
+  character: {fileID: 1359792205}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351377
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 86
+  indentLevel: 0
+  storyText: ' I''ll raise the curtains so we can see the exit. '
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &1050958079
 GameObject:
   m_ObjectHideFlags: 0
@@ -28707,7 +28887,7 @@ PrefabInstance:
     - target: {fileID: 8973908589626477677, guid: a98fa604763182141971ef23232e794c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28
+      value: -27.999939
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a98fa604763182141971ef23232e794c, type: 3}
