@@ -14,5 +14,6 @@ public class NextSeg : MonoBehaviour
     void StartNextSeg()
     {
         EventsManager.instance.InvokeEvent(mEventKey);
+        Destroy(gameObject);
     }
 }
