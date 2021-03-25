@@ -55,4 +55,9 @@ public class UIController : MonoBehaviour
     {
         frame.gameObject.SetActive(false);
     }
+
+    public void SwitchCamera(Camera next)
+    {
+        cam = next;
+    }
 }
