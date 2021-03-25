@@ -8,6 +8,11 @@ public class MoveCredits : MonoBehaviour
 {
     public void EndScene()
     {
-        SceneManager.LoadScene("1STARTHERE");
+        GameObject existAudioManager = GameObject.Find("AudioManager");
+        if(existAudioManager != null)
+        {
+            Destroy(existAudioManager);
+        }
+            SceneManager.LoadScene("1STARTHERE");
     }
 }
