@@ -7,6 +7,7 @@ public class MoveToOrigin : MonoBehaviour
     public Vector3 target;
     public float speed = 1.0f;
     public SkinnedMeshRenderer thePlayerMesh;
+    public SimpleController m_SimpleController;
     public GameObject respawnAnimation;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class MoveToOrigin : MonoBehaviour
             target *= -1.0f;
             Instantiate(respawnAnimation, transform.position, transform.rotation);
             thePlayerMesh.enabled = true;
+            m_SimpleController.enabled = true;
             Destroy(gameObject);
         }
 
