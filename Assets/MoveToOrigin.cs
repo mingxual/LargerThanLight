@@ -28,7 +28,7 @@ public class MoveToOrigin : MonoBehaviour
         {
             // Swap the position of the cylinder.
             target *= -1.0f;
-            Instantiate(respawnAnimation, transform.position, transform.rotation);
+            Destroy(Instantiate(respawnAnimation, transform.position, transform.rotation), 2.0f);
             thePlayerMesh.enabled = true;
             m_SimpleController.enabled = true;
             Destroy(gameObject);

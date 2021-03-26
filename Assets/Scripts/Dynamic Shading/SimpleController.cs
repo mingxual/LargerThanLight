@@ -323,7 +323,7 @@ public class SimpleController : MonoBehaviour
         m_SkinnedMeshRenderer.enabled = false; // Turn off mesh renderer
         ResetSkia(); // Reset Skia, moving her to the new spawn point
         m_IsDead = true; // Set dead status
-        Instantiate(m_DeathParticleEffect, oldPosition, transform.rotation); // Instantiate the instant death effect
+        Destroy(Instantiate(m_DeathParticleEffect, oldPosition, transform.rotation), 1.0f); // Instantiate the instant death effect
         GameObject dragPart = Instantiate(m_DraggingParticleEffect, oldPosition, transform.rotation); // Instantiate the dragging particle effect that will move towards spawn
         MoveToOrigin moveToOrigin = dragPart.GetComponent<MoveToOrigin>();
         moveToOrigin.target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
