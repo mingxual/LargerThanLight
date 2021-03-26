@@ -22,7 +22,7 @@ public class ShadowEntity : SCObstacle
     private bool luxTrigger;
     private bool luxFlickering;
 
-    private void FireProjectiles()
+    public void FireProjectiles()
     {
         GameObject projGO;
         for(int i = 0; i < 3; i++)
@@ -30,6 +30,7 @@ public class ShadowEntity : SCObstacle
             projGO = Instantiate(projPrefab, projPrefab.transform.position, Quaternion.identity);
             projGO.SetActive(true);
             projGO.transform.Rotate(0, 0, 15 * (i - 1));
+            projGO.GetComponent<ShadowEntityProjectile>().se = this;
         }
 
         fireCooldownTimer = fireCooldown;
@@ -40,7 +41,8 @@ public class ShadowEntity : SCObstacle
         if (!projActive) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            FireProjectiles();
+            if(Input.GetKey(KeyCode.LeftShift))
+                FireProjectiles();
 
         if (fireCooldownTimer > 0)
         {
@@ -112,9 +114,19 @@ public class ShadowEntity : SCObstacle
     {
         foreach(Transform t in targetTransforms)
         {
-            if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition()) < 49)
+            if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition3D()) < 36)
                 return true;
         }
         return false;
+    }
+
+    private bool initialDestroy = false;
+
+    public void DestroyedProjectile()
+    {
+        if (initialDestroy) return;
+
+        initialDestroy = true;
+        EventsManager.instance.InvokeEvent("initialDestroy");
     }
 }

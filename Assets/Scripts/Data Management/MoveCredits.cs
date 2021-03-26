@@ -6,21 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MoveCredits : MonoBehaviour
 {
-    public float endHere;
-    // Start is called before the first frame update
-    void Start()
+    public void EndScene()
     {
-        this.transform.localPosition = new Vector3(0, -600, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        this.transform.localPosition += new Vector3(0, 150 * Time.deltaTime, 0);
-        if (this.transform.position.y >= endHere)
+        GameObject existAudioManager = GameObject.Find("AudioManager");
+        if(existAudioManager != null)
         {
-            SceneManager.LoadScene("1STARTHERE");
+            Destroy(existAudioManager);
         }
-
+            SceneManager.LoadScene("1STARTHERE");
     }
 }

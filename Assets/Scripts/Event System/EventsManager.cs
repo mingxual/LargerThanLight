@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EventsManager : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class EventsManager : MonoBehaviour
     public List<UnityEvent> m_EventsMapValues;
 
     private Dictionary<string, UnityEvent> m_EventsMap;
+
+    //Data for dashboard
+    int subLevel = 1;
+    int sceneIndex = 0;
+    float lastRecord = 0;
 
     private void Awake()
     {
@@ -49,7 +56,37 @@ public class EventsManager : MonoBehaviour
     {
         if(m_EventsMap.ContainsKey(key))
         {
+            if (sceneIndex != SceneManager.GetActiveScene().buildIndex)
+            {
+                subLevel = 1;
+                lastRecord = 0;
+                sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            }
+            
+            Debug.Log("Event Invoke:" + key);
             m_EventsMap[key].Invoke();
+
+            if (key == "SkiaShadowTouch")
+            {
+                return;
+            }
+
+            float totalTime = Time.timeSinceLevelLoad;
+            float timeSpent = totalTime - lastRecord;
+            
+            Debug.Log(SceneManager.GetActiveScene().name + ":" + "subLevel:" + subLevel + " time:" + timeSpent.ToString() + " totalTime:" + Time.timeSinceLevelLoad);
+
+            AnalyticsResult ar = Analytics.CustomEvent(SceneManager.GetActiveScene().name, new Dictionary<string, object> {
+                {"subLevel",subLevel},
+                {"Time",timeSpent}
+            });
+            
+
+            //Debug.Log("Analytics Result:"+ar.ToString());
+            
+            subLevel++;
+            lastRecord = totalTime;
+            
             // m_EventsMap.Remove(key);
         }
         else

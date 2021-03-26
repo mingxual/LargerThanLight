@@ -221,4 +221,25 @@ public class AudioManager : MonoBehaviour
             layer2.source.volume = 0f;
         }
     }
+
+    public void MusicVolumeChange(float newVolume)
+    {
+        foreach (Music m in musics)
+        {
+            m.source.volume = newVolume;
+        }
+    }
+
+    public void SoundVolumeChange(float volumeFactor)
+    {
+        foreach (Sound s in sounds)
+        {
+            float temp = s.volume * (volumeFactor * 2);
+            if(temp > 1)
+            {
+                temp = 1;
+            }
+            s.source.volume = temp;
+        }
+    }
 }

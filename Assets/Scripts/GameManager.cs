@@ -6,30 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //Obstacle and its mesh/vertices
-    /*public static List<GameObject> allObstacles;
-    public static List<Mesh> allMeshes;
-    public static List<List<Vector3>> meshVertices;*/
-
-    //Pool of N game objects
-    //public int poolCount = 10;
-    /*public static List<GameObject> gameObjectPool;
-    public static List<EdgeCollider2D> edgeCollider2DPool; //Keep a reference to pooled game object's edge collider*/
     public static bool hasResettedColliderPool = false;
-
-    //GameObject gameObjectParent;
-
-    //temp stuff for playable
-    //TODO: clean this up; add proper organization
-    /*public GameObject[] m_SubLevel1Obstacles;
-    public GameObject[] m_SubLevel2Obstacles;*/
-    //public GameObject[] m_SubLevel3Obstacles;
-    //public GameObject originWallSubLevel1;
-    /*public GameObject m_SubLevel1Object;
-    public Wall3D m_SubLevel1Wall3D;
-    public GameObject m_SubLevel2Object;
-    public Transform SkiaSpawnSubLevel2;
-    public static List<Obstacle> m_Obstacles;*/
 
     LevelManager m_LevelManager;
 
@@ -39,11 +16,13 @@ public class GameManager : MonoBehaviour
     public GameObject lux;
     public GameObject skia;
 
-    //Matrices Control
+    public GameObject OptionsUI;
+
     public DataOutput MatricesManager;
 
     private void Awake()
     {
+        // Find LevelManager from scene
         m_LevelManager = FindObjectOfType<LevelManager>();
     }
 
@@ -53,30 +32,18 @@ public class GameManager : MonoBehaviour
         m_LevelManager.InitializeSubLevels();
     }
 
+    
     private void Update()
-    {
-        // For testing
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
+    { 
         //Debug
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftControl))
             {
-                //if(MatricesManager)
-                //    MatricesManager.Restart();
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 skia.SendMessage("SkiaDeath");
             }      
         }
 
-        /*if (Input.GetKeyDown(KeyCode.N))
-        {
-            SpawnSkiaNextSegment();
-        }*/
     }
 
     // Update is called once per frame
@@ -118,10 +85,5 @@ public class GameManager : MonoBehaviour
     public void SwitchToLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void DisableGameObjectPool()
-    {
-        //gameObjectParent.SetActive(false);
     }
 }

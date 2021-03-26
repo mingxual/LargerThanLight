@@ -27,6 +27,7 @@ public class SCManager : MonoBehaviour
     public LayerMask m_Wall2DLayerMask;
     public LayerMask m_ObstacleLayerMask;
     public bool m_ShowObjectRaycasts = false;
+    public ContactFilter2D overlapContactFilter;
 
     //Computing points at runtime
     List<Vector2> m_CurrProjectedPoints2D;
@@ -71,7 +72,7 @@ public class SCManager : MonoBehaviour
     {
         worldPositions.Clear();
         if(skia.gameObject.activeSelf)
-            worldPositions.Add(skia.GetWorldPosition());
+            worldPositions.Add(skia.GetWorldPosition3D());
         foreach(ShadowEntityProjectile shadowProj in shadowProjs)
         {
             worldPositions.Add(shadowProj.GetWorldPosition());
@@ -248,6 +249,7 @@ public class SCManager : MonoBehaviour
         //print(lightCasts);
     }
 
+    Collider2D[] spCols = new Collider2D[10];
     public bool RaycastSpawnpoint(out Vector2 position)
     {
         Transform spawnpoint = LevelManager.Instance.GetSkiaSpawnpoint();
@@ -298,7 +300,7 @@ public class SCManager : MonoBehaviour
         {
             position = points[0];
             //print("spawnpoint in light at " + position);
-            return !Physics2D.OverlapPoint(position);
+            return !(Physics2D.OverlapPoint(position, overlapContactFilter, spCols) > 0);
         }
         else
         {
@@ -309,7 +311,7 @@ public class SCManager : MonoBehaviour
             }
             position = sum / points.Count;
             //print("spawnpoint in " + points.Count + " lights. center at " + position);
-            return !Physics2D.OverlapPoint(position);
+            return !(Physics2D.OverlapPoint(position, overlapContactFilter, spCols) > 0);
         }
     }
 

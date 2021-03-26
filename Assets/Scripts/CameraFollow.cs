@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 skiaPos = skia.GetWorldPosition();
+        Vector3 skiaPos = skia.GetWorldPosition3D();
         if(transform.position.x < skiaPos.x)
         {
             if (skiaPos.x - transform.position.x < deadZone) return;

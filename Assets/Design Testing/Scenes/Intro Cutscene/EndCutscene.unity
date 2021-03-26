@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -175,7 +175,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &86466437
 GameObject:
@@ -527,7 +527,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306085127
 GameObject:
@@ -1770,7 +1770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602333911
 GameObject:
@@ -1850,6 +1850,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602333911}
   m_CullTransparentMesh: 0
+--- !u!1 &2130788000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2130788002}
+  - component: {fileID: 2130788001}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2130788001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130788000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b6fd56f845d5f4f87583a5f5180cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDebugging: 1
+  m_AllSegments: []
+  skia: {fileID: 0}
+  lux: {fileID: 0}
+--- !u!4 &2130788002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130788000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -198.07257, y: 5.3644023, z: -40.933174}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137610500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,17 +1914,16 @@ GameObject:
   - component: {fileID: 2137610504}
   - component: {fileID: 2137610514}
   - component: {fileID: 2137610513}
-  - component: {fileID: 2137610512}
   - component: {fileID: 2137610511}
-  - component: {fileID: 2137610510}
   - component: {fileID: 2137610509}
-  - component: {fileID: 2137610508}
   - component: {fileID: 2137610507}
   - component: {fileID: 2137610506}
   - component: {fileID: 2137610519}
-  - component: {fileID: 2137610515}
   - component: {fileID: 2137610518}
   - component: {fileID: 2137610522}
+  - component: {fileID: 2137610512}
+  - component: {fileID: 2137610510}
+  - component: {fileID: 2137610508}
   m_Layer: 0
   m_Name: SlideshowCutsceneManager
   m_TagString: Untagged
@@ -1924,7 +1970,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2137610503
 MonoBehaviour:
@@ -1939,21 +1985,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 171.09488, y: 7.3968906}
+  scrollPos: {x: -25.618324, y: -67.92628}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 0.58000016
+  blockViewHeight: 526
+  zoom: 0.6400001
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 2137610505}
-  selectedCommands:
-  - {fileID: 2137610511}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -1988,7 +2032,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2008,7 +2052,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 160.98323
     y: 280.44186
-    width: 110.68964
+    width: 107.81249
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2021,14 +2065,13 @@ MonoBehaviour:
   - {fileID: 2137610516}
   - {fileID: 2137610519}
   - {fileID: 2137610504}
-  - {fileID: 2137610514}
-  - {fileID: 2137610513}
-  - {fileID: 2137610515}
   - {fileID: 2137610512}
-  - {fileID: 2137610511}
+  - {fileID: 2137610513}
+  - {fileID: 2137610514}
   - {fileID: 2137610510}
-  - {fileID: 2137610509}
   - {fileID: 2137610508}
+  - {fileID: 2137610509}
+  - {fileID: 2137610511}
   - {fileID: 2137610507}
   - {fileID: 2137610506}
   - {fileID: 2137610522}
@@ -2056,7 +2099,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2084,7 +2127,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2100,19 +2143,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 11
+  itemId: 21
   indentLevel: 0
-  storyText: "Y\u2019know, if you ever wanna try acting, I can put in a good word
-    for you\u2026 \r\n"
+  storyText: 'What was that?
+
+'
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: c866651c408384f459ff319cf8d27efb, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2130,7 +2174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 10
   indentLevel: 0
-  storyText: "Don\u2019t press your luck Tungsten Boy, let\u2019s leave already.\r\n"
+  storyText: "Don\u2019t press your luck Tungsten Boy. Just let me know when you\u2019re
+    about to crack under pressure.\r\n"
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
@@ -2139,7 +2184,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2155,19 +2200,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 9
+  itemId: 20
   indentLevel: 0
-  storyText: Like not tagging an abandoned school and unleashing a shadow beast on
-    us?
+  storyText: I care about you too...
   description: 
-  character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: e5c8c2fdbe5034aaaa0b54b2070aebce, type: 3}
+  character: {fileID: 59423936}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2185,18 +2229,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
-  storyText: "And\u2026 I should probably work on some things too\u2026\r\n"
+  storyText: "Fair enough. Maybe\u2026 we could try hanging out again? Wanna try
+    acting with me?\r\n"
   description: 
-  character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 945d6f67b8fbb694195712b7cc177078, type: 3}
+  character: {fileID: 128876999}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610512
 MonoBehaviour:
@@ -2210,18 +2255,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 7
+  itemId: 19
   indentLevel: 0
-  storyText: "Y-Yes! Of course!\r"
+  storyText: "Just promise me we won\u2019t let things pile up like that again. I\u2019ll
+    listen.\r\n"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 609cbe558eaee48d8931287186db9115, type: 3}
+  portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2239,17 +2285,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
-  storyText: "Hey, it\u2019s fine, okay? It's not really your fault. It's not really
-    mine either, it's just... "
+  storyText: 'Why, afraid of what I might accidentally unleash? '
   description: 
   character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: fdd5f13893118a84dbb05f81ea607f70, type: 3}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2267,45 +2312,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: "Skia, I\u2019m\u2026 sorry! God, how did I not realize how much I steal
-    your thunder, even now? I\u2026 I know it doesn\u2019t forgive anything, but
-    I never meant to hurt you\u2026"
+  storyText: "Um, no shit. But ALSO because I care about you, dummy.\r"
   description: 
   character: {fileID: 128876999}
-  portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 298482cb446f7481196e374403c7ab5c, type: 3}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 0
-  waitForVO: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &2137610515
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137610500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 15
-  indentLevel: 0
-  storyText: 'Remember that I exist now and then, will ya? Don''t write me off anymore. '
-  description: 
-  character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: bfed54e2f0f7786478013903d2f76058, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2334,7 +2350,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2361,7 +2377,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
@@ -2404,7 +2420,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}

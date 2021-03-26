@@ -1,283 +1,286 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SimpleController : MonoBehaviour
 {
-    [SerializeField] private Transform skiaModel;
-    [SerializeField] private Animator anim;
+    #region Skia Components To Be Set Before Runtime
+    [SerializeField] private Transform m_SkiaModelTransform;
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private Camera m_CurrentGameCamera;
+    [SerializeField] private GameObject m_DeathParticleEffect;
+    [SerializeField] private GameObject m_DraggingParticleEffect;
+    #endregion
 
-    [SerializeField] private float moveSpeed = 10;
-    [SerializeField] private float jumpSpeed = 10;
-    [SerializeField] private float fallMultiplier = 3.5f;
-    [SerializeField] private float defaultMultiplier = 2f;
-    [SerializeField] private float rayboxDistance = 0.05f;
-    [SerializeField] private LayerMask mask;
-    public bool iDied;
+    #region Skia Components To Be Set At Beginning of Runtime
+    private SkinnedMeshRenderer m_SkinnedMeshRenderer;
+    private Rigidbody2D m_Rigidbody2D;
+    private BoxCollider2D m_BoxCollider2D;
+    private SkiaVignette m_SkiaVignette;
+    #endregion
 
-    LevelManager m_LevelManager;
+    #region Skia Inspector Variables To Be Set Before Runtime
+    [SerializeField] private float m_MoveSpeed = 10;
+    [SerializeField] private float m_JumpSpeed = 10;
+    [SerializeField] private float m_FallingStateGravityMultiplier = 3.5f;
+    [SerializeField] private float m_DefaultGravityMultiplier = 2f;
+    [SerializeField] private float m_RayboxDistance = 0.05f;
+    [SerializeField] private float m_AnimationGameObjectShiftUp;
+    [SerializeField] private float m_AnimationGameObjectShiftDown;
+    [SerializeField] private float m_OcclusionAngle;
+    [SerializeField] private float m_JumpGraceDelay;
+    [SerializeField] private LayerMask m_ObstacleLayerMask;
+    [SerializeField] private LayerMask m_Wall2DLayerMask;
+    [SerializeField] private ContactFilter2D m_GroundedContactFilter;
+    [SerializeField] private bool m_IsMovingWithShadow;
+    #endregion
 
-    private Rigidbody2D rb;    
-    private float movementDirection;
-    private bool skiaControlsActivated;
-    private bool jumpAction;
-    private bool grounded;
-    private Vector2 playerCenter;
-    private Vector2 playerSize;
-    private Vector2 rayboxSize;
-    private float squishDistance;
+    #region Skia State Variables Updated During Runtime 
+    /* Skia States */
+    private bool m_IsDead;
+    private bool m_HasJumped;
+    private bool m_IsGrounded;
+    private bool m_IsJumping;
+    private bool m_CanJump;
 
-    private BoxCollider2D collider;
-    private Vector2 colliderCenter;
-    private Vector2 colliderSize;
-    bool jumping;
+    /* Keep track if any key is pressed during each frame */
+    private bool m_KeysPressed;
+    #endregion
 
-    public Vector3 originalPosition;
-    private Quaternion originalRotation;
+    #region Skia Information To Be Set At The Beginning of Runtime
+    private LightController m_LuxReference;
+    private Vector2 m_PlayerCenter; // The "center" point of Skia
+    private Vector2 m_PlayerSize; 
+    private Vector2 m_BoxCollider2DCenter; // The "center" point of Skia's 2D box collider
+    private Vector2 m_BoxCollider2DSize;
+    private Vector3 m_LeftFacingDirection;
+    private Vector3 m_RightFacingDirection;
+    #endregion
 
-    private Vector3 leftFacingDirection;
-    private Vector3 rightFacingDirection;
-
-    //3D/2D state
-    bool isIn2D = true;
-    public LayerMask wall2DLayermask;
-    public LayerMask wall3DLayerMask;
-    public LayerMask obstacleLayerMask;
-    [SerializeField] Camera m_CurrCamera;
-    [SerializeField] float m_OcclusionAngle;
-    Vector3 m_WorldPosition3D;
-    Wall2D m_CurrWall2D;
-    Wall3D m_CurrWall3D;
-    Vector3 m_WorldTopRight;
-    Vector3 m_WorldTopLeft;
-    Vector3 m_WorldBottomRight;
-    Vector3 m_WorldBottomLeft;
-
-    //Move Skia with shadows
-    public bool moveWithShadow;
-    public Collider2D testCollider;
-    public float ratio;
+    #region Skia Information Updated During Runtime
+    private Vector3 m_SpawnPosition2D;
+    private Vector3 m_WorldPosition3D;
+    private float m_MovementDirection;
+    private Collider2D m_CurrentlyHitCollider;
     private GameObject m_LastGroundedGameObject;
+    private Wall2D m_CurrWall2D;
+    private float m_CurrentJumpGraceTimer;
+    private float m_ShadowDistanceRatio;
+    #endregion
 
-    public GameObject particleEffect;
+    #region Manager References
     GameManager m_GameManager;
-    LightController m_LuxReference;
+    #endregion
 
-    public ContactFilter2D groundedContactFilter;
+    #region Anything Debugging Related
+    public bool m_MichaelsDebuggingFlag;
+    #endregion
 
-    public bool michaelsdebuggingflag;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        // Get components
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_BoxCollider2D = GetComponent<BoxCollider2D>();
+        m_SkiaVignette = GetComponent<SkiaVignette>();
+        m_SkinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
 
-        playerCenter = GetComponent<BoxCollider2D>().offset;
-        playerSize = GetComponent<BoxCollider2D>().size;
-        rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
-        squishDistance = playerSize.x * 0.5f;
+        // Get managers
+        m_GameManager = FindObjectOfType<GameManager>();
+        if (m_GameManager)
+        {
+            // Get reference to Lux
+            if (m_GameManager.lux) m_LuxReference = m_GameManager.lux.GetComponent<LightController>();
+        }
 
-        leftFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, -skiaModel.localScale.z);
-        rightFacingDirection = new Vector3(skiaModel.localScale.x, skiaModel.localScale.y, skiaModel.localScale.z);
+        m_SkinnedMeshRenderer.updateWhenOffscreen = true; // Allow the AABB of its animated mesh to update in order to keep bounding it
 
-        collider = GetComponent<BoxCollider2D>();
-        colliderCenter = collider.offset;
-        colliderSize = collider.size;
-        jumping = false;
+        // Setup initial information about Skia
+        m_BoxCollider2DCenter = m_BoxCollider2D.offset;
+        m_BoxCollider2DSize = m_BoxCollider2D.size;
+        m_PlayerCenter = m_BoxCollider2D.offset;
+        m_BoxCollider2DSize = m_BoxCollider2D.size;
 
-        m_LevelManager = FindObjectOfType<LevelManager>();
-
-        skiaVignette = GetComponent<SkiaVignette>();
+        // Set jumping state
+        m_IsJumping = false;
     }
 
     void Start()
     {
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
-        m_GameManager = FindObjectOfType<GameManager>();
-        if(m_GameManager)
-        {
-            if (m_GameManager.lux) m_LuxReference = m_GameManager.lux.GetComponent<LightController>();
-        }
-        //mainCamera = Camera.main;
+        m_SpawnPosition2D = transform.position; // Set Skia's 2D spawn position
+
+        /* Set Skia's facing direction */
+        m_LeftFacingDirection = new Vector3(m_SkiaModelTransform.localScale.x, m_SkiaModelTransform.localScale.y, -m_SkiaModelTransform.localScale.z);
+        m_RightFacingDirection = new Vector3(m_SkiaModelTransform.localScale.x, m_SkiaModelTransform.localScale.y, m_SkiaModelTransform.localScale.z);
     }
 
     private void Update()
     {
-
-        // Find and set its position in 3d space (aka game view)
-        SetWorldPosition3D();
-        OccludeObjects();
-        //Debug.DrawRay(m_WorldPosition3D, Camera.main.transform.position - m_WorldPosition3D);
-
-        movementDirection = 0;
-        skiaControlsActivated = false;
-        if (Input.GetKey(KeyCode.A))
+        // Update time until player can jump again
+        if(!m_IsGrounded)
         {
-            movementDirection -= 1;
-            skiaControlsActivated = true;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            movementDirection += 1;
-            skiaControlsActivated = true;
-        }
-        if (Input.GetKeyDown(KeyCode.W) && grounded)
-        {
-            jumpAction = true;
+            if (m_CurrentJumpGraceTimer > 0)
+                m_CurrentJumpGraceTimer -= Time.deltaTime;
+            else
+                m_CanJump = false;
         }
 
-        //Inputs for switching inbetween 2D and 3D
-        if (Input.GetMouseButtonDown(0))
-        {
-            //Debug.Log("Left click pressed");
-            //SwitchRealm();
-        }
+        SetWorldPosition3D(); // Set Skia's position in the 3D world
+        OccludeObjects(); // Fade any obstacles in front of Skia
 
-        if (michaelsdebuggingflag)
+        //-----INPUT CONTROLS-----
+        m_MovementDirection = 0;
+        m_KeysPressed = false;
+        if (Input.GetKey(KeyCode.A)) // Move left
+        {
+            m_MovementDirection -= 1;
+            m_KeysPressed = true;
+        }
+        if (Input.GetKey(KeyCode.D)) // Move right
+        {
+            m_MovementDirection += 1;
+            m_KeysPressed = true;
+        }
+        if (Input.GetKeyDown(KeyCode.W) && m_CanJump)
+        {
+            m_HasJumped = true;
+        }
+        //--END OF INPUT CONTROLS--
+
+        //-----DEBUG CONTROLS-----
+        if (m_MichaelsDebuggingFlag)
         {
             if(Input.GetKeyDown(KeyCode.Z))
             {
                 ResetSkia();
             }
         }
-
-        //if (isIn2D)
-        //{
-        //    //Check if player is squished
-        //    bool isSquished = CheckIfSquished();
-        //    if (isSquished)
-        //    {
-        //        ResetPlayer();
-        //    }
-        //}
-
-        //CheckObjectBlocking();
+        //--END OF DEBUG CONTROLS--
     }
-
-    Collider2D[] cols = new Collider2D[10];
 
     private void FixedUpdate()
     {
-        SafeColliders(true);
+        // Displace Skia from any one-sided collisions, don't check if dead
+        CheckCollisions(false); 
 
-        if (jumpAction)
+        // Set Skia's states and variables after jumping
+        if (m_HasJumped)
         {
-            rb.velocity = Vector3.zero;
-            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            jumpAction = false;
-            grounded = false;
-            jumping = true;
-            anim.Play("Jump");           
+            m_Rigidbody2D.velocity = Vector3.zero; // Set Skia's velocity to 0
+            m_Rigidbody2D.AddForce(Vector2.up * m_JumpSpeed, ForceMode2D.Impulse); // Force added to Skia to make her jump
+
+            // Set jump/grounded states
+            m_HasJumped = false; 
+            m_CanJump = false;
+            m_IsGrounded = false;
+            m_IsJumping = true;
+
+            // Play Skia's jump animation
+            m_Animator.Play("Jump");
         }
         else
-        {
-            //Vector2 rayboxCenter = (Vector2)transform.position + playerCenter + Vector2.down * (playerSize.y + rayboxSize.y) * 0.5f;
-            //int count = Physics2D.OverlapBoxNonAlloc(rayboxCenter, rayboxSize, 0, cols, mask);
-            //grounded = false;
-            //for (int i = 0; i < count; i++)
-            //{
-            //    if (!cols[i].isTrigger)
-            //    {
-            //        grounded = true;
-            //        break;
-            //    }
-            //}
-            
-            grounded = collider.IsTouching(groundedContactFilter);
-        }
+        {        
+            m_IsGrounded = m_BoxCollider2D.IsTouching(m_GroundedContactFilter); // Get Skia's grounded status 
 
-        //SafeColliders();
-        //SafeTrackPosition();
-
-        //fit collider with anim
-        if (!grounded)
-        {
-            float displace = 0.035f;
-            float animDisplace = 0.03f;
-            if (rb.velocity.y > 0)
+            // Determine whether Skia can jump again 
+            if (m_IsGrounded && !m_IsJumping)
             {
-                collider.offset -= new Vector2(0, displace / 2);
-                anim.transform.position -= new Vector3(0, animDisplace, 0);
-                //collider.size += new Vector2(0.02f, -0.03f);
-                collider.size -= new Vector2(0.00f, displace);
-            }
-            else if (rb.velocity.y < 0 && jumping)
-            {
-                collider.offset += new Vector2(0, displace / 2);
-                anim.transform.position += new Vector3(0, animDisplace, 0);
-                collider.size += new Vector2(0, displace);
+                m_CanJump = true;
+                m_CurrentJumpGraceTimer = m_JumpGraceDelay; // Reset the grace timer until Skia can jump again
             }
         }
-        else
+
+        // Check if Skia is jumping
+        if (m_IsJumping)
         {
-            if (jumping)
+            Bounds bounds = m_SkinnedMeshRenderer.bounds; // Get AABB bounds for box bounding Skia's animated mesh
+
+            // Adjust Skia's collider based off on current bounds
+            m_BoxCollider2D.size = new Vector2(m_BoxCollider2D.size.x, bounds.size.y - 0.2f);
+            m_BoxCollider2D.offset = new Vector2(m_BoxCollider2D.offset.x, bounds.extents.y - 0.1f);
+
+            // Move animator's game object based on Y velocity
+            if (m_Rigidbody2D.velocity.y > 0)
+                m_Animator.transform.position -= Vector3.up * m_AnimationGameObjectShiftUp;
+            else if (m_Rigidbody2D.velocity.y < 0)
+                m_Animator.transform.position += Vector3.up * m_AnimationGameObjectShiftDown;
+
+            // Check if Skia becomes grounded after being in a jumping state
+            if(m_IsGrounded)
             {
-                float difference = collider.offset.y - colliderCenter.y;
-                if (difference > 0)
+                // Reset Skia's collider to original position and size
+                m_BoxCollider2D.offset = m_BoxCollider2DCenter;
+                m_BoxCollider2D.size = m_BoxCollider2DSize;
+
+                // Reset animator object's position
+                m_Animator.transform.position = transform.position;
+
+                // Check for negative velocity to set jumping state to false
+                if(m_Rigidbody2D.velocity.y <= 0)
                 {
-                    transform.position += new Vector3(0, difference, 0);
+                    m_IsJumping = false;
                 }
-                jumping = false;
             }
-            collider.offset = colliderCenter;
-            collider.size = colliderSize;
-            anim.transform.position = transform.position;
         }
-        playerCenter = collider.offset;
-        playerSize = collider.size;
-        rayboxSize = new Vector2(playerSize.x - rayboxDistance, rayboxDistance);
-        squishDistance = playerSize.x * 0.5f;
 
-        rb.velocity = new Vector2(movementDirection * moveSpeed, rb.velocity.y);
-        if(movementDirection == 0)
+        // Update player center and size to the bounding box
+        m_PlayerCenter = m_BoxCollider2D.offset;
+        m_PlayerSize = m_BoxCollider2D.size;
+
+        // Set Skia's running animation if she's moving horizontally
+        m_Rigidbody2D.velocity = new Vector2(m_MovementDirection * m_MoveSpeed, m_Rigidbody2D.velocity.y);
+        if(m_MovementDirection == 0)
         {
-            if (!skiaControlsActivated)
-                anim.SetBool("IsRunning", false);
+            if (!m_KeysPressed)
+                m_Animator.SetBool("IsRunning", false);
         }
         else
         {
-            skiaModel.localScale = movementDirection > 0 ? rightFacingDirection : leftFacingDirection;
-            anim.SetBool("IsRunning", true);
+            // Set Skia's facing direction
+            m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_RightFacingDirection : m_LeftFacingDirection;
+            m_Animator.SetBool("IsRunning", true);
         }
 
-        if (rb.velocity.y < 0)
-            rb.gravityScale = fallMultiplier;
+        // Detemine how fast Skia should fall/jump
+        if (m_Rigidbody2D.velocity.y < 0)
+            m_Rigidbody2D.gravityScale = m_FallingStateGravityMultiplier;
         else
-            rb.gravityScale = defaultMultiplier;
-        if (grounded)
-            rb.gravityScale = 0;
+            m_Rigidbody2D.gravityScale = m_DefaultGravityMultiplier;
+        if (m_IsGrounded)
+            m_Rigidbody2D.gravityScale = 1;
 
 
-        //move Skia with shadow
-        if (moveWithShadow)
+        // Check if Skia can move with shadow
+        if (m_IsMovingWithShadow)
         {
+            // Check what kind of obstacle Skia collides with
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-            if ((hit.collider != null) && (hit.collider.tag == "Shadow"))//stand on shadow
+            if ((hit.collider != null) && (hit.collider.tag == "Shadow"))
             {
-                testCollider = hit.collider;
+                m_CurrentlyHitCollider = hit.collider; // Save collider that Skia is currently on contact with
 
-                if (grounded && rb.velocity.x == 0 && m_LastGroundedGameObject == testCollider.gameObject)
+                // Check if Skia is grounded, not moving, and is standing on the shadow casted by the same game object during the last FixedUpdate
+                if (m_IsGrounded && (m_Rigidbody2D.velocity.x == 0) && (m_LastGroundedGameObject == m_CurrentlyHitCollider.gameObject))
                 {
+                    // Displace Skia's horizontal position with velocity
                     float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
                     displacement -= transform.position.x;
-                    //transform.position += new Vector3(displacement, 0);
-                    //rb.AddForce(new Vector2(displacement, 0) * 200f);
                     displacement /= Time.fixedDeltaTime;
-                    rb.velocity = new Vector2(displacement, rb.velocity.y);
+                    m_Rigidbody2D.velocity = new Vector2(displacement, m_Rigidbody2D.velocity.y);
                 }
                 else
                 {
-                    m_LastGroundedGameObject = testCollider.gameObject;
-                    ratio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
+                    m_ShadowDistanceRatio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
+                    // Update a new game object that doesn't match the last collider's game object
+                    m_LastGroundedGameObject = m_CurrentlyHitCollider.gameObject;
                 }
             }
         }
 
-        float death = SafeColliders(false);
-        if (death == -1)
+        // Displace Skia from any one-sided collisions, and check how much she's being squished
+        float death = CheckCollisions(true);
+        if (death == -1) // If squished (aka dead), reset Skia
         {
-            if (m_LuxReference.LightActive())
+            if (m_LuxReference.LightActiveStatus())
             {
-                if (m_LuxReference.isMoving)
+                if (m_LuxReference.IsMoving())
                 {
                     SkiaDeath();
                 }
@@ -289,33 +292,41 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
-            skiaVignette.squishStatus = death;
+            // Adjust vignette effect depending on how much she's squished
+            m_SkiaVignette.squishStatus = death * 0.6f;
+            LevelManager.Instance.SlowTime(death > 0.5f);
         }
     }
 
-    public Vector3 GetWorldPosition()
+    // Get Skia's 3D world position
+    public Vector3 GetWorldPosition3D()
     {
         return m_WorldPosition3D;
     }
 
-    private SkiaVignette skiaVignette;
-
+    // Set light status
     public void SetLightStatus(float status)
     {
         if(status == -1)
         {
-            print("skia dead");
             SkiaDeath();
             return;
         }
-        if(skiaVignette)
-            skiaVignette.lightStatus = status;
+
+        if(m_SkiaVignette)
+            m_SkiaVignette.lightStatus = status;
     }
 
     public void SkiaDeath()
     {
-        iDied = true;
-        ResetSkia();
+        Vector3 oldPosition = transform.position; // Store Skia's old position before moving her
+        m_SkinnedMeshRenderer.enabled = false; // Turn off mesh renderer
+        ResetSkia(); // Reset Skia, moving her to the new spawn point
+        m_IsDead = true; // Set dead status
+        Instantiate(m_DeathParticleEffect, oldPosition, transform.rotation); // Instantiate the instant death effect
+        GameObject dragPart = Instantiate(m_DraggingParticleEffect, oldPosition, transform.rotation); // Instantiate the dragging particle effect that will move towards spawn
+        dragPart.GetComponent<MoveToOrigin>().target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
+        dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
     }
 
 
@@ -325,197 +336,119 @@ public class SimpleController : MonoBehaviour
     /// </summary>
     private void ResetSkia()
     {
+        // Find a spawnable 2D position
         bool spawnable = SCManager.Instance.RaycastSpawnpoint(out Vector2 spawnpoint);
         if (!spawnable)
         {
-            //print("Cannot spawn at " + spawnpoint);
-            LevelManager.Instance.lux.GetComponent<LightController>().ResetLux();
+            m_LuxReference.ResetLux();
         }
+
+        // Set Skia's location to 2D position
         Vector3 point = spawnpoint;
         point.z = transform.position.z;
         transform.position = point;
-        rb.velocity = Vector2.zero;
+        m_SpawnPosition2D = point; // Update spawn position location
+
+        // Reset velocity to 0
+        m_Rigidbody2D.velocity = Vector2.zero;
     }
 
-    void ResetPlayer()
-    {
-        GameObject cH = GameObject.Find("Ch46");
-        SkinnedMeshRenderer cHrenderer = cH.GetComponent<SkinnedMeshRenderer>();
-        cHrenderer.enabled = false;
-        GameObject pE = Instantiate(particleEffect, transform.position, transform.rotation);
-        transform.position = originalPosition;
-        transform.rotation = originalRotation;
-        rb.velocity = Vector2.zero;
-    }
-
-    public void SetNewCheckpoint()
-    {
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
-        rb.velocity = Vector2.zero;
-    }
-
+    // Store the 2D coordinates of her spawn location
     public void SetNewCheckpoint(Vector2 v)
     {
-        originalPosition = new Vector3(v.x, v.y, transform.position.z);
-        rb.velocity = Vector2.zero;
+        m_SpawnPosition2D = new Vector3(v.x, v.y, transform.position.z);
+        m_Rigidbody2D.velocity = Vector2.zero;
     }
-
+     
+    // Sets Skia's 3D world position
     void SetWorldPosition3D()
     {
-        float sizeX = playerSize.x / 2;
-        float sizeY = playerSize.y / 2;
-        Vector3 skiaPosition = transform.position + (Vector3)playerCenter;
-        m_WorldPosition3D = GetWorldPosition(skiaPosition);
-        m_WorldTopRight = GetWorldPosition(skiaPosition + Vector3.right * sizeX + Vector3.up * sizeY);
-        m_WorldTopLeft = GetWorldPosition(skiaPosition + Vector3.left * sizeX + Vector3.up * sizeY);
-        m_WorldBottomRight = GetWorldPosition(skiaPosition + Vector3.right * sizeX + Vector3.down * sizeY);
-        m_WorldBottomLeft = GetWorldPosition(skiaPosition + Vector3.left * sizeX + Vector3.down * sizeY);
+        Vector3 skiaCenterPosition = transform.position + (Vector3)m_PlayerCenter;
+        m_WorldPosition3D = GetWorldPosition3D(skiaCenterPosition);
         return;
     }
 
-    Vector3 GetWorldPosition(Vector3 point)
+    // Finds and sets Skia's 3D world position
+    Vector3 GetWorldPosition3D(Vector3 position)
     {
+        //Check which 3D wall Skia is at
         RaycastHit hitInfo;
-        bool hitWall2D = Physics.Raycast(point, Vector3.forward, out hitInfo, 100f, wall2DLayermask, QueryTriggerInteraction.Collide);
+        bool hitWall2D = Physics.Raycast(position, Vector3.forward, out hitInfo, 100f, m_Wall2DLayerMask, QueryTriggerInteraction.Collide);
         if (hitWall2D)
         {
             Wall2D newWall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
             if (!m_CurrWall2D || (m_CurrWall2D != newWall2D))
             {
                 m_CurrWall2D = newWall2D;
-                m_CurrWall3D = m_CurrWall2D.wall3D.GetComponent<Wall3D>();
             }
 
-            point = m_CurrWall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+            // Get 3D position coordinates
+            position = m_CurrWall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
         }
-        return point;
+        return position;
     }
 
     private RaycastHit[] occlusionBuffer = new RaycastHit[20];
+
+    // Fade any obstacles in front of Skia in-game
     void OccludeObjects()
     {
-        Debug.DrawLine(m_WorldPosition3D, m_CurrCamera.transform.position);
-        Vector3 centerToCam = m_CurrCamera.transform.position - m_WorldPosition3D;
-        int k = Physics.SphereCastNonAlloc(m_WorldPosition3D, m_OcclusionAngle, centerToCam.normalized, occlusionBuffer, 100f, obstacleLayerMask, QueryTriggerInteraction.Collide);
+        Vector3 centerToCam = m_CurrentGameCamera.transform.position - m_WorldPosition3D; // "Skia's 3D position to current camera's position" vector
+
+        /* Find all obstacles that are in front of Skia */
+        int k = Physics.SphereCastNonAlloc(m_WorldPosition3D, m_OcclusionAngle, centerToCam.normalized, occlusionBuffer, 100f, m_ObstacleLayerMask, QueryTriggerInteraction.Collide);
         for(int i = 0; i < k; i++)
         {
             SCObstacle sCObstacle = occlusionBuffer[i].collider.GetComponent<SCObstacle>();
             if (sCObstacle)
-                sCObstacle.Occlude();
+                sCObstacle.Occlude(); // Fade obstacles
         }
     }
 
-    public void SwitchRealm()
+    // Displaces Skia if she's colliding with an obstacle
+    // Or checks how much she's being squished by the checkingIfDead variable
+    float CheckCollisions(bool checkingIfDead)
     {
-        // Check if in 2D space
-        if (isIn2D)
-        {
-            // Shoot raycast to player's left and right to determine which side the wall is
-            RaycastHit hitInfo;
-            if (Physics.Raycast(transform.position, transform.forward, out hitInfo, Mathf.Infinity, wall2DLayermask, QueryTriggerInteraction.Ignore))
-            {
-                // Get the Wall2D component of collided object
-                Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
-                if (wall2D)
-                {
-                    // Move player to the corresponding 3D wall
-                    transform.position = wall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
+        Vector2 skiaCenterPosition = (Vector2)transform.position + m_PlayerCenter;
+        float xDist = m_PlayerSize.x * 0.5f;
+        float yDist = m_PlayerSize.y * 0.5f;
 
-                    //collider2D.enabled = false;
-                    //rb2D.gravityScale = 0;
-                    rb.constraints = RigidbodyConstraints2D.FreezePosition;
-                    //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-                }
-            }
-            else if (Physics.Raycast(transform.position, -transform.forward, out hitInfo, Mathf.Infinity, wall2DLayermask, QueryTriggerInteraction.Ignore))
-            {
-                // Get the Wall2D component of collided object
-                Wall2D wall2D = hitInfo.collider.gameObject.GetComponent<Wall2D>();
-                if (wall2D)
-                {
-                    // Move player to the corresponding 3D wall
-                    transform.position = wall2D.SwitchTo3D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
-
-                    //collider2D.enabled = false;
-                    //rb2D.gravityScale = 0;
-                    rb.constraints = RigidbodyConstraints2D.FreezePosition;
-                    //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-                }
-            }
-
-            isIn2D = false; // State has now changed to 3D
-        }
-        else //TODO: third person controls to determine the correct orientation for going back to 2D
-        {
-            RaycastHit hitInfo;
-            if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 5.0f, wall3DLayerMask, QueryTriggerInteraction.Collide))
-            {
-                // Get the Wall3D component of collided object
-                Wall3D wall3D = hitInfo.collider.gameObject.GetComponent<Wall3D>();
-                if (wall3D)
-                {
-                    // Move player to the corresponding 2D wall
-                    transform.position = wall3D.SwitchTo2D(hitInfo.collider.gameObject.transform.InverseTransformPoint(hitInfo.point));
-
-                    //collider2D.enabled = true;
-                    //rb2D.gravityScale = 1;
-                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    //meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-                }
-            }
-
-            isIn2D = true; // State has now changed to 2D
-        }
-    }
-
-    bool CheckIfSquished()
-    {
-        //Debug.DrawRay(transform.position, Vector2.right * squishDistance, Color.green);
-        //Debug.DrawRay(transform.position, Vector2.left * squishDistance, Color.green);
-        bool ret = false;
-        //Debug.Log("checking if squished");
-        if (Physics2D.Raycast(transform.position + Vector3.up, Vector2.right, squishDistance, mask)
-            && Physics2D.Raycast(transform.position + Vector3.up, Vector2.left, squishDistance, mask))
-        {
-            //Debug.Log("squished");
-            ret = true;
-        }
-        return ret;
-    }
-
-    float SafeColliders(bool flagInitial)
-    {
-        Vector2 center = (Vector2)transform.position + playerCenter;
-        float xDist = playerSize.x * 0.5f;
-        float yDist = playerSize.y * 0.5f;
-
+        /* Check for shadow/obstacle collisions on each side of Skia */
         Physics2D.queriesHitTriggers = false;
-        RaycastHit2D collideLeft = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.left, xDist, mask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
-        RaycastHit2D collideRight = Physics2D.BoxCast(center, new Vector2(rayboxDistance, playerSize.y * 0.9f), 0, Vector2.right, xDist, mask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
-        RaycastHit2D collideTop = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.up, yDist, mask);
-        RaycastHit2D collideBottom = Physics2D.BoxCast(center, new Vector2(playerSize.x * 0.9f, rayboxDistance), 0, Vector2.down, yDist, mask);
+        Vector2 verticalSize = Vector2.right * m_RayboxDistance + Vector2.up * m_PlayerSize.y * 0.9f;
+        Vector2 horizontalSize = Vector2.right * m_PlayerSize.x * 0.9f + Vector2.up * m_RayboxDistance;
+        RaycastHit2D collideLeft = Physics2D.BoxCast(skiaCenterPosition, verticalSize, 0, Vector2.left, 2 * xDist, m_ObstacleLayerMask); //Physics2D.Raycast(center, Vector2.left, xDist, mask);
+        RaycastHit2D collideRight = Physics2D.BoxCast(skiaCenterPosition, verticalSize, 0, Vector2.right, 2 * xDist, m_ObstacleLayerMask); //Physics2D.Raycast(center, Vector2.right, xDist, mask);
+        RaycastHit2D collideTop = Physics2D.BoxCast(skiaCenterPosition, horizontalSize, 0, Vector2.up, yDist, m_ObstacleLayerMask);
+        RaycastHit2D collideBottom = Physics2D.BoxCast(skiaCenterPosition, horizontalSize, 0, Vector2.down, yDist, m_ObstacleLayerMask);
         Physics2D.queriesHitTriggers = true;
 
-        //if (collideLeft && collideRight && collideLeft.transform.position.x < transform.position.x && collideRight.transform.position.x > transform.position.x)
-        if(!flagInitial)
+        if(checkingIfDead)
         {
+            // Check if Skia is being squished from the left and right
             if (collideLeft && collideRight)
             {
-                if (collideLeft.distance < xDist - rayboxDistance && collideRight.distance < xDist - rayboxDistance)
+                // Check how much Skia is being squished
+                if (collideLeft.distance < xDist - m_RayboxDistance && collideRight.distance < xDist - m_RayboxDistance)
                     return -1;
-                else if (collideLeft.distance < xDist && collideRight.distance < xDist)
-                    return 0.4f;
+                else
+                {
+                    return 1 - (collideLeft.distance + collideRight.distance - 2 * xDist) / (2 * xDist + m_RayboxDistance);
+                }
             }
+
+            // Check if Skia is being squished from the top and left
             if (collideTop && collideBottom)
             {
-                if (collideTop.distance < yDist - rayboxDistance && collideBottom.distance < yDist - rayboxDistance)
+                // Check how much Skia is being squished
+                if (collideTop.distance < yDist - m_RayboxDistance && collideBottom.distance < yDist - m_RayboxDistance)
                     return -1;
-                else if (collideTop.distance < yDist && collideBottom.distance < yDist)
-                    return 0.3f;
+                else
+                    return 1 - (collideTop.distance + collideBottom.distance - 2 * yDist) / m_RayboxDistance;
             }
         }
 
+        // Check for a left-side collision and displace Skia by how much she intersects the collider
         if (collideLeft)
         {
             if (collideLeft.distance < xDist)
@@ -524,6 +457,7 @@ public class SimpleController : MonoBehaviour
             }
         }
 
+        // Check for a right-side collision and displace Skia by how much she intersects the collider
         if (collideRight)
         {
             if (collideRight.distance < xDist)
@@ -534,97 +468,23 @@ public class SimpleController : MonoBehaviour
         return 0;
     }
 
-    Vector2 pastPosition;
-    public float thresholdDistance = 0.1f;
-    bool trackPosition = false;
-    void SafeTrackPosition()
+    // Return dead status
+    public bool IsDead()
     {
-        Vector2 currPosition = (Vector2)transform.position + playerCenter;
-        //print(GameManager.edgeCollider2DPool.Count);
-
-        if (ColliderOverlap(currPosition))
-        {
-            print("skia overlapping shadows");
-            //ResetPlayer();
-        }    
-
-        ////if (trackPosition)
-        ////{
-        ////    if (Vector2.Distance(currPosition, pastPosition) > thresholdDistance)
-        ////    {
-        ////        if (Physics2D.OverlapBox(currPosition, new Vector2(playerSize.x - rayboxDistance, playerSize.y - rayboxDistance), 0, mask))
-        ////        //if (Physics2D.OverlapPoint(currPosition, mask))
-        ////        {
-        ////            transform.Translate((pastPosition - currPosition));
-        ////            print("adjust for overlapping shadow");
-        ////        }
-        ////    }
-        ////}
-        ////else
-        ////{
-        ////    trackPosition = true;
-        ////}
-
-
-        //if (Physics2D.OverlapBox(currPosition, new Vector2(playerSize.x / 3, playerSize.y / 3), 0, mask))
-        //{
-        //    ResetPlayer();
-        //    print("reset due to overlapping shadows");
-        //}
-        ////else if (Physics2D.Raycast(currPosition + playerCenter, Vector2.right, squishDistance, mask)
-        ////    && Physics2D.Raycast(currPosition + playerCenter, Vector2.left, squishDistance, mask))
-        ////{
-        ////    ResetPlayer();
-        ////    print("reset due to raycasting squish");
-        ////}
-
-        //pastPosition = (Vector2)transform.position + playerCenter;
+        return m_IsDead;
     }
 
-    bool ColliderOverlap(Vector2 position)
+    // Set dead status
+    public void SetDeadStatus(bool val)
     {
-        if(m_LevelManager)
-        {
-            /*foreach (EdgeCollider2D collider in m_LevelManager.GetCurrentSegment().GetEdgeColliderPool())
-            {
-                if (collider.isTrigger)
-                    continue;
-
-                bool success = true;
-                Vector2[] cPoints = collider.points;
-                int k = 0;
-                for (int i = 0; i < cPoints.Length - 1; i++)
-                {
-                    float dp = Vector2.Dot(new Vector2(cPoints[i].y - cPoints[i + 1].y, cPoints[i + 1].x - cPoints[i].x), position - cPoints[i]);
-                    if (k == 0)
-                        k = dp > 0 ? 1 : -1;
-                    else if ((dp > 0 ? 1 : -1) != k)
-                    {
-                        success = false;
-                        break;
-                    }
-                }
-                if (success)
-                {
-                    //print("skia overlapping shadow " + collider);
-                    return true;
-                }
-            }*/
-        }
-
-        return false;
+        m_IsDead = val;
     }
 
-    private void ChangeCollider(Vector2 center, float width, float height)
-    {
-        collider.offset = center;
-        collider.size = new Vector2(width, height);
-    }
-
+    // Disable and freeze Skia
     public void Disable()
     {
-        rb.velocity = Vector2.zero;
-        anim.SetBool("IsRunning", false);
+        m_Rigidbody2D.velocity = Vector2.zero;
+        m_Animator.SetBool("IsRunning", false);
         enabled = false;
     }
 }

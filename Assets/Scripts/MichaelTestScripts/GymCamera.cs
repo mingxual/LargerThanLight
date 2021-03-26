@@ -16,7 +16,7 @@ public class GymCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector3 skiaPos = skia.GetWorldPosition();
+        Vector3 skiaPos = skia.GetWorldPosition3D();
         if(skiaPos.z < zRange.x)
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, zRange.x), zSpeed * Time.deltaTime);
