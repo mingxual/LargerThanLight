@@ -51309,7 +51309,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh83540
+  m_Name: pb_Mesh190938
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52506,7 +52506,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh83638
+  m_Name: pb_Mesh191036
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73171,7 +73171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1565225457}
+  selectedFlowchart: {fileID: 1818493433}
 --- !u!4 &700689706
 Transform:
   m_ObjectHideFlags: 1
@@ -98101,7 +98101,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 69.21051
+    width: 113.81578
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -100873,6 +100873,11 @@ GameObject:
   - component: {fileID: 1818493467}
   - component: {fileID: 1818493455}
   - component: {fileID: 1818493454}
+  - component: {fileID: 1818493475}
+  - component: {fileID: 1818493474}
+  - component: {fileID: 1818493473}
+  - component: {fileID: 1818493472}
+  - component: {fileID: 1818493471}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -100893,11 +100898,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 396.23883, y: 184.57684}
+  scrollPos: {x: 191.21825, y: 198.74658}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 620
-  zoom: 0.6700003
+  zoom: 0.9649996
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -100906,7 +100911,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1818493439}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1818493461}
   variables: []
   description: 
   stepPause: 0
@@ -101043,7 +101049,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 259
-    width: 211.19395
+    width: 208.03116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101070,11 +101076,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 12
   indentLevel: 0
-  storyText: It followed us here?! How?!
+  storyText: "I don\u2019t know how to make it stop! "
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 51930766d43e50142a19fa5632cdd490, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -101098,8 +101104,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 167.2
-    y: 73
-    width: 118.656685
+    y: 71.50746
+    width: 117.87567
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101108,8 +101114,13 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1818493444}
   commandList:
+  - {fileID: 1818493475}
+  - {fileID: 1818493474}
   - {fileID: 1818493440}
   - {fileID: 1818493460}
+  - {fileID: 1818493472}
+  - {fileID: 1818493473}
+  - {fileID: 1818493471}
   - {fileID: 1818493470}
   - {fileID: 1818493459}
   suppressAllAutoSelections: 0
@@ -101143,8 +101154,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 170
-    y: 195
-    width: 161.94025
+    y: 196.03627
+    width: 159.8446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101187,7 +101198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 10
   indentLevel: 0
-  storyText: 'We need to hurry. I feel like... that thing is feeding off of me. '
+  storyText: 'I know I can. I just need you to be there to help me.
+
+'
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
@@ -101231,7 +101244,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 132
-    width: 112.68654
+    width: 111.65805
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101300,11 +101313,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
-  storyText: I know I can. I just need you to be there to help me.
+  storyText: "We need to hurry. I feel like... that thing is feeding off of me. \nLike
+    years of built up angst all trapped in an old middle school.\n"
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 218c9446b6cc8634eab3265c6176456f, type: 3}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -101354,9 +101368,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 340.93134
+    x: 339.93134
     y: 68.522385
-    width: 161.94025
+    width: 159.8446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101417,10 +101431,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 50
   indentLevel: 0
-  storyText: "Like years of built up angst all trapped in an old middle school.\r"
+  storyText: "I won\u2019t let you fall again. "
   description: 
-  character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  character: {fileID: 19641851}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -101447,7 +101461,7 @@ MonoBehaviour:
   storyText: "Please don\u2019t let me get too close to those things. \r"
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -101580,11 +101594,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: "It CAME from you Skia! That\u2019s what I was trying to say!"
+  storyText: "It\u2019s okay. I\u2019m here. I\u2019m not leaving you."
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: cdede119b4a5645668bc08cf6a0e875d, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -101607,7 +101621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 23
   indentLevel: 0
-  storyText: I don't <i>have</i> eyes!
+  storyText: I don't have eyes!
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
@@ -101770,7 +101784,7 @@ MonoBehaviour:
   storyText: "That thing...it DESTROYS shadows\r"
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -101823,6 +101837,146 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1818493471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 55
+  indentLevel: 0
+  storyText: "O-Okay, let\u2019s do this!"
+  description: 
+  character: {fileID: 19641851}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &1818493472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 54
+  indentLevel: 0
+  storyText: 'Okay...we need to turn on the lights, lights will make it go away.
+
+    I
+    can get up there and light them up manually.
+
+'
+  description: 
+  character: {fileID: 1565225454}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &1818493473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 53
+  indentLevel: 0
+  storyText: Just follow my lead.
+  description: 
+  character: {fileID: 1565225454}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &1818493474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 52
+  indentLevel: 0
+  storyText: "It CAME from you Skia! That\u2019s what I was trying to say!"
+  description: 
+  character: {fileID: 19641851}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: cdede119b4a5645668bc08cf6a0e875d, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &1818493475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 51
+  indentLevel: 0
+  storyText: It followed us here?! How?!
+  description: 
+  character: {fileID: 1565225454}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 51930766d43e50142a19fa5632cdd490, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
+  setSayDialog: {fileID: 0}
 --- !u!1 &1823317912
 GameObject:
   m_ObjectHideFlags: 0

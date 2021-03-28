@@ -17599,15 +17599,12 @@ GameObject:
   - component: {fileID: 1046351309}
   - component: {fileID: 1046351297}
   - component: {fileID: 1046351312}
-  - component: {fileID: 1046351317}
-  - component: {fileID: 1046351316}
   - component: {fileID: 1046351315}
   - component: {fileID: 1046351311}
   - component: {fileID: 1046351314}
   - component: {fileID: 1046351313}
   - component: {fileID: 1046351321}
   - component: {fileID: 1046351320}
-  - component: {fileID: 1046351319}
   - component: {fileID: 1046351322}
   - component: {fileID: 1046351323}
   - component: {fileID: 1046351318}
@@ -17665,6 +17662,13 @@ GameObject:
   - component: {fileID: 1046351294}
   - component: {fileID: 1046351336}
   - component: {fileID: 1046351335}
+  - component: {fileID: 1046351378}
+  - component: {fileID: 1046351365}
+  - component: {fileID: 1046351364}
+  - component: {fileID: 1046351363}
+  - component: {fileID: 1046351319}
+  - component: {fileID: 1046351317}
+  - component: {fileID: 1046351316}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -17685,11 +17689,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 586.71924, y: 340.28552}
+  scrollPos: {x: 723.9769, y: 396.2965}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 382
-  zoom: 0.97
+  zoom: 0.80899847
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -17697,8 +17701,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351325}
-  selectedCommands: []
+  - {fileID: 1046351329}
+  selectedCommands:
+  - {fileID: 1046351328}
   variables: []
   description: 
   stepPause: 0
@@ -17753,7 +17758,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -136.58241
     y: -48.714287
-    width: 75.77319
+    width: 74.10388
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17780,10 +17785,7 @@ MonoBehaviour:
   - {fileID: 1046351308}
   - {fileID: 1046351370}
   - {fileID: 1046351321}
-  - {fileID: 1046351317}
-  - {fileID: 1046351316}
   - {fileID: 1046351320}
-  - {fileID: 1046351319}
   - {fileID: 1046351315}
   - {fileID: 1046351323}
   - {fileID: 1046351322}
@@ -17954,7 +17956,7 @@ MonoBehaviour:
   storyText: "We were so close\u2026 what happened?\r\n"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -18111,7 +18113,7 @@ MonoBehaviour:
   storyText: Raising the curtains!
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
   voiceOverClip: {fileID: 8300000, guid: d24455621a807fe43866d4a9d7de7e7d, type: 3}
   showAlways: 1
   showCount: 1
@@ -18136,8 +18138,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 32.630962
-    y: 9.156197
-    width: 113.91753
+    y: 10.187124
+    width: 111.18677
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18154,10 +18156,12 @@ MonoBehaviour:
   - {fileID: 1046351340}
   - {fileID: 1046351339}
   - {fileID: 1046351338}
+  - {fileID: 1046351378}
   - {fileID: 1046351337}
   - {fileID: 1046351334}
   - {fileID: 1046351333}
   - {fileID: 1046351332}
+  - {fileID: 1046351365}
   - {fileID: 1046351349}
   - {fileID: 1046351347}
   - {fileID: 1046351346}
@@ -18192,7 +18196,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 3
+    floatVal: 1
   durationOLD: 0
 --- !u!114 &1046351312
 MonoBehaviour:
@@ -18211,7 +18215,7 @@ MonoBehaviour:
   storyText: Let the show begin.
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 063851cb8c21f4feb86b817ed4f02fc0, type: 3}
   showAlways: 1
   showCount: 1
@@ -18253,11 +18257,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 30
   indentLevel: 0
-  storyText: "Oh...\r"
+  storyText: No, I just grew up while you kept being a kid.
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: efc3aa268717070418e3717618b82daf, type: 3}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18280,12 +18284,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 28
   indentLevel: 0
-  storyText: "Uh, no, I don\u2019t. Tech crew never got attention like you guys.
-    \n"
+  storyText: Unlike now. Stealing my stuff and hanging out with your goons
   description: 
-  character: {fileID: 1327307198}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 99a8b693bcf9d1446bd51c6096df74be, type: 3}
+  character: {fileID: 1359792205}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18296,7 +18299,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351316
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -18306,15 +18309,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 27
+  itemId: 105
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 2
   durationOLD: 0
 --- !u!114 &1046351317
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -18324,20 +18327,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 26
+  itemId: 104
   indentLevel: 0
-  storyText: "Do you remember that feeling when a play finished? \n"
+  storyText: "Just come down! \nI'm getting anxious just looking at you up there."
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: c09d29a787e8d4b7890e370488f61839, type: 3}
+  portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 1
+  waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351318
 MonoBehaviour:
@@ -18355,26 +18358,35 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 3
   durationOLD: 0
 --- !u!114 &1046351319
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046351290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 34
+  itemId: 103
   indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 3
-  durationOLD: 0
+  storyText: "Thought you\u2019d be more upset about leaving the stage?"
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &1046351320
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -18389,12 +18401,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 33
   indentLevel: 0
-  storyText: "How people would rush up to congratulate you on your performance? It
-    felt amazing\u2026\r"
+  storyText: You were so much better behaved then.
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: a40e50f973102d34d86e54f8977fba94, type: 3}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18435,12 +18446,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 35
   indentLevel: 0
-  storyText: "No one gave us flowers for running around on the catwalk for two hours\u2026
-    \r"
+  storyText: "Well, you actually used to stick with me then, so I didn\u2019t NEED
+    those \u201Cgoons\u201D."
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 1ac418e119157394598351546321e42f, type: 3}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18481,7 +18492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 40
   indentLevel: 0
-  storyText: Sweet! Now we can get to the exit and...
+  storyText: Sick! Now we can get to the exit and...
   description: 
   character: {fileID: 1359792205}
   portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
@@ -18510,7 +18521,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 79.17131
-    width: 108.762886
+    width: 106.242386
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18521,6 +18532,11 @@ MonoBehaviour:
   commandList:
   - {fileID: 1046351335}
   - {fileID: 1046351324}
+  - {fileID: 1046351319}
+  - {fileID: 1046351317}
+  - {fileID: 1046351316}
+  - {fileID: 1046351363}
+  - {fileID: 1046351364}
   - {fileID: 1046351336}
   - {fileID: 1046351326}
   suppressAllAutoSelections: 0
@@ -18542,7 +18558,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: da886751331d0b94d9994c8e00b7df02, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 638edff080359894097241f349e06387, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18583,7 +18599,7 @@ MonoBehaviour:
   storyText: Let's go.
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: ef255226dfe1d2e4dbd87d6a1e2741d1, type: 3}
   showAlways: 1
   showCount: 1
@@ -18608,8 +18624,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 170.66693
-    y: 101.75125
-    width: 91.237114
+    y: 102.98735
+    width: 89.555084
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18653,7 +18669,7 @@ MonoBehaviour:
   storyText: "It sucked.\r"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -18677,11 +18693,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 54
   indentLevel: 0
-  storyText: Alright Miss Tech Crew Extraordinaire, just get up there then.
+  storyText: "I\u2019m worried Skia! I can\u2019t help you as much up there!\n"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 46cd156cdf77545d18cf37367cc50f99, type: 3}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18708,7 +18724,7 @@ MonoBehaviour:
     guys danced or sang or whatever it is you \u201Cactors\u201D did?\r\n"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 8a09bd8d3425ea8489b9a8e5381d003e, type: 3}
   showAlways: 1
   showCount: 1
@@ -18736,7 +18752,7 @@ MonoBehaviour:
     fall off a stage prop\u2026 "
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
   voiceOverClip: {fileID: 8300000, guid: adfda109da0ca4e36b412cb542fa9a88, type: 3}
   showAlways: 1
   showCount: 1
@@ -18825,11 +18841,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 48
   indentLevel: 0
-  storyText: "Hmm\u2026 wait, what about that?"
+  storyText: Wait, what about that key?
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 009340eb7d48f6c449cfba6bba8e7ed4, type: 3}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -18855,7 +18871,7 @@ MonoBehaviour:
   storyText: Hmm, you see anything that could help get us backstage then?
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7ab6ac437067ffd458bfa5b01c4a9a18, type: 3}
   voiceOverClip: {fileID: 8300000, guid: b2fdd6df1b2af45d28cfd94004c055a1, type: 3}
   showAlways: 1
   showCount: 1
@@ -18882,7 +18898,7 @@ MonoBehaviour:
   storyText: You assume correctly.
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 8891a85843168864b801db475a71e61c, type: 3}
   showAlways: 1
   showCount: 1
@@ -18957,7 +18973,7 @@ MonoBehaviour:
   storyText: "No, not by them, I meant other people\u2026 "
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 1cb7b032460edb84e9b40f68439f49b1, type: 3}
   showAlways: 1
   showCount: 1
@@ -18986,7 +19002,7 @@ MonoBehaviour:
 '
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 6a484a7f8b67a40a39e66d0c8fa7c05b, type: 3}
   showAlways: 1
   showCount: 1
@@ -19014,7 +19030,7 @@ MonoBehaviour:
     acknowledged for what I\u2019d do up in tech.\r\n"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 0d22bedc9a040f246964dabfbc7cd443, type: 3}
   showAlways: 1
   showCount: 1
@@ -19041,7 +19057,7 @@ MonoBehaviour:
   storyText: Did you ever want to be on stage performing?
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 978289cfdb82b457faaaf5993e5b0e02, type: 3}
   showAlways: 1
   showCount: 1
@@ -19135,7 +19151,7 @@ MonoBehaviour:
   storyText: "The farther away you got, the smaller everything around me became.\r"
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -19208,7 +19224,7 @@ MonoBehaviour:
   storyText: Especially to Mom and Dad! You got off easy...
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
   voiceOverClip: {fileID: 8300000, guid: c1f0ae468861148a293ec678dd4560ab, type: 3}
   showAlways: 1
   showCount: 1
@@ -19237,7 +19253,7 @@ MonoBehaviour:
 '
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 3c87204be5dfa664ca1055e8dc4897c6, type: 3}
   showAlways: 1
   showCount: 1
@@ -19264,7 +19280,7 @@ MonoBehaviour:
   storyText: "I\u2019m not perfect, far from it.\r\n"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 0e0d67967630244adbb979be0e482529, type: 3}
   showAlways: 1
   showCount: 1
@@ -19321,7 +19337,7 @@ MonoBehaviour:
     Mom and Dad wanted me to do so much\u2026 \r\r\n"
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: f841c8217c0f1b64e815a0cca36db1ba, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 429126c1a919c458d9e5bceeeb178d00, type: 3}
   showAlways: 1
   showCount: 1
@@ -19348,7 +19364,7 @@ MonoBehaviour:
   storyText: Pfft, yea right.
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 068eda88d60a0c64aa8e3f5903b7ba3a, type: 3}
   showAlways: 1
   showCount: 1
@@ -19375,7 +19391,7 @@ MonoBehaviour:
   storyText: Y'know, I was jealous of you too.
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 5ffe33cc8c0824ca8876bb6d2c4504f8, type: 3}
   showAlways: 1
   showCount: 1
@@ -19402,7 +19418,7 @@ MonoBehaviour:
   storyText: .....
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -19429,7 +19445,7 @@ MonoBehaviour:
   storyText: You mean our parents?
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
   voiceOverClip: {fileID: 8300000, guid: dd07bae12bda0492889c01bb6bdf9f0b, type: 3}
   showAlways: 1
   showCount: 1
@@ -19457,6 +19473,89 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 2
   durationOLD: 0
+--- !u!114 &1046351363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 102
+  indentLevel: 0
+  storyText: It just sucks being practically invisible all the time.
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 101
+  indentLevel: 0
+  storyText: 'To be honest, sometimes it sucks being seen. I can never screw up.
+
+'
+  description: 
+  character: {fileID: 1359792205}
+  portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 100
+  indentLevel: 0
+  storyText: I need your support.
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &1046351366
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -19494,7 +19593,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -124.77557
     y: 196.72177
-    width: 73.71134
+    width: 72.86778
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19525,7 +19624,7 @@ MonoBehaviour:
     bigger. '
   description: 
   character: {fileID: 1327307198}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -19737,7 +19836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 86
   indentLevel: 0
-  storyText: ' I''ll raise the curtains so we can see the exit. '
+  storyText: I'll head over and raise the curtain.
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
@@ -19749,6 +19848,34 @@ MonoBehaviour:
   waitForClick: 0
   stopVoiceover: 0
   waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1046351378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 99
+  indentLevel: 0
+  storyText: Hmm, if I can jump on top of that thing, that should get me a starting
+    point.
+  description: 
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!1 &1050958079
 GameObject:
@@ -23636,7 +23763,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1327307196}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1327307199}
   variables: []
   description: 
   stepPause: 0
@@ -23664,7 +23792,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 74.17908
+    width: 110.44774
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23723,14 +23851,14 @@ MonoBehaviour:
   storyText: I'm assuming that door is locked too?
   description: 
   character: {fileID: 1359792205}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  waitForClick: 0
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &1327307200
@@ -23749,15 +23877,15 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Raising the curtains!
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 1327307198}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  waitForClick: 0
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!4 &1327307205 stripped

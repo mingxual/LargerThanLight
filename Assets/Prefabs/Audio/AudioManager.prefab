@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3201214917686630732
 Transform:
   m_ObjectHideFlags: 0
@@ -118,6 +118,12 @@ MonoBehaviour:
   - name: Theater_Layer_3
     clip: {fileID: 8300000, guid: 27281d61df2824cbe974baf76ffc660d, type: 3}
     volume: 0.087
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: The_Adventure
+    clip: {fileID: 8300000, guid: a8fe36483a506c34c8e446fcc32c7fa9, type: 3}
+    volume: 0.073
     pitch: 1
     loop: 1
     source: {fileID: 0}

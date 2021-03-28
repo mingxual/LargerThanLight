@@ -1910,7 +1910,6 @@ GameObject:
   - component: {fileID: 2137610503}
   - component: {fileID: 2137610505}
   - component: {fileID: 2137610517}
-  - component: {fileID: 2137610516}
   - component: {fileID: 2137610504}
   - component: {fileID: 2137610514}
   - component: {fileID: 2137610513}
@@ -1996,8 +1995,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 2137610505}
+  selectedCommands:
+  - {fileID: 2137610511}
   variables: []
   description: 
   stepPause: 0
@@ -2023,11 +2024,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: Yea whatever. I'm not as dumb as you think.
+  storyText: "W-Well, stage crew trains you to run around on shaky catwalks, it\u2019s
+    not that special\u2026 \n"
   description: 
   character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 8d178a4e6e0d81e47ae276607e8a7d5a, type: 3}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2052,7 +2054,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 160.98323
     y: 280.44186
-    width: 107.81249
+    width: 111.718735
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2062,7 +2064,6 @@ MonoBehaviour:
   eventHandler: {fileID: 2137610518}
   commandList:
   - {fileID: 2137610517}
-  - {fileID: 2137610516}
   - {fileID: 2137610519}
   - {fileID: 2137610504}
   - {fileID: 2137610512}
@@ -2325,35 +2326,6 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
---- !u!114 &2137610516
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137610500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 2
-  indentLevel: 0
-  storyText: 'Me almost getting sniped by a shadow demon several times was incredible..?
-
-'
-  description: 
-  character: {fileID: 59423936}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 65bf85dfc1da26148a326e52b2715467, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 0
-  waitForVO: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &2137610517
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2410,12 +2382,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 14
   indentLevel: 0
-  storyText: "No! You took charge and beat that thing almost single-handedly! You\u2019re
-    amazing!"
+  storyText: You took charge and beat that thing almost single-handedly!
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 50672add1b0c949c38829602e71f2934, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
