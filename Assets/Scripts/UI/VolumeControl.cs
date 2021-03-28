@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public Slider musicControl;
     public Slider soundControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        //audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        audioManager.MusicVolumeChange(musicControl.value);
-        audioManager.SoundVolumeChange(soundControl.value);
+        if (AudioManager.instance)
+        {
+            AudioManager.instance.MusicVolumeChange(musicControl.value);
+            AudioManager.instance.SoundVolumeChange(soundControl.value);
+        }
     }
 }

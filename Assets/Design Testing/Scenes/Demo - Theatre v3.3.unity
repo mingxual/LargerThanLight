@@ -7901,7 +7901,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1857499088}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1857499089}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9d25f4a508c743f8accb088bbe065ee, type: 3}
@@ -17669,6 +17669,7 @@ GameObject:
   - component: {fileID: 1046351319}
   - component: {fileID: 1046351317}
   - component: {fileID: 1046351316}
+  - component: {fileID: 1046351379}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -17701,9 +17702,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351329}
+  - {fileID: 1046351293}
   selectedCommands:
-  - {fileID: 1046351328}
+  - {fileID: 1046351372}
   variables: []
   description: 
   stepPause: 0
@@ -17756,8 +17757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -136.58241
-    y: -48.714287
+    x: -134.11021
+    y: -46.242096
     width: 74.10388
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -17770,6 +17771,7 @@ MonoBehaviour:
   - {fileID: 1046351307}
   - {fileID: 1046351306}
   - {fileID: 1046351372}
+  - {fileID: 1046351379}
   - {fileID: 1046351300}
   - {fileID: 1046351376}
   - {fileID: 1046351296}
@@ -18299,7 +18301,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351316
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -18317,7 +18319,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1046351317
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -18362,7 +18364,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1046351319
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19475,7 +19477,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1046351363
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19502,7 +19504,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351364
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19531,7 +19533,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351365
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19705,8 +19707,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 85
   indentLevel: 0
-  targetObject: {fileID: 512948503}
-  methodName: DisableCharacterControl
+  targetObject: {fileID: 1857499089}
+  methodName: InitializeTheaterLevel
   delay: 0
 --- !u!114 &1046351373
 MonoBehaviour:
@@ -19851,7 +19853,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351378
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19877,6 +19879,23 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &1046351379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 106
+  indentLevel: 0
+  targetObject: {fileID: 512948503}
+  methodName: DisableCharacterControl
+  delay: 0
 --- !u!1 &1050958079
 GameObject:
   m_ObjectHideFlags: 0
@@ -34336,6 +34355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3201214917686630732, guid: 662e09c963be84443a52d2c9ab417b89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34398,6 +34422,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}
+--- !u!1 &1857499089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1857499088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1863056318
 GameObject:
   m_ObjectHideFlags: 0
