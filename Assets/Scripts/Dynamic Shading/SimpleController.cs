@@ -173,7 +173,7 @@ public class SimpleController : MonoBehaviour
             m_IsJumping = true;
 
             // Play Skia's jump animation
-            m_Animator.Play("Jump", -1, 0f);
+            m_Animator.Play("Jump");
         }
         else
         {        
