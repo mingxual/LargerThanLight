@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     public List<Sprite> images;
     // Offset to the skia screen position
     public Vector3 offset;
+    public float time = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class UIController : MonoBehaviour
         Vector3 framePos = GetScreenPos() + offset;
         framePos.z = 0;
         frame.transform.position = framePos;
+        Invoke("CloseUI", time);
     }
 
     public void CloseUI()
