@@ -46,6 +46,8 @@ public class UIController : MonoBehaviour
 
         frame.sprite = images[index];
         frame.gameObject.SetActive(true);
+
+        frame.rectTransform.sizeDelta = new Vector2((images[index].rect.width/images[index].rect.height) * frame.rectTransform.rect.height, frame.rectTransform.rect.height);
         
         Vector3 framePos = GetScreenPos() + offset;
         framePos.z = 0;
