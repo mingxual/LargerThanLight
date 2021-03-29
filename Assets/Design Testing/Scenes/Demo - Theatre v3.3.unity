@@ -24001,11 +24001,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 618681134}
   skia: {fileID: 1983527069}
+  lux: {fileID: 0}
   frame: {fileID: 573207325}
   images:
   - {fileID: 21300000, guid: 53be49baec31b8b4fb8b1338bae739bd, type: 3}
-  offset: {x: 0, y: 0, z: 0}
-  time: 5
+  modes: 02000000
+  skia_offset: {x: 10, y: 20, z: 0}
+  lux_offset: {x: 0, y: 0, z: 0}
+  maximumDiaplayTime: 5
+  mode: 0
+  isDisplay: 0
+  isAttachedToSkia: 1
 --- !u!1 &1331171077
 GameObject:
   m_ObjectHideFlags: 0

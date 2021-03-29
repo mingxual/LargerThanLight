@@ -33,7 +33,15 @@ public class UIController : MonoBehaviour
     {
         mode = -1;
         isDisplay = false;
-        isAttachedToSkia = true;
+        if (skia != null)
+        {
+            isAttachedToSkia = true;
+        }
+        if (lux != null)
+        {
+            isAttachedToSkia = false;
+        }
+        
         frame.gameObject.SetActive(false);
     }
 
@@ -74,10 +82,14 @@ public class UIController : MonoBehaviour
     {
         if (isAttachedToSkia)
         {
-            return cam.WorldToScreenPoint(skia.GetWorldPosition3D()) + skia_offset;
+            Vector3 screenPos = cam.WorldToScreenPoint(skia.GetWorldPosition3D());
+            screenPos.z = 0;
+            return screenPos + skia_offset;
         }
         else
         {
+            Vector3 screenPos = cam.WorldToScreenPoint(lux.transform.position);
+            screenPos.z = 0;
             return cam.WorldToScreenPoint(lux.transform.position) + lux_offset;
         }
     }
@@ -115,7 +127,7 @@ public class UIController : MonoBehaviour
     // Skia movement
     private void FirstMode()
     {
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.D))
         {
             StartCoroutine(FadeUI());
         }
