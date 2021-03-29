@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -51981,6 +51981,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3201214917686630732, guid: 662e09c963be84443a52d2c9ab417b89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100878,6 +100883,7 @@ GameObject:
   - component: {fileID: 1818493473}
   - component: {fileID: 1818493472}
   - component: {fileID: 1818493471}
+  - component: {fileID: 1818493476}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -100910,9 +100916,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1818493439}
+  - {fileID: 1818493441}
   selectedCommands:
-  - {fileID: 1818493461}
+  - {fileID: 1818493476}
   variables: []
   description: 
   stepPause: 0
@@ -101103,8 +101109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 167.2
-    y: 71.50746
+    x: 168.23627
+    y: 72.54373
     width: 117.87567
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -101114,6 +101120,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1818493444}
   commandList:
+  - {fileID: 1818493476}
   - {fileID: 1818493475}
   - {fileID: 1818493474}
   - {fileID: 1818493440}
@@ -101839,7 +101846,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1818493471
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -101866,7 +101873,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493472
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -101898,7 +101905,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493473
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -101925,7 +101932,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493474
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -101952,7 +101959,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493475
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -101977,6 +101984,23 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &1818493476
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 56
+  indentLevel: 0
+  targetObject: {fileID: 1961431131}
+  methodName: InitializeGymLevel
+  delay: 0
 --- !u!1 &1823317912
 GameObject:
   m_ObjectHideFlags: 0
@@ -104229,6 +104253,12 @@ MonoBehaviour:
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
+--- !u!1 &1961431131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
+    type: 3}
+  m_PrefabInstance: {fileID: 369019120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962399935
 GameObject:
   m_ObjectHideFlags: 0

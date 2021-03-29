@@ -18,7 +18,7 @@ public class UITimer : MonoBehaviour
     {
         if (keyPressed)
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) ||Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) ||Input.GetKey(KeyCode.DownArrow))
             {
                 //gameObject.SetActive(false);
                 uiAnimator.SetBool("startFade", true);

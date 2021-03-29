@@ -226,6 +226,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void InitializeGymLevel()
+    {
+        if (level != 3)
+        {
+            level = 3;
+            layer1 = GetMusic("Theater_Layer_1");
+            layer2 = GetMusic("Theater_Layer_2");
+            layer3 = GetMusic("Theater_Layer_3");
+            layer1.source.volume = 0;
+            layer2.source.volume = 0;
+            layer3.source.volume = layer3.volume;
+        }
+    }
+
     public void InitializeMenu()
     {
         PlayMusic("The_Adventure");

@@ -7,35 +7,91 @@ public class UIController : MonoBehaviour
 {
     public Camera cam;
     public SimpleController skia;
+    public LightController lux;
 
     // Image frame that would hold the images
     public Image frame;
+
     // An array of UI pictures to show
     public List<Sprite> images;
-    // Offset to the skia screen position
-    public Vector3 offset;
+    // An array of mode
+    public List<int> modes;
+
+    // Offset to the screen position
+    public Vector3 skia_offset;
+    public Vector3 lux_offset;
+
+    // Mode control
+    public float maximumDiaplayTime = 5f;
+    private float timer;
+    public int mode;
+    public bool isDisplay;
+    public bool isAttachedToSkia;
 
     // Start is called before the first frame update
     void Start()
     {
+        mode = -1;
+        isDisplay = false;
+        if (skia != null)
+        {
+            isAttachedToSkia = true;
+        }
+        if (lux != null)
+        {
+            isAttachedToSkia = false;
+        }
         
+        frame.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Test
-        /*
-        Vector3 framePos = GetScreenPos() + offset;
-        framePos.z = 0;
-        frame.transform.position = framePos;
-        */
+        if(isDisplay)
+        {
+            timer += Time.deltaTime;
+
+            if(timer >= maximumDiaplayTime)
+            {
+                StartCoroutine(FadeUI());
+            }
+
+            switch(mode)
+            {
+                case 1:
+                    FirstMode();
+                    break;
+
+                case 2:
+                    SecondMode();
+                    break;
+
+                case 3:
+                    ThirdMode();
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 
     // Return the skia's screen position relative to the cam
     public Vector3 GetScreenPos()
     {
-        return cam.WorldToScreenPoint(skia.GetWorldPosition3D());
+        if (isAttachedToSkia)
+        {
+            Vector3 screenPos = cam.WorldToScreenPoint(skia.GetWorldPosition3D());
+            screenPos.z = 0;
+            return screenPos + skia_offset;
+        }
+        else
+        {
+            Vector3 screenPos = cam.WorldToScreenPoint(lux.transform.position);
+            screenPos.z = 0;
+            return cam.WorldToScreenPoint(lux.transform.position) + lux_offset;
+        }
     }
 
     public void DisplayUI(int index)
@@ -44,11 +100,18 @@ public class UIController : MonoBehaviour
             Debug.LogError("The index passed is wrong");
 
         frame.sprite = images[index];
+        mode = modes[index];
         frame.gameObject.SetActive(true);
+        isDisplay = true;
+
+        frame.rectTransform.sizeDelta = new Vector2((images[index].rect.width/images[index].rect.height) * frame.rectTransform.rect.height, frame.rectTransform.rect.height);
         
-        Vector3 framePos = GetScreenPos() + offset;
+        Vector3 framePos = GetScreenPos();
         framePos.z = 0;
         frame.transform.position = framePos;
+
+        // reset timer
+        timer = 0.0f;
     }
 
     public void CloseUI()
@@ -59,5 +122,61 @@ public class UIController : MonoBehaviour
     public void SwitchCamera(Camera next)
     {
         cam = next;
+    }
+
+    // Skia movement
+    private void FirstMode()
+    {
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.D))
+        {
+            StartCoroutine(FadeUI());
+        }
+    }
+
+    // Skia interaction
+    private void SecondMode()
+    {
+        if (Input.GetAxis("Interaction") > 0.8f)
+        {
+            StartCoroutine(FadeUI());
+        }
+    }
+
+    // Lux movement
+    private void ThirdMode()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            StartCoroutine(FadeUI());
+        }
+    }
+
+    public void AttachToSkia(bool val)
+    {
+        isAttachedToSkia = val;
+    }
+
+    IEnumerator FadeUI()
+    {
+        float elasped_time = 0.0f;
+        isDisplay = false;
+
+        Color frame_color;
+
+        while (elasped_time < 1.0f)
+        {
+            elasped_time += Time.deltaTime;
+            frame_color = frame.color;
+            frame_color.a = 1.0f - elasped_time;
+            frame.color = frame_color;
+            yield return null;
+        }
+
+        CloseUI();
+        frame_color = frame.color;
+        frame_color.a = 1.0f;
+        frame.color = frame_color;
+
+        yield return null;
     }
 }

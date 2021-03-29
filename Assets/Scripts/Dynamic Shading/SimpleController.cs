@@ -327,8 +327,12 @@ public class SimpleController : MonoBehaviour
         GameObject dragPart = Instantiate(m_DraggingParticleEffect, oldPosition, transform.rotation); // Instantiate the dragging particle effect that will move towards spawn
         dragPart.GetComponent<MoveToOrigin>().target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
         dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
+        /*MoveToOrigin moveToOrigin = dragPart.GetComponent<MoveToOrigin>();
+        moveToOrigin.target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
+        moveToOrigin.thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
+        moveToOrigin.m_SimpleController = this;
+        enabled = false; // Disable controls*/
     }
-
 
     /// <summary>
     /// Resets Skia to current spawnpoint
