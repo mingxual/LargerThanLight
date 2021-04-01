@@ -138,7 +138,7 @@ public class SimpleController : MonoBehaviour
             m_MovementDirection += 1;
             m_KeysPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.W) && m_CanJump)
+        if ((Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.Space)) && m_CanJump)
         {
             m_HasJumped = true;
         }
