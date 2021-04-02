@@ -14,7 +14,7 @@ public class SCObstacleEditor : Editor
     SerializedProperty debugLines;
     SerializedProperty shadowprojaffect;
     SerializedProperty shadowprojtime;
-    SerializedProperty m_TargetAlphaFade;
+    //SerializedProperty m_TargetAlphaFade;
 
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class SCObstacleEditor : Editor
         debugLines = serializedObject.FindProperty("debugLines");
         shadowprojaffect = serializedObject.FindProperty("shadowprojaffect");
         shadowprojtime = serializedObject.FindProperty("shadowprojtime");
-        m_TargetAlphaFade = serializedObject.FindProperty("m_TargetAlphaFade");
+        //m_TargetAlphaFade = serializedObject.FindProperty("m_TargetAlphaFade");
     }
 
     public override void OnInspectorGUI()
@@ -47,7 +47,7 @@ public class SCObstacleEditor : Editor
             EditorGUILayout.PropertyField(shadowprojtime, new GUIContent("Time affected by Shadow Projectiles"));
         }
 
-        EditorGUILayout.PropertyField(m_TargetAlphaFade, new GUIContent("Target alpha value when object is fading"));
+        //EditorGUILayout.PropertyField(m_TargetAlphaFade, new GUIContent("Target alpha value when object is fading"));
 
         serializedObject.ApplyModifiedProperties();
     }
