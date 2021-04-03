@@ -12,9 +12,9 @@ public class ShittyController : MonoBehaviour
 
     private void Start()
     {
-        mLeftFacingDirection = transform.localScale;
+        mLeftFacingDirection = mShit.transform.localScale;
         mLeftFacingDirection.x *= -1.0f;
-        mRightFacingDirection = transform.localScale;
+        mRightFacingDirection = mShit.transform.localScale;
     }
 
     // Update is called once per frame
@@ -23,16 +23,16 @@ public class ShittyController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             mAnim.SetBool("isRunning", true);
-            transform.Translate(Vector3.right * Time.deltaTime * speed); //L
-            transform.localScale = mLeftFacingDirection;
+            transform.Translate(Vector3.forward * Time.deltaTime * speed); //L
+            mShit.transform.localScale = mLeftFacingDirection;
 
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             mAnim.SetBool("isRunning", true);
-            transform.Translate(Vector3.left * Time.deltaTime * speed); //R
-            transform.localScale = mRightFacingDirection;
+            transform.Translate(Vector3.back * Time.deltaTime * speed); //R
+            mShit.transform.localScale = mRightFacingDirection;
         }
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {

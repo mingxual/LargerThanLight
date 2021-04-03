@@ -72,6 +72,7 @@ public class SimpleController : MonoBehaviour
 
     #region Anything Debugging Related
     public bool m_MichaelsDebuggingFlag;
+    public bool mehaIsStupid = false;
     #endregion
 
     private void Awake()
@@ -233,9 +234,18 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
-            // Set Skia's facing direction
-            m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_RightFacingDirection : m_LeftFacingDirection;
-            m_Animator.SetBool("IsRunning", true);
+            if (mehaIsStupid == false)
+            {
+                // Set Skia's facing direction
+                m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_RightFacingDirection : m_LeftFacingDirection;
+                m_Animator.SetBool("IsRunning", true);
+            }
+            if (mehaIsStupid == true)
+            {
+                // Set Skia's facing direction
+                m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_LeftFacingDirection : m_RightFacingDirection;
+                m_Animator.SetBool("IsRunning", true);
+            }
         }
 
         // Detemine how fast Skia should fall/jump
