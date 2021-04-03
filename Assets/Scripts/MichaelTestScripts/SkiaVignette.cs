@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-
+using Fungus;
 public class SkiaVignette : MonoBehaviour
 {
     public float lightStatus;
@@ -12,6 +12,7 @@ public class SkiaVignette : MonoBehaviour
     Vignette vignette;
     ChromaticAberration chAbr;
     public SimpleController skiaCtrlr;
+    public Flowchart mFlowchart;
 
     public float invSpeed;
 
@@ -36,7 +37,8 @@ public class SkiaVignette : MonoBehaviour
 
     void SkiaDiedStuff()
     {
-        if(chAbr.intensity.value < 1)
+        mFlowchart.SendFungusMessage("Owch");
+        if (chAbr.intensity.value < 1)
         {
             chAbr.intensity.value += 0.25f;
         }
