@@ -84,7 +84,7 @@ public class EventsManager : MonoBehaviour
                 " TotalTime: " + Time.time;
 
 
-            Debug.Log(record);
+            //Debug.Log(record);
 
             AnalyticsResult ar = Analytics.CustomEvent(SceneManager.GetActiveScene().name, new Dictionary<string, object> {
                 {"subLevel",subLevel},
@@ -103,5 +103,13 @@ public class EventsManager : MonoBehaviour
         {
             Debug.LogError(key + "is not set in EventsManager");
         }
+    }
+
+    public void OpenCollision3D(string obj)
+    {
+        GameObject gameObject = GameObject.FindWithTag(obj);
+        Debug.Log("gameobject name is:" + gameObject.name);
+        //Debug.Log("Component name is:" + gameObject.GetComponent<EventCollision3D>().name);
+        gameObject.GetComponent<EventCollision3D>().enabled = true;
     }
 }
