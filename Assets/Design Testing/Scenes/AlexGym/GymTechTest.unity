@@ -51314,7 +51314,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh115692
+  m_Name: pb_Mesh342598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52609,7 +52609,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh115790
+  m_Name: pb_Mesh342696
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73685,6 +73685,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2048548353}
+        m_MethodName: ActivateTrigger
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 703484490}
@@ -73716,6 +73727,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2048548353}
+        m_MethodName: ActivateTrigger
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -100982,6 +101004,7 @@ GameObject:
   - component: {fileID: 1818493472}
   - component: {fileID: 1818493471}
   - component: {fileID: 1818493476}
+  - component: {fileID: 1818493477}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -101016,7 +101039,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1818493441}
   selectedCommands:
-  - {fileID: 1818493476}
+  - {fileID: 1818493477}
   variables: []
   description: 
   stepPause: 0
@@ -101153,7 +101176,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 259
-    width: 208.03116
+    width: 203.36794
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101209,7 +101232,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 168.23627
     y: 72.54373
-    width: 117.87567
+    width: 116.32127
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101219,6 +101242,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1818493444}
   commandList:
   - {fileID: 1818493476}
+  - {fileID: 1818493477}
   - {fileID: 1818493475}
   - {fileID: 1818493474}
   - {fileID: 1818493440}
@@ -101260,7 +101284,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 196.03627
-    width: 159.8446
+    width: 156.94305
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101349,7 +101373,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 171
     y: 132
-    width: 111.65805
+    width: 110.51816
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101475,7 +101499,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 339.93134
     y: 68.522385
-    width: 159.8446
+    width: 156.94305
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -102099,6 +102123,51 @@ MonoBehaviour:
   targetObject: {fileID: 1961431131}
   methodName: InitializeGymLevel
   delay: 0
+--- !u!114 &1818493477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 57
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 2048548351}
+  targetComponentAssemblyName: GymTriggerControl, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: GymTriggerControl
+  targetMethod: ActivateTrigger
+  targetMethodText: 'ActivateTrigger (Int32): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Int32
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!1 &1823317912
 GameObject:
   m_ObjectHideFlags: 0
@@ -105721,6 +105790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2048548352}
+  - component: {fileID: 2048548353}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -105751,6 +105821,22 @@ Transform:
   m_Father: {fileID: 43168898}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048548353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048548351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004bb1f235706124da07f7c963f293b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggers:
+  - {fileID: 1444513526}
+  - {fileID: 1134782453}
+  - {fileID: 858377860}
 --- !u!1 &2050346223
 GameObject:
   m_ObjectHideFlags: 0
