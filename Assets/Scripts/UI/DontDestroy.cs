@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
-    public GameObject controlRoot;
-    public bool isFirstScene = true;
-
-    [SerializeField] List<GameObject> subChildren;
+    [SerializeField] bool isFirstScene = true;
+    [SerializeField] List<GameObject> subPages;
 
     public void Awake()
     {
@@ -18,7 +16,7 @@ public class DontDestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        DeActiveAllSubPages();
     }
 
     // Update is called once per frame
@@ -28,39 +26,42 @@ public class DontDestroy : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (controlRoot.activeInHierarchy == false)
-                {
-                    controlRoot.SetActive(true);
-                    // Time.timeScale = 0;
-                }
+                if (subPages[0].activeInHierarchy)
+                    subPages[0].SetActive(false);
                 else
-                {
-                    controlRoot.SetActive(false);
-                    // Time.timeScale = 1;
-                }
+                    subPages[0].SetActive(true);
             }
+        }
+    }
+
+    private void DeActiveAllSubPages()
+    {
+        for(int i = 0; i < subPages.Count; i++)
+        {
+            subPages[i].SetActive(false);
         }
     }
 
     public void SwitchToNotFirstScene()
     {
         isFirstScene = false;
-
-        for (int i = 0; i < subChildren.Count; i++)
-            subChildren[i].SetActive(true);
-
-        controlRoot.SetActive(false);
+        DeActiveAllSubPages();
     }
 
-    /*
-    public void QuiteApp()
+    public void BackToMainPage()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
+        DeActiveAllSubPages();
+
     }
     public void CloseOptions()
     {
-        controlRoot.SetActive(false);
-        // Time.timeScale = 1;
+        DeActiveAllSubPages();
     }
-    */
+
+    public void SwitchToPage(int index)
+    {
+        DeActiveAllSubPages();
+        subPages[index].SetActive(true);
+    }
 }
