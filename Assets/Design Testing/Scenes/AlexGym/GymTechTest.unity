@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -51986,11 +51986,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3201214917686630732, guid: 662e09c963be84443a52d2c9ab417b89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73274,7 +73269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1818493433}
+  selectedFlowchart: {fileID: 1565225457}
 --- !u!4 &700689706
 Transform:
   m_ObjectHideFlags: 1
@@ -100981,9 +100976,6 @@ GameObject:
   - component: {fileID: 1818493460}
   - component: {fileID: 1818493459}
   - component: {fileID: 1818493461}
-  - component: {fileID: 1818493465}
-  - component: {fileID: 1818493464}
-  - component: {fileID: 1818493463}
   - component: {fileID: 1818493452}
   - component: {fileID: 1818493466}
   - component: {fileID: 1818493462}
@@ -101005,6 +100997,9 @@ GameObject:
   - component: {fileID: 1818493471}
   - component: {fileID: 1818493476}
   - component: {fileID: 1818493477}
+  - component: {fileID: 1818493478}
+  - component: {fileID: 1818493464}
+  - component: {fileID: 1818493463}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -101037,9 +101032,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1818493441}
+  - {fileID: 1818493439}
   selectedCommands:
-  - {fileID: 1818493477}
+  - {fileID: 1818493463}
   variables: []
   description: 
   stepPause: 0
@@ -101174,9 +101169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 171
-    y: 259
-    width: 203.36794
+    x: 172.03627
+    y: 260.03625
+    width: 208.03116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101232,7 +101227,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 168.23627
     y: 72.54373
-    width: 116.32127
+    width: 117.87567
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101283,8 +101278,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 170
-    y: 196.03627
-    width: 156.94305
+    y: 197.07254
+    width: 159.8446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101371,9 +101366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 171
-    y: 132
-    width: 110.51816
+    x: 172.03627
+    y: 135.10881
+    width: 111.65805
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101382,7 +101377,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1818493446}
   commandList:
-  - {fileID: 1818493465}
+  - {fileID: 1818493478}
   - {fileID: 1818493437}
   - {fileID: 1818493449}
   - {fileID: 1818493450}
@@ -101499,7 +101494,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 339.93134
     y: 68.522385
-    width: 156.94305
+    width: 159.8446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -101792,55 +101787,94 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1818493463
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818493432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831c208af3cccf24b80cc6f3768919bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 28
+  itemId: 61
   indentLevel: 0
-  soundClip: {fileID: 8300000, guid: 1e9e9d2e07167c44484554fa57b500cc, type: 3}
-  volume: 1
-  loop: 0
+  description: 
+  targetObject: {fileID: 1961431131}
+  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioManager
+  targetMethod: PlayOnceNoPlace
+  targetMethodText: 'PlayOnceNoPlace (String): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.String
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: Electro_Magentic
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &1818493464
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818493432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831c208af3cccf24b80cc6f3768919bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 27
+  itemId: 60
   indentLevel: 0
-  soundClip: {fileID: 8300000, guid: 1e9e9d2e07167c44484554fa57b500cc, type: 3}
-  volume: 1
-  loop: 0
---- !u!114 &1818493465
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818493432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 26
-  indentLevel: 0
-  soundClip: {fileID: 8300000, guid: 1e9e9d2e07167c44484554fa57b500cc, type: 3}
-  volume: 1
-  waitUntilFinished: 0
+  description: 
+  targetObject: {fileID: 1961431131}
+  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioManager
+  targetMethod: PlayOnceNoPlace
+  targetMethodText: 'PlayOnceNoPlace (String): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.String
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: Electro_Magentic
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &1818493466
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -102125,7 +102159,7 @@ MonoBehaviour:
   delay: 0
 --- !u!114 &1818493477
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -102154,6 +102188,51 @@ MonoBehaviour:
       boolValue: 0
       floatValue: 0
       stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1818493478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 58
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1961431131}
+  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioManager
+  targetMethod: PlayOnceNoPlace
+  targetMethodText: 'PlayOnceNoPlace (String): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.String
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: Electro_Magentic
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
       materialValue: {fileID: 0}

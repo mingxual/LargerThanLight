@@ -17867,7 +17867,6 @@ GameObject:
   - component: {fileID: 1046351307}
   - component: {fileID: 1046351306}
   - component: {fileID: 1046351308}
-  - component: {fileID: 1046351296}
   - component: {fileID: 1046351310}
   - component: {fileID: 1046351309}
   - component: {fileID: 1046351297}
@@ -17943,6 +17942,8 @@ GameObject:
   - component: {fileID: 1046351316}
   - component: {fileID: 1046351379}
   - component: {fileID: 1046351337}
+  - component: {fileID: 1046351380}
+  - component: {fileID: 1046351296}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -17963,11 +17964,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 723.9769, y: 396.2965}
+  scrollPos: {x: 564.5054, y: 207.46164}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 382
-  zoom: 0.80899847
+  zoom: 0.7929985
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -17975,9 +17976,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351310}
+  - {fileID: 1046351325}
   selectedCommands:
-  - {fileID: 1046351337}
+  - {fileID: 1046351336}
   variables: []
   description: 
   stepPause: 0
@@ -18030,9 +18031,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -134.11021
+    x: -132.84918
     y: -46.242096
-    width: 74.721924
+    width: 74.59021
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18047,7 +18048,7 @@ MonoBehaviour:
   - {fileID: 1046351379}
   - {fileID: 1046351300}
   - {fileID: 1046351376}
-  - {fileID: 1046351296}
+  - {fileID: 1046351380}
   - {fileID: 1046351348}
   - {fileID: 1046351299}
   - {fileID: 1046351374}
@@ -18112,21 +18113,49 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1046351296
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046351290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 20
+  itemId: 109
   indentLevel: 0
-  soundClip: {fileID: 8300000, guid: adbf0a07916a61b48abdd57f53d22cb0, type: 3}
-  volume: 0.113
-  waitUntilFinished: 0
+  description: 
+  targetObject: {fileID: 1857499089}
+  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioManager
+  targetMethod: PlayOnceNoPlace
+  targetMethodText: 'PlayOnceNoPlace (String): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.String
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: Monster_Scream
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &1046351297
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -18414,7 +18443,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 32.630962
     y: 10.187124
-    width: 111.31038
+    width: 111.79079
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18796,7 +18825,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 79.17131
-    width: 106.36599
+    width: 106.11612
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18812,6 +18841,7 @@ MonoBehaviour:
   - {fileID: 1046351316}
   - {fileID: 1046351363}
   - {fileID: 1046351364}
+  - {fileID: 1046351296}
   - {fileID: 1046351336}
   - {fileID: 1046351326}
   suppressAllAutoSelections: 0
@@ -18900,7 +18930,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 102.98735
-    width: 89.555084
+    width: 89.72265
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19079,11 +19109,11 @@ MonoBehaviour:
   itemId: 97
   indentLevel: 0
   soundClip: {fileID: 8300000, guid: d52dad4bc9637d540916bbe74fceb517, type: 3}
-  volume: 1
+  volume: 0
   waitUntilFinished: 1
 --- !u!114 &1046351337
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19900,9 +19930,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -124.77557
-    y: 196.72177
-    width: 72.74417
+    x: -123.514534
+    y: 197.9828
+    width: 72.698654
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -20203,6 +20233,51 @@ MonoBehaviour:
   targetObject: {fileID: 512948503}
   methodName: DisableCharacterControl
   delay: 0
+--- !u!114 &1046351380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 108
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1857499089}
+  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioManager
+  targetMethod: PlayOnceNoPlace
+  targetMethodText: 'PlayOnceNoPlace (String): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.String
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: Wood_Crunch
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!1 &1050958079
 GameObject:
   m_ObjectHideFlags: 0
@@ -34685,11 +34760,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3201214917686630732, guid: 662e09c963be84443a52d2c9ab417b89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34747,8 +34817,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: sounds.Array.data[6].volume
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}
@@ -41161,7 +41231,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.073
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -42190,7 +42260,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
