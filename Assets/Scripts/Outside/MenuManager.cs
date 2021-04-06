@@ -28,9 +28,11 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         mainPage.SetActive(true);
+        /*
         optionPage.SetActive(false);
         creditPage.SetActive(false);
         quitPrompt.SetActive(false);
+        */
     }
 
     // Update is called once per frame
