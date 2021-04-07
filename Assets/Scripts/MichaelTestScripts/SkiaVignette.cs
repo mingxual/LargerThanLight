@@ -38,6 +38,7 @@ public class SkiaVignette : MonoBehaviour
     void SkiaDiedStuff()
     {
         mFlowchart.SendFungusMessage("Owch");
+        //AudioManager.instance.PlayOnceNoPlace("Shadow_Spwan");
         if (chAbr.intensity.value < 1)
         {
             chAbr.intensity.value += 0.25f;
