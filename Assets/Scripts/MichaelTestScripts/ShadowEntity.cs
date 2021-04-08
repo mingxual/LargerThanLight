@@ -60,20 +60,24 @@ public class ShadowEntity : SCObstacle
 
         if (checkForLux)
         {
-            if(!LuxInAura())
-            {
-                lf.turnOffFlicker();
-                luxTrigger = false;
-            }
-            else if(!luxTrigger)
-            {
-                print("lux trigger initiated");
-                luxTrigger = true;
-                Invoke("LuxTriggerActivate", 2f);
-            }
-
             if (SCManager.Instance.ProjectileCount() == 0)
+            {
                 checkForLux = false;
+            }
+            else
+            {
+                if (!LuxInAura())
+                {
+                    lf.turnOffFlicker();
+                    luxTrigger = false;
+                }
+                else if (!luxTrigger)
+                {
+                    print("lux trigger initiated");
+                    luxTrigger = true;
+                    Invoke("LuxTriggerActivate", 2f);
+                }
+            }
         }
     }
 
