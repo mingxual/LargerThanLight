@@ -161,6 +161,7 @@ public class LightController : MonoBehaviour
         m_MovementDirection = Vector3.zero;
         m_Animator.SetBool("Moving", false);
         m_Rigidbody.velocity = Vector3.zero;
+        enabled = false;
     }
 
     // Reset Lux's position to a spawn point, if any
