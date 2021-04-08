@@ -71,6 +71,9 @@ public class ShadowEntity : SCObstacle
                 luxTrigger = true;
                 Invoke("LuxTriggerActivate", 2f);
             }
+
+            if (SCManager.Instance.ProjectileCount() == 0)
+                checkForLux = false;
         }
     }
 
