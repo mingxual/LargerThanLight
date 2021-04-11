@@ -60,16 +60,23 @@ public class ShadowEntity : SCObstacle
 
         if (checkForLux)
         {
-            if(!LuxInAura())
+            if (SCManager.Instance.ProjectileCount() == 0)
             {
-                lf.turnOffFlicker();
-                luxTrigger = false;
+                checkForLux = false;
             }
-            else if(!luxTrigger)
+            else
             {
-                print("lux trigger initiated");
-                luxTrigger = true;
-                Invoke("LuxTriggerActivate", 2f);
+                if (!LuxInAura())
+                {
+                    lf.turnOffFlicker();
+                    luxTrigger = false;
+                }
+                else if (!luxTrigger)
+                {
+                    print("lux trigger initiated");
+                    luxTrigger = true;
+                    Invoke("LuxTriggerActivate", 2f);
+                }
             }
         }
     }
@@ -114,6 +121,9 @@ public class ShadowEntity : SCObstacle
     {
         foreach(Transform t in targetTransforms)
         {
+            if (!t.gameObject.activeSelf)
+                continue;
+
             if (Vector3.SqrMagnitude(t.transform.position - skia.GetWorldPosition3D()) < 36)
                 return true;
         }

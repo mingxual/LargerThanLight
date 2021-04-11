@@ -90,6 +90,71 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Monster_Scream
+    clips:
+    - {fileID: 8300000, guid: 8b2c5d215170141ff9a60eac61fcd289, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Wood_Crunch
+    clips:
+    - {fileID: 8300000, guid: adbf0a07916a61b48abdd57f53d22cb0, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Electro_Magnetic
+    clips:
+    - {fileID: 8300000, guid: 1e9e9d2e07167c44484554fa57b500cc, type: 3}
+    volume: 0.312
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shadow_Spwan
+    clips:
+    - {fileID: 8300000, guid: 062ea4842e976443fb14893592d045b4, type: 3}
+    - {fileID: 8300000, guid: b45b0881b0be94e199a3c13f3fa4eed8, type: 3}
+    - {fileID: 8300000, guid: 24e90b7fdfe11457181a114e62888e04, type: 3}
+    volume: 0.125
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bang_Locker
+    clips:
+    - {fileID: 8300000, guid: 6e76f374114404e749e91dc35da5acb7, type: 3}
+    volume: 0.312
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Open_Locker
+    clips:
+    - {fileID: 8300000, guid: 1782e750ac7fc4484881332372aa1216, type: 3}
+    volume: 0.312
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spider_Scuttle
+    clips:
+    - {fileID: 8300000, guid: 78f28edca55164b6083c3e1695e5b3d7, type: 3}
+    volume: 0.312
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shadow_Creature_Form
+    clips:
+    - {fileID: 8300000, guid: 1782e750ac7fc4484881332372aa1216, type: 3}
+    volume: 0.312
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Throw_paper
+    clips:
+    - {fileID: 8300000, guid: c7a36ca0ecbc12e4ca60e8e0a235c9cd, type: 3}
+    volume: 0.418
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   musics:
   - name: Theater_Music_Loop
     clip: {fileID: 8300000, guid: 40c83ddfb880d4c2dbb72036d43274d0, type: 3}
@@ -105,19 +170,55 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Theater_Layer_1
     clip: {fileID: 8300000, guid: 47f3a920e284345e48a753cefd0a7f3f, type: 3}
-    volume: 0.054
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Theater_Layer_2
     clip: {fileID: 8300000, guid: 9dc8218d18cf04c64a52305dcd7b85d8, type: 3}
-    volume: 0.074
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Theater_Layer_3
     clip: {fileID: 8300000, guid: 27281d61df2824cbe974baf76ffc660d, type: 3}
-    volume: 0.087
+    volume: 0.2
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: The_Adventure
+    clip: {fileID: 8300000, guid: a8fe36483a506c34c8e446fcc32c7fa9, type: 3}
+    volume: 0.073
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro_Loop_1
+    clip: {fileID: 8300000, guid: a7edc699a229d4b60a326d706132bb13, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro_Loop_2
+    clip: {fileID: 8300000, guid: 03da937ce4eb948c8a33bc1c59c75bea, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro_Loop_3
+    clip: {fileID: 8300000, guid: 210ca97a32eda4b4fa9c76ae6385546b, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro_Loop_4
+    clip: {fileID: 8300000, guid: 6a8ad2b9817724d11870d72bf4daac81, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro_Transition
+    clip: {fileID: 8300000, guid: df810f564f0784e598f001bd033da03b, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

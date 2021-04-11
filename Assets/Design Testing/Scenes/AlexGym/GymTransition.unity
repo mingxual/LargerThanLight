@@ -51095,7 +51095,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh125092
+  m_Name: pb_Mesh121684
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53351,6 +53351,16 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 1976490054}
+    - target: {fileID: 8391262409015720301, guid: a98fa604763182141971ef23232e794c,
+        type: 3}
+      propertyPath: instantComplete
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391262409015720303, guid: a98fa604763182141971ef23232e794c,
+        type: 3}
+      propertyPath: clickMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8973908589626477677, guid: a98fa604763182141971ef23232e794c,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -86549,8 +86559,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 67
-    y: 70
-    width: 109.34065
+    y: 68.9011
+    width: 110.989006
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -86573,8 +86583,8 @@ MonoBehaviour:
   - {fileID: 783278430}
   - {fileID: 783278410}
   - {fileID: 783278422}
-  - {fileID: 783278413}
   - {fileID: 783278409}
+  - {fileID: 783278413}
   - {fileID: 783278411}
   - {fileID: 783278412}
   - {fileID: 783278408}
@@ -86608,7 +86618,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 783278399}
   selectedCommands:
-  - {fileID: 783278429}
+  - {fileID: 783278407}
   variables: []
   description: 
   stepPause: 0
@@ -86648,17 +86658,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: Woah...what happened to this place...?
+  storyText: Woah... This gym is fucked up!
   description: 
   character: {fileID: 19641851}
-  portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
+  portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &783278403
@@ -86700,7 +86710,7 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &783278405
@@ -86717,18 +86727,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: Whatever, we're almost out. Lets go!!
+  storyText: "Forget that. Look! the door\u2019s over there! "
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: a67b534f34a5a354e92d0a6430c085b8, type: 3}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278406
 MonoBehaviour:
@@ -86786,17 +86796,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 0
-  storyText: SKIA!
+  storyText: Alright, I get it, but SKIA LOOK
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 8ae88a1792b870e449b95e24465e98eb, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 0d8b108595fd5a04885a7b6d6e12f794, type: 3}
+  voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &783278409
@@ -86849,7 +86859,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &783278411
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86874,7 +86884,7 @@ MonoBehaviour:
   parameterNameOLD: 
 --- !u!114 &783278412
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86902,7 +86912,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &783278413
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86929,7 +86939,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &783278414
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -87108,7 +87118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 26
   indentLevel: 0
-  storyText: Ok...
+  storyText: okay..
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
@@ -87118,7 +87128,7 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &783278429
@@ -87135,7 +87145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 25
   indentLevel: 0
-  storyText: Listen... when we get out of here, I promise to have your back..
+  storyText: Listen... when we get out of here, I promise to try to listen more
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
@@ -87145,7 +87155,7 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &783278430
@@ -95826,7 +95836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1316951278
 Animator:
   serializedVersion: 3
@@ -95885,8 +95895,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3451d812789bf7440a65ef120cfcdcec, type: 3}
-  m_Color: {r: 0.4183307, g: 0.40939838, b: 0.4339623, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4f3169a7d09e57840bf52f444d73125a, type: 3}
+  m_Color: {r: 0.43636295, g: 0.31959772, b: 0.5943396, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95904,8 +95914,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316951277}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -25.6, y: 71.6, z: -31.1}
-  m_LocalScale: {x: 5.7016597, y: 5.7016597, z: 5.7016597}
+  m_LocalPosition: {x: -25.6, y: 66.1, z: -35.35}
+  m_LocalScale: {x: 1.2512525, y: 1.2512525, z: 1.2512525}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -96561,7 +96571,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh125174
+  m_Name: pb_Mesh121766
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -99827,7 +99837,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 72
-    width: 109.21051
+    width: 113.81578
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -102259,7 +102269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1792755727
 MonoBehaviour:
   m_ObjectHideFlags: 0

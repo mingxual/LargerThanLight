@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void DisableCharacterControl()
     {
-        luxControl.enabled = false;
+        luxControl.DisableLuxMovement();
         skiaControl.Disable();
     }
 

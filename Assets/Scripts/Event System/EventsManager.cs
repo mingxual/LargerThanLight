@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System;
 
 public class EventsManager : MonoBehaviour
 {
@@ -71,10 +72,19 @@ public class EventsManager : MonoBehaviour
                 return;
             }
 
-            float totalTime = Time.timeSinceLevelLoad;
-            float timeSpent = totalTime - lastRecord;
-            
-            Debug.Log(SceneManager.GetActiveScene().name + ":" + "subLevel:" + subLevel + " time:" + timeSpent.ToString() + " totalTime:" + Time.timeSinceLevelLoad);
+            string curTime = EventTime.GetTime(DateTime.Now);          
+            float sceneTime = Time.timeSinceLevelLoad;
+            float timeSpent = sceneTime - lastRecord;
+
+            string record = curTime + " " + 
+                SceneManager.GetActiveScene().name + ":" +
+                "subLevel:" + subLevel + 
+                " time:" + timeSpent.ToString() +
+                " sceneTime:" + Time.timeSinceLevelLoad + 
+                " TotalTime: " + Time.time;
+
+
+            //Debug.Log(record);
 
             AnalyticsResult ar = Analytics.CustomEvent(SceneManager.GetActiveScene().name, new Dictionary<string, object> {
                 {"subLevel",subLevel},
@@ -85,7 +95,7 @@ public class EventsManager : MonoBehaviour
             //Debug.Log("Analytics Result:"+ar.ToString());
             
             subLevel++;
-            lastRecord = totalTime;
+            lastRecord = sceneTime;
             
             // m_EventsMap.Remove(key);
         }

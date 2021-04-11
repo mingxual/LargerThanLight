@@ -7,6 +7,7 @@ public class MoveToOrigin : MonoBehaviour
     public Vector3 target;
     public float speed = 1.0f;
     public SkinnedMeshRenderer thePlayerMesh;
+    //public SimpleController m_SimpleController;
     public GameObject respawnAnimation;
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,9 @@ public class MoveToOrigin : MonoBehaviour
         {
             // Swap the position of the cylinder.
             target *= -1.0f;
-            Instantiate(respawnAnimation, transform.position, transform.rotation);
+            Destroy(Instantiate(respawnAnimation, transform.position, transform.rotation), 2.0f);
             thePlayerMesh.enabled = true;
+            //m_SimpleController.enabled = true;
             Destroy(gameObject);
         }
 

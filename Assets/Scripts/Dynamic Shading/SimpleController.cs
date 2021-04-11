@@ -72,6 +72,7 @@ public class SimpleController : MonoBehaviour
 
     #region Anything Debugging Related
     public bool m_MichaelsDebuggingFlag;
+    public bool mehaIsStupid = false;
     #endregion
 
     private void Awake()
@@ -138,7 +139,7 @@ public class SimpleController : MonoBehaviour
             m_MovementDirection += 1;
             m_KeysPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.W) && m_CanJump)
+        if ((Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.Space)) && m_CanJump)
         {
             m_HasJumped = true;
         }
@@ -173,7 +174,7 @@ public class SimpleController : MonoBehaviour
             m_IsJumping = true;
 
             // Play Skia's jump animation
-            m_Animator.Play("Jump");
+            m_Animator.Play("Jump", -1, 0f);
         }
         else
         {        
@@ -233,9 +234,18 @@ public class SimpleController : MonoBehaviour
         }
         else
         {
-            // Set Skia's facing direction
-            m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_RightFacingDirection : m_LeftFacingDirection;
-            m_Animator.SetBool("IsRunning", true);
+            if (mehaIsStupid == false)
+            {
+                // Set Skia's facing direction
+                m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_RightFacingDirection : m_LeftFacingDirection;
+                m_Animator.SetBool("IsRunning", true);
+            }
+            if (mehaIsStupid == true)
+            {
+                // Set Skia's facing direction
+                m_SkiaModelTransform.localScale = m_MovementDirection > 0 ? m_LeftFacingDirection : m_RightFacingDirection;
+                m_Animator.SetBool("IsRunning", true);
+            }
         }
 
         // Detemine how fast Skia should fall/jump
@@ -323,12 +333,16 @@ public class SimpleController : MonoBehaviour
         m_SkinnedMeshRenderer.enabled = false; // Turn off mesh renderer
         ResetSkia(); // Reset Skia, moving her to the new spawn point
         m_IsDead = true; // Set dead status
-        Instantiate(m_DeathParticleEffect, oldPosition, transform.rotation); // Instantiate the instant death effect
+        Destroy(Instantiate(m_DeathParticleEffect, oldPosition, transform.rotation), 1.0f); // Instantiate the instant death effect
         GameObject dragPart = Instantiate(m_DraggingParticleEffect, oldPosition, transform.rotation); // Instantiate the dragging particle effect that will move towards spawn
         dragPart.GetComponent<MoveToOrigin>().target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
         dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
+        /*MoveToOrigin moveToOrigin = dragPart.GetComponent<MoveToOrigin>();
+        moveToOrigin.target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
+        moveToOrigin.thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
+        moveToOrigin.m_SimpleController = this;
+        enabled = false; // Disable controls*/
     }
-
 
     /// <summary>
     /// Resets Skia to current spawnpoint

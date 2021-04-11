@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,13 +13,9 @@ public class AudioManager : MonoBehaviour
 
     private float BGTimer = 89f;
 
-    private bool isBG=true;
+    private int level = 0;
 
-    private int layerNumber = 1;
-
-    private Music layer1;
-    private Music layer2;
-    private Music layer3;
+    private int loopNum = 0;
 
     private void Awake()
     {
@@ -56,83 +53,26 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        layer1 = GetMusic("Theater_Layer_1");
-        layer2 = GetMusic("Theater_Layer_2");
-        layer3 = GetMusic("Theater_Layer_3");
-        layer2.source.volume = 0;
-        layer3.source.volume = 0;
-        layer1.source.Play();
-        layer2.source.Play();
-        layer3.source.Play();
-        BGTimer = layer1.source.clip.length - 7.06f;
+        InitializeMenu();
     }
 
     public void Update()
     {
-        BGTimer -= Time.deltaTime;
-        if(BGTimer<=0f)
+        if(level==1)
         {
-            layer1.source.Play();
-            layer2.source.Play();
-            layer3.source.Play();
-            BGTimer = layer1.source.clip.length - 7.06f;
+            LockerUpdate();
         }
-
-        if(Input.GetKeyDown(KeyCode.B))
+        if (level == 2)
         {
-            if(isBG)
-            {
-                isBG = false;
-                if(layerNumber==1)
-                {
-                    layer1.source.volume = 0f;
-                }
-                else if (layerNumber == 2)
-                {
-                    layer2.source.volume = 0f;
-                }
-                else if (layerNumber == 3)
-                {
-                    layer3.source.volume = 0f;
-                }
-            }
-            else
-            {
-                isBG = true;
-                if (layerNumber == 1)
-                {
-                    layer1.source.volume = layer1.volume;
-                }
-                else if (layerNumber == 2)
-                {
-                    layer2.source.volume = layer2.volume;
-                }
-                else if (layerNumber == 3)
-                {
-                    layer3.source.volume = layer3.volume;
-                }
-            }
-
+            TheaterUpdate();
         }
     }
 
+    //
+    //Basic Functionalities-----------------------------------------------
+    //
     public void PlayOnce(string name, Vector3 place)
     {
-        /*
-        if (name == "Lux_Footstep")
-        {
-            int index = UnityEngine.Random.Range(0, 4);
-            string realName = name + "_" + index;
-            s = Array.Find(sounds, sound => sound.name == realName);
-            s.source.PlayOneShot(s.source.clip);
-        }
-        else if (name == "Lux_Flicker")
-        {
-            int index = UnityEngine.Random.Range(0, 6);
-            string realName = name + "_" + index;
-            s = Array.Find(sounds, sound => sound.name == realName);
-            s.source.PlayOneShot(s.source.clip);
-        }*/
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
@@ -164,7 +104,27 @@ public class AudioManager : MonoBehaviour
         m.source.Play();
     }
 
-    
+    public void PlayMusicOnce(string name, int volume)
+    {
+        Music m = Array.Find(musics, music => music.name == name);
+        if (m == null)
+        {
+            Debug.LogWarning("Music " + name + " not found");
+            return;
+        }
+        if (volume == -1)
+        { 
+            m.source.PlayOneShot(m.source.clip, m.volume);
+        }
+        else if (volume == 2)
+        {
+            m.source.PlayOneShot(m.source.clip, m.source.volume);
+        }
+        else if(volume>=0 && volume<=1)
+        {
+            m.source.PlayOneShot(m.source.clip, volume);
+        }
+    }
 
     public void StopMusic(string name)
     {
@@ -199,33 +159,19 @@ public class AudioManager : MonoBehaviour
         return m;
     }
 
-    public void UpdateLayer(int inLayer)
-    {
-        layerNumber = inLayer;
-        if(layerNumber == 1)
-        {
-            layer1.source.volume = layer1.volume;
-            layer2.source.volume = 0f;
-            layer3.source.volume = 0f;
-        }
-        else if (layerNumber == 2)
-        {
-            layer2.source.volume = layer2.volume;
-            layer1.source.volume = 0f;
-            layer3.source.volume = 0f;
-        }
-        else if (layerNumber == 3)
-        {
-            layer3.source.volume = layer3.volume;
-            layer1.source.volume = 0f;
-            layer2.source.volume = 0f;
-        }
-    }
-
     public void MusicVolumeChange(float newVolume)
     {
         foreach (Music m in musics)
         {
+            m.volume = newVolume;
+            //special case for theater level
+            if(m.name=="Theater_Layer_1" || m.name == "Theater_Layer_2"|| m.name == "Theater_Layer_3")
+            {
+                if(m.source.volume==0)
+                {
+                    continue;
+                }
+            }
             m.source.volume = newVolume;
         }
     }
@@ -241,5 +187,164 @@ public class AudioManager : MonoBehaviour
             }
             s.source.volume = temp;
         }
+    }
+
+
+    //
+    //Level Related Functions-----------------------------------------------
+    //
+    public void LevelChange(int inLevel)
+    {
+        level = inLevel;
+        if(level==1)
+        {
+
+        }
+        else if(level==2)
+        {
+            InitializeTheaterLevel();
+        }
+    }
+
+    public void InitializeMenu()
+    {
+        PlayMusic("The_Adventure");
+    }
+
+    public void InitializeLockerLevel()
+    {
+        if (level != 1)
+        {
+            level = 1;
+            foreach (Music m in musics)
+            {
+                m.source.Stop();
+            }
+            PlayMusicOnce("Intro_Loop_1", -1);
+            BGTimer = GetMusic("Intro_Loop_1").source.clip.length - 8.67f;
+            loopNum = 1;
+        }
+    }
+
+    public void InitializeTheaterLevel()
+    {
+        if (level != 2)
+        {
+            level = 2;
+            foreach (Music m in musics)
+            {
+                m.source.Stop();
+            }
+            PlayMusicOnce("Theater_Layer_1", -1);
+            PlayMusicOnce("Theater_Layer_1", 0);
+            PlayMusicOnce("Theater_Layer_1", 0);
+
+            BGTimer = GetMusic("Theater_Layer_1").source.clip.length - 7.06f;
+        }
+    }
+
+    public void InitializeGymLevel()
+    {
+        if (level != 3)
+        {
+            level = 3;
+            Music layer1 = GetMusic("Theater_Layer_1");
+            Music layer2 = GetMusic("Theater_Layer_2");
+            Music layer3 = GetMusic("Theater_Layer_3");
+            layer1.source.volume = 0;
+            layer2.source.volume = 0;
+            layer3.source.volume = layer3.volume;
+        }
+    }
+
+
+
+    public void TheaterUpdate()
+    {
+        BGTimer -= Time.deltaTime;
+        if (BGTimer <= 0f)
+        {
+            PlayMusicOnce("Theater_Layer_1", 2);
+            PlayMusicOnce("Theater_Layer_1", 2);
+            PlayMusicOnce("Theater_Layer_1", 2);
+
+            BGTimer = GetMusic("Theater_Layer_1").source.clip.length - 7.06f;
+        }
+    }
+
+    public void UpdateLayer(int layerNumber)
+    {
+        Music layer1 = GetMusic("Theater_Layer_1");
+        Music layer2 = GetMusic("Theater_Layer_2");
+        Music layer3 = GetMusic("Theater_Layer_3");
+        if (layerNumber == 1)
+        {
+            layer1.source.volume = layer1.volume;
+            layer2.source.volume = 0;
+            layer3.source.volume = 0;
+        }
+        else if (layerNumber == 2)
+        {
+            layer1.source.volume = 0;
+            layer2.source.volume = layer2.volume;
+            layer3.source.volume = 0;
+        }
+        else if (layerNumber == 3)
+        {
+            layer1.source.volume = 0;
+            layer2.source.volume = 0;
+            layer3.source.volume = layer3.volume;
+        }
+    }
+
+
+    public void LockerUpdate()
+    {
+        BGTimer -= Time.deltaTime;
+        if (BGTimer <= 0f)
+        {
+            if (loopNum == 1)
+            {
+                PlayMusicOnce("Intro_Loop_1", -1);
+                BGTimer = GetMusic("Intro_Loop_1").source.clip.length - 8.67f;
+            }
+            if (loopNum == 2)
+            {
+                PlayMusicOnce("Intro_Loop_2", -1);
+                BGTimer = GetMusic("Intro_Loop_2").source.clip.length - 8.67f;
+            }
+            if (loopNum == 3)
+            {
+                PlayMusicOnce("Intro_Loop_3", -1);
+                BGTimer = GetMusic("Intro_Loop_3").source.clip.length - 8.67f;
+            }
+            if (loopNum == 4)
+            {
+                PlayMusicOnce("Intro_Loop_4", -1);
+                BGTimer = GetMusic("Intro_Loop_4").source.clip.length - 8.67f;
+            }
+        }
+    }
+
+    public IEnumerator LockerMusicUpdate(int inLoop)
+    {
+        PlayMusicOnce("Intro_Transition", -1);
+        yield return new WaitForSeconds(2.89f);
+        if (inLoop == 2)
+        {
+            StopMusic("Intro_Loop_1");
+            PlayMusicOnce("Intro_Loop_2", -1);
+        }
+        else if (inLoop == 3)
+        {
+            StopMusic("Intro_Loop_2");
+            PlayMusicOnce("Intro_Loop_3", -1);
+        }
+        else if (inLoop == 4)
+        {
+            StopMusic("Intro_Loop_3");
+            PlayMusicOnce("Intro_Loop_4", -1);
+        }
+
     }
 }

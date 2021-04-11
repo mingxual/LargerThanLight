@@ -43,39 +43,6 @@ public class ShadowMoveSkia : MonoBehaviour
 
     public void GetLines(Vector2 point)
     {
-        /*
-        bool stopLoop = false;
-        for (int i = 0; i < points.Length; i++)
-        {
-            int j = i + 1;
-            if (i == (points.Length-1))
-            {
-                j = 0;
-            }
-            while((points[i] - points[j]) == Vector2.zero)
-            {
-                j += 1;
-                if(j >= points.Length)
-                {
-                    stopLoop = true;
-                    j = 0;
-                }
-            }
-
-            if(Vector3.Cross((point - points[i]),(points[i] - points[j])).magnitude <= 0.05f)
-            {
-                vertexX = i;
-                vertexY = j;
-                break;
-            }
-
-            i = j - 1;
-            if (stopLoop)
-            {
-                break;
-            }
-        }*/
-
         points = edgeCollider.points;
         Vector2 leftMost = new Vector2(float.MaxValue, 0);
         Vector2 rightMost = new Vector2(float.MinValue, 0);
