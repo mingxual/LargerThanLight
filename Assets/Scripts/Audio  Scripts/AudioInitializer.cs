@@ -16,4 +16,19 @@ public class AudioInitializer : MonoBehaviour
     {
         AudioManager.instance.InitializeGymLevel();
     }
+
+    public void UpdateLayer(int layer)
+    {
+        AudioManager.instance.UpdateLayer(layer);
+    }
+
+    public void LockerMusicUpdate(int inLoop)
+    {
+        StartCoroutine(AudioManager.instance.LockerMusicUpdate(inLoop));
+    }
+
+    public void PlayOnceNoPlace(string name)
+    {
+        AudioManager.instance.PlayOnceNoPlace(name);
+    }
 }

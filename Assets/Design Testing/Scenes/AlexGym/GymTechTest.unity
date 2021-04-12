@@ -104167,10 +104167,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1818493441}
-  selectedCommands:
-  - {fileID: 1818493465}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -104305,9 +104303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 172.03627
-    y: 260.03625
-    width: 210.62183
+    x: 174.10881
+    y: 262.1088
+    width: 208.03116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104363,7 +104361,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 168.23627
     y: 72.54373
-    width: 119.43008
+    width: 117.87567
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104415,7 +104413,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 197.07254
-    width: 161.91714
+    width: 159.8446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104504,7 +104502,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 172.03627
     y: 135.10881
-    width: 113.21246
+    width: 111.65805
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104630,7 +104628,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 339.93134
     y: 68.522385
-    width: 161.91714
+    width: 159.8446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104936,11 +104934,11 @@ MonoBehaviour:
   itemId: 61
   indentLevel: 0
   description: 
-  targetObject: {fileID: 1961431131}
-  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetObject: {fileID: 1289150102}
+  targetComponentAssemblyName: AudioInitializer, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: AudioManager
+  targetComponentText: AudioInitializer
   targetMethod: PlayOnceNoPlace
   targetMethodText: 'PlayOnceNoPlace (String): Void'
   methodParameters:
@@ -104981,11 +104979,11 @@ MonoBehaviour:
   itemId: 60
   indentLevel: 0
   description: 
-  targetObject: {fileID: 1961431131}
-  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetObject: {fileID: 1289150102}
+  targetComponentAssemblyName: AudioInitializer, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: AudioManager
+  targetComponentText: AudioInitializer
   targetMethod: PlayOnceNoPlace
   targetMethodText: 'PlayOnceNoPlace (String): Void'
   methodParameters:
@@ -105013,7 +105011,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1818493465
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -105364,11 +105362,11 @@ MonoBehaviour:
   itemId: 58
   indentLevel: 0
   description: 
-  targetObject: {fileID: 1961431131}
-  targetComponentAssemblyName: AudioManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetObject: {fileID: 1289150102}
+  targetComponentAssemblyName: AudioInitializer, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: AudioManager
+  targetComponentText: AudioInitializer
   targetMethod: PlayOnceNoPlace
   targetMethodText: 'PlayOnceNoPlace (String): Void'
   methodParameters:
@@ -107856,12 +107854,6 @@ MonoBehaviour:
   shadowprojaffect: 1
   shadowprojtime: 15
   shadowprojaffected: 0
---- !u!1 &1961431131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3201214917686630730, guid: 662e09c963be84443a52d2c9ab417b89,
-    type: 3}
-  m_PrefabInstance: {fileID: 369019120}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962399935
 GameObject:
   m_ObjectHideFlags: 0

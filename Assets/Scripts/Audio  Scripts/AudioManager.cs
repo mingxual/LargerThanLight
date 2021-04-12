@@ -113,12 +113,13 @@ public class AudioManager : MonoBehaviour
             return;
         }
         if (volume == -1)
-        { 
-            m.source.PlayOneShot(m.source.clip, m.volume);
+        {
+            m.source.volume = m.volume;
+            m.source.PlayOneShot(m.source.clip);
         }
         else if (volume == 2)
         {
-            m.source.PlayOneShot(m.source.clip, m.source.volume);
+            m.source.PlayOneShot(m.source.clip);
         }
         else if(volume>=0 && volume<=1)
         {
@@ -198,7 +199,7 @@ public class AudioManager : MonoBehaviour
         level = inLevel;
         if(level==1)
         {
-
+            InitializeLockerLevel();
         }
         else if(level==2)
         {
@@ -208,7 +209,7 @@ public class AudioManager : MonoBehaviour
 
     public void InitializeMenu()
     {
-        PlayMusic("The_Adventure");
+        PlayMusic("Menu");
     }
 
     public void InitializeLockerLevel()
@@ -235,9 +236,10 @@ public class AudioManager : MonoBehaviour
             {
                 m.source.Stop();
             }
-            PlayMusicOnce("Theater_Layer_1", -1);
-            PlayMusicOnce("Theater_Layer_1", 0);
-            PlayMusicOnce("Theater_Layer_1", 0);
+            UpdateLayer(1);
+            PlayMusicOnce("Theater_Layer_1", 2);
+            PlayMusicOnce("Theater_Layer_2", 2);
+            PlayMusicOnce("Theater_Layer_3", 2);
 
             BGTimer = GetMusic("Theater_Layer_1").source.clip.length - 7.06f;
         }
@@ -265,8 +267,8 @@ public class AudioManager : MonoBehaviour
         if (BGTimer <= 0f)
         {
             PlayMusicOnce("Theater_Layer_1", 2);
-            PlayMusicOnce("Theater_Layer_1", 2);
-            PlayMusicOnce("Theater_Layer_1", 2);
+            PlayMusicOnce("Theater_Layer_2", 2);
+            PlayMusicOnce("Theater_Layer_3", 2);
 
             BGTimer = GetMusic("Theater_Layer_1").source.clip.length - 7.06f;
         }
@@ -329,22 +331,45 @@ public class AudioManager : MonoBehaviour
     public IEnumerator LockerMusicUpdate(int inLoop)
     {
         PlayMusicOnce("Intro_Transition", -1);
-        yield return new WaitForSeconds(2.89f);
+        Music temp;
         if (inLoop == 2)
         {
+            temp = GetMusic("Intro_Loop_1");
+            StartCoroutine(Fade(temp.source, 2.89f, 0));
+            yield return new WaitForSeconds(2.89f);
             StopMusic("Intro_Loop_1");
             PlayMusicOnce("Intro_Loop_2", -1);
         }
         else if (inLoop == 3)
         {
+            temp = GetMusic("Intro_Loop_2");
+            StartCoroutine(Fade(temp.source, 2.89f, 0));
+            yield return new WaitForSeconds(2.89f);
             StopMusic("Intro_Loop_2");
             PlayMusicOnce("Intro_Loop_3", -1);
         }
         else if (inLoop == 4)
         {
+            temp = GetMusic("Intro_Loop_3");
+            StartCoroutine(Fade(temp.source, 2.89f, 0));
+            yield return new WaitForSeconds(2.89f);
             StopMusic("Intro_Loop_3");
             PlayMusicOnce("Intro_Loop_4", -1);
         }
-
     }
+
+    public IEnumerator Fade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
+
 }
