@@ -27,6 +27,11 @@ public class AudioInitializer : MonoBehaviour
         StartCoroutine(AudioManager.instance.LockerMusicUpdate(inLoop));
     }
 
+    public void GymMusicUpdate(int inLoop)
+    {
+        StartCoroutine(AudioManager.instance.GymMusicUpdate(inLoop));
+    }
+
     public void PlayOnceNoPlace(string name)
     {
         AudioManager.instance.PlayOnceNoPlace(name);

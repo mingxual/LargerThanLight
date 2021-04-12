@@ -104136,6 +104136,8 @@ GameObject:
   - component: {fileID: 1818493464}
   - component: {fileID: 1818493463}
   - component: {fileID: 1818493465}
+  - component: {fileID: 1818493479}
+  - component: {fileID: 1818493476}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -104168,9 +104170,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1818493452}
+  - {fileID: 1818493439}
   selectedCommands:
-  - {fileID: 1818493451}
+  - {fileID: 1818493476}
   variables: []
   description: 
   stepPause: 0
@@ -104307,7 +104309,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 174.10881
     y: 262.1088
-    width: 205.58017
+    width: 204.69618
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104317,6 +104319,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1818493438}
   commandList:
   - {fileID: 1818493463}
+  - {fileID: 1818493476}
   - {fileID: 1818493435}
   - {fileID: 1818493461}
   suppressAllAutoSelections: 0
@@ -104363,7 +104366,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 168.23627
     y: 72.54373
-    width: 116.29837
+    width: 116.85085
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104373,6 +104376,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1818493444}
   commandList:
   - {fileID: 1818493465}
+  - {fileID: 1818493479}
   - {fileID: 1818493477}
   - {fileID: 1818493475}
   - {fileID: 1818493474}
@@ -104415,7 +104419,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170
     y: 197.07254
-    width: 157.84534
+    width: 157.73485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104504,7 +104508,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 172.03627
     y: 135.10881
-    width: 110.11052
+    width: 110.7735
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -104630,7 +104634,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 339.93134
     y: 68.522385
-    width: 157.84534
+    width: 157.73485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -105304,6 +105308,51 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &1818493476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 64
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1289150102}
+  targetComponentAssemblyName: AudioInitializer, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioInitializer
+  targetMethod: GymMusicUpdate
+  targetMethodText: 'GymMusicUpdate (Int32): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Int32
+      intValue: 3
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &1818493477
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -105380,6 +105429,51 @@ MonoBehaviour:
       boolValue: 0
       floatValue: 0
       stringValue: Electro_Magentic
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1818493479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818493432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 63
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1289150102}
+  targetComponentAssemblyName: AudioInitializer, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioInitializer
+  targetMethod: GymMusicUpdate
+  targetMethodText: 'GymMusicUpdate (Int32): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Int32
+      intValue: 2
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
       materialValue: {fileID: 0}
