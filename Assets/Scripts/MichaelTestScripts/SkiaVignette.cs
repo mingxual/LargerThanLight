@@ -53,6 +53,11 @@ public class SkiaVignette : MonoBehaviour
 
     }
 
+    public void SetVignetteCenter(Vector2 screenPos)
+    {
+        vignette.center.value = screenPos;
+    }
+
     void CheckLightStatus()
     {
         if (!vignette) return;

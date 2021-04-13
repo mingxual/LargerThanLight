@@ -304,6 +304,10 @@ public class SimpleController : MonoBehaviour
         {
             // Adjust vignette effect depending on how much she's squished
             m_SkiaVignette.squishStatus = death * 0.6f;
+            Vector2 skiaScreenPos = m_CurrentGameCamera.WorldToScreenPoint(m_WorldPosition3D);
+            skiaScreenPos.x /= Screen.width;
+            skiaScreenPos.y /= Screen.height;
+            m_SkiaVignette.SetVignetteCenter(skiaScreenPos);
             LevelManager.Instance.SlowTime(death > 0.5f);
         }
     }
