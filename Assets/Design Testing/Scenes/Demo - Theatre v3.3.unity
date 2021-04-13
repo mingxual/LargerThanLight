@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9914,18 +9914,6 @@ Transform:
   m_Father: {fileID: 445364489}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &454321956 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
-    type: 3}
-  m_PrefabInstance: {fileID: 1857499088}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d25f4a508c743f8accb088bbe065ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &455071350
 GameObject:
   m_ObjectHideFlags: 0
@@ -22398,6 +22386,7 @@ GameObject:
   - component: {fileID: 1046351383}
   - component: {fileID: 1046351382}
   - component: {fileID: 1046351384}
+  - component: {fileID: 1046351317}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -22430,9 +22419,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351310}
+  - {fileID: 1046351325}
   selectedCommands:
-  - {fileID: 1046351344}
+  - {fileID: 1046351296}
   variables: []
   description: 
   stepPause: 0
@@ -23074,6 +23063,51 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 2
   durationOLD: 0
+--- !u!114 &1046351317
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 117
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1283315955}
+  targetComponentAssemblyName: AudioInitializer, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: AudioInitializer
+  targetMethod: UpdateLayer
+  targetMethodText: 'UpdateLayer (Int32): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Int32
+      intValue: 3
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &1046351318
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -23236,6 +23270,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1046351327}
   commandList:
   - {fileID: 1046351384}
+  - {fileID: 1046351317}
   - {fileID: 1046351335}
   - {fileID: 1046351324}
   - {fileID: 1046351296}
@@ -24764,17 +24799,17 @@ MonoBehaviour:
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AudioInitializer
-  targetMethod: UpdateLayer
-  targetMethodText: 'UpdateLayer (Int32): Void'
+  targetMethod: PlayOnceNoPlace
+  targetMethodText: 'PlayOnceNoPlace (String): Void'
   methodParameters:
   - objValue:
-      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      typeFullname: System.Int32
-      intValue: 3
+      typeFullname: System.String
+      intValue: 0
       boolValue: 0
       floatValue: 0
-      stringValue: 
+      stringValue: Key
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
       materialValue: {fileID: 0}
@@ -32120,17 +32155,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: GetExit
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 454321956}
-        m_MethodName: UpdateLayer
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1072051574}

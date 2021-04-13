@@ -83,10 +83,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Key_Collection
+  - name: Key
     clips:
-    - {fileID: 8300000, guid: a90d9f930fcd64596b593ed7b12cd8cf, type: 3}
-    volume: 1
+    - {fileID: 8300000, guid: c760b25c7a6a94741889b5f31139028d, type: 3}
+    volume: 0.468
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -106,7 +106,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Electro_Magnetic
     clips:
-    - {fileID: 8300000, guid: 1e9e9d2e07167c44484554fa57b500cc, type: 3}
+    - {fileID: 8300000, guid: b36cd99ccf161468bab34f48350f83b8, type: 3}
+    - {fileID: 8300000, guid: 3251a9a4a09c24800bf4c3ca16a60c33, type: 3}
     volume: 0.312
     pitch: 1
     loop: 0
@@ -151,6 +152,35 @@ MonoBehaviour:
   - name: Throw_paper
     clips:
     - {fileID: 8300000, guid: c7a36ca0ecbc12e4ca60e8e0a235c9cd, type: 3}
+    volume: 0.418
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Projectile_Spawn
+    clips:
+    - {fileID: 8300000, guid: c65b41ffd1c15450b8ee5059dad9a54d, type: 3}
+    - {fileID: 8300000, guid: 0bd3350db8d0044288fa66023bbaeb1e, type: 3}
+    - {fileID: 8300000, guid: bf9284939746f4b31ac38a7f06f57030, type: 3}
+    - {fileID: 8300000, guid: cdf47ea88f3a44afc806d73a013be44b, type: 3}
+    volume: 0.418
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Projectile_Collide
+    clips:
+    - {fileID: 8300000, guid: d4c5ef2d74a934ad38a464f7863d12c8, type: 3}
+    - {fileID: 8300000, guid: c3f71c5b5611143ce8073e2929d6f2cd, type: 3}
+    - {fileID: 8300000, guid: 6f60991390bd341dc963decdbb9a354b, type: 3}
+    - {fileID: 8300000, guid: a414942da45464bfeac6bd914b66ebe8, type: 3}
+    volume: 0.418
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Projectile_Collide_Skia
+    clips:
+    - {fileID: 8300000, guid: 100a88bf643354d2e87b92247032e8c9, type: 3}
+    - {fileID: 8300000, guid: d1f360b7fcd814916bbbf8fba3873157, type: 3}
+    - {fileID: 8300000, guid: 0f46c3f683ead4c42974dc73621e125a, type: 3}
     volume: 0.418
     pitch: 1
     loop: 0

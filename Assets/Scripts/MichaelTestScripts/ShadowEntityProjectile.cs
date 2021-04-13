@@ -53,6 +53,7 @@ public class ShadowEntityProjectile : MonoBehaviour
                 {
                     //print("hit object");
                     obs.HitByShadowProj();
+                    AudioManager.instance.PlayOnceNoPlace("Projectile_Collide");
                     Destroy(gameObject);
                 }
             }
@@ -63,6 +64,7 @@ public class ShadowEntityProjectile : MonoBehaviour
         if(sc)
         {
             mlightFlickScript.turnOnFlicker();
+            AudioManager.instance.PlayOnceNoPlace("Projectile_Collide_Skia");
             sc.SkiaDeath();
             Destroy(gameObject);
         }
