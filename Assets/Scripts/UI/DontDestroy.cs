@@ -2,15 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Fungus;
+using UnityEngine.UI;
 
 public class DontDestroy : MonoBehaviour
 {
+    public static DontDestroy instance;
+
     [SerializeField] bool isFirstScene = true;
     [SerializeField] List<GameObject> subPages;
+    [SerializeField] GameObject sayDialogue;
+    [SerializeField] Slider slide;
 
     public void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
         DontDestroyOnLoad(gameObject);
+        sayDialogue = null;
     }
 
     // Start is called before the first frame update
@@ -63,5 +79,19 @@ public class DontDestroy : MonoBehaviour
     {
         DeActiveAllSubPages();
         subPages[index].SetActive(true);
+    }
+
+    public void SetSayDialogue(GameObject inDialogue)
+    {
+        sayDialogue = inDialogue;
+        ChangeVolume();
+    }
+
+    public void ChangeVolume()
+    {
+        if(sayDialogue != null)
+        {
+            sayDialogue.GetComponent<WriterAudio>().volume = slide.value;
+        }
     }
 }
