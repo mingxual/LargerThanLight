@@ -86423,9 +86423,7 @@ GameObject:
   - component: {fileID: 783278428}
   - component: {fileID: 783278427}
   - component: {fileID: 783278430}
-  - component: {fileID: 783278414}
   - component: {fileID: 783278413}
-  - component: {fileID: 783278412}
   - component: {fileID: 783278411}
   - component: {fileID: 783278416}
   - component: {fileID: 783278415}
@@ -86450,9 +86448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
+    x: 64.8022
     y: 68.9011
-    width: 109.34065
+    width: 110.989006
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -86472,15 +86470,13 @@ MonoBehaviour:
   - {fileID: 783278423}
   - {fileID: 783278418}
   - {fileID: 783278424}
-  - {fileID: 783278414}
   - {fileID: 783278430}
   - {fileID: 783278410}
   - {fileID: 783278422}
   - {fileID: 783278416}
   - {fileID: 783278409}
-  - {fileID: 783278413}
   - {fileID: 783278411}
-  - {fileID: 783278412}
+  - {fileID: 783278413}
   - {fileID: 783278408}
   - {fileID: 783278407}
   - {fileID: 783278419}
@@ -86512,7 +86508,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 783278399}
   selectedCommands:
-  - {fileID: 783278416}
+  - {fileID: 783278407}
   variables: []
   description: 
   stepPause: 0
@@ -86552,18 +86548,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: Woah... This gym is fucked up!
+  storyText: Woah... The gym is messed up?!
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 8caaa780e2127434f9b58f47fa703ab3, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 484fa155e9923425893a835231aaebd8, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278403
 MonoBehaviour:
@@ -86598,14 +86594,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: cd55a1c8c579e4fd896bbd8e81fca96d, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278405
 MonoBehaviour:
@@ -86621,18 +86617,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: "Forget that. Look! the door\u2019s over there! "
+  storyText: "Forget that, we\u2019re almost out!"
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 974b4f74c4fde454e88596b8eb4490aa, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278406
 MonoBehaviour:
@@ -86672,9 +86668,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278408
 MonoBehaviour:
@@ -86690,18 +86686,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 0
-  storyText: Alright, I get it, but SKIA LOOK
+  storyText: SKIA LOOK!
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 8ae88a1792b870e449b95e24465e98eb, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 76e2ee22f1c7240d4a42c487d9578c1e, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278409
 MonoBehaviour:
@@ -86721,7 +86717,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: a110a24dd4b594649953c78de49c1d64, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: b933267ff23310f4b91dedd90a3285d6, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: e027c28975e1b4d948e65a5a21add3fe, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -86776,34 +86772,6 @@ MonoBehaviour:
     booleanVal: 1
   animatorOLD: {fileID: 0}
   parameterNameOLD: 
---- !u!114 &783278412
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 31
-  indentLevel: 0
-  storyText: "Even though I don\u2019t act like it, I need you to be there for me\u2026
-    but you left me alone! \r\n"
-  description: 
-  character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 6821f2090ab635846a1957332e676d9b, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 0
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &783278413
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -86818,46 +86786,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 30
   indentLevel: 0
-  storyText: "You\u2019re my big brother! "
+  storyText: "You\u2019re my big brother! Even though I don\u2019t act like it, I
+    need you to stand up for me, to guide me, to be there for me\u2026 but you left
+    me alone! \n"
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 326cd6b2e1ef246fca114842b06c568b, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &783278414
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783278398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 29
-  indentLevel: 0
-  storyText: "Lux, all I ever wanted from you is to have my back like you used to
-    when we were kids! \r"
-  description: 
-  character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: f05078d9599a47f46b0fe4dabc5ba089, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278415
 MonoBehaviour:
@@ -86946,18 +86888,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: What?! After all this, how can you still say that?!
+  storyText: "What?! After all this, how can you still say that?! Lux, all I ever
+    wanted from you is to have my back like you used to when we were kids! \r"
   description: 
   character: {fileID: 1565225454}
-  portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 6821f2090ab635846a1957332e676d9b, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: cc147e0b947ad487e99efa93c580d2d4, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278419
 MonoBehaviour:
@@ -87089,14 +87032,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 1565225454}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: b7567492c1aaa4bee97aa796b3b92f96, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &783278429
 MonoBehaviour:
@@ -87112,11 +87055,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 25
   indentLevel: 0
-  storyText: Listen... when we get out of here, I promise to try to listen more
+  storyText: Hey... when we get out of here, I promise to try to listen more
   description: 
   character: {fileID: 19641851}
   portrait: {fileID: 21300000, guid: 6c9d2954403e92742bf0c3366163e111, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 3c5b87f101aa3448aa784e208dffffc2, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0

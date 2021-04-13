@@ -2164,6 +2164,7 @@ GameObject:
   - component: {fileID: 2137610508}
   - component: {fileID: 2137610515}
   - component: {fileID: 2137610516}
+  - component: {fileID: 2137610520}
   m_Layer: 0
   m_Name: SlideshowCutsceneManager
   m_TagString: Untagged
@@ -2239,7 +2240,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2137610505}
   selectedCommands:
-  - {fileID: 2137610509}
+  - {fileID: 2137610506}
   variables: []
   description: 
   stepPause: 0
@@ -2270,14 +2271,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 9e6dc07e6c7e54b47a4f099fd4efd602, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610505
 MonoBehaviour:
@@ -2295,7 +2296,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 160.98323
     y: 282.00436
-    width: 107.81249
+    width: 111.718735
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2314,6 +2315,7 @@ MonoBehaviour:
   - {fileID: 2137610510}
   - {fileID: 2137610508}
   - {fileID: 2137610509}
+  - {fileID: 2137610520}
   - {fileID: 2137610511}
   - {fileID: 2137610507}
   - {fileID: 2137610506}
@@ -2343,9 +2345,9 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610507
 MonoBehaviour:
@@ -2366,14 +2368,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 9746a55d2873ebb48ad41e034bc24580, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 0e2f98445b9c84664af0b3c0e8517973, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610508
 MonoBehaviour:
@@ -2418,19 +2420,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 10
   indentLevel: 0
-  storyText: "Don\u2019t press your luck Tungsten Boy. Just let me know when you\u2019re
-    about to crack under pressure.\r\n"
+  storyText: "Don\u2019t press your luck Tungsten Boy."
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 07297a2661640a342940d358a0e1cf4b, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: f1ab910ef60e54fa8b264af7298e0e8f, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610510
 MonoBehaviour:
@@ -2450,14 +2451,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: fab6ed5ef323e4884bdcfd6197263f52, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610511
 MonoBehaviour:
@@ -2533,14 +2534,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 59423936}
   portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 1ca5faec206274824a41894048ace5e1, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610514
 MonoBehaviour:
@@ -2727,6 +2728,33 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 0
   waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &2137610520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137610500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 24
+  indentLevel: 0
+  storyText: "Just let me know when you\u2019re about to crack under pressure.\r\n"
+  description: 
+  character: {fileID: 59423936}
+  portrait: {fileID: 21300000, guid: 713fe0265fe4e044383708fc54cb0fbb, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: b4306e7f8ff4a480b97f3acf45666b70, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610522
 MonoBehaviour:
