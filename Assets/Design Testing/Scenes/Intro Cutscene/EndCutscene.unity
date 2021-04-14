@@ -305,6 +305,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &59789973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4695639959897236088, guid: fbef22747f9db1345935489887dba522,
+    type: 3}
+  m_PrefabInstance: {fileID: 523652127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &86466437
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +354,7 @@ MonoBehaviour:
   dialogCanvas: {fileID: 86466441}
   nameText: {fileID: 629759933}
   nameTextGO: {fileID: 0}
+  interactBtnUI: {fileID: 59789973}
   storyText: {fileID: 511548933}
   storyTextGO: {fileID: 0}
   characterImage: {fileID: 1240393236}
@@ -3941,18 +3948,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 240.33463, y: 71.337395}
+  scrollPos: {x: 157.82983, y: -95.01828}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 719
-  zoom: 0.81999993
+  zoom: 0.5200001
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 2137610505}
   selectedCommands: []
   variables: []
   description: 
@@ -4009,7 +4017,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 382.93454
     y: 325.90683
-    width: 70.97562
+    width: 115.384605
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
