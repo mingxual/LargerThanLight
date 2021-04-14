@@ -92,6 +92,7 @@ public class DontDestroy : MonoBehaviour
         if(sayDialogue != null)
         {
             sayDialogue.GetComponent<WriterAudio>().volume = slide.value;
+            sayDialogue.GetComponent<AudioSource>().volume = slide.value;
         }
     }
 }

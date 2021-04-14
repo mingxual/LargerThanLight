@@ -7,7 +7,8 @@ public class SayDialogueCreated : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroy.instance.SetSayDialogue(gameObject);       
+        if(DontDestroy.instance != null)
+            DontDestroy.instance.SetSayDialogue(gameObject);       
     }
 
     // Update is called once per frame
