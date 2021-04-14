@@ -109,6 +109,7 @@ namespace Fungus
 
             sayDialog.SetCharacter(character);
             sayDialog.SetCharacterImage(portrait);
+            sayDialog.SetButtonUIActive(waitForClick);
 
             string displayText = storyText;
 

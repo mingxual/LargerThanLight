@@ -28,6 +28,10 @@ namespace Fungus
         [Tooltip("TextAdapter will search for appropriate output on this GameObject if nameText is null")]
         [SerializeField] protected GameObject nameTextGO;
         protected TextAdapter nameTextAdapter = new TextAdapter();
+
+        [Tooltip("The button UI object")] 
+        [SerializeField] GameObject interactBtnUI;
+
         public virtual string NameText
         {
             get
@@ -311,6 +315,14 @@ namespace Fungus
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Sets the active state of the button UI gameobject.
+        /// </summary>
+        public virtual void SetButtonUIActive(bool state)
+        {
+            interactBtnUI.SetActive(state);
         }
 
         /// <summary>
