@@ -3957,7 +3957,7 @@ MonoBehaviour:
   scrollPos: {x: 157.82983, y: -95.01828}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 719
+  blockViewHeight: 444
   zoom: 0.5200001
   scrollViewRect:
     serializedVersion: 2
@@ -3968,7 +3968,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2137610505}
   selectedCommands:
-  - {fileID: 2137610532}
+  - {fileID: 2137610506}
   variables: []
   description: 
   stepPause: 0
@@ -4022,9 +4022,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 382.93454
+    x: 384.8576
     y: 325.90683
-    width: 115.384605
+    width: 108.65384
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4079,14 +4079,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 21300000, guid: 39060e0f80a008e4396de3fcad6037cd, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: b09f3d6269df44bb7a9123cc7f8dc406, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: e6ac6e34b31a849ac95b8d1435c643fb, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610507
 MonoBehaviour:
@@ -4136,14 +4136,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: fcd2a1ae8b19d4f3ba04e13eba47f366, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610509
 MonoBehaviour:
@@ -4218,14 +4218,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: a227fefcf257c4c96b8b6fa7a5a34100, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610512
 MonoBehaviour:
@@ -4246,14 +4246,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 43ff060af3d084e488c93ca00d549060, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610513
 MonoBehaviour:
@@ -4300,14 +4300,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 2c5003c1d48394762bc8d59dbb86c57b, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610515
 MonoBehaviour:
@@ -4417,14 +4417,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 495e4c66228664b41b110669d484dabf, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 58cb7449cc18a4e7e80fea5442127290, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610518
 MonoBehaviour:
@@ -4459,14 +4459,14 @@ MonoBehaviour:
   description: 
   character: {fileID: 128876999}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 73fecb57c79a54986bbef05998af538e, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 0
-  waitForVO: 0
+  waitForVO: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &2137610520
 MonoBehaviour:
@@ -4799,5 +4799,5 @@ MonoBehaviour:
   itemId: 68
   indentLevel: 0
   soundClip: {fileID: 8300000, guid: 46936ec9ba6d94dd3a211ce374a9dfa3, type: 3}
-  volume: 1
+  volume: 0.47
   waitUntilFinished: 0
