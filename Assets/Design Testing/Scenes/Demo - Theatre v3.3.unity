@@ -6758,6 +6758,148 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &272218031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272218036}
+  - component: {fileID: 272218035}
+  - component: {fileID: 272218034}
+  - component: {fileID: 272218033}
+  - component: {fileID: 272218032}
+  m_Layer: 0
+  m_Name: HurtFlowchart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &272218032
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272218031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 272218034}
+  suppressBlockAutoSelect: 0
+  message: Owch
+--- !u!114 &272218033
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272218031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04659f7200983fe40b49cc144086844b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 2
+  indentLevel: 0
+  soundClip:
+  - {fileID: 8300000, guid: e99f31f5dac02d944afdf3477397113d, type: 3}
+  - {fileID: 8300000, guid: e99f31f5dac02d944afdf3477397113d, type: 3}
+  - {fileID: 8300000, guid: f4d1ceb190182e846ac7e291f1717dc3, type: 3}
+  - {fileID: 8300000, guid: c0ac0b3808a07e14eaa94a3b30b15287, type: 3}
+  - {fileID: 8300000, guid: d09e5190723a94f46bbaa238c3dae118, type: 3}
+  - {fileID: 8300000, guid: 142ece5cd263fc04794786c933af1ae6, type: 3}
+  - {fileID: 8300000, guid: af9619351178e894691b6bc776bbe880, type: 3}
+  - {fileID: 8300000, guid: 1d134f8bca4729549b251a86e9a27f9d, type: 3}
+  - {fileID: 8300000, guid: 13de5f433892bd04b9f70ad16df1cbbe, type: 3}
+  - {fileID: 8300000, guid: 72398b151fc4f3243955eb556bdfd17a, type: 3}
+  volume: 0.273
+  waitUntilFinished: 1
+--- !u!114 &272218034
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272218031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 421.4375
+    y: 188
+    width: 74.05063
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 165
+  blockName: Hurt
+  description: 
+  eventHandler: {fileID: 272218032}
+  commandList:
+  - {fileID: 272218033}
+  suppressAllAutoSelections: 0
+--- !u!114 &272218035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272218031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  scrollPos: {x: 492.9988, y: 162.29121}
+  variablesScrollPos: {x: 0, y: 0}
+  variablesExpanded: 1
+  blockViewHeight: 400
+  zoom: 0.7900002
+  scrollViewRect:
+    serializedVersion: 2
+    x: -343
+    y: -340
+    width: 1114
+    height: 859
+  selectedBlocks:
+  - {fileID: 272218034}
+  selectedCommands:
+  - {fileID: 272218033}
+  variables: []
+  description: 
+  stepPause: 0
+  colorCommands: 1
+  hideComponents: 1
+  saveSelection: 1
+  localizationId: 
+  showLineNumbers: 0
+  hideCommands: []
+  luaEnvironment: {fileID: 0}
+  luaBindingName: flowchart
+--- !u!4 &272218036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272218031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 58
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &274319446
 GameObject:
   m_ObjectHideFlags: 0
@@ -22465,8 +22607,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1046351325}
-  selectedCommands:
-  - {fileID: 1046351296}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -22521,7 +22662,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -131.53856
     y: -46.242096
-    width: 75.55706
+    width: 73.59113
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22932,7 +23073,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 35.2522
     y: 8.876506
-    width: 113.565
+    width: 108.97783
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23305,7 +23446,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -96.561134
     y: 80.481926
-    width: 108.322525
+    width: 105.045975
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23410,7 +23551,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 170.66693
     y: 102.98735
-    width: 90.62917
+    width: 89.31856
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24356,7 +24497,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -123.514534
     y: 199.29343
-    width: 73.59113
+    width: 72.28052
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29573,6 +29714,11 @@ PrefabInstance:
       propertyPath: skiaCtrlr
       value: 
       objectReference: {fileID: 1983527069}
+    - target: {fileID: 2727920874048876956, guid: 712724ce06f19ae49b391b6752450f16,
+        type: 3}
+      propertyPath: mFlowchart
+      value: 
+      objectReference: {fileID: 272218035}
     - target: {fileID: 4062911558463963846, guid: 712724ce06f19ae49b391b6752450f16,
         type: 3}
       propertyPath: m_Name
@@ -29840,7 +29986,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 73.49254
-    width: 110.44774
+    width: 114.17908
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45211,7 +45357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1046351291}
+  selectedFlowchart: {fileID: 272218035}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1

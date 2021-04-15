@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2726,6 +2726,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: musics.Array.data[11].volume
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}
 --- !u!1 &1312851494
@@ -3239,7 +3244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3647059}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3887,6 +3892,7 @@ GameObject:
   - component: {fileID: 2137610521}
   - component: {fileID: 2137610531}
   - component: {fileID: 2137610530}
+  - component: {fileID: 2137610532}
   m_Layer: 0
   m_Name: SlideshowCutsceneManager
   m_TagString: Untagged
@@ -3961,7 +3967,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 2137610505}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 2137610532}
   variables: []
   description: 
   stepPause: 0
@@ -4027,6 +4034,7 @@ MonoBehaviour:
   eventHandler: {fileID: 2137610518}
   commandList:
   - {fileID: 2137610515}
+  - {fileID: 2137610532}
   - {fileID: 2137610529}
   - {fileID: 2137610528}
   - {fileID: 2137610517}
@@ -4718,7 +4726,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 5
+    floatVal: 10
   durationOLD: 0
 --- !u!114 &2137610530
 MonoBehaviour:
@@ -4776,3 +4784,20 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &2137610532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137610500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 68
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 46936ec9ba6d94dd3a211ce374a9dfa3, type: 3}
+  volume: 1
+  waitUntilFinished: 0
