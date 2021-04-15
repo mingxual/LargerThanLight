@@ -9,6 +9,10 @@ public class RandomSoundScript : MonoBehaviour
 
     public AudioClip[] audioSources;
 
+    public AudioClip thisAudio;
+
+    public AudioSource otherSource;
+
     // Use this for initialization
     void Start()
     {
@@ -27,5 +31,11 @@ public class RandomSoundScript : MonoBehaviour
         randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
         randomSound.Play();
         CallAudio();
+    }
+
+    public void PlayThis()
+    {
+        otherSource.clip = thisAudio;
+        otherSource.Play();
     }
 }
