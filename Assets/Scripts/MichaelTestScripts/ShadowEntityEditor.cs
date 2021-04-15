@@ -17,6 +17,8 @@ public class ShadowEntityEditor : Editor
     SerializedProperty lux;
     SerializedProperty aura;
     SerializedProperty lf;
+    SerializedProperty sound1;
+    SerializedProperty otherSource;
 
     private void OnEnable()
     {
@@ -29,6 +31,9 @@ public class ShadowEntityEditor : Editor
         lux = serializedObject.FindProperty("lux");
         aura = serializedObject.FindProperty("aura");
         lf = serializedObject.FindProperty("lf");
+        sound1 = serializedObject.FindProperty("sound1");
+        otherSource = serializedObject.FindProperty("otherSource");
+
     }
 
     public override void OnInspectorGUI()
@@ -46,6 +51,10 @@ public class ShadowEntityEditor : Editor
         EditorGUILayout.PropertyField(aura, new GUIContent("Aura"));
         EditorGUILayout.PropertyField(lf, new GUIContent("Light Flicking"));
         EditorGUILayout.PropertyField(targetTransforms, new GUIContent("Targets"));
+        EditorGUILayout.PropertyField(sound1, new GUIContent("Sound"));
+        EditorGUILayout.PropertyField(otherSource, new GUIContent("Audio Source"));
+
+
 
         serializedObject.ApplyModifiedProperties();
     }

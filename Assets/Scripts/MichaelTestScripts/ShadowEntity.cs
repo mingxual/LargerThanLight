@@ -22,11 +22,21 @@ public class ShadowEntity : SCObstacle
     private bool luxTrigger;
     private bool luxFlickering;
 
+    public AudioClip sound1;
+    public AudioSource otherSource;
+
+    public void Start()
+    {
+        otherSource = this.gameObject.GetComponent<AudioSource>();
+    }
+
     public void FireProjectiles()
     {
         GameObject projGO;
         for(int i = 0; i < 3; i++)
         {
+            otherSource.clip = sound1;
+            otherSource.Play();
             projGO = Instantiate(projPrefab, projPrefab.transform.position, Quaternion.identity);
             projGO.SetActive(true);
             projGO.transform.Rotate(0, 0, 15 * (i - 1));
