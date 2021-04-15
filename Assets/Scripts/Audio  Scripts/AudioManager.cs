@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
         InitializeMenu();
     }
 
-    public void Update()
+    private void Update()
     {
         if(level==1)
         {

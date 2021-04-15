@@ -86451,7 +86451,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 64.8022
     y: 68.9011
-    width: 109.34065
+    width: 109.78021
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -86499,7 +86499,7 @@ MonoBehaviour:
   scrollPos: {x: 11.670322, y: 23.835148}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 765
+  blockViewHeight: 701.25
   zoom: 0.9100001
   scrollViewRect:
     serializedVersion: 2
@@ -86510,7 +86510,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 783278399}
   selectedCommands:
-  - {fileID: 783278412}
+  - {fileID: 783278429}
   variables: []
   description: 
   stepPause: 0
@@ -86776,7 +86776,7 @@ MonoBehaviour:
   parameterNameOLD: 
 --- !u!114 &783278412
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86822,7 +86822,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &783278415
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -86850,7 +86850,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &783278416
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -98459,6 +98459,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3201214917686630733, guid: 662e09c963be84443a52d2c9ab417b89,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e09c963be84443a52d2c9ab417b89, type: 3}
 --- !u!1 &1495173753
@@ -100717,6 +100722,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1617754214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617754211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c9d69a8003054d94ea26c9dbecd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1625972838
 GameObject:
   m_ObjectHideFlags: 0

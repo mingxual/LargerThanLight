@@ -13,6 +13,7 @@ public class DontDestroy : MonoBehaviour
     [SerializeField] List<GameObject> subPages;
     [SerializeField] GameObject sayDialogue;
     [SerializeField] Slider slide;
+    [SerializeField] GameObject mainPageRoot;
 
     public void Awake()
     {
@@ -22,7 +23,7 @@ public class DontDestroy : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         DontDestroyOnLoad(gameObject);
@@ -62,12 +63,15 @@ public class DontDestroy : MonoBehaviour
     {
         isFirstScene = false;
         DeActiveAllSubPages();
+        mainPageRoot.SetActive(false);
     }
 
     public void BackToMainPage()
     {
         SceneManager.LoadScene(0);
         DeActiveAllSubPages();
+        isFirstScene = true;
+        mainPageRoot.SetActive(true);
 
     }
     public void CloseOptions()
@@ -94,5 +98,16 @@ public class DontDestroy : MonoBehaviour
             sayDialogue.GetComponent<WriterAudio>().volume = slide.value;
             sayDialogue.GetComponent<AudioSource>().volume = slide.value;
         }
+    }
+
+    public void OnClickStartBtn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SwitchToNotFirstScene();
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
     }
 }
