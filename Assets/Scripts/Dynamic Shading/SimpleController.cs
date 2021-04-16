@@ -30,6 +30,7 @@ public class SimpleController : MonoBehaviour
     [SerializeField] private LayerMask m_ObstacleLayerMask;
     [SerializeField] private LayerMask m_Wall2DLayerMask;
     [SerializeField] private ContactFilter2D m_GroundedContactFilter;
+    [SerializeField] private ContactFilter2D m_UngroundedContactFilter;
     [SerializeField] private bool m_IsMovingWithShadow;
     #endregion
 
@@ -203,21 +204,27 @@ public class SimpleController : MonoBehaviour
             else if (m_Rigidbody2D.velocity.y < 0)
                 m_Animator.transform.position += Vector3.up * m_AnimationGameObjectShiftDown;
 
-            // Check if Skia becomes grounded after being in a jumping state
-            if(m_IsGrounded)
+            // Check for negative velocity to set jumping state to false
+            if (m_BoxCollider2D.IsTouching(m_UngroundedContactFilter) && m_Rigidbody2D.velocity.y <= 0)
             {
-                // Reset Skia's collider to original position and size
-                m_BoxCollider2D.offset = m_BoxCollider2DCenter;
-                m_BoxCollider2D.size = m_BoxCollider2DSize;
+                m_IsJumping = false;
+            }
+        }
 
-                // Reset animator object's position
-                m_Animator.transform.position = transform.position;
+        // Check if Skia becomes grounded after being in a jumping state
+        if (m_IsGrounded)
+        {
+            // Reset Skia's collider to original position and size
+            m_BoxCollider2D.offset = m_BoxCollider2DCenter;
+            m_BoxCollider2D.size = m_BoxCollider2DSize;
 
-                // Check for negative velocity to set jumping state to false
-                if(m_Rigidbody2D.velocity.y <= 0)
-                {
-                    m_IsJumping = false;
-                }
+            // Reset animator object's position
+            m_Animator.transform.position = transform.position;
+
+            // Check for negative velocity to set jumping state to false
+            if (m_Rigidbody2D.velocity.y <= 0)
+            {
+                m_IsJumping = false;
             }
         }
 

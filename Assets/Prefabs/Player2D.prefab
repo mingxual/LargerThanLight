@@ -177,8 +177,23 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 45
     maxNormalAngle: 135
+  m_UngroundedContactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 5
+    maxNormalAngle: 175
   m_IsMovingWithShadow: 1
   m_MichaelsDebuggingFlag: 0
+  mehaIsStupid: 0
 --- !u!114 &2727920874048876956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +210,7 @@ MonoBehaviour:
   squishStatus: 0
   volume: {fileID: 0}
   skiaCtrlr: {fileID: 0}
+  mFlowchart: {fileID: 0}
   invSpeed: 0
   chrabrValue: 0
 --- !u!114 &8258136942181485396
