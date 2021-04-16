@@ -446,12 +446,16 @@ public class SimpleController : MonoBehaviour
             // Check if Skia is being squished from the left and right
             if (collideLeft && collideRight)
             {
-                // Check how much Skia is being squished
-                if (collideLeft.distance < xDist - m_RayboxDistance && collideRight.distance < xDist - m_RayboxDistance)
-                    return -1;
-                else
+                if(Mathf.Abs(Vector2.SignedAngle(Vector2.right, collideLeft.normal)) < m_GroundedContactFilter.minNormalAngle &&
+                    Mathf.Abs(Vector2.SignedAngle(Vector2.right, collideRight.normal)) > m_GroundedContactFilter.maxNormalAngle)
                 {
-                    return 1 - (collideLeft.distance + collideRight.distance - 2 * xDist) / (2 * xDist + m_RayboxDistance);
+                    // Check how much Skia is being squished
+                    if (collideLeft.distance < xDist - m_RayboxDistance && collideRight.distance < xDist - m_RayboxDistance)
+                        return -1;
+                    else
+                    {
+                        return 1 - (collideLeft.distance + collideRight.distance - 2 * xDist) / (2 * xDist + m_RayboxDistance);
+                    }
                 }
             }
 
@@ -469,18 +473,24 @@ public class SimpleController : MonoBehaviour
         // Check for a left-side collision and displace Skia by how much she intersects the collider
         if (collideLeft)
         {
-            if (collideLeft.distance < xDist)
+            if (Mathf.Abs(Vector2.SignedAngle(Vector2.right, collideLeft.normal)) < m_GroundedContactFilter.minNormalAngle)
             {
-                transform.Translate(Vector2.right * (xDist - collideLeft.distance));
+                if (collideLeft.distance < xDist)
+                {
+                    transform.Translate(Vector2.right * (xDist - collideLeft.distance));
+                }
             }
         }
 
         // Check for a right-side collision and displace Skia by how much she intersects the collider
         if (collideRight)
         {
-            if (collideRight.distance < xDist)
+            if (Mathf.Abs(Vector2.SignedAngle(Vector2.right, collideRight.normal)) > m_GroundedContactFilter.maxNormalAngle)
             {
-                transform.Translate(Vector2.left * (xDist - collideRight.distance));
+                if (collideRight.distance < xDist)
+                {
+                    transform.Translate(Vector2.left * (xDist - collideRight.distance));
+                }
             }
         }
         return 0;
