@@ -64,6 +64,7 @@ public class SimpleController : MonoBehaviour
     private GameObject m_LastGroundedGameObject;
     private Wall2D m_CurrWall2D;
     private float m_CurrentJumpGraceTimer;
+    //private float m_PreviousSquishValueVignette = 1.0f;
     private float m_ShadowDistanceRatio;
     #endregion
 
@@ -316,6 +317,23 @@ public class SimpleController : MonoBehaviour
             skiaScreenPos.y /= Screen.height;
             m_SkiaVignette.SetVignetteCenter(skiaScreenPos);
             LevelManager.Instance.SlowTime(death > 0.5f);
+
+            /*if (death > m_PreviousSquishValueVignette)
+            {
+                m_SkiaVignette.squishStatus = death * 0.6f;
+                Vector2 skiaScreenPos = m_CurrentGameCamera.WorldToScreenPoint(m_WorldPosition3D);
+                skiaScreenPos.x /= Screen.width;
+                skiaScreenPos.y /= Screen.height;
+                m_SkiaVignette.SetVignetteCenter(skiaScreenPos);
+                LevelManager.Instance.SlowTime(true);
+                m_PreviousSquishValueVignette = death;
+            }
+            else
+            {
+                m_SkiaVignette.squishStatus = 0f;
+                LevelManager.Instance.SlowTime(false);
+                m_PreviousSquishValueVignette = 0f;
+            }*/
         }
     }
 
