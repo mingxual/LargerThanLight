@@ -160,6 +160,11 @@ public class SimpleController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (m_IsDead)
+        {
+            Debug.Log("Dead state");
+            return;
+        }
         // Displace Skia from any one-sided collisions, don't check if dead
         CheckCollisions(false); 
 
@@ -358,6 +363,7 @@ public class SimpleController : MonoBehaviour
 
     public void SkiaDeath()
     {
+        Debug.Log("Skia Death");
         Vector3 oldPosition = transform.position; // Store Skia's old position before moving her
         m_SkinnedMeshRenderer.enabled = false; // Turn off mesh renderer
         ResetSkia(); // Reset Skia, moving her to the new spawn point
@@ -366,6 +372,7 @@ public class SimpleController : MonoBehaviour
         GameObject dragPart = Instantiate(m_DraggingParticleEffect, oldPosition, transform.rotation); // Instantiate the dragging particle effect that will move towards spawn
         dragPart.GetComponent<MoveToOrigin>().target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
         dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
+
         /*MoveToOrigin moveToOrigin = dragPart.GetComponent<MoveToOrigin>();
         moveToOrigin.target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
         moveToOrigin.thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
