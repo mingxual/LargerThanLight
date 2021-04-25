@@ -22573,6 +22573,7 @@ GameObject:
   - component: {fileID: 1046351382}
   - component: {fileID: 1046351384}
   - component: {fileID: 1046351317}
+  - component: {fileID: 1046351319}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -22605,9 +22606,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351329}
+  - {fileID: 1046351293}
   selectedCommands:
-  - {fileID: 1046351328}
+  - {fileID: 1046351319}
   variables: []
   description: 
   stepPause: 0
@@ -22662,7 +22663,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -159.85118
     y: -33.78454
-    width: 75.77319
+    width: 74.74226
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22671,6 +22672,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1046351302}
   commandList:
+  - {fileID: 1046351319}
   - {fileID: 1046351307}
   - {fileID: 1046351306}
   - {fileID: 1046351372}
@@ -23072,7 +23074,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -102.91339
     y: 39.733826
-    width: 113.40206
+    width: 111.85567
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23311,6 +23313,24 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 3
   durationOLD: 0
+--- !u!114 &1046351319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 118
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 2
+  durationOLD: 0
 --- !u!114 &1046351320
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -23445,7 +23465,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -53.525944
     y: 114.55865
-    width: 107.73196
+    width: 105.25773
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23550,7 +23570,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4.1886806
     y: 186.79268
-    width: 90.72165
+    width: 89.58763
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24496,7 +24516,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 41.83117
     y: 256.94962
-    width: 73.19588
+    width: 73.09278
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
