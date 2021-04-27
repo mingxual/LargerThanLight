@@ -64,6 +64,7 @@ public class SimpleController : MonoBehaviour
     private GameObject m_LastGroundedGameObject;
     private Wall2D m_CurrWall2D;
     private float m_CurrentJumpGraceTimer;
+    //private float m_PreviousSquishValueVignette = 1.0f;
     private float m_ShadowDistanceRatio;
     #endregion
 
@@ -159,6 +160,11 @@ public class SimpleController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (m_IsDead)
+        {
+            Debug.Log("Dead state");
+            return;
+        }
         // Displace Skia from any one-sided collisions, don't check if dead
         CheckCollisions(false); 
 
@@ -316,6 +322,23 @@ public class SimpleController : MonoBehaviour
             skiaScreenPos.y /= Screen.height;
             m_SkiaVignette.SetVignetteCenter(skiaScreenPos);
             LevelManager.Instance.SlowTime(death > 0.5f);
+
+            /*if (death > m_PreviousSquishValueVignette)
+            {
+                m_SkiaVignette.squishStatus = death * 0.6f;
+                Vector2 skiaScreenPos = m_CurrentGameCamera.WorldToScreenPoint(m_WorldPosition3D);
+                skiaScreenPos.x /= Screen.width;
+                skiaScreenPos.y /= Screen.height;
+                m_SkiaVignette.SetVignetteCenter(skiaScreenPos);
+                LevelManager.Instance.SlowTime(true);
+                m_PreviousSquishValueVignette = death;
+            }
+            else
+            {
+                m_SkiaVignette.squishStatus = 0f;
+                LevelManager.Instance.SlowTime(false);
+                m_PreviousSquishValueVignette = 0f;
+            }*/
         }
     }
 
@@ -340,6 +363,7 @@ public class SimpleController : MonoBehaviour
 
     public void SkiaDeath()
     {
+        Debug.Log("Skia Death");
         Vector3 oldPosition = transform.position; // Store Skia's old position before moving her
         m_SkinnedMeshRenderer.enabled = false; // Turn off mesh renderer
         ResetSkia(); // Reset Skia, moving her to the new spawn point
@@ -348,6 +372,7 @@ public class SimpleController : MonoBehaviour
         GameObject dragPart = Instantiate(m_DraggingParticleEffect, oldPosition, transform.rotation); // Instantiate the dragging particle effect that will move towards spawn
         dragPart.GetComponent<MoveToOrigin>().target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
         dragPart.GetComponent<MoveToOrigin>().thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
+
         /*MoveToOrigin moveToOrigin = dragPart.GetComponent<MoveToOrigin>();
         moveToOrigin.target = m_SpawnPosition2D; // Set dragging particle effect's target location to move toward
         moveToOrigin.thePlayerMesh = m_SkinnedMeshRenderer; // Set Skia's mesh renderer to drag particle so it can turn on Skia's mesh once it reaches location
