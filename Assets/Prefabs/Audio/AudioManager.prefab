@@ -50,7 +50,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: af7b4340b82eb5546b5c87207a9785af, type: 3}
     - {fileID: 8300000, guid: 9898d9b7feadf314c8b1dde5ecb02e6f, type: 3}
     - {fileID: 8300000, guid: 6513270a7e4f4eb4bba6173c4a2023da, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 0.93
     loop: 0
     source: {fileID: 0}
@@ -185,6 +185,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Drone
+    clips:
+    - {fileID: 8300000, guid: 00c70596d90f64f04a8521a21318996d, type: 3}
+    volume: 0.423
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   musics:
   - name: Theater_Music_Loop
     clip: {fileID: 8300000, guid: 40c83ddfb880d4c2dbb72036d43274d0, type: 3}
@@ -254,7 +261,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Menu
     clip: {fileID: 8300000, guid: d1d7f76d37a7d8946863432a517395e2, type: 3}
-    volume: 0.073
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}

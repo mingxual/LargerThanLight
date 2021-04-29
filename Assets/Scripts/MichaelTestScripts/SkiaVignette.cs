@@ -18,6 +18,8 @@ public class SkiaVignette : MonoBehaviour
 
     public float chrabrValue;
 
+    private bool droneSound=false;
+
     void Start()
     {
         volume.profile.TryGet(out vignette);
@@ -63,9 +65,18 @@ public class SkiaVignette : MonoBehaviour
         if (!vignette) return;
 
         float status = Mathf.Max(lightStatus, squishStatus);
-        if (vignette.intensity.value == 0 && status == 0) return;
+        if (vignette.intensity.value == 0 && status == 0)
+        {
+            droneSound = false;
+            return;
+        }
 
         print("vignette active");
+        if (!droneSound)
+        {
+            droneSound = true;
+            AudioManager.instance.PlayOnceNoPlace("Drone");
+        }
 
         float sin = 0.5f + 0.5f * Mathf.Sin(Time.time * invSpeed);
         vignette.color.value = new Color(0.039f * sin, 0, 0.059f * sin);
