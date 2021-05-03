@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -22696,11 +22696,11 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1046351302}
   commandList:
-  - {fileID: 1046351319}
   - {fileID: 1046351307}
   - {fileID: 1046351306}
   - {fileID: 1046351372}
   - {fileID: 1046351379}
+  - {fileID: 1046351319}
   - {fileID: 1046351300}
   - {fileID: 1046351376}
   - {fileID: 1046351380}
@@ -23339,7 +23339,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1046351319
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
