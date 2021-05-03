@@ -14,6 +14,7 @@ public class DontDestroy : MonoBehaviour
     [SerializeField] GameObject sayDialogue;
     [SerializeField] Slider slide;
     [SerializeField] GameObject mainPageRoot;
+    [SerializeField] GameObject controlButton;
 
     public void Awake()
     {
@@ -28,6 +29,14 @@ public class DontDestroy : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         sayDialogue = null;
+
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            isFirstScene = true;
+            controlButton.SetActive(false);
+        }
+        else
+            SwitchToNotFirstScene();
     }
 
     // Start is called before the first frame update
@@ -64,6 +73,7 @@ public class DontDestroy : MonoBehaviour
         isFirstScene = false;
         DeActiveAllSubPages();
         mainPageRoot.SetActive(false);
+        controlButton.SetActive(true);
     }
 
     public void BackToMainPage()
