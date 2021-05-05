@@ -213,6 +213,10 @@ public class AudioManager : MonoBehaviour
 
     public void InitializeMenu()
     {
+        foreach (Music m in musics)
+        {
+            m.source.Stop();
+        }
         PlayMusic("Menu");
     }
 
@@ -264,7 +268,7 @@ public class AudioManager : MonoBehaviour
 
     public void TheaterUpdate()
     {
-        BGTimer -= Time.deltaTime;
+        BGTimer -= Time.deltaTime / Time.timeScale;
         if (BGTimer <= 0f)
         {
             PlayMusicOnce("Theater_Layer_1", 2);
@@ -303,7 +307,7 @@ public class AudioManager : MonoBehaviour
 
     public void LockerUpdate()
     {
-        BGTimer -= Time.deltaTime;
+        BGTimer -= Time.deltaTime / Time.timeScale;
         if (BGTimer <= 0f)
         {
             if (loopNum == 1)
@@ -365,7 +369,7 @@ public class AudioManager : MonoBehaviour
 
     public void GymUpdate()
     {
-        BGTimer -= Time.deltaTime;
+        BGTimer -= Time.deltaTime / Time.timeScale;
         if (BGTimer <= 0f)
         {
             if (loopNum == 1)

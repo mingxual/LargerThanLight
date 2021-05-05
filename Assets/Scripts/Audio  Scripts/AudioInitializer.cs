@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AudioInitializer : MonoBehaviour
 {
+    public void InitializeMenu()
+    {
+        AudioManager.instance.InitializeMenu();
+    }
     public void InitializeLocker()
     {
         AudioManager.instance.InitializeLockerLevel();
