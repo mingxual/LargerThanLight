@@ -72,7 +72,7 @@ public class EventsManager : MonoBehaviour
                 return;
             }
 
-            string curTime = EventTime.GetTime(DateTime.Now);          
+            /*string curTime = EventTime.GetTime(DateTime.Now);          
             float sceneTime = Time.timeSinceLevelLoad;
             float timeSpent = sceneTime - lastRecord;
 
@@ -82,7 +82,7 @@ public class EventsManager : MonoBehaviour
                 " time:" + timeSpent.ToString() +
                 " sceneTime:" + Time.timeSinceLevelLoad + 
                 " TotalTime: " + Time.time;
-
+            
 
             //Debug.Log(record);
 
@@ -98,6 +98,7 @@ public class EventsManager : MonoBehaviour
             lastRecord = sceneTime;
             
             // m_EventsMap.Remove(key);
+            */
         }
         else
         {
