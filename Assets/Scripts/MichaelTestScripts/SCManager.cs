@@ -47,7 +47,7 @@ public class SCManager : MonoBehaviour
         m_ObstaclePool = new List<GameObject>();
 
         m_physicsMaterial = new PhysicsMaterial2D("Edge collider physics material");
-        m_physicsMaterial.friction = 0;
+        m_physicsMaterial.friction = 1;
         m_physicsMaterial.bounciness = 0;
 
         worldPositions = new List<Vector3>();
