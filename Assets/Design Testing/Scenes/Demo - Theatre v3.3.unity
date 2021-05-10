@@ -23644,8 +23644,6 @@ GameObject:
   - component: {fileID: 1046351367}
   - component: {fileID: 1046351369}
   - component: {fileID: 1046351368}
-  - component: {fileID: 1046351342}
-  - component: {fileID: 1046351371}
   - component: {fileID: 1046351377}
   - component: {fileID: 1046351376}
   - component: {fileID: 1046351374}
@@ -23675,6 +23673,8 @@ GameObject:
   - component: {fileID: 1046351319}
   - component: {fileID: 1046351353}
   - component: {fileID: 1046351354}
+  - component: {fileID: 1046351375}
+  - component: {fileID: 1046351342}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -23695,11 +23695,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 305.10312, y: 86.58774}
+  scrollPos: {x: 469.38782, y: 115.22258}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 571
-  zoom: 0.90300167
+  zoom: 0.6930018
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -23707,8 +23707,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351325}
-  selectedCommands: []
+  - {fileID: 1046351293}
+  selectedCommands:
+  - {fileID: 1046351342}
   variables: []
   description: 
   stepPause: 0
@@ -23763,7 +23764,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -159.85118
     y: -33.78454
-    width: 75.69209
+    width: 75.97396
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23804,6 +23805,7 @@ MonoBehaviour:
   - {fileID: 1046351350}
   - {fileID: 1046351295}
   - {fileID: 1046351331}
+  - {fileID: 1046351342}
   - {fileID: 1046351294}
   suppressAllAutoSelections: 0
 --- !u!114 &1046351294
@@ -24174,7 +24176,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -102.91339
     y: 40.841244
-    width: 112.01539
+    width: 113.4919
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24565,7 +24567,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -53.525944
     y: 114.55865
-    width: 107.58572
+    width: 107.71991
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24672,7 +24674,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4.1886806
     y: 187.9001
-    width: 90.75297
+    width: 90.40393
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25018,25 +25020,59 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1046351342
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046351290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 83
+  itemId: 122
   indentLevel: 0
-  _targetGameObject:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 1867067643}
-  activeState:
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359792206}
+        m_MethodName: DisplayUI
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
     booleanRef: {fileID: 0}
-    booleanVal: 1
-  targetGameObjectOLD: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1046351343
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -25660,7 +25696,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 41.83117
     y: 256.94962
-    width: 73.03429
+    width: 73.08797
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25670,8 +25706,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1046351369}
   commandList:
   - {fileID: 1046351368}
-  - {fileID: 1046351342}
-  - {fileID: 1046351371}
+  - {fileID: 1046351375}
   suppressAllAutoSelections: 0
 --- !u!114 &1046351368
 MonoBehaviour:
@@ -25733,27 +25768,6 @@ MonoBehaviour:
   _targetGameObject:
     gameObjectRef: {fileID: 0}
     gameObjectVal: {fileID: 1243565484}
-  activeState:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  targetGameObjectOLD: {fileID: 0}
---- !u!114 &1046351371
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046351290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 84
-  indentLevel: 0
-  _targetGameObject:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 1500592815}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -25842,6 +25856,61 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1046351375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 121
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359792206}
+        m_MethodName: DisplayUI
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1046351376
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -31185,7 +31254,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 118
     y: 74.98508
-    width: 111.17647
+    width: 105.882355
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -31827,6 +31896,7 @@ GameObject:
   - component: {fileID: 1359792204}
   - component: {fileID: 1359792203}
   - component: {fileID: 1359792205}
+  - component: {fileID: 1359792206}
   m_Layer: 0
   m_Name: --- LUX ---
   m_TagString: Lux
@@ -31925,6 +31995,31 @@ MonoBehaviour:
   portraitsFace: 1
   setSayDialog: {fileID: 0}
   description: 
+--- !u!114 &1359792206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359792200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874cf3d55e3e6ce4a96a62762af08344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 618681134}
+  skia: {fileID: 0}
+  lux: {fileID: 1359792202}
+  frame: {fileID: 573207325}
+  images:
+  - {fileID: 21300000, guid: 26456181376a50047b411376e7bbf757, type: 3}
+  modes: 03000000
+  skia_offset: {x: 0, y: 0, z: 0}
+  lux_offset: {x: -20, y: 220, z: 0}
+  maximumDiaplayTime: 5
+  mode: 0
+  isDisplay: 0
+  isAttachedToSkia: 0
 --- !u!1 &1364101782
 GameObject:
   m_ObjectHideFlags: 0
@@ -47255,7 +47350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1327307195}
+  selectedFlowchart: {fileID: 1046351291}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
