@@ -283,7 +283,7 @@ public class SimpleController : MonoBehaviour
                 if (m_IsGrounded && (m_Rigidbody2D.velocity.x == 0) && (m_LastGroundedGameObject == m_CurrentlyHitCollider.gameObject))
                 {
                     // Displace Skia's horizontal position with velocity
-                    print("landing on same obstacle" + m_ShadowDistanceRatio);
+                    //print("landing on same obstacle" + m_ShadowDistanceRatio);
                     float displacement = hit.collider.GetComponent<ShadowMoveSkia>().CalulateSkiaDisplacement(hit.point);
                     displacement -= transform.position.x;
                     displacement /= Time.fixedDeltaTime;
@@ -292,7 +292,7 @@ public class SimpleController : MonoBehaviour
                 else
                 {
                     m_ShadowDistanceRatio = hit.collider.GetComponent<ShadowMoveSkia>().UpdateRatio(hit.point);
-                    print("different obstacle, moving to ratio" + m_ShadowDistanceRatio);
+                    //print("different obstacle, moving to ratio" + m_ShadowDistanceRatio);
                     // Update a new game object that doesn't match the last collider's game object
 
                     m_LastGroundedGameObject = m_CurrentlyHitCollider.gameObject;
