@@ -18,7 +18,8 @@ public class SkiaVignette : MonoBehaviour
 
     public float chrabrValue;
 
-    private bool droneSound=false;
+    private bool droneSound = false;
+    private bool spawnSound = false;
 
     void Start()
     {

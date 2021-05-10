@@ -7092,7 +7092,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 421.4375
     y: 188
-    width: 73.5757
+    width: 70
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7116,18 +7116,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 622.0359, y: 287.788}
+  scrollPos: {x: 851.9347, y: 665.5922}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.5089987
+  zoom: 0.28
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 272218034}
   selectedCommands: []
   variables: []
   description: 
@@ -11782,6 +11783,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 491016904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &497978689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497978690}
+  m_Layer: 0
+  m_Name: doorHandles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &497978690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497978689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1472941756}
+  - {fileID: 736802257}
+  - {fileID: 814766523}
+  - {fileID: 1322595204}
+  m_Father: {fileID: 564052453}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498947129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6148335923033739296, guid: 1db052982df7f454b87bbb5539c7b1bd,
@@ -13433,10 +13468,7 @@ Transform:
   m_LocalPosition: {x: 0.11428058, y: 0, z: 0.5198815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 814766523}
-  - {fileID: 1472941756}
-  - {fileID: 736802257}
-  - {fileID: 1322595204}
+  - {fileID: 497978690}
   m_Father: {fileID: 1072051575}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -28.051, z: 0}
@@ -16903,11 +16935,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736802256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5000001}
   m_LocalScale: {x: 1.1, y: 1, z: 0.03}
   m_Children: []
-  m_Father: {fileID: 564052453}
-  m_RootOrder: 2
+  m_Father: {fileID: 497978690}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -28.051, z: 0}
 --- !u!23 &736802258
 MeshRenderer:
@@ -18067,11 +18099,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814766522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.26, y: 0, z: 0.367}
-  m_LocalScale: {x: 3.2733462, y: 0.04050219, z: 0.22569999}
+  m_LocalPosition: {x: -1.2599987, y: 0, z: 0.36700004}
+  m_LocalScale: {x: 3.2733462, y: 0.040502187, z: 0.22569996}
   m_Children: []
-  m_Father: {fileID: 564052453}
-  m_RootOrder: 0
+  m_Father: {fileID: 497978690}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -28.051, z: 0}
 --- !u!65 &814766524
 BoxCollider:
@@ -23641,6 +23673,8 @@ GameObject:
   - component: {fileID: 1046351384}
   - component: {fileID: 1046351317}
   - component: {fileID: 1046351319}
+  - component: {fileID: 1046351353}
+  - component: {fileID: 1046351354}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -23661,11 +23695,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 657.5979, y: 103.46909}
+  scrollPos: {x: 305.10312, y: 86.58774}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 729
-  zoom: 0.97
+  blockViewHeight: 571
+  zoom: 0.90300167
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -23673,9 +23707,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351293}
-  selectedCommands:
-  - {fileID: 1046351319}
+  - {fileID: 1046351325}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -23730,7 +23763,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -159.85118
     y: -33.78454
-    width: 74.74226
+    width: 75.69209
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24140,8 +24173,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -102.91339
-    y: 39.733826
-    width: 111.85567
+    y: 40.841244
+    width: 112.01539
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24532,7 +24565,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -53.525944
     y: 114.55865
-    width: 105.25773
+    width: 107.58572
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24543,6 +24576,8 @@ MonoBehaviour:
   commandList:
   - {fileID: 1046351384}
   - {fileID: 1046351317}
+  - {fileID: 1046351354}
+  - {fileID: 1046351353}
   - {fileID: 1046351335}
   - {fileID: 1046351324}
   - {fileID: 1046351296}
@@ -24636,8 +24671,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 4.1886806
-    y: 186.79268
-    width: 89.58763
+    y: 187.9001
+    width: 90.75297
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24737,7 +24772,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 05db47896588749509791be944a03d79, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 2ff715e5444374ee0847662611ab8434, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -24891,7 +24926,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 59ddba48c83e04de18551d93c62425a2, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: a6f8353f7cf8943e2b0f43ef19a77c93, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -24945,7 +24980,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 39ccafbcae0f849bd9c5651faf630697, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: f6e42f3f784044c6eb78bdeba0a1fc45, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25020,7 +25055,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: b3a64be9faf3c4193aea045839bccec2, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: e021c8b7d22284ed5a547b5f3ac659c8, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25077,7 +25112,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: c09980fbe065f406eaf13a9884ee2486, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 30d1716295f6547fea38f8a6949d0a42, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25253,6 +25288,48 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 6
   durationOLD: 0
+--- !u!114 &1046351353
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 119
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 497978689}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1046351354
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046351290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 120
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 1975676890}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1046351355
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -25300,7 +25377,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: e1ecc5c56c02149ef89443ca02a7369f, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 253ce09de122049e58a59cb763afc3ff, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25355,7 +25432,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 27a5fa590f1184370ac1411e8f0f9a82, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 38e6715db274f4ba2a8d82e700f6fbb0, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25583,7 +25660,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 41.83117
     y: 256.94962
-    width: 73.09278
+    width: 73.03429
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25840,7 +25917,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 41f79248b46fe4ec7b6ab259a538f3f6, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 414cf161055e2414485c83356d075ae1, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -30760,11 +30837,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322595203}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1.1, y: 0.02, z: 1.03}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.49999997, z: 0}
+  m_LocalScale: {x: 1.1, y: 0.019999998, z: 1.03}
   m_Children: []
-  m_Father: {fileID: 564052453}
+  m_Father: {fileID: 497978690}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1322595205
@@ -31067,11 +31144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 265.14566, y: 145.22464}
+  scrollPos: {x: 725.6154, y: 478.14764}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.67000026
+  zoom: 0.34
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -31107,8 +31184,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 118
-    y: 73.49254
-    width: 74.17908
+    y: 74.98508
+    width: 111.17647
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -35008,11 +35085,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472941755}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5000001}
   m_LocalScale: {x: 1.1, y: 1, z: 0.03}
   m_Children: []
-  m_Father: {fileID: 564052453}
-  m_RootOrder: 1
+  m_Father: {fileID: 497978690}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -28.051, z: 0}
 --- !u!23 &1472941757
 MeshRenderer:
@@ -45940,7 +46017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1975676891
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47178,7 +47255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1046351291}
+  selectedFlowchart: {fileID: 1327307195}
 --- !u!4 &2053070162
 Transform:
   m_ObjectHideFlags: 1
