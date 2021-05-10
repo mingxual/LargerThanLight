@@ -42,7 +42,7 @@ public class ShadowEntity : SCObstacle
             projGO.transform.Rotate(0, 0, 15 * (i - 1));
             projGO.GetComponent<ShadowEntityProjectile>().se = this;
         }
-        AudioManager.instance.PlayOnceNoPlace("Projectile_Spwan");
+        AudioManager.instance.PlayOnceNoPlace("Projectile_Spawn");
 
         fireCooldownTimer = fireCooldown;
     }
