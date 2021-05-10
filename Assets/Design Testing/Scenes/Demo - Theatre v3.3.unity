@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7062,7 +7062,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 421.4375
     y: 188
-    width: 73.5757
+    width: 76
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7086,18 +7086,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 622.0359, y: 287.788}
+  scrollPos: {x: 1185.8303, y: 1374.6693}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.5089987
+  zoom: 0.25
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 272218034}
   selectedCommands: []
   variables: []
   description: 
@@ -23476,11 +23477,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 392.00858, y: 164.95218}
+  scrollPos: {x: 419.1671, y: 189.57759}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 729
-  zoom: 0.8200002
+  blockViewHeight: 571
+  zoom: 0.90300167
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -23488,9 +23489,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1046351325}
+  - {fileID: 1046351310}
   selectedCommands:
-  - {fileID: 1046351354}
+  - {fileID: 1046351338}
   variables: []
   description: 
   stepPause: 0
@@ -23545,7 +23546,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -159.85118
     y: -33.78454
-    width: 74.39024
+    width: 74.9169
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23955,8 +23956,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -102.91339
-    y: 39.733826
-    width: 110.48779
+    y: 40.841244
+    width: 111.461685
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24347,7 +24348,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -53.525944
     y: 114.55865
-    width: 105.60974
+    width: 107.585724
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24453,8 +24454,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 4.1886806
-    y: 186.79268
-    width: 89.02438
+    y: 187.9001
+    width: 89.867035
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24554,7 +24555,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 05db47896588749509791be944a03d79, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 2ff715e5444374ee0847662611ab8434, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -24708,7 +24709,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 59ddba48c83e04de18551d93c62425a2, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: a6f8353f7cf8943e2b0f43ef19a77c93, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -24762,7 +24763,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 39ccafbcae0f849bd9c5651faf630697, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: f6e42f3f784044c6eb78bdeba0a1fc45, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -24837,7 +24838,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: b3a64be9faf3c4193aea045839bccec2, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: e021c8b7d22284ed5a547b5f3ac659c8, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -24894,7 +24895,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: c09980fbe065f406eaf13a9884ee2486, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 30d1716295f6547fea38f8a6949d0a42, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25159,7 +25160,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: e1ecc5c56c02149ef89443ca02a7369f, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 253ce09de122049e58a59cb763afc3ff, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25214,7 +25215,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 68987ccdb89fefc4b82f5e55a80c5da8, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 27a5fa590f1184370ac1411e8f0f9a82, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 38e6715db274f4ba2a8d82e700f6fbb0, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -25442,7 +25443,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 41.83117
     y: 256.94962
-    width: 72.43902
+    width: 72.702065
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25699,7 +25700,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 1327307198}
   portrait: {fileID: 21300000, guid: 74a2a37d5e4e2164aa0f28e6ee4e10ca, type: 3}
-  voiceOverClip: {fileID: 8300000, guid: 41f79248b46fe4ec7b6ab259a538f3f6, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 414cf161055e2414485c83356d075ae1, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -30926,11 +30927,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 265.14566, y: 145.22464}
+  scrollPos: {x: 736.606, y: 490.56195}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.67000026
+  zoom: 0.334001
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -30966,8 +30967,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 118
-    y: 73.49254
-    width: 74.17908
+    y: 74.98508
+    width: 114.37106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
