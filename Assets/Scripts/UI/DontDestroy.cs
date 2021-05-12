@@ -30,11 +30,8 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         sayDialogue = null;
 
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            isFirstScene = true;
-            controlButton.SetActive(false);
-        }
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            SwitchToFirstScene();
         else
             SwitchToNotFirstScene();
     }
@@ -74,6 +71,14 @@ public class DontDestroy : MonoBehaviour
         DeActiveAllSubPages();
         mainPageRoot.SetActive(false);
         controlButton.SetActive(true);
+    }
+
+    public void SwitchToFirstScene()
+    {
+        isFirstScene = true;
+        DeActiveAllSubPages();
+        mainPageRoot.SetActive(true);
+        controlButton.SetActive(false);
     }
 
     public void BackToMainPage()
