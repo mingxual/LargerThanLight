@@ -13,6 +13,9 @@ public class MoveCredits : MonoBehaviour
         {
             Destroy(existAudioManager);
         }
-            SceneManager.LoadScene("1STARTHERE");
+
+        SceneManager.LoadScene("1STARTHERE");
+        if (DontDestroy.instance != null)
+            DontDestroy.instance.SwitchToFirstScene();
     }
 }
