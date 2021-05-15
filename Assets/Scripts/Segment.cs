@@ -14,6 +14,7 @@ public class Segment : MonoBehaviour
 
     [SerializeField] List<Transform> m_SkiaSpawnTransforms;
     [SerializeField] List<Transform> m_LuxSpawnTransforms;
+    [SerializeField] List<Collider> m_CollidersToToggleOnOff;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,11 @@ public class Segment : MonoBehaviour
 
         if(m_RenderCam)
             m_RenderCam.gameObject.SetActive(true);
+
+        for(int i = 0; i < m_CollidersToToggleOnOff.Count; i++)
+        {
+            m_CollidersToToggleOnOff[i].enabled = true;
+        }
     }
 
     public void Deactivate()
@@ -66,6 +72,11 @@ public class Segment : MonoBehaviour
 
         if (m_RenderCam)
             m_RenderCam.gameObject.SetActive(false);
+
+        for (int i = 0; i < m_CollidersToToggleOnOff.Count; i++)
+        {
+            m_CollidersToToggleOnOff[i].enabled = false;
+        }
     }
 
     public Transform GetSkiaFirstSpawnTransform()
